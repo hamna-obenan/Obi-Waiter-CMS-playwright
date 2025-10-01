@@ -1,0 +1,181 @@
+{
+  "config": {
+    "configFile": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\playwright.config.js",
+    "rootDir": "C:/Users/HP/Desktop/Obi-Waiter-CMS-playwright-main/tests",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 1,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "html",
+        {
+          "outputFolder": "reports/html"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "reports/json/results.json"
+        }
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "reports/junit/results.xml"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "C:/Users/HP/Desktop/Obi-Waiter-CMS-playwright-main/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "all-tests",
+        "name": "all-tests",
+        "testDir": "C:/Users/HP/Desktop/Obi-Waiter-CMS-playwright-main/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.spec.js"
+        ],
+        "timeout": 0
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.55.0",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "Categories\\createcategorycompany.spec.js",
+      "file": "Categories/createcategorycompany.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Create Category Company - Complete Flow",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "all-tests",
+              "projectName": "all-tests",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "interrupted",
+                  "duration": 632358,
+                  "error": {
+                    "message": "Error: locator.click: Target page, context or browser has been closed\nCall log:\n\u001b[2m  - waiting for locator('[class=\\'MuiBox-root css-11pa1kn\\']').first()\u001b[22m\n\u001b[2m    - locator resolved to <div class=\"MuiBox-root css-11pa1kn\">…</div>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m  - element was detached from the DOM, retrying\u001b[22m\n",
+                    "stack": "Error: locator.click: Target page, context or browser has been closed\nCall log:\n\u001b[2m  - waiting for locator('[class=\\'MuiBox-root css-11pa1kn\\']').first()\u001b[22m\n\u001b[2m    - locator resolved to <div class=\"MuiBox-root css-11pa1kn\">…</div>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m  - element was detached from the DOM, retrying\u001b[22m\n\n    at C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Categories\\createcategorycompany.spec.js:31:56",
+                    "location": {
+                      "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Categories\\createcategorycompany.spec.js",
+                      "column": 56,
+                      "line": 31
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 29 |\u001b[39m   \u001b[90m// Click on the first menu\u001b[39m\n \u001b[90m 30 |\u001b[39m   console\u001b[33m.\u001b[39mlog(\u001b[32m'📋 Clicking on the first menu...'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 31 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(locators[\u001b[32m\"created-menu\"\u001b[39m])\u001b[33m.\u001b[39mfirst()\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 32 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForLoadState(\u001b[32m'networkidle'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 33 |\u001b[39m   console\u001b[33m.\u001b[39mlog(\u001b[32m'✅ First menu selected successfully'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 34 |\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Categories\\createcategorycompany.spec.js",
+                        "column": 56,
+                        "line": 31
+                      },
+                      "message": "Error: locator.click: Target page, context or browser has been closed\nCall log:\n\u001b[2m  - waiting for locator('[class=\\'MuiBox-root css-11pa1kn\\']').first()\u001b[22m\n\u001b[2m    - locator resolved to <div class=\"MuiBox-root css-11pa1kn\">…</div>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m  - element was detached from the DOM, retrying\u001b[22m\n\n\n\u001b[0m \u001b[90m 29 |\u001b[39m   \u001b[90m// Click on the first menu\u001b[39m\n \u001b[90m 30 |\u001b[39m   console\u001b[33m.\u001b[39mlog(\u001b[32m'📋 Clicking on the first menu...'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 31 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(locators[\u001b[32m\"created-menu\"\u001b[39m])\u001b[33m.\u001b[39mfirst()\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 32 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForLoadState(\u001b[32m'networkidle'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 33 |\u001b[39m   console\u001b[33m.\u001b[39mlog(\u001b[32m'✅ First menu selected successfully'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 34 |\u001b[39m\u001b[0m\n\u001b[2m    at C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Categories\\createcategorycompany.spec.js:31:56\u001b[22m"
+                    },
+                    {
+                      "message": "Error: browserContext.close: Target page, context or browser has been closed"
+                    }
+                  ],
+                  "stdout": [
+                    {
+                      "text": "Logging in with email: hamna123@gmail.com\n"
+                    },
+                    {
+                      "text": "✅ Login form filled successfully\n"
+                    },
+                    {
+                      "text": "✅ Login completed successfully\n"
+                    },
+                    {
+                      "text": "🎯 Navigating to category page...\n"
+                    },
+                    {
+                      "text": "🏢 Selecting created venue...\n"
+                    },
+                    {
+                      "text": "✅ Venue selected successfully\n"
+                    },
+                    {
+                      "text": "📋 Selecting created menu...\n"
+                    },
+                    {
+                      "text": "✅ Menu elements found\n"
+                    },
+                    {
+                      "text": "📊 Found 2 menu elements\n"
+                    },
+                    {
+                      "text": "✅ First menu clicked\n"
+                    },
+                    {
+                      "text": "📋 Clicking on the first menu...\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2025-10-01T12:45:08.075Z",
+                  "annotations": [],
+                  "attachments": [],
+                  "errorLocation": {
+                    "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Categories\\createcategorycompany.spec.js",
+                    "column": 56,
+                    "line": 31
+                  }
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "e9bd6602044347fb96ee-dc45b50d4b99af4472f8",
+          "file": "Categories/createcategorycompany.spec.js",
+          "line": 17,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2025-10-01T12:45:07.233Z",
+    "duration": 633419.8369999999,
+    "expected": 0,
+    "skipped": 1,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

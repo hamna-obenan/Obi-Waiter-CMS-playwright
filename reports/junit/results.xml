@@ -1,0 +1,8 @@
+<testsuites id="" name="" tests="1" failures="0" skipped="1" errors="0" time="633.4198369999999">
+<testsuite name="Categories\createcategorycompany.spec.js" timestamp="2025-10-01T12:45:07.441Z" hostname="all-tests" tests="1" failures="0" skipped="1" time="632.358" errors="0">
+<testcase name="Create Category Company - Complete Flow" classname="Categories\createcategorycompany.spec.js" time="632.358">
+<skipped>
+</skipped>
+</testcase>
+</testsuite>
+</testsuites>

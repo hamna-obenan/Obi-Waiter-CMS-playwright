@@ -1,0 +1,69 @@
+{
+  "name": "obi-waiter-automation",
+  "version": "1.0.0",
+  "description": "Automated testing suite for Obi-Waiter CMS with environment integration",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "npx playwright test",
+    "test:smoke": "node scripts/run-environment-tests.js development smoke",
+    "test:regression": "node scripts/run-environment-tests.js development regression",
+    "test:mobile": "node scripts/run-environment-tests.js development mobile",
+    "test:api": "node scripts/run-environment-tests.js development api",
+    "test:visual": "node scripts/run-environment-tests.js development visual",
+    "test:venue": "node scripts/run-environment-tests.js development venue",
+    "test:login": "node scripts/run-environment-tests.js development login",
+    "test:all": "node scripts/run-environment-tests.js development all",
+    "test:staging": "node scripts/run-environment-tests.js staging all",
+    "test:production": "node scripts/run-environment-tests.js production all",
+    "test:staging:smoke": "node scripts/run-environment-tests.js staging smoke",
+    "test:staging:regression": "node scripts/run-environment-tests.js staging regression",
+    "test:staging:venue": "node scripts/run-environment-tests.js staging venue",
+    "test:production:smoke": "node scripts/run-environment-tests.js production smoke",
+    "test:production:regression": "node scripts/run-environment-tests.js production regression",
+    "test:production:venue": "node scripts/run-environment-tests.js production venue",
+    "test:all-browsers": "node scripts/run-environment-tests.js development all-browsers",
+    "test:headed": "npx playwright test --headed",
+    "test:debug": "npx playwright test --debug",
+    "test:ui": "npx playwright test --ui",
+    "test:report": "npx playwright show-report",
+    "install:browsers": "npx playwright install",
+    "install:deps": "npm install",
+    "setup": "npm run install:deps && npm run install:browsers",
+    "clean": "rm -rf test-results reports",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "env:dev": "cp env.development .env",
+    "env:staging": "cp env.staging .env",
+    "env:prod": "cp env.production .env"
+  },
+  "keywords": [
+    "playwright",
+    "testing",
+    "automation",
+    "obi-waiter",
+    "cms",
+    "e2e",
+    "environment",
+    "pom"
+  ],
+  "author": "Obi-Waiter Team",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.55.0",
+    "@types/node": "^24.5.0",
+    "dotenv": "^16.6.1",
+    "eslint": "^8.57.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/obi-waiter/automation.git"
+  },
+  "bugs": {
+    "url": "https://github.com/obi-waiter/automation/issues"
+  },
+  "homepage": "https://github.com/obi-waiter/automation#readme"
+}
