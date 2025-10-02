@@ -1,4 +1,5 @@
 import { expect } from '@playwright/test';
+import locators from '../../Fixtures/locators.json' assert { type: "json" };
 
 /**
  * Page Object Model for Menu Creation with Venue Testing
@@ -17,17 +18,17 @@ export default class MenuVenueCreatePOM {
     await this.selectVenue();
     
     // Step 2: Click on Add Menu
-    await this.page.locator('[class="MuiBox-root css-8iv4v0"]').click();
+    await this.page.locator(locators["click-on-the-add-menu"]).click();
     await this.page.waitForLoadState('networkidle');
     console.log('✅ Clicked on Add Menu');
     
     // Step 3: Click on Create
-    await this.page.getByRole('button', { name: 'Create' }).click();
+    await this.page.locator(locators["create-button"]).click();
     await this.page.waitForLoadState('networkidle');
     console.log('✅ Clicked on Create');
     
     // Step 4: Click on Venue (instead of Company)
-    await this.page.getByRole('button', { name: 'Venue' }).click();
+    await this.page.locator(locators["venue-button"]).click();
     await this.page.waitForLoadState('networkidle');
     console.log('✅ Clicked on Venue');
     
@@ -43,7 +44,7 @@ export default class MenuVenueCreatePOM {
     await this.page.waitForTimeout(2000);
     
     // Click on the created venue using the locator from locators.json
-    await this.page.getByRole('link', { name: 'logo logo' }).click();
+    await this.page.locator(locators["click-on-the-created-venue"]).click();
     await this.page.waitForLoadState('networkidle');
     console.log('✅ Venue selected');
   }

@@ -23,12 +23,12 @@ export default class DuplicateCompanyMenuPOM {
     console.log('✅ Clicked on Add Menu');
     
     // Step 3: Click on Create using locators
-    await this.page.locator(locators["click-on-the-create-menu"]).click();
+    await this.page.locator(locators["create-button"]).click();
     await this.page.waitForLoadState('networkidle');
     console.log('✅ Clicked on Create');
     
     // Step 4: Click on Company using locators
-    await this.page.locator(locators["click-on-the-menu-company"]).click();
+    await this.page.locator(locators["company-button"]).click();
     await this.page.waitForLoadState('networkidle');
     console.log('✅ Clicked on Company');
     

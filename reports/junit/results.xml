@@ -1,8 +1,50 @@
-<testsuites id="" name="" tests="1" failures="0" skipped="1" errors="0" time="633.4198369999999">
-<testsuite name="Categories\createcategorycompany.spec.js" timestamp="2025-10-01T12:45:07.441Z" hostname="all-tests" tests="1" failures="0" skipped="1" time="632.358" errors="0">
-<testcase name="Create Category Company - Complete Flow" classname="Categories\createcategorycompany.spec.js" time="632.358">
-<skipped>
-</skipped>
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="18.396516">
+<testsuite name="Categories\duplicatecategorycompany.spec.js" timestamp="2025-10-02T11:43:27.753Z" hostname="all-tests" tests="1" failures="0" skipped="0" time="17.532" errors="0">
+<testcase name="Create Duplicate Category Company - Same Name and Data" classname="Categories\duplicatecategorycompany.spec.js" time="17.532">
+<system-out>
+<![CDATA[Logging in with email: hamna123@gmail.com
+✅ Login form filled successfully
+✅ Login completed successfully
+🎯 Navigating to category page...
+🏢 Selecting created venue...
+✅ Venue selected successfully
+📋 Selecting created menu...
+✅ Menu elements found
+📊 Found 2 menu elements
+✅ First menu clicked
+🎯 Navigating to categories page...
+✅ Categories page loaded successfully
+🏗️ Creating duplicate category with same data...
+📸 Using same image: C:\Users\HP\Desktop\Obi-Waiter-CMS-playwright-main\Fixtures\pictures\category-comapany-image.png
+➕ Clicking on New Category button...
+✅ New Category button clicked successfully
+🔨 Clicking Create button...
+✅ Create button clicked successfully
+🏢 Clicking Company button...
+✅ Company button clicked successfully
+📝 Filling category name...
+✅ Category name filled: Appetizers
+📋 Selecting menu for category...
+✅ Menu selected for category
+📸 Uploading category image...
+✅ Image upload area clicked
+✅ Image file selected: C:\Users\HP\Desktop\Obi-Waiter-CMS-playwright-main\Fixtures\pictures\category-comapany-image.png
+✅ Upload button clicked to finalize image
+✅ Category image uploaded successfully
+💾 Saving category...
+✅ Category saved successfully
+🔍 Checking for duplicate category error...
+✅ Specific duplicate category error detected: Category already exists in these [object Object] menu
+✅ Duplicate category error detected: Category already exists in these [object Object] menu
+✅ Test passed - System properly handles duplicate category names
+🔍 Verifying if duplicate category was created...
+⚠️ Duplicate category WAS created - system allowed duplicate
+⚠️ No duplicate protection detected
+✅ Duplicate category company test completed successfully
+
+[[ATTACHMENT|..\..\test-results\Categories-duplicatecatego-f37cb-ompany---Same-Name-and-Data-all-tests\video.webm]]
+]]>
+</system-out>
 </testcase>
 </testsuite>
 </testsuites>

@@ -82,17 +82,20 @@
 
 
     "click-on-the-created-venue":"[class='MuiBox-root css-11pa1kn']",
-    "click-on-the-add-menu":"[class='MuiBox-root css-8iv4v0']",
-    "click-on-the-create-menu":"//button[normalize-space()='Create']",
+    "click-on-the-add-menu":"[data-testid='AddSharpIcon']",
+    "create-button":"//button[normalize-space()='Create']",
     "import-button":"//button[normalize-space()='Import']",
-    "click-on-the-menu-venue":"//button[normalize-space()='Venue']",
-    "click-on-the-menu-company":"//button[normalize-space()='Company']",
+    "venue-button":"//button[normalize-space()='Venue']",
+    "company-button":"//button[normalize-space()='Company']",
     "click-on-the-menu-name":"[type='text']",
-    "click-on-the-menu-picture":"//div[@class='MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation2 pointer css-w9lg37']",
-    "select-on-the-picture-box":"[class='MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation2 pointer css-8s2hv6']",
+    "picture-box":"getByText('Choose image')",
+    "inner-picture-box":"[id='fileInput']",
     "upload-button":"[type='submit']",
+    "cancel-button":"[type ='submit']",
+    "translate-button":"[fill='black']",
 
-
-
-    "created-menu":"[class='MuiBox-root css-11pa1kn']"
+    "created-menu":"//img[@alt='logo']",
+    "add-category-button":"//button[normalize-space(.)='New Category']",
+    "category-name":"[name='categoryname.en']",
+    "select-menu-for-category":"[placeholder='Select menus']"
 }

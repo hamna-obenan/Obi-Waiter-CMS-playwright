@@ -26,36 +26,17 @@ test("Create Category Company - Complete Flow", async ({ page }) => {
   console.log('🎯 Navigating to category page...');
   await categoryPOM.navigateToCategoryPage();
 
-  // Click on the first menu
-  console.log('📋 Clicking on the first menu...');
-  await page.locator(locators["created-menu"]).first().click();
-  await page.waitForLoadState('networkidle');
-  console.log('✅ First menu selected successfully');
-
-  // Click Add Category
-  console.log('➕ Adding new category...');
-  await categoryPOM.clickAddCategory();
-
-  // Fill category name using data from Categories.json
-  console.log('📝 Filling category name...');
-  await categoryPOM.fillCategoryName(categories["category-name"]);
-  console.log('✅ Category name filled');
-
-  // Fill category description using data from Categories.json
-  console.log('📝 Filling category description...');
-  await categoryPOM.fillCategoryDescription(categories["category-description"]);
-  console.log('✅ Category description filled');
-
-  // Upload category image using data from Categories.json
-  const imagePath = path.join(__dirname, '../../Fixtures/pictures/' + categories["category-image"]);
-  await categoryPOM.uploadCategoryImage(imagePath, 'Category image');
-
-  // Save the category
-  await categoryPOM.saveCategory();
+  // Create category using POM methods
+  console.log('🏗️ Creating category using POM methods...');
   
-  // Verify category creation
-  const isCreated = await categoryPOM.verifyCategoryCreation();
-  expect(isCreated).toBe(true);
+  // Get the image path from Categories.json
+  const imagePath = path.join(__dirname, '../../Fixtures/pictures', categories["category-comapny-image"]);
+  console.log(`📸 Using image: ${imagePath}`);
   
+  await categoryPOM.createCategory(categories["category-company-name"], imagePath);
+
+  // Verify category was created successfully
+  await categoryPOM.verifyCategoryCreation(categories["category-company-name"]);
+
   console.log('✅ Category company test completed successfully');
 });
