@@ -66,13 +66,13 @@
   },
   "suites": [
     {
-      "title": "Categories\\duplicatecategorycompany.spec.js",
-      "file": "Categories/duplicatecategorycompany.spec.js",
+      "title": "Categories\\duplicatecategoryvenue.spec.js",
+      "file": "Categories/duplicatecategoryvenue.spec.js",
       "column": 0,
       "line": 0,
       "specs": [
         {
-          "title": "Create Duplicate Category Company - Same Name and Data",
+          "title": "Create Duplicate Category Venue - Same Name and Data",
           "ok": true,
           "tags": [],
           "tests": [
@@ -87,7 +87,7 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 17532,
+                  "duration": 18985,
                   "errors": [],
                   "stdout": [
                     {
@@ -100,123 +100,33 @@
                       "text": "✅ Login completed successfully\n"
                     },
                     {
-                      "text": "🎯 Navigating to category page...\n"
+                      "text": "Creating duplicate venue category...\n"
                     },
                     {
-                      "text": "🏢 Selecting created venue...\n"
+                      "text": "⚠️ No duplicate error found\n"
                     },
                     {
-                      "text": "✅ Venue selected successfully\n"
+                      "text": "🔍 Verifying if duplicate venue category was created...\n"
                     },
                     {
-                      "text": "📋 Selecting created menu...\n"
+                      "text": "⚠️ Duplicate venue category WAS created - system allowed duplicate at venue level\n"
                     },
                     {
-                      "text": "✅ Menu elements found\n"
+                      "text": "⚠️ No duplicate protection detected at venue level\n"
                     },
                     {
-                      "text": "📊 Found 2 menu elements\n"
-                    },
-                    {
-                      "text": "✅ First menu clicked\n"
-                    },
-                    {
-                      "text": "🎯 Navigating to categories page...\n"
-                    },
-                    {
-                      "text": "✅ Categories page loaded successfully\n"
-                    },
-                    {
-                      "text": "🏗️ Creating duplicate category with same data...\n"
-                    },
-                    {
-                      "text": "📸 Using same image: C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\Fixtures\\pictures\\category-comapany-image.png\n"
-                    },
-                    {
-                      "text": "➕ Clicking on New Category button...\n"
-                    },
-                    {
-                      "text": "✅ New Category button clicked successfully\n"
-                    },
-                    {
-                      "text": "🔨 Clicking Create button...\n"
-                    },
-                    {
-                      "text": "✅ Create button clicked successfully\n"
-                    },
-                    {
-                      "text": "🏢 Clicking Company button...\n"
-                    },
-                    {
-                      "text": "✅ Company button clicked successfully\n"
-                    },
-                    {
-                      "text": "📝 Filling category name...\n"
-                    },
-                    {
-                      "text": "✅ Category name filled: Appetizers\n"
-                    },
-                    {
-                      "text": "📋 Selecting menu for category...\n"
-                    },
-                    {
-                      "text": "✅ Menu selected for category\n"
-                    },
-                    {
-                      "text": "📸 Uploading category image...\n"
-                    },
-                    {
-                      "text": "✅ Image upload area clicked\n"
-                    },
-                    {
-                      "text": "✅ Image file selected: C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\Fixtures\\pictures\\category-comapany-image.png\n"
-                    },
-                    {
-                      "text": "✅ Upload button clicked to finalize image\n"
-                    },
-                    {
-                      "text": "✅ Category image uploaded successfully\n"
-                    },
-                    {
-                      "text": "💾 Saving category...\n"
-                    },
-                    {
-                      "text": "✅ Category saved successfully\n"
-                    },
-                    {
-                      "text": "🔍 Checking for duplicate category error...\n"
-                    },
-                    {
-                      "text": "✅ Specific duplicate category error detected: Category already exists in these [object Object] menu\n"
-                    },
-                    {
-                      "text": "✅ Duplicate category error detected: Category already exists in these [object Object] menu\n"
-                    },
-                    {
-                      "text": "✅ Test passed - System properly handles duplicate category names\n"
-                    },
-                    {
-                      "text": "🔍 Verifying if duplicate category was created...\n"
-                    },
-                    {
-                      "text": "⚠️ Duplicate category WAS created - system allowed duplicate\n"
-                    },
-                    {
-                      "text": "⚠️ No duplicate protection detected\n"
-                    },
-                    {
-                      "text": "✅ Duplicate category company test completed successfully\n"
+                      "text": "Test completed\n"
                     }
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2025-10-02T11:43:28.410Z",
+                  "startTime": "2025-10-02T12:56:37.301Z",
                   "annotations": [],
                   "attachments": [
                     {
                       "name": "video",
                       "contentType": "video/webm",
-                      "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Categories-duplicatecatego-f37cb-ompany---Same-Name-and-Data-all-tests\\video.webm"
+                      "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Categories-duplicatecatego-1dca8--Venue---Same-Name-and-Data-all-tests\\video.webm"
                     }
                   ]
                 }
@@ -224,8 +134,8 @@
               "status": "expected"
             }
           ],
-          "id": "37535d8e360e947a7c54-db75c2d5db3e3f010324",
-          "file": "Categories/duplicatecategorycompany.spec.js",
+          "id": "334a0bd33921f3b7ba34-5bc6de01e57f182104c5",
+          "file": "Categories/duplicatecategoryvenue.spec.js",
           "line": 18,
           "column": 1
         }
@@ -234,8 +144,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-10-02T11:43:27.699Z",
-    "duration": 18396.516,
+    "startTime": "2025-10-02T12:56:36.451Z",
+    "duration": 20433.064,
     "expected": 1,
     "skipped": 0,
     "unexpected": 0,
