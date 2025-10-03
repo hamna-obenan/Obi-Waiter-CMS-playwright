@@ -1,18 +1,39 @@
-<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="20.433063999999998">
-<testsuite name="Categories\duplicatecategoryvenue.spec.js" timestamp="2025-10-02T12:56:36.663Z" hostname="all-tests" tests="1" failures="0" skipped="0" time="18.985" errors="0">
-<testcase name="Create Duplicate Category Venue - Same Name and Data" classname="Categories\duplicatecategoryvenue.spec.js" time="18.985">
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="12.653591">
+<testsuite name="Ingredients\createingredientscompany.spec.js" timestamp="2025-10-03T12:59:26.881Z" hostname="all-tests" tests="1" failures="0" skipped="0" time="11.208" errors="0">
+<testcase name="Ingredient Management - Company Level › Create Ingredient Company - Add Ingredient 8 (Mayonnaise)" classname="Ingredients\createingredientscompany.spec.js" time="11.208">
 <system-out>
-<![CDATA[Logging in with email: hamna123@gmail.com
+<![CDATA[🔐 Step 1: Performing login...
+Logging in with email: hamna123@gmail.com
 ✅ Login form filled successfully
 ✅ Login completed successfully
-Creating duplicate venue category...
-⚠️ No duplicate error found
-🔍 Verifying if duplicate venue category was created...
-⚠️ Duplicate venue category WAS created - system allowed duplicate at venue level
-⚠️ No duplicate protection detected at venue level
-Test completed
+✅ Login successful - venue elements visible
+🧭 Step 2: Navigating to ingredients page...
+✅ Successfully navigated to ingredients page
+➕ Step 3: Clicking on Add Ingredient button...
+✅ Add Ingredient button clicked - Create button visible
+🔨 Step 4: Clicking on Create button...
+✅ Create button clicked - Company button visible
+🏢 Step 5: Clicking on Company button...
+✅ Company button clicked - Ingredient form visible
+📝 Step 6: Verifying ingredient creation form...
+✅ Successfully navigated to ingredient creation form
+✅ Ingredient form fully loaded with all elements
+📋 Step 7: Filling ingredient form with data: Mayonnaise
+✅ Ingredient name filled: Mayonnaise
+✅ Stock status set to: In Stock
+✅ Allergen status set to: Has Allergen
+🔍 Final verification of form data:
+- Name: Mayonnaise
+- In Stock: yes
+- Has Allergen: true
+✅ All form fields verified successfully
+💾 Step 8: Saving the ingredient...
+✅ Successfully navigated back to ingredients list page
+✅ Ingredient "Mayonnaise" appears in the ingredients list
+✅ Ingredient saved successfully
+⏸️ Test paused after saving ingredient - ready for manual verification
 
-[[ATTACHMENT|..\..\test-results\Categories-duplicatecatego-1dca8--Venue---Same-Name-and-Data-all-tests\video.webm]]
+[[ATTACHMENT|..\..\test-results\Ingredients-createingredie-eeb8b-dd-Ingredient-8-Mayonnaise--all-tests\video.webm]]
 ]]>
 </system-out>
 </testcase>

@@ -1,0 +1,99 @@
+{
+    "ingredients": [
+        {
+            "ingredient-name 1": "Grilled chicken",
+            "in stock": "yes",
+            "ingredient-allergen": "no"
+        },
+        {
+            "ingredient-name 2": "Lettuce",
+            "in stock": "yes",
+            "ingredient-allergen": "no"
+        },
+        {
+            "ingredient-name 3": "Tomato slices",
+            "in stock": "yes",
+            "ingredient-allergen": "no"
+        },
+        {
+            "ingredient-name 4": "Cucumber",
+            "in stock": "yes",
+            "ingredient-allergen": "no"
+        },
+        {
+            "ingredient-name 5": "Onion",
+            "in stock": "yes",
+            "ingredient-allergen": "no"
+        },
+        {
+            "ingredient-name 6": "Bell peppers",
+            "in stock": "yes",
+            "ingredient-allergen": "no"
+        },
+        {
+            "ingredient-name 7": "Pickles",
+            "in stock": "yes",
+            "ingredient-allergen": "no"
+        },
+        {
+            "ingredient-name 8": "Mayonnaise",
+            "in stock": "yes",
+            "ingredient-allergen": "yes"
+        },
+        {
+            "ingredient-name 9": "Butter",
+            "in stock": "yes",
+            "ingredient-allergen": "yes"
+        },
+        {
+            "ingredient-name 10": "Mustard",
+            "in stock": "yes",
+            "ingredient-allergen": "no"
+        },
+        {
+            "ingredient-name 11": "Ketchup",
+            "in stock": "yes",
+            "ingredient-allergen": "no"
+        },
+        {
+            "ingredient-name 12": "Olives",
+            "in stock": "yes",
+            "ingredient-allergen": "no"
+        },
+        {
+            "ingredient-name 13": "Jalapeños",
+            "in stock": "yes",
+            "ingredient-allergen": "no"
+        },
+        {
+            "ingredient-name 14": "Herbs",
+            "in stock": "yes",
+            "ingredient-allergen": "no"
+        },
+        {
+            "ingredient-name 15": "Salt & pepper",
+            "in stock": "yes",
+            "ingredient-allergen": "no"
+        },
+        {
+            "ingredient-name 16": "Fries",
+            "in stock": "yes",
+            "ingredient-allergen": "no"
+        },
+        {
+            "ingredient-name 17": "Cheese",
+            "in stock": "yes",
+            "ingredient-allergen": "yes"
+        },
+        {
+            "ingredient-name 18": "Bread",
+            "in stock": "yes",
+            "ingredient-allergen": "no"
+        },
+        {
+            "ingredient-name 19": "House-special dip",
+            "in stock": "yes",
+            "ingredient-allergen": "no"
+        }
+    ]
+}

@@ -66,86 +66,158 @@
   },
   "suites": [
     {
-      "title": "Categories\\duplicatecategoryvenue.spec.js",
-      "file": "Categories/duplicatecategoryvenue.spec.js",
+      "title": "Ingredients\\createingredientscompany.spec.js",
+      "file": "Ingredients/createingredientscompany.spec.js",
       "column": 0,
       "line": 0,
-      "specs": [
+      "specs": [],
+      "suites": [
         {
-          "title": "Create Duplicate Category Venue - Same Name and Data",
-          "ok": true,
-          "tags": [],
-          "tests": [
+          "title": "Ingredient Management - Company Level",
+          "file": "Ingredients/createingredientscompany.spec.js",
+          "line": 14,
+          "column": 6,
+          "specs": [
             {
-              "timeout": 120000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "all-tests",
-              "projectName": "all-tests",
-              "results": [
+              "title": "Create Ingredient Company - Add Ingredient 8 (Mayonnaise)",
+              "ok": true,
+              "tags": [],
+              "tests": [
                 {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 18985,
-                  "errors": [],
-                  "stdout": [
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "all-tests",
+                  "projectName": "all-tests",
+                  "results": [
                     {
-                      "text": "Logging in with email: hamna123@gmail.com\n"
-                    },
-                    {
-                      "text": "✅ Login form filled successfully\n"
-                    },
-                    {
-                      "text": "✅ Login completed successfully\n"
-                    },
-                    {
-                      "text": "Creating duplicate venue category...\n"
-                    },
-                    {
-                      "text": "⚠️ No duplicate error found\n"
-                    },
-                    {
-                      "text": "🔍 Verifying if duplicate venue category was created...\n"
-                    },
-                    {
-                      "text": "⚠️ Duplicate venue category WAS created - system allowed duplicate at venue level\n"
-                    },
-                    {
-                      "text": "⚠️ No duplicate protection detected at venue level\n"
-                    },
-                    {
-                      "text": "Test completed\n"
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 11208,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "🔐 Step 1: Performing login...\n"
+                        },
+                        {
+                          "text": "Logging in with email: hamna123@gmail.com\n"
+                        },
+                        {
+                          "text": "✅ Login form filled successfully\n"
+                        },
+                        {
+                          "text": "✅ Login completed successfully\n"
+                        },
+                        {
+                          "text": "✅ Login successful - venue elements visible\n"
+                        },
+                        {
+                          "text": "🧭 Step 2: Navigating to ingredients page...\n"
+                        },
+                        {
+                          "text": "✅ Successfully navigated to ingredients page\n"
+                        },
+                        {
+                          "text": "➕ Step 3: Clicking on Add Ingredient button...\n"
+                        },
+                        {
+                          "text": "✅ Add Ingredient button clicked - Create button visible\n"
+                        },
+                        {
+                          "text": "🔨 Step 4: Clicking on Create button...\n"
+                        },
+                        {
+                          "text": "✅ Create button clicked - Company button visible\n"
+                        },
+                        {
+                          "text": "🏢 Step 5: Clicking on Company button...\n"
+                        },
+                        {
+                          "text": "✅ Company button clicked - Ingredient form visible\n"
+                        },
+                        {
+                          "text": "📝 Step 6: Verifying ingredient creation form...\n"
+                        },
+                        {
+                          "text": "✅ Successfully navigated to ingredient creation form\n"
+                        },
+                        {
+                          "text": "✅ Ingredient form fully loaded with all elements\n"
+                        },
+                        {
+                          "text": "📋 Step 7: Filling ingredient form with data: Mayonnaise\n"
+                        },
+                        {
+                          "text": "✅ Ingredient name filled: Mayonnaise\n"
+                        },
+                        {
+                          "text": "✅ Stock status set to: In Stock\n"
+                        },
+                        {
+                          "text": "✅ Allergen status set to: Has Allergen\n"
+                        },
+                        {
+                          "text": "🔍 Final verification of form data:\n"
+                        },
+                        {
+                          "text": "- Name: Mayonnaise\n"
+                        },
+                        {
+                          "text": "- In Stock: yes\n"
+                        },
+                        {
+                          "text": "- Has Allergen: true\n"
+                        },
+                        {
+                          "text": "✅ All form fields verified successfully\n"
+                        },
+                        {
+                          "text": "💾 Step 8: Saving the ingredient...\n"
+                        },
+                        {
+                          "text": "✅ Successfully navigated back to ingredients list page\n"
+                        },
+                        {
+                          "text": "✅ Ingredient \"Mayonnaise\" appears in the ingredients list\n"
+                        },
+                        {
+                          "text": "✅ Ingredient saved successfully\n"
+                        },
+                        {
+                          "text": "⏸️ Test paused after saving ingredient - ready for manual verification\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-03T12:59:27.747Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Ingredients-createingredie-eeb8b-dd-Ingredient-8-Mayonnaise--all-tests\\video.webm"
+                        }
+                      ]
                     }
                   ],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2025-10-02T12:56:37.301Z",
-                  "annotations": [],
-                  "attachments": [
-                    {
-                      "name": "video",
-                      "contentType": "video/webm",
-                      "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Categories-duplicatecatego-1dca8--Venue---Same-Name-and-Data-all-tests\\video.webm"
-                    }
-                  ]
+                  "status": "expected"
                 }
               ],
-              "status": "expected"
+              "id": "5c2c60bcd90d8ba1a8ab-2fd4577aef6a1cd06f88",
+              "file": "Ingredients/createingredientscompany.spec.js",
+              "line": 23,
+              "column": 5
             }
-          ],
-          "id": "334a0bd33921f3b7ba34-5bc6de01e57f182104c5",
-          "file": "Categories/duplicatecategoryvenue.spec.js",
-          "line": 18,
-          "column": 1
+          ]
         }
       ]
     }
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-10-02T12:56:36.451Z",
-    "duration": 20433.064,
+    "startTime": "2025-10-03T12:59:26.531Z",
+    "duration": 12653.591,
     "expected": 1,
     "skipped": 0,
     "unexpected": 0,

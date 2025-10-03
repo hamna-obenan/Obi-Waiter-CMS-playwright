@@ -97,5 +97,70 @@
     "created-menu":"//img[@alt='logo']",
     "add-category-button":"//button[normalize-space(.)='New Category']",
     "category-name":"[name='categoryname.en']",
-    "select-menu-for-category":"[placeholder='Select menus']"
+    "select-menu-dropdown":"[placeholder='Select menus']",
+
+
+
+    "created-category-select":"//body/div[@class='MuiBox-root css-1v8esu1']/div[@class='MuiBox-root css-0']/div[@class='MuiGrid-root MuiGrid-container css-32c864']/div[@class='MuiGrid-root MuiGrid-item MuiGrid-grid-mobile-12 MuiGrid-grid-desktop-12 css-1oersmh']/div[2]/div[1]/div[1]",
+    "add-item-button":"//button[normalize-space(.)='New Item']",
+    "item-name":"[name='name.en']",
+    "instock-dropdown":"[placeholder='Select status']",
+    "select-category-dropdown":"[placeholder='Select categories']",
+    "description-box-item":"[class='editable']",
+    "price-dropdown":"[aria-labelledby='mui-component-select-prices.0.variants']",
+    "price-discription":"[placeholder='Description']",
+    "select-tax-dropdown":"[placeholder='Select tax']",
+    "price defauly":"//input[@type='checkbox' and @name='prices.0.isDefault']",
+    "picture-placeholder":"//input[@type='checkbox' and @name='isPlaceholderAdded']",
+    "select-cuisine-dropdown":"[placeholder='Select cuisine']",
+    "serve-people":"[placeholder='Select serve people']",
+    "select-ingredients":"[placeholder='Select ingredients']",
+    "item-tag":"[placeholder='Select tags']",
+    "select-customizations":"[placeholder='Select Customizations']",
+    "stock-count":"[placeholder='Enter stock count']",
+    "item-details-genrate-button":"//button[normalize-space(text())='Generate']",
+
+
+
+
+
+
+
+
+
+    "tag-tab":"[href='/tags']",
+    "create-tag-button":"//button[normalize-space(text())='Create Tag']",
+    "tag-name":"[placeholder='Enter tag name']",
+    "display-name":"name=['shortForm.en']",
+    
+
+    "ingredient-tab":"[href='/ingredients']",
+    "add-ingredient-button":"//button[normalize-space(text())='Create Ingredient']",
+    "ingredient-name":"[placeholder='Enter ingredient name']",
+    "ingredient-instock-checkbox":"//input[@type='radio' and @name='inStock' and @value='true']",
+    "ingredient-outstock-checkbox":"//input[@type='radio' and @name='inStock' and @value='false']",
+    "ingredient-allergen-checkbox":"[name='allergen']",
+
+
+
+
+
+    "customization-tab":"[href='/customizations']",
+    "add-customization-button":"//button[normalize-space(text())='Create Customizations']",
+    "customization-name":"[name='name.en']",
+    "customization-instock-checkbox":"//input[@type='radio' and @name='inStock' and @value='true']",
+    "customization-outstock-checkbox":"//input[@type='radio' and @name='inStock' and @value='false']",
+    "customization-allergen-checkbox":"[name='allergen']",
+    "is-required-checkbox":"//input[@type='checkbox' and @name='isRequired']",
+    "option-box":"[placeholder='More Spice']",
+    "delete-created-option":"[data-testid='DeleteForeverOutlinedIcon']",
+    "add-more-customization-button":"//button[normalize-space(text())='Add More']"
+
+    
+    
+   
+
+
+
+
 }
