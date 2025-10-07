@@ -66,21 +66,21 @@
   },
   "suites": [
     {
-      "title": "Customizations\\createcustomizationvenue.spec.js",
-      "file": "Customizations/createcustomizationvenue.spec.js",
+      "title": "Tags\\createtagcompany.spec.js",
+      "file": "Tags/createtagcompany.spec.js",
       "column": 0,
       "line": 0,
       "specs": [],
       "suites": [
         {
-          "title": "Customization Management - Venue Level",
-          "file": "Customizations/createcustomizationvenue.spec.js",
+          "title": "Tag Management - Company Level",
+          "file": "Tags/createtagcompany.spec.js",
           "line": 13,
           "column": 6,
           "specs": [
             {
-              "title": "Create Customization Venue - Cheese",
-              "ok": true,
+              "title": "Create Tag Company - Food Category",
+              "ok": false,
               "tags": [],
               "tests": [
                 {
@@ -93,242 +93,69 @@
                     {
                       "workerIndex": 0,
                       "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 39039,
-                      "errors": [],
+                      "status": "failed",
+                      "duration": 13424,
+                      "error": {
+                        "message": "TimeoutError: page.waitForFunction: Timeout 10000ms exceeded.",
+                        "stack": "TimeoutError: page.waitForFunction: Timeout 10000ms exceeded.\n    at performLogin (C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\utils\\login-helper.js:31:14)\n    at C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Tags\\createtagcompany.spec.js:20:5",
+                        "location": {
+                          "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\utils\\login-helper.js",
+                          "column": 14,
+                          "line": 31
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39m..\\utils\\login-helper.js:31\n\n\u001b[0m \u001b[90m 29 |\u001b[39m\n \u001b[90m 30 |\u001b[39m   \u001b[90m// Wait for successful navigation away from login page\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 31 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForFunction(() \u001b[33m=>\u001b[39m \u001b[33m!\u001b[39mwindow\u001b[33m.\u001b[39mlocation\u001b[33m.\u001b[39mhref\u001b[33m.\u001b[39mincludes(\u001b[32m'/login'\u001b[39m)\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m15000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 32 |\u001b[39m   console\u001b[33m.\u001b[39mlog(\u001b[32m'✅ Login completed successfully'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 33 |\u001b[39m }\n \u001b[90m 34 |\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\utils\\login-helper.js",
+                            "column": 14,
+                            "line": 31
+                          },
+                          "message": "TimeoutError: page.waitForFunction: Timeout 10000ms exceeded.\n\n\u001b[90m   at \u001b[39m..\\utils\\login-helper.js:31\n\n\u001b[0m \u001b[90m 29 |\u001b[39m\n \u001b[90m 30 |\u001b[39m   \u001b[90m// Wait for successful navigation away from login page\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 31 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForFunction(() \u001b[33m=>\u001b[39m \u001b[33m!\u001b[39mwindow\u001b[33m.\u001b[39mlocation\u001b[33m.\u001b[39mhref\u001b[33m.\u001b[39mincludes(\u001b[32m'/login'\u001b[39m)\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m15000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 32 |\u001b[39m   console\u001b[33m.\u001b[39mlog(\u001b[32m'✅ Login completed successfully'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 33 |\u001b[39m }\n \u001b[90m 34 |\u001b[39m\u001b[0m\n\u001b[2m    at performLogin (C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\utils\\login-helper.js:31:14)\u001b[22m\n\u001b[2m    at C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Tags\\createtagcompany.spec.js:20:5\u001b[22m"
+                        }
+                      ],
                       "stdout": [
                         {
                           "text": "Logging in with email: hamna123@gmail.com\n"
                         },
                         {
                           "text": "✅ Login form filled successfully\n"
-                        },
-                        {
-                          "text": "✅ Login completed successfully\n"
-                        },
-                        {
-                          "text": "🏢 Step 1: Navigate to venue page\n"
-                        },
-                        {
-                          "text": "✅ Navigated to venue page\n"
-                        },
-                        {
-                          "text": "📋 Step 2: Navigate to menu page\n"
-                        },
-                        {
-                          "text": "✅ Navigated to menu page (clicked 3rd menu)\n"
-                        },
-                        {
-                          "text": "🔍 Verifying navigation to menu page...\n"
-                        },
-                        {
-                          "text": "✅ Successfully navigated to menu page\n"
-                        },
-                        {
-                          "text": "⚙️ Step 3: Click on customization tab\n"
-                        },
-                        {
-                          "text": "✅ Clicked on customization tab\n"
-                        },
-                        {
-                          "text": "➕ Step 4: Click on Add Customization button\n"
-                        },
-                        {
-                          "text": "✅ Clicked on Add Customization button\n"
-                        },
-                        {
-                          "text": "🔨 Step 5: Click on Create button\n"
-                        },
-                        {
-                          "text": "✅ Clicked on Create button\n"
-                        },
-                        {
-                          "text": "🏢 Step 6: Click on Venue button\n"
-                        },
-                        {
-                          "text": "✅ Clicked on Venue button\n"
-                        },
-                        {
-                          "text": "📝 Step 7: Fill title field\n"
-                        },
-                        {
-                          "text": "✅ Title filled: Cheese\n"
-                        },
-                        {
-                          "text": "☑️ Step 8: Check the required checkbox\n"
-                        },
-                        {
-                          "text": "✅ Required checkbox checked\n"
-                        },
-                        {
-                          "text": "📝 Step 9: Add cheddar in option box\n"
-                        },
-                        {
-                          "text": "✅ Cheddar added to option box\n"
-                        },
-                        {
-                          "text": "💰 Step 10: Handle price dropdown\n"
-                        },
-                        {
-                          "text": "✅ Price field clicked - dropdown appeared\n"
-                        },
-                        {
-                          "text": "✅ Custom price option selected\n"
-                        },
-                        {
-                          "text": "✅ Custom price input field clicked\n"
-                        },
-                        {
-                          "text": "✅ Price added for cheddar: $2.00\n"
-                        },
-                        {
-                          "text": "🏷️ Step 11: Select tax type\n"
-                        },
-                        {
-                          "text": "✅ Tax dropdown clicked - dropdown appeared\n"
-                        },
-                        {
-                          "text": "✅ Standard tax selected\n"
-                        },
-                        {
-                          "text": "➕ Step 12: Click Add More for second option\n"
-                        },
-                        {
-                          "text": "✅ Add More button clicked\n"
-                        },
-                        {
-                          "text": "📝 Step 13: Add second option - mozzarella\n"
-                        },
-                        {
-                          "text": "✅ Mozzarella added to second option box\n"
-                        },
-                        {
-                          "text": "💰 Step 14: Handle price dropdown for second option\n"
-                        },
-                        {
-                          "text": "✅ Second price field clicked - dropdown appeared\n"
-                        },
-                        {
-                          "text": "✅ Custom price option selected for second option\n"
-                        },
-                        {
-                          "text": "✅ Second custom price input field clicked\n"
-                        },
-                        {
-                          "text": "✅ Price added for mozzarella: $2.24\n"
-                        },
-                        {
-                          "text": "🏷️ Step 15: Select tax type for second option\n"
-                        },
-                        {
-                          "text": "✅ Second tax dropdown clicked - dropdown appeared\n"
-                        },
-                        {
-                          "text": "✅ Standard tax selected for second option\n"
-                        },
-                        {
-                          "text": "➕ Step 16: Click Add More for third option\n"
-                        },
-                        {
-                          "text": "✅ Add More button clicked for third option\n"
-                        },
-                        {
-                          "text": "📝 Step 17: Add third option - parmesan\n"
-                        },
-                        {
-                          "text": "✅ Parmesan added to third option box\n"
-                        },
-                        {
-                          "text": "💰 Step 18: Handle price dropdown for third option\n"
-                        },
-                        {
-                          "text": "✅ Third price field clicked - dropdown appeared\n"
-                        },
-                        {
-                          "text": "✅ Custom price option selected for third option\n"
-                        },
-                        {
-                          "text": "✅ Third custom price input field clicked\n"
-                        },
-                        {
-                          "text": "✅ Price added for parmesan: $3.24\n"
-                        },
-                        {
-                          "text": "🏷️ Step 19: Select tax type for third option\n"
-                        },
-                        {
-                          "text": "✅ Third tax dropdown clicked - dropdown appeared\n"
-                        },
-                        {
-                          "text": "✅ Standard tax selected for third option\n"
-                        },
-                        {
-                          "text": "➕ Step 20: Click Add More for fourth option\n"
-                        },
-                        {
-                          "text": "✅ Add More button clicked for fourth option\n"
-                        },
-                        {
-                          "text": "📝 Step 21: Add fourth option - mayonnaise\n"
-                        },
-                        {
-                          "text": "✅ Mayonnaise added to fourth option box\n"
-                        },
-                        {
-                          "text": "💰 Step 22: Handle price dropdown for fourth option\n"
-                        },
-                        {
-                          "text": "✅ Fourth price field clicked - dropdown appeared\n"
-                        },
-                        {
-                          "text": "✅ Custom price option selected for fourth option\n"
-                        },
-                        {
-                          "text": "✅ Fourth custom price input field clicked\n"
-                        },
-                        {
-                          "text": "✅ Price added for mayonnaise: $3.24\n"
-                        },
-                        {
-                          "text": "🏷️ Step 23: Select tax type for fourth option\n"
-                        },
-                        {
-                          "text": "✅ Fourth tax dropdown clicked - dropdown appeared\n"
-                        },
-                        {
-                          "text": "✅ Standard tax selected for fourth option\n"
-                        },
-                        {
-                          "text": "💾 Step 24: Save the customization\n"
-                        },
-                        {
-                          "text": "✅ Customization saved successfully\n"
-                        },
-                        {
-                          "text": "✅ Form filled successfully with all four options and saved\n"
-                        },
-                        {
-                          "text": "📍 Final URL: https://develop.d20aue3nu6xt33.amplifyapp.com/customizations\n"
                         }
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-07T11:59:38.163Z",
+                      "startTime": "2025-10-07T13:21:12.546Z",
                       "annotations": [],
                       "attachments": [
                         {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Tags-createtagcompany-Tag--71dbd-Tag-Company---Food-Category-all-tests\\test-failed-1.png"
+                        },
+                        {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Customizations-createcusto-f77ed-ustomization-Venue---Cheese-all-tests\\video.webm"
+                          "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Tags-createtagcompany-Tag--71dbd-Tag-Company---Food-Category-all-tests\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Tags-createtagcompany-Tag--71dbd-Tag-Company---Food-Category-all-tests\\error-context.md"
                         }
-                      ]
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\utils\\login-helper.js",
+                        "column": 14,
+                        "line": 31
+                      }
                     }
                   ],
-                  "status": "expected"
+                  "status": "unexpected"
                 }
               ],
-              "id": "42d9028fce8722e0d09c-5b654d9b8530effd98e0",
-              "file": "Customizations/createcustomizationvenue.spec.js",
+              "id": "8622d631f3b523a66da4-634e5fba617688c104f5",
+              "file": "Tags/createtagcompany.spec.js",
               "line": 15,
               "column": 3
             }
@@ -339,11 +166,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-10-07T11:59:37.286Z",
-    "duration": 40523.363000000005,
-    "expected": 1,
+    "startTime": "2025-10-07T13:21:11.719Z",
+    "duration": 14830.534,
+    "expected": 0,
     "skipped": 0,
-    "unexpected": 0,
+    "unexpected": 1,
     "flaky": 0
   }
 }

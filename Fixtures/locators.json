@@ -137,7 +137,22 @@
     "create-tag-button":"//button[normalize-space(text())='Create Tag']",
     "tag-name":"[placeholder='Enter tag name']",
     "display-name":"name=['shortForm.en']",
-    
+    "tag-1":"//p[contains(text(),'Tag icon *')]/parent::div/div/div[1]/*[@fill='none']",
+    "tag-2":"//p[contains(text(),'Tag icon *')]/parent::div/div/div[2]/*[@fill='none']",
+    "tag-3":"//p[contains(text(),'Tag icon *')]/parent::div/div/div[3]/*[@fill='none']",   
+    "tag-4":"//p[contains(text(),'Tag icon *')]/parent::div/div/div[4]/*[@fill='none']",
+    "tag-5":"//p[contains(text(),'Tag icon *')]/parent::div/div/div[5]/*[@fill='none']",
+    "tag-6":"//p[contains(text(),'Tag icon *')]/parent::div/div/div[6]/*[@fill='none']",
+    "tag-7":"//p[contains(text(),'Tag icon *')]/parent::div/div/div[7]/*[@fill='none']",
+    "tag-8":"//p[contains(text(),'Tag icon *')]/parent::div/div/div[8]/*[@fill='none']",
+    "tag-9":"//p[contains(text(),'Tag icon *')]/parent::div/div/div[9]/*[@fill='none']",
+    "tag-10":"//p[contains(text(),'Tag icon *')]/parent::div/div/div[10]/*[@fill='none']",
+    "tag-11":"//p[contains(text(),'Tag icon *')]/parent::div/div/div[11]/*[@fill='none']",
+
+
+
+
+    "tag-save-button":"[type='button']", 
 
     "ingredient-tab":"[href='/ingredients']",
     "add-ingredient-button":"//button[normalize-space(text())='Create Ingredient']",
