@@ -1,23 +1,23 @@
 import { test, expect } from "@playwright/test";
-import CustomizationPOM from "../../object-Page/Customizations/customizationpom.js";
+import CustomizationVenuePOM from "../../object-Page/Customizations/createcustomizationvenuepom.js";
 import locators from "../../Fixtures/locators.json" assert { type: "json" };
 import login from "../../Fixtures/login.json" assert { type: "json" };
 import customizations from "../../Fixtures/customization.json" assert { type: "json" };
 import { performLogin } from "../../utils/login-helper.js";
 
 /**
- * Customization Creation Test Suite
- * Tests customization creation at company level
- * Flow: Login → Venue → Menu → Customizations → Create → Company
+ * Customization Creation Test Suite - Venue Level
+ * Tests customization creation at venue level
+ * Flow: Login → Venue → Menu → Customizations → Create → Venue
  */
-test.describe("Customization Management", () => {
+test.describe("Customization Management - Venue Level", () => {
   
-  test("Create Customization Company - Sauces", async ({ page }) => {
+  test("Create Customization Venue - Cheese", async ({ page }) => {
     test.setTimeout(120000);
-    const customizationPOM = new CustomizationPOM(page);
+    const customizationVenuePOM = new CustomizationVenuePOM(page);
     
-    // Get first customization data (Sauces)
-    const customizationData = customizations[0];
+    // Get second customization data (Cheese)
+    const customizationData = customizations[1];
     const title = customizationData["customization-title"];
     const isRequired = customizationData["required"] === "yes";
     
@@ -26,10 +26,10 @@ test.describe("Customization Management", () => {
     
     // Simple navigation: Login → Venue → Menu → Click Menu → Stop
     console.log('🏢 Step 1: Navigate to venue page');
-    await customizationPOM.navigateToVenuePage();
+    await customizationVenuePOM.navigateToVenuePage();
     
     console.log('📋 Step 2: Navigate to menu page');
-    await customizationPOM.navigateToMenuPage();
+    await customizationVenuePOM.navigateToMenuPage();
     
     // Verify we landed on the menu page after navigation
     console.log('🔍 Verifying navigation to menu page...');
@@ -56,11 +56,11 @@ test.describe("Customization Management", () => {
     await page.waitForLoadState('networkidle');
     console.log('✅ Clicked on Create button');
     
-    // Click on Company button
-    console.log('🏢 Step 6: Click on Company button');
-    await page.locator(locators["company-button"]).click();
+    // Click on Venue button (instead of Company)
+    console.log('🏢 Step 6: Click on Venue button');
+    await page.locator(locators["venue-button"]).click();
     await page.waitForLoadState('networkidle');
-    console.log('✅ Clicked on Company button');
+    console.log('✅ Clicked on Venue button');
     
     // Fill title field
     console.log('📝 Step 7: Fill title field');
@@ -73,17 +73,16 @@ test.describe("Customization Management", () => {
     await checkbox.check();
     console.log('✅ Required checkbox checked');
     
-    // Add ketchup in option box
-    console.log('📝 Step 9: Add ketchup in option box');
-    await page.locator(locators["option-box"]).fill('ketchup');
-    console.log('✅ Ketchup added to option box');
+    // Add cheddar in option box
+    console.log('📝 Step 9: Add cheddar in option box');
+    await page.locator(locators["option-box"]).fill('cheddar');
+    console.log('✅ Cheddar added to option box');
     
     // Handle price dropdown and custom price entry
     console.log('💰 Step 10: Handle price dropdown');
     
     // Step 1: Click on price field (dropdown appears)
     const priceField = page.locator(locators["price-dropdown"]).nth(1);
-
     await priceField.click({force: true});
     await page.waitForTimeout(1000);
     console.log('✅ Price field clicked - dropdown appeared');
@@ -99,9 +98,10 @@ test.describe("Customization Management", () => {
     await page.waitForTimeout(500);
     console.log('✅ Custom price input field clicked');
     
-    // Step 4: Add the price for ketchup
-    await priceInput.fill('0.00');
-    console.log('✅ Price added for ketchup: $0.00');
+    // Step 4: Add the price for cheddar from customization data
+    const cheddarPrice = customizationData["cheddar"];
+    await priceInput.fill(cheddarPrice);
+    console.log(`✅ Price added for cheddar: $${cheddarPrice}`);
     
     // Select tax type from dropdown
     console.log('🏷️ Step 11: Select tax type');
@@ -122,11 +122,11 @@ test.describe("Customization Management", () => {
     await page.waitForTimeout(1000);
     console.log('✅ Add More button clicked');
     
-    // Add second option (chilli-sauce) with price from data
-    console.log('📝 Step 13: Add second option - chilli-sauce');
+    // Add second option (mozzarella) with price from data
+    console.log('📝 Step 13: Add second option - mozzarella');
     const secondOptionBox = page.locator(locators["option-box1"]);
-    await secondOptionBox.fill('chilli-sauce');
-    console.log('✅ Chilli-sauce added to second option box');
+    await secondOptionBox.fill('mozzarella');
+    console.log('✅ Mozzarella added to second option box');
     
     // Handle price dropdown for second option
     console.log('💰 Step 14: Handle price dropdown for second option');
@@ -151,10 +151,10 @@ test.describe("Customization Management", () => {
     await page.waitForTimeout(500);
     console.log('✅ Second custom price input field clicked');
     
-    // Step 4: Add the price for chilli-sauce from customization data
-    const chilliSaucePrice = customizationData["chilli-sauce"];
-    await secondPriceInput.fill(chilliSaucePrice);
-    console.log(`✅ Price added for chilli-sauce: $${chilliSaucePrice}`);
+    // Step 4: Add the price for mozzarella from customization data
+    const mozzarellaPrice = customizationData["mozzarella"];
+    await secondPriceInput.fill(mozzarellaPrice);
+    console.log(`✅ Price added for mozzarella: $${mozzarellaPrice}`);
     
     // Select tax type for second option
     console.log('🏷️ Step 15: Select tax type for second option');
@@ -169,16 +169,16 @@ test.describe("Customization Management", () => {
     await page.locator('text=Standard').first().click();
     console.log('✅ Standard tax selected for second option');
     
-    // Add third option (garlic-sauce)
+    // Add third option (parmesan)
     console.log('➕ Step 16: Click Add More for third option');
     await page.locator(locators["add-more-customization-button"]).click();
     await page.waitForTimeout(1000);
     console.log('✅ Add More button clicked for third option');
     
-    console.log('📝 Step 17: Add third option - garlic-sauce');
+    console.log('📝 Step 17: Add third option - parmesan');
     const thirdOptionBox = page.locator(locators["option-box2"]);
-    await thirdOptionBox.fill('garlic-sauce');
-    console.log('✅ Garlic-sauce added to third option box');
+    await thirdOptionBox.fill('parmesan');
+    console.log('✅ Parmesan added to third option box');
     
     // Handle price dropdown for third option
     console.log('💰 Step 18: Handle price dropdown for third option');
@@ -198,9 +198,9 @@ test.describe("Customization Management", () => {
     await page.waitForTimeout(500);
     console.log('✅ Third custom price input field clicked');
     
-    const garlicSaucePrice = customizationData["garlic-sauce"];
-    await thirdPriceInput.fill(garlicSaucePrice);
-    console.log(`✅ Price added for garlic-sauce: $${garlicSaucePrice}`);
+    const parmesanPrice = customizationData["parmesan"];
+    await thirdPriceInput.fill(parmesanPrice);
+    console.log(`✅ Price added for parmesan: $${parmesanPrice}`);
     
     // Select tax type for third option
     console.log('🏷️ Step 19: Select tax type for third option');

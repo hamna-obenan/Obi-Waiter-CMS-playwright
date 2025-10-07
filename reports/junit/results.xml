@@ -1,39 +1,80 @@
-<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="12.653591">
-<testsuite name="Ingredients\createingredientscompany.spec.js" timestamp="2025-10-03T12:59:26.881Z" hostname="all-tests" tests="1" failures="0" skipped="0" time="11.208" errors="0">
-<testcase name="Ingredient Management - Company Level › Create Ingredient Company - Add Ingredient 8 (Mayonnaise)" classname="Ingredients\createingredientscompany.spec.js" time="11.208">
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="40.523363">
+<testsuite name="Customizations\createcustomizationvenue.spec.js" timestamp="2025-10-07T11:59:37.377Z" hostname="all-tests" tests="1" failures="0" skipped="0" time="39.039" errors="0">
+<testcase name="Customization Management - Venue Level › Create Customization Venue - Cheese" classname="Customizations\createcustomizationvenue.spec.js" time="39.039">
 <system-out>
-<![CDATA[🔐 Step 1: Performing login...
-Logging in with email: hamna123@gmail.com
+<![CDATA[Logging in with email: hamna123@gmail.com
 ✅ Login form filled successfully
 ✅ Login completed successfully
-✅ Login successful - venue elements visible
-🧭 Step 2: Navigating to ingredients page...
-✅ Successfully navigated to ingredients page
-➕ Step 3: Clicking on Add Ingredient button...
-✅ Add Ingredient button clicked - Create button visible
-🔨 Step 4: Clicking on Create button...
-✅ Create button clicked - Company button visible
-🏢 Step 5: Clicking on Company button...
-✅ Company button clicked - Ingredient form visible
-📝 Step 6: Verifying ingredient creation form...
-✅ Successfully navigated to ingredient creation form
-✅ Ingredient form fully loaded with all elements
-📋 Step 7: Filling ingredient form with data: Mayonnaise
-✅ Ingredient name filled: Mayonnaise
-✅ Stock status set to: In Stock
-✅ Allergen status set to: Has Allergen
-🔍 Final verification of form data:
-- Name: Mayonnaise
-- In Stock: yes
-- Has Allergen: true
-✅ All form fields verified successfully
-💾 Step 8: Saving the ingredient...
-✅ Successfully navigated back to ingredients list page
-✅ Ingredient "Mayonnaise" appears in the ingredients list
-✅ Ingredient saved successfully
-⏸️ Test paused after saving ingredient - ready for manual verification
+🏢 Step 1: Navigate to venue page
+✅ Navigated to venue page
+📋 Step 2: Navigate to menu page
+✅ Navigated to menu page (clicked 3rd menu)
+🔍 Verifying navigation to menu page...
+✅ Successfully navigated to menu page
+⚙️ Step 3: Click on customization tab
+✅ Clicked on customization tab
+➕ Step 4: Click on Add Customization button
+✅ Clicked on Add Customization button
+🔨 Step 5: Click on Create button
+✅ Clicked on Create button
+🏢 Step 6: Click on Venue button
+✅ Clicked on Venue button
+📝 Step 7: Fill title field
+✅ Title filled: Cheese
+☑️ Step 8: Check the required checkbox
+✅ Required checkbox checked
+📝 Step 9: Add cheddar in option box
+✅ Cheddar added to option box
+💰 Step 10: Handle price dropdown
+✅ Price field clicked - dropdown appeared
+✅ Custom price option selected
+✅ Custom price input field clicked
+✅ Price added for cheddar: $2.00
+🏷️ Step 11: Select tax type
+✅ Tax dropdown clicked - dropdown appeared
+✅ Standard tax selected
+➕ Step 12: Click Add More for second option
+✅ Add More button clicked
+📝 Step 13: Add second option - mozzarella
+✅ Mozzarella added to second option box
+💰 Step 14: Handle price dropdown for second option
+✅ Second price field clicked - dropdown appeared
+✅ Custom price option selected for second option
+✅ Second custom price input field clicked
+✅ Price added for mozzarella: $2.24
+🏷️ Step 15: Select tax type for second option
+✅ Second tax dropdown clicked - dropdown appeared
+✅ Standard tax selected for second option
+➕ Step 16: Click Add More for third option
+✅ Add More button clicked for third option
+📝 Step 17: Add third option - parmesan
+✅ Parmesan added to third option box
+💰 Step 18: Handle price dropdown for third option
+✅ Third price field clicked - dropdown appeared
+✅ Custom price option selected for third option
+✅ Third custom price input field clicked
+✅ Price added for parmesan: $3.24
+🏷️ Step 19: Select tax type for third option
+✅ Third tax dropdown clicked - dropdown appeared
+✅ Standard tax selected for third option
+➕ Step 20: Click Add More for fourth option
+✅ Add More button clicked for fourth option
+📝 Step 21: Add fourth option - mayonnaise
+✅ Mayonnaise added to fourth option box
+💰 Step 22: Handle price dropdown for fourth option
+✅ Fourth price field clicked - dropdown appeared
+✅ Custom price option selected for fourth option
+✅ Fourth custom price input field clicked
+✅ Price added for mayonnaise: $3.24
+🏷️ Step 23: Select tax type for fourth option
+✅ Fourth tax dropdown clicked - dropdown appeared
+✅ Standard tax selected for fourth option
+💾 Step 24: Save the customization
+✅ Customization saved successfully
+✅ Form filled successfully with all four options and saved
+📍 Final URL: https://develop.d20aue3nu6xt33.amplifyapp.com/customizations
 
-[[ATTACHMENT|..\..\test-results\Ingredients-createingredie-eeb8b-dd-Ingredient-8-Mayonnaise--all-tests\video.webm]]
+[[ATTACHMENT|..\..\test-results\Customizations-createcusto-f77ed-ustomization-Venue---Cheese-all-tests\video.webm]]
 ]]>
 </system-out>
 </testcase>
