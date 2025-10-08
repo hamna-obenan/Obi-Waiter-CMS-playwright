@@ -1,4 +1,5 @@
 import { expect } from '@playwright/test';
+import locators from '../../Fixtures/locators.json' assert { type: "json" };
 
 /**
  * Page Object Model for Venue Duplication Testing
@@ -168,218 +169,24 @@ export default class VenueDuplicationPOM {
   }
 
   /**
-   * Click Save button
+   * Click Save button and wait for response
    */
   async clickSaveButton() {
     await this.page.getByRole('button', { name: 'Save' }).click();
     console.log('✅ Save button clicked');
-  }
-
-  /**
-   * Verify duplication error messages
-   * @param {Object} expectedError - Expected error data
-   */
-  async verifyDuplicationError(expectedError) {
-    console.log('🔍 Verifying duplication error messages...');
     
-    // Wait for error to appear
-    await this.page.waitForTimeout(3000);
-    
-    // Check for various error message patterns
-    const errorSelectors = [
-      'text="Venue with this name already exists"',
-      'text="Email already exists"',
-      'text="Client app URL already exists"',
-      'text="This venue name is already taken"',
-      'text="Duplicate venue detected"',
-      '[class*="error"]',
-      '[class*="alert"]',
-      '.MuiAlert-root'
-    ];
-
-    let errorFound = false;
-    for (const selector of errorSelectors) {
-      try {
-        const errorElement = await this.page.locator(selector).first();
-        if (await errorElement.isVisible()) {
-          const errorText = await errorElement.textContent();
-          console.log(`❌ Duplication error found: ${errorText}`);
-          errorFound = true;
-          break;
-        }
-      } catch (error) {
-        // Continue checking other selectors
-      }
-    }
-
-    if (errorFound) {
-      console.log('✅ Duplication error correctly detected');
-      return true;
-    } else {
-      console.log('⚠️ No duplication error found - venue may have been created successfully');
-      return false;
-    }
-  }
-
-  /**
-   * Check if venue was created successfully
-   */
-  async isVenueCreated() {
-    console.log('🔍 Checking if venue was created...');
-    
-    // Check if we're no longer on the create page
-    const currentUrl = this.page.url();
-    if (!currentUrl.includes('/create')) {
-      console.log('✅ Successfully navigated away from create page');
-      return true;
-    }
-    
-    console.log('⚠️ Still on create page - venue may not have been created');
-    return false;
-  }
-
-  /**
-   * Get current page URL for verification
-   */
-  async getCurrentUrl() {
-    return await this.page.url();
-  }
-
-  /**
-   * Wait for page to load completely
-   */
-  async waitForPageLoad() {
+    // Wait for save operation to complete
     await this.page.waitForLoadState('networkidle');
-    await this.page.waitForTimeout(2000);
+    console.log('⏳ Waiting for save operation to complete...');
   }
 
   /**
-   * Handle alert popup and get its message
+   * Check for venue duplicate error
    */
-  async handleAlertPopup() {
-    console.log('🔔 Checking for alert popup...');
-    
-    try {
-      // Wait for alert to appear - try multiple selectors
-      await this.page.waitForSelector('text="Venue already exist"', { timeout: 5000 });
-      
-      // Get the alert message by looking for the specific text
-      const alertMessage = await this.page.locator('text="Venue already exist"').first().textContent();
-      
-      console.log(`📢 Alert popup detected: ${alertMessage}`);
-      
-      return {
-        hasAlert: true,
-        message: alertMessage
-      };
-    } catch (error) {
-      console.log('ℹ️ No alert popup found');
-      return {
-        hasAlert: false,
-        message: null
-      };
-    }
+  async checkVenueDuplicateError() {
+    console.log('🔍 Checking for venue duplicate error...');
+    const duplicateAlert = await this.page.locator(locators["venue-duplicate-alert"]).isVisible();
+    return duplicateAlert;
   }
-
-  /**
-   * Check for venue already exists error in alert popup
-   */
-  async checkVenueAlreadyExistsError() {
-    console.log('🔍 Checking for venue already exists error in alert popup...');
-    
-    const alertInfo = await this.handleAlertPopup();
-    
-    if (alertInfo.hasAlert) {
-      const errorMessage = alertInfo.message.toLowerCase();
-      
-      // Check for venue already exists error patterns (case insensitive)
-      const isVenueExistsError = errorMessage.includes('venue already exist') || 
-                                errorMessage.includes('venue already exists') ||
-                                errorMessage.includes('venue already taken') ||
-                                errorMessage.includes('duplicate venue');
-      
-      if (isVenueExistsError) {
-        console.log('✅ Venue already exists error detected in alert popup');
-        console.log(`📢 Error message: ${alertInfo.message}`);
-        return true;
-      } else {
-        console.log('⚠️ Alert popup found but not a venue exists error');
-        console.log(`📢 Alert message: ${alertInfo.message}`);
-        
-        // Additional check: If alert is detected but message is empty, 
-        // it might still be a venue exists error (popup appeared but text not captured)
-        if (!alertInfo.message || alertInfo.message.trim() === '' || alertInfo.message === 'Empty alert message') {
-          console.log('🔍 Alert detected but message is empty - checking page for venue exists indicators...');
-          
-          // Check if we're still on the create page (venue creation failed)
-          const currentUrl = this.page.url();
-          const isStillOnCreatePage = currentUrl.includes('/create') || currentUrl.includes('/venue/create');
-          
-          if (isStillOnCreatePage) {
-            console.log('✅ Still on create page - likely venue already exists error');
-            return true;
-          }
-        }
-        
-        return false;
-      }
-    } else {
-      console.log('ℹ️ No alert popup found - checking for other error indicators');
-      
-      // Check if we're still on the create page (venue creation failed)
-      const currentUrl = this.page.url();
-      const isStillOnCreatePage = currentUrl.includes('/create') || currentUrl.includes('/venue/create');
-      
-      if (isStillOnCreatePage) {
-        console.log('✅ Still on create page - likely venue already exists error');
-        return true;
-      }
-      
-      return false;
-    }
-  }
-
-  /**
-   * Dismiss alert popup if present
-   */
-  async dismissAlertPopup() {
-    console.log('❌ Attempting to dismiss alert popup...');
-    
-    try {
-      // Look for close button or dismiss button
-      const closeButton = this.page.locator('[role="alert"] button, .MuiAlert-root button, .alert button, [class*="alert"] button').first();
-      
-      if (await closeButton.isVisible()) {
-        await closeButton.click();
-        console.log('✅ Alert popup dismissed');
-        return true;
-      } else {
-        console.log('⚠️ No close button found for alert popup');
-        return false;
-      }
-    } catch (error) {
-      console.log('⚠️ Could not dismiss alert popup:', error.message);
-      return false;
-    }
-  }
-
-  /**
-   * Wait for alert popup to disappear
-   */
-  async waitForAlertToDisappear() {
-    console.log('⏳ Waiting for alert popup to disappear...');
-    
-    try {
-      await this.page.waitForFunction(() => {
-        const alerts = document.querySelectorAll('[role="alert"], .MuiAlert-root, .alert, [class*="alert"]');
-        return alerts.length === 0;
-      }, { timeout: 10000 });
-      
-      console.log('✅ Alert popup has disappeared');
-      return true;
-    } catch (error) {
-      console.log('⚠️ Alert popup did not disappear within timeout');
-      return false;
-    }
-  }
+  
 }

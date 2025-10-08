@@ -79,6 +79,7 @@
     "venue-save-button":"getByRole('button', { name: 'Save' })",
     "crop-handle":"getByRole('group', { name: 'Use the arrow keys to move' })",
     "venue-add-button2":"//*[@data-testid='AddSharpIcon']/following-sibling::p[normalize-space()='Add']",
+    "venue-duplicate-alert":"//div[@role='alert']//*[normalize-space()='Venue already exist']",
 
 
     "click-on-the-created-venue":"[class='MuiBox-root css-11pa1kn']",
@@ -93,6 +94,8 @@
     "upload-button":"[type='submit']",
     "cancel-button":"[type ='submit']",
     "translate-button":"[fill='black']",
+    "duplicate-menu-alert":"//div[@role='alert']//*[normalize-space()='Master menu already exist']",
+    "duplicate-menu-alert-venue":"//div[@role='alert']//*[normalize-space()='Menu already exist in this venue']",
 
     "created-menu":"//img[@alt='logo']",
     "add-category-button":"//button[normalize-space(.)='New Category']",

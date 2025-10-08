@@ -1,43 +1,32 @@
-<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="14.830534">
-<testsuite name="Tags\createtagcompany.spec.js" timestamp="2025-10-07T13:21:11.788Z" hostname="all-tests" tests="1" failures="1" skipped="0" time="13.424" errors="0">
-<testcase name="Tag Management - Company Level › Create Tag Company - Food Category" classname="Tags\createtagcompany.spec.js" time="13.424">
-<failure message="createtagcompany.spec.js:15:3 Create Tag Company - Food Category" type="FAILURE">
-<![CDATA[  [all-tests] › Tags\createtagcompany.spec.js:15:3 › Tag Management - Company Level › Create Tag Company - Food Category 
-
-    TimeoutError: page.waitForFunction: Timeout 10000ms exceeded.
-
-       at ..\utils\login-helper.js:31
-
-      29 |
-      30 |   // Wait for successful navigation away from login page
-    > 31 |   await page.waitForFunction(() => !window.location.href.includes('/login'), { timeout: 15000 });
-         |              ^
-      32 |   console.log('✅ Login completed successfully');
-      33 | }
-      34 |
-        at performLogin (C:\Users\HP\Desktop\Obi-Waiter-CMS-playwright-main\utils\login-helper.js:31:14)
-        at C:\Users\HP\Desktop\Obi-Waiter-CMS-playwright-main\tests\Tags\createtagcompany.spec.js:20:5
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\test-results\Tags-createtagcompany-Tag--71dbd-Tag-Company---Food-Category-all-tests\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\test-results\Tags-createtagcompany-Tag--71dbd-Tag-Company---Food-Category-all-tests\video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\test-results\Tags-createtagcompany-Tag--71dbd-Tag-Company---Food-Category-all-tests\error-context.md
-]]>
-</failure>
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="63.910568">
+<testsuite name="Venue\venue1.spec.js" timestamp="2025-10-08T13:23:06.178Z" hostname="all-tests" tests="1" failures="0" skipped="0" time="62.65" errors="0">
+<testcase name="Venue Duplication Testing - Complete Flow" classname="Venue\venue1.spec.js" time="62.65">
 <system-out>
 <![CDATA[Logging in with email: hamna123@gmail.com
 ✅ Login form filled successfully
+✅ Login completed successfully
+🎯 Creating venue with standard data
+📝 Filling venue basic information...
+✅ Basic information filled
+📝 Filling venue details and branding...
+✅ Venue details filled
+📸 Uploading Logo...
+✅ Logo uploaded successfully
+📸 Uploading Cover image...
+✅ Cover image uploaded successfully
+📝 Filling story and experience section...
+📸 Uploading Story image...
+✅ Story image uploaded successfully
+✅ Story and experience filled
+📝 Adding gallery items...
+✅ Gallery item 1 added
+✅ Gallery item 2 added
+✅ Gallery item 3 added
+✅ Save button clicked
+⏳ Waiting for save operation to complete...
+⏳ Waiting for popup to appear...
 
-[[ATTACHMENT|..\..\test-results\Tags-createtagcompany-Tag--71dbd-Tag-Company---Food-Category-all-tests\test-failed-1.png]]
-
-[[ATTACHMENT|..\..\test-results\Tags-createtagcompany-Tag--71dbd-Tag-Company---Food-Category-all-tests\video.webm]]
-
-[[ATTACHMENT|..\..\test-results\Tags-createtagcompany-Tag--71dbd-Tag-Company---Food-Category-all-tests\error-context.md]]
+[[ATTACHMENT|..\..\test-results\Venue-venue1-Venue-Duplication-Testing---Complete-Flow-all-tests\video.webm]]
 ]]>
 </system-out>
 </testcase>

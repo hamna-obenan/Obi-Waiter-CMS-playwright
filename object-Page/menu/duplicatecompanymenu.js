@@ -16,22 +16,22 @@ export default class DuplicateCompanyMenuPOM {
   async navigateToCreateMenu() {
     // Step 1: Select the venue first
     await this.selectVenue();
-    
+
     // Step 2: Click on Add Menu using locators
     await this.page.locator(locators["click-on-the-add-menu"]).click();
     await this.page.waitForLoadState('networkidle');
     console.log('✅ Clicked on Add Menu');
-    
+
     // Step 3: Click on Create using locators
     await this.page.locator(locators["create-button"]).click();
     await this.page.waitForLoadState('networkidle');
     console.log('✅ Clicked on Create');
-    
+
     // Step 4: Click on Company using locators
     await this.page.locator(locators["company-button"]).click();
     await this.page.waitForLoadState('networkidle');
     console.log('✅ Clicked on Company');
-    
+
     console.log('✅ Navigated to Create Menu page with company flow');
   }
 
@@ -42,7 +42,7 @@ export default class DuplicateCompanyMenuPOM {
     console.log('🏢 Selecting venue...');
     // Wait for venue list to load
     await this.page.waitForTimeout(2000);
-    
+
     // Click on the created venue using locators
     await this.page.locator(locators["click-on-the-created-venue"]).click();
     await this.page.waitForLoadState('networkidle');
@@ -60,32 +60,25 @@ export default class DuplicateCompanyMenuPOM {
     console.log('✅ Menu name filled');
   }
 
-  /**
-   * Upload menu image with custom cropping
-   * @param {string} imagePath - Path to the image file
-   * @param {string} imageName - Name of the image for logging
-   */
+  
   async uploadMenuImage(imagePath, imageName) {
     console.log(`📸 Uploading ${imageName}...`);
-    
+
     // Click on Choose image button
     await this.page.getByText('Choose image').click();
-    
+
     // Set input files
     await this.page.setInputFiles('input[type="file"]', imagePath);
     console.log('✅ Image file selected');
-    
+
     // Wait for image to be visible
     await this.page.waitForTimeout(2000);
     await expect(this.page.getByRole('img', { name: 'Upload image*' })).toBeVisible();
     console.log('✅ Image visible');
-    
-    // Handle image cropping - expand and move selection upward
-    await this.handleImageCropping();
-    
+
     // Click upload button
     await this.page.getByRole('button', { name: 'Upload' }).click();
-    
+
     // Wait for upload to complete
     try {
       await this.page.waitForFunction(() => {
@@ -98,49 +91,6 @@ export default class DuplicateCompanyMenuPOM {
     }
   }
 
-  /**
-   * Handle image cropping - move selection upward to capture top portion
-   */
-  async handleImageCropping() {
-    console.log('✂️ Moving crop selection upward...');
-    
-    try {
-      // Wait for crop area to be available
-      await this.page.waitForTimeout(1000);
-      
-      // Use arrow keys to move crop selection upward
-      console.log('🎯 Moving crop selection upward to capture top portion...');
-      
-      // Move crop area significantly upward to capture "Italian" text and top of "FOOD"
-      for (let i = 0; i < 8; i++) {
-        await this.page.keyboard.press('ArrowUp');
-        await this.page.waitForTimeout(150);
-      }
-      
-      // Fine-tune horizontal positioning
-      for (let i = 0; i < 2; i++) {
-        await this.page.keyboard.press('ArrowLeft');
-        await this.page.waitForTimeout(100);
-      }
-      
-      // Expand horizontally to capture full width
-      for (let i = 0; i < 4; i++) {
-        await this.page.keyboard.press('ArrowRight');
-        await this.page.waitForTimeout(100);
-      }
-      
-      // Expand vertically downward to include more of the image
-      for (let i = 0; i < 5; i++) {
-        await this.page.keyboard.press('ArrowDown');
-        await this.page.waitForTimeout(100);
-      }
-      
-      console.log('✅ Crop selection moved upward to capture top portion of image');
-      
-    } catch (error) {
-      console.log('⚠️ Crop handling failed, proceeding with default crop area');
-    }
-  }
 
   /**
    * Save the menu
@@ -157,17 +107,20 @@ export default class DuplicateCompanyMenuPOM {
    */
   async verifyMenuCreation() {
     console.log('🔍 Verifying menu creation...');
-    
+
     // Check if we're on a menu-related page
     const currentUrl = this.page.url();
     const isOnMenuPage = currentUrl.includes('/menu') || currentUrl.includes('/menus');
-    
-    if (isOnMenuPage) {
-      console.log('✅ Menu created successfully - navigated to menu page');
-      return true;
-    } else {
-      console.log('⚠️ Menu creation status unclear');
-      return false;
-    }
   }
+  async getRandomIntInclusive(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    // The expression is: Math.floor(Math.random() * (max - min + 1)) + min;
+    // This calculates the size of the range (max - min + 1)
+    // Multiplies Math.random() by it
+    // Floors it to get an offset
+    // And finally adds 'min' to shift the offset into the desired range
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
 }

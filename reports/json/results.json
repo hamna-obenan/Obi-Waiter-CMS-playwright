@@ -66,111 +66,131 @@
   },
   "suites": [
     {
-      "title": "Tags\\createtagcompany.spec.js",
-      "file": "Tags/createtagcompany.spec.js",
+      "title": "Venue\\venue1.spec.js",
+      "file": "Venue/venue1.spec.js",
       "column": 0,
       "line": 0,
-      "specs": [],
-      "suites": [
+      "specs": [
         {
-          "title": "Tag Management - Company Level",
-          "file": "Tags/createtagcompany.spec.js",
-          "line": 13,
-          "column": 6,
-          "specs": [
+          "title": "Venue Duplication Testing - Complete Flow",
+          "ok": true,
+          "tags": [],
+          "tests": [
             {
-              "title": "Create Tag Company - Food Category",
-              "ok": false,
-              "tags": [],
-              "tests": [
+              "timeout": 120000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "all-tests",
+              "projectName": "all-tests",
+              "results": [
                 {
-                  "timeout": 120000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "all-tests",
-                  "projectName": "all-tests",
-                  "results": [
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 62650,
+                  "errors": [],
+                  "stdout": [
                     {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "failed",
-                      "duration": 13424,
-                      "error": {
-                        "message": "TimeoutError: page.waitForFunction: Timeout 10000ms exceeded.",
-                        "stack": "TimeoutError: page.waitForFunction: Timeout 10000ms exceeded.\n    at performLogin (C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\utils\\login-helper.js:31:14)\n    at C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Tags\\createtagcompany.spec.js:20:5",
-                        "location": {
-                          "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\utils\\login-helper.js",
-                          "column": 14,
-                          "line": 31
-                        },
-                        "snippet": "\u001b[90m   at \u001b[39m..\\utils\\login-helper.js:31\n\n\u001b[0m \u001b[90m 29 |\u001b[39m\n \u001b[90m 30 |\u001b[39m   \u001b[90m// Wait for successful navigation away from login page\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 31 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForFunction(() \u001b[33m=>\u001b[39m \u001b[33m!\u001b[39mwindow\u001b[33m.\u001b[39mlocation\u001b[33m.\u001b[39mhref\u001b[33m.\u001b[39mincludes(\u001b[32m'/login'\u001b[39m)\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m15000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 32 |\u001b[39m   console\u001b[33m.\u001b[39mlog(\u001b[32m'✅ Login completed successfully'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 33 |\u001b[39m }\n \u001b[90m 34 |\u001b[39m\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\utils\\login-helper.js",
-                            "column": 14,
-                            "line": 31
-                          },
-                          "message": "TimeoutError: page.waitForFunction: Timeout 10000ms exceeded.\n\n\u001b[90m   at \u001b[39m..\\utils\\login-helper.js:31\n\n\u001b[0m \u001b[90m 29 |\u001b[39m\n \u001b[90m 30 |\u001b[39m   \u001b[90m// Wait for successful navigation away from login page\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 31 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForFunction(() \u001b[33m=>\u001b[39m \u001b[33m!\u001b[39mwindow\u001b[33m.\u001b[39mlocation\u001b[33m.\u001b[39mhref\u001b[33m.\u001b[39mincludes(\u001b[32m'/login'\u001b[39m)\u001b[33m,\u001b[39m { timeout\u001b[33m:\u001b[39m \u001b[35m15000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 32 |\u001b[39m   console\u001b[33m.\u001b[39mlog(\u001b[32m'✅ Login completed successfully'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 33 |\u001b[39m }\n \u001b[90m 34 |\u001b[39m\u001b[0m\n\u001b[2m    at performLogin (C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\utils\\login-helper.js:31:14)\u001b[22m\n\u001b[2m    at C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Tags\\createtagcompany.spec.js:20:5\u001b[22m"
-                        }
-                      ],
-                      "stdout": [
-                        {
-                          "text": "Logging in with email: hamna123@gmail.com\n"
-                        },
-                        {
-                          "text": "✅ Login form filled successfully\n"
-                        }
-                      ],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-10-07T13:21:12.546Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Tags-createtagcompany-Tag--71dbd-Tag-Company---Food-Category-all-tests\\test-failed-1.png"
-                        },
-                        {
-                          "name": "video",
-                          "contentType": "video/webm",
-                          "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Tags-createtagcompany-Tag--71dbd-Tag-Company---Food-Category-all-tests\\video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Tags-createtagcompany-Tag--71dbd-Tag-Company---Food-Category-all-tests\\error-context.md"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\utils\\login-helper.js",
-                        "column": 14,
-                        "line": 31
-                      }
+                      "text": "Logging in with email: hamna123@gmail.com\n"
+                    },
+                    {
+                      "text": "✅ Login form filled successfully\n"
+                    },
+                    {
+                      "text": "✅ Login completed successfully\n"
+                    },
+                    {
+                      "text": "🎯 Creating venue with standard data\n"
+                    },
+                    {
+                      "text": "📝 Filling venue basic information...\n"
+                    },
+                    {
+                      "text": "✅ Basic information filled\n"
+                    },
+                    {
+                      "text": "📝 Filling venue details and branding...\n"
+                    },
+                    {
+                      "text": "✅ Venue details filled\n"
+                    },
+                    {
+                      "text": "📸 Uploading Logo...\n"
+                    },
+                    {
+                      "text": "✅ Logo uploaded successfully\n"
+                    },
+                    {
+                      "text": "📸 Uploading Cover image...\n"
+                    },
+                    {
+                      "text": "✅ Cover image uploaded successfully\n"
+                    },
+                    {
+                      "text": "📝 Filling story and experience section...\n"
+                    },
+                    {
+                      "text": "📸 Uploading Story image...\n"
+                    },
+                    {
+                      "text": "✅ Story image uploaded successfully\n"
+                    },
+                    {
+                      "text": "✅ Story and experience filled\n"
+                    },
+                    {
+                      "text": "📝 Adding gallery items...\n"
+                    },
+                    {
+                      "text": "✅ Gallery item 1 added\n"
+                    },
+                    {
+                      "text": "✅ Gallery item 2 added\n"
+                    },
+                    {
+                      "text": "✅ Gallery item 3 added\n"
+                    },
+                    {
+                      "text": "✅ Save button clicked\n"
+                    },
+                    {
+                      "text": "⏳ Waiting for save operation to complete...\n"
+                    },
+                    {
+                      "text": "⏳ Waiting for popup to appear...\n"
                     }
                   ],
-                  "status": "unexpected"
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2025-10-08T13:23:06.825Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "video",
+                      "contentType": "video/webm",
+                      "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Venue-venue1-Venue-Duplication-Testing---Complete-Flow-all-tests\\video.webm"
+                    }
+                  ]
                 }
               ],
-              "id": "8622d631f3b523a66da4-634e5fba617688c104f5",
-              "file": "Tags/createtagcompany.spec.js",
-              "line": 15,
-              "column": 3
+              "status": "expected"
             }
-          ]
+          ],
+          "id": "e36c767ac0c7196bbe64-5f34497ffe62d031e302",
+          "file": "Venue/venue1.spec.js",
+          "line": 191,
+          "column": 1
         }
       ]
     }
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-10-07T13:21:11.719Z",
-    "duration": 14830.534,
-    "expected": 0,
+    "startTime": "2025-10-08T13:23:06.108Z",
+    "duration": 63910.568,
+    "expected": 1,
     "skipped": 0,
-    "unexpected": 1,
+    "unexpected": 0,
     "flaky": 0
   }
 }

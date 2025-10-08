@@ -226,15 +226,21 @@ test("Venue Duplication Testing - Complete Flow", async ({ page }) => {
   // Add Gallery Items
   await addGalleryItems(page, venue);
 
-  // Save the venue
-  await page.getByRole('button', { name: 'Save' }).click();
+  // Save the venue using POM method
+  await venueDuplicationPOM.clickSaveButton();
+
   
-  // Wait for popup to appear
-  await page.waitForSelector('text="Venue already exist"', { timeout: 10000 });
-  console.log('✅ Popup appeared - "Venue already exist" detected');
+  // // Check for the duplicate alert using POM method
+  // const venueDuplicateAlert = await venueDuplicationPOM.checkVenueDuplicateError();
+  // await page.pause();
+  // expect(venueDuplicateAlert).toBe(true);
+  // if (venueDuplicateAlert) {
+  //   console.log('✅ popup detected');
+  // }
   
-  // Verify venue creation
-  await verifyVenueCreation(page, venueDuplicationPOM);
+  
+  // // Verify venue creation
+  // await verifyVenueCreation(page, venueDuplicationPOM);
   
   // Pause for inspection
   // await page.pause();

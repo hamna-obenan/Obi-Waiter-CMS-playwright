@@ -31,10 +31,18 @@ test("Create Duplicate Company Menu - Same Name and Data", async ({ page }) => {
   // Navigate to Create Menu with correct flow: Select Venue → Add Menu → Create → Company → Fill Data
   console.log('🎯 Creating duplicate menu with same data...');
   await duplicateCompanyMenuPOM.navigateToCreateMenu();
+
+  const minNum = 1;
+  const maxNum = 1000;
+  const randomNumber = await duplicateCompanyMenuPOM.getRandomIntInclusive(minNum, maxNum);
+  const menuName = menu['menu-name'];
+  console.log('✅ Menu name generated successfully: ' + menuName);
+await page.pause();
+
   // Fill menu name with same data as original test using locators
   console.log('📝 Filling menu name with duplicate data...');
-  await page.locator(locators["click-on-the-menu-name"]).fill(menu['menu-name']);
-  await expect(page.locator(locators["click-on-the-menu-name"])).toHaveValue(menu['menu-name']);
+  await page.locator(locators["click-on-the-menu-name"]).fill(menuName);
+  await expect(page.locator(locators["click-on-the-menu-name"])).toHaveValue(menuName);
   console.log('✅ Duplicate menu name filled');
 
   // Upload menu image with same data as original test
@@ -48,66 +56,16 @@ test("Create Duplicate Company Menu - Same Name and Data", async ({ page }) => {
   // Verify duplicate menu error handling
   console.log('🔍 Checking for "Master menu already exist" popup...');
   
-  // Wait for popup to appear
-  await page.waitForTimeout(3000);
+  // // Wait for popup to appear
+  // await page.waitForTimeout(3000);
   
   // Check for the specific "Master menu already exist" popup message
-  const duplicateError = await page.locator('text="Master menu already exist"').count();
+  const duplicateError = await page.locator(locators["duplicate-menu-alert"]).isVisible();
   
-  if (duplicateError > 0) {
-    const errorText = await page.locator('text="Master menu already exist"').textContent();
-    console.log(`✅ Duplicate menu popup detected: ${errorText}`);
-    expect(duplicateError).toBeGreaterThan(0);
-    console.log('✅ Test passed - System properly handles duplicate menu names');
-  } else {
-    // If no specific error found, check for other duplicate-related messages
-    // Check each error message individually
-    const alreadyExistError = await page.locator('text="already exist"').count();
-    const duplicateError = await page.locator('text="duplicate"').count();
-    const menuExistError = await page.locator('text="Menu already exist"').count();
-    
-    const totalAlternativeErrors = alreadyExistError + duplicateError + menuExistError;
-    
-    if (totalAlternativeErrors > 0) {
-      let errorText = '';
-      if (alreadyExistError > 0) {
-        errorText = await page.locator('text="already exist"').textContent();
-      } else if (duplicateError > 0) {
-        errorText = await page.locator('text="duplicate"').textContent();
-      } else if (menuExistError > 0) {
-        errorText = await page.locator('text="Menu already exist"').textContent();
-      }
-      console.log(`✅ Alternative duplicate error detected: ${errorText}`);
-      expect(totalAlternativeErrors).toBeGreaterThan(0);
-    } else {
-      // If no error, check if menu was created (which might indicate no duplicate protection)
-      const isCreated = await duplicateCompanyMenuPOM.verifyMenuCreation();
-      if (isCreated) {
-        console.log('⚠️ Menu was created despite being duplicate - no duplicate protection detected');
-      } else {
-        console.log('⚠️ Menu creation failed for unknown reason');
-      }
-    }
+  // Assert that the popup is visible and log success message
+  expect(duplicateError).toBe(true);
+  if (duplicateError) {
+    console.log('✅ popup detected');
   }
-  
-  // Verify if duplicate menu was actually created or not
-  console.log('🔍 Verifying if duplicate menu was created...');
-  
-  // Check if we're still on the menu creation page (indicating duplicate was not created)
-  const currentUrl = page.url();
-  const isOnMenuCreationPage = currentUrl.includes('/menu') && currentUrl.includes('create');
-  
-  if (isOnMenuCreationPage) {
-    console.log('✅ Duplicate menu was NOT created - user remains on creation page');
-    console.log('✅ System properly prevented duplicate menu creation');
-  } else {
-    // Check if we're on a menu list page (indicating menu was created)
-    const isOnMenuListPage = currentUrl.includes('/menu') || currentUrl.includes('/menus');
-    if (isOnMenuListPage) {
-      console.log('⚠️ Duplicate menu WAS created - system allowed duplicate');
-      console.log('⚠️ No duplicate protection detected');
-    } else {
-      console.log('⚠️ Unknown navigation state - cannot determine if duplicate was created');
-    }
-  }
+ 
 });

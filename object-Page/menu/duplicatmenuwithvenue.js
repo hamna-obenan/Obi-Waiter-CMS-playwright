@@ -78,10 +78,7 @@ export default class DuplicateMenuWithVenuePOM {
     await this.page.waitForTimeout(2000);
     await expect(this.page.getByRole('img', { name: 'Upload image*' })).toBeVisible();
     console.log('✅ Image visible');
-    
-    // Handle image cropping - expand and move selection upward
-    await this.handleImageCropping();
-    
+  
     // Click upload button
     await this.page.getByRole('button', { name: 'Upload' }).click();
     
@@ -97,49 +94,6 @@ export default class DuplicateMenuWithVenuePOM {
     }
   }
 
-  /**
-   * Handle image cropping - move selection upward to capture top portion
-   */
-  async handleImageCropping() {
-    console.log('✂️ Moving crop selection upward...');
-    
-    try {
-      // Wait for crop area to be available
-      await this.page.waitForTimeout(1000);
-      
-      // Use arrow keys to move crop selection upward
-      console.log('🎯 Moving crop selection upward to capture top portion...');
-      
-      // Move crop area significantly upward to capture "Italian" text and top of "FOOD"
-      for (let i = 0; i < 8; i++) {
-        await this.page.keyboard.press('ArrowUp');
-        await this.page.waitForTimeout(150);
-      }
-      
-      // Fine-tune horizontal positioning
-      for (let i = 0; i < 2; i++) {
-        await this.page.keyboard.press('ArrowLeft');
-        await this.page.waitForTimeout(100);
-      }
-      
-      // Expand horizontally to capture full width
-      for (let i = 0; i < 4; i++) {
-        await this.page.keyboard.press('ArrowRight');
-        await this.page.waitForTimeout(100);
-      }
-      
-      // Expand vertically downward to include more of the image
-      for (let i = 0; i < 5; i++) {
-        await this.page.keyboard.press('ArrowDown');
-        await this.page.waitForTimeout(100);
-      }
-      
-      console.log('✅ Crop selection moved upward to capture top portion of image');
-      
-    } catch (error) {
-      console.log('⚠️ Crop handling failed, proceeding with default crop area');
-    }
-  }
 
   /**
    * Save the menu
@@ -151,22 +105,6 @@ export default class DuplicateMenuWithVenuePOM {
     console.log('✅ Menu save button clicked');
   }
 
-  /**
-   * Verify menu creation success
-   */
-  async verifyMenuCreation() {
-    console.log('🔍 Verifying menu creation...');
-    
-    // Check if we're on a menu-related page
-    const currentUrl = this.page.url();
-    const isOnMenuPage = currentUrl.includes('/menu') || currentUrl.includes('/menus');
-    
-    if (isOnMenuPage) {
-      console.log('✅ Menu created successfully - navigated to menu page');
-      return true;
-    } else {
-      console.log('⚠️ Menu creation status unclear');
-      return false;
-    }
-  }
+ 
+  
 }

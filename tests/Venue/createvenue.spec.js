@@ -735,45 +735,5 @@ test("open Add Venue and wait @translationBugOnCreateVenue", async ({ page }) =>
   
   // Wait for save operation to complete
   await page.waitForTimeout(5000);
-  
-  // Verify if we moved to next step or if save was successful
-  try {
-    // Check if we're on a success page or next step
-    const successMessage = await page.getByText('Venue created successfully').isVisible();
-    if (successMessage) {
-      console.log(' Venue created successfully - Save button worked!');
-    }
-  } catch (error) {
-    console.log('No success message found, checking for navigation...');
-  }
-  
-  // Check if we moved to a different page/step
-  try {
-    const currentUrl = page.url();
-    console.log(`Current URL after save: ${currentUrl}`);
-    
-    // Check if we're redirected to venue list or dashboard
-    if (currentUrl.includes('/venue') && !currentUrl.includes('/create')) {
-      console.log(' Successfully navigated to venue list - Save button worked!');
-    } else {
-      console.log(' Still on create venue page - checking for validation errors...');
-      
-      // Check for validation errors
-      const validationErrors = await page.locator('text=required, text=invalid, text=error').count();
-      if (validationErrors > 0) {
-        console.log(` Found ${validationErrors} validation errors - Save button failed due to validation`);
-        } else {
-        console.log(' No validation errors found - Save button may have worked');
-      }
-    }
-  } catch (error) {
-    console.log('Error checking navigation:', error.message);
-  }
-  
-  // Pause to inspect the page
-  await page.pause();
-  
-  console.log(' Contact number and venue timing completed successfully');
-  
-  console.log(' Step 2 form fields, logo and cover image upload completed successfully');
+
 });
