@@ -94,25 +94,25 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 31397,
+                      "duration": 23043,
                       "error": {
-                        "message": "ReferenceError: Italian is not defined",
-                        "stack": "ReferenceError: Italian is not defined\n    at CreateCompanyItemPOM.selectMenu (C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\object-Page\\items\\createcomapnyitem.js:115:49)\n    at C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Items\\createcomapanyitem.spec.js:95:5",
+                        "message": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('//input[@id=\\':r1o:\\' and @placeholder=\\'Select tax\\']')\u001b[22m\n",
+                        "stack": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('//input[@id=\\':r1o:\\' and @placeholder=\\'Select tax\\']')\u001b[22m\n\n    at C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Items\\createcomapanyitem.spec.js:160:59",
                         "location": {
-                          "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\object-Page\\items\\createcomapnyitem.js",
-                          "column": 49,
-                          "line": 115
+                          "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Items\\createcomapanyitem.spec.js",
+                          "column": 59,
+                          "line": 160
                         },
-                        "snippet": "\u001b[90m   at \u001b[39m..\\object-Page\\items\\createcomapnyitem.js:115\n\n\u001b[0m \u001b[90m 113 |\u001b[39m   \u001b[36masync\u001b[39m selectMenu(menuName) {\n \u001b[90m 114 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mlocator(locators[\u001b[32m\"select-menu-dropdown\"\u001b[39m])\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 115 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mgetByRole(\u001b[32m'option'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[33mItalian\u001b[39m })\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 116 |\u001b[39m     console\u001b[33m.\u001b[39mlog(\u001b[32m`✅ Menu selected: ${Italian}`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 117 |\u001b[39m   }\n \u001b[90m 118 |\u001b[39m\u001b[0m"
+                        "snippet": "\u001b[0m \u001b[90m 158 |\u001b[39m\n \u001b[90m 159 |\u001b[39m     \u001b[90m//select the tax 2 from dropdown (second tax dropdown)\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 160 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(locators[\u001b[32m\"select-tax-dropdown-2\"\u001b[39m])\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                                           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 161 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'option'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m itemData[\u001b[32m\"tax2\"\u001b[39m] })\u001b[33m.\u001b[39mfirst()\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m 162 |\u001b[39m     console\u001b[33m.\u001b[39mlog(\u001b[32m'✅ Tax 2 selected successfully'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 163 |\u001b[39m     \u001b[0m"
                       },
                       "errors": [
                         {
                           "location": {
-                            "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\object-Page\\items\\createcomapnyitem.js",
-                            "column": 49,
-                            "line": 115
+                            "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Items\\createcomapanyitem.spec.js",
+                            "column": 59,
+                            "line": 160
                           },
-                          "message": "ReferenceError: Italian is not defined\n\n\u001b[90m   at \u001b[39m..\\object-Page\\items\\createcomapnyitem.js:115\n\n\u001b[0m \u001b[90m 113 |\u001b[39m   \u001b[36masync\u001b[39m selectMenu(menuName) {\n \u001b[90m 114 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mlocator(locators[\u001b[32m\"select-menu-dropdown\"\u001b[39m])\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 115 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mgetByRole(\u001b[32m'option'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[33mItalian\u001b[39m })\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 116 |\u001b[39m     console\u001b[33m.\u001b[39mlog(\u001b[32m`✅ Menu selected: ${Italian}`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 117 |\u001b[39m   }\n \u001b[90m 118 |\u001b[39m\u001b[0m\n\u001b[2m    at CreateCompanyItemPOM.selectMenu (C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\object-Page\\items\\createcomapnyitem.js:115:49)\u001b[22m\n\u001b[2m    at C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Items\\createcomapanyitem.spec.js:95:5\u001b[22m"
+                          "message": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('//input[@id=\\':r1o:\\' and @placeholder=\\'Select tax\\']')\u001b[22m\n\n\n\u001b[0m \u001b[90m 158 |\u001b[39m\n \u001b[90m 159 |\u001b[39m     \u001b[90m//select the tax 2 from dropdown (second tax dropdown)\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 160 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(locators[\u001b[32m\"select-tax-dropdown-2\"\u001b[39m])\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                                           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 161 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'option'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m itemData[\u001b[32m\"tax2\"\u001b[39m] })\u001b[33m.\u001b[39mfirst()\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m 162 |\u001b[39m     console\u001b[33m.\u001b[39mlog(\u001b[32m'✅ Tax 2 selected successfully'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 163 |\u001b[39m     \u001b[0m\n\u001b[2m    at C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Items\\createcomapanyitem.spec.js:160:59\u001b[22m"
                         }
                       ],
                       "stdout": [
@@ -198,27 +198,60 @@
                           "text": "🍽️ Starting company item creation process...\n"
                         },
                         {
-                          "text": "🍽️ Creating company item: Chicken Sandwich\n"
-                        },
-                        {
-                          "text": "✅ Item name filled: Chicken Sandwich\n"
-                        },
-                        {
-                          "text": "✅ Item saved successfully\n"
-                        },
-                        {
-                          "text": "✅ Company item \"Chicken Sandwich\" created successfully\n"
-                        },
-                        {
                           "text": "✅ Item name filled: Chicken Sandwich\n"
                         },
                         {
                           "text": "✅ Item status selected: In Stock\n"
+                        },
+                        {
+                          "text": "✅ Menu selected: Italian\n"
+                        },
+                        {
+                          "text": "✅ Verified: Menu selected successfully\n"
+                        },
+                        {
+                          "text": "✅ Category selected: Appetizers\n"
+                        },
+                        {
+                          "text": "✅ Verified: Category selected successfully\n"
+                        },
+                        {
+                          "text": "✅ Item description filled: A deliciously hearty chicken sandwich made with tender, juicy chicken breast seasoned to perfection and layered between fresh bread slices. Packed with crisp lettuce, ripe tomato, onions, and creamy mayonnaise, this sandwich balances savory flavors with a refreshing crunch. Ideal for a quick lunch, light dinner, or an on-the-go meal, it’s a wholesome and satisfying choice for chicken lovers.\n"
+                        },
+                        {
+                          "text": "✅ Verified: Description filled successfully\n"
+                        },
+                        {
+                          "text": "✅ Entered custom price successfully\n"
+                        },
+                        {
+                          "text": "✅ Item price description filled: Regular\n"
+                        },
+                        {
+                          "text": "✅ Verified: Price discription filled successfully\n"
+                        },
+                        {
+                          "text": "✅ Item tax selected: Standard: Taxes (9% Dine-In, 7% Take-Away)\n"
+                        },
+                        {
+                          "text": "✅ Default price selected: yes\n"
+                        },
+                        {
+                          "text": "✅ Add extra button clicked (locator: add-extra)\n"
+                        },
+                        {
+                          "text": "✅ Verified: Form is still active after Add Extra\n"
+                        },
+                        {
+                          "text": "✅ Entered custom price 2 successfully\n"
+                        },
+                        {
+                          "text": "✅ Price description 2 filled successfully\n"
                         }
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-09T13:26:22.486Z",
+                      "startTime": "2025-10-10T13:21:29.760Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -238,9 +271,9 @@
                         }
                       ],
                       "errorLocation": {
-                        "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\object-Page\\items\\createcomapnyitem.js",
-                        "column": 49,
-                        "line": 115
+                        "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Items\\createcomapanyitem.spec.js",
+                        "column": 59,
+                        "line": 160
                       }
                     }
                   ],
@@ -259,8 +292,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-10-09T13:26:21.492Z",
-    "duration": 32868.503000000004,
+    "startTime": "2025-10-10T13:21:28.894Z",
+    "duration": 24489.396,
     "expected": 0,
     "skipped": 0,
     "unexpected": 1,

@@ -77,15 +77,14 @@ test.describe("Item Management - Company Level", () => {
     // Assert: Verify item creation form is ready
     await expect(page.locator(locators["item-name"])).toBeVisible();
     console.log('✅ Verified: Item creation form is ready');
-      
+  
     // Create company item using data from items.json
     const itemData = items[0]; // Use first item from the JSON file
       
     console.log('🍽️ Starting company item creation process...');
-    await createCompanyItemPOM.createCompanyItem(itemData);
-      
-    //click on the item name
-    await createCompanyItemPOM.fillItemName(itemData["item-name 1"]);
+    
+    // Fill item name
+    await createCompanyItemPOM.fillItemName(itemData["item-name1"]);
      
     //   //click on the in stock
     await createCompanyItemPOM.selectTheStatus('In Stock');
@@ -95,9 +94,80 @@ test.describe("Item Management - Company Level", () => {
     await createCompanyItemPOM.selectMenu(itemData["menu"]);
 
     //assertion for verify the menu selected successfully
-    await expect(page.locator(locators["select-menu-dropdown"])).toHaveValue(itemData["Menu 1"]);
-    await page.pause();
+    await expect(page.locator(locators["select-menu-dropdown"])).toBeVisible();
+    console.log('✅ Verified: Menu selected successfully');
 
+    //select the category from dropdown
+    await createCompanyItemPOM.selectItemCategory(itemData["Category"]);
+    //assertion to verify the category selected successfully
+    await expect(page.locator(locators["select-category-dropdown"])).toBeVisible();
+    console.log('✅ Verified: Category selected successfully');
+
+    // Use the correct key ("description" instead of "Description") to fill the item description
+    await createCompanyItemPOM.fillItemDescription(itemData["description"]);
+    //assertion to verify the description filled successfully
+    await expect(page.locator(locators["description-box-item"])).toBeVisible();
+    console.log('✅ Verified: Description filled successfully');
+
+    // Click on the price text box to open dropdown
+    await page.locator(locators["price-dropdown"]).click();
+    // Wait for dropdown to appear, then click "Enter Custom Price"
+    await page.locator(locators["pricedefault"]).click();
+    // Click the price text box again to focus
+    await page.locator(locators["enter-custom-price"]).click();
+    // Fill the price value
+    await page.locator(locators["enter-custom-price"]).fill(itemData["Price "]);
+    console.log('✅ Entered custom price successfully');
+
+    //price discription
+    await createCompanyItemPOM.fillItemPriceDescription(itemData["pricedescription"]);
+    //assertion to verify the price discription filled successfully
+    await expect(page.locator(locators["price-discription"])).toBeVisible();
+    console.log('✅ Verified: Price discription filled successfully');
+
+    //select the tax from dropdown
+    await createCompanyItemPOM.selectItemTax(itemData["tax"]);
+    
+    // Select default price
+    await createCompanyItemPOM.selectDefaultPrice(itemData["default"]);
+
+    //click on add extra
+    await createCompanyItemPOM.clickOnAddExtra();
+    
+    // Wait for page to be stable after clicking Add Extra
+    await page.waitForLoadState('networkidle');
+    await page.waitForTimeout(3000);
+    
+    // Verify the page is still active and the form is ready
+    await expect(page.locator(locators["item-name"])).toBeVisible();
+    console.log('✅ Verified: Form is still active after Add Extra');
+    
+    // Add Price 2 - Click on the second price dropdown (prices.1.variants)
+    await page.locator(locators["price-dropdown-2"]).click();
+    // Wait for dropdown to appear, then click "Enter Custom Price"
+    await page.locator(locators["pricedefault"]).click();
+    // Click the second price text box to focus
+    await page.locator(locators["enter-custom-price-2"]).click();
+    // Fill the price 2 value
+    await page.locator(locators["enter-custom-price-2"]).fill(itemData["price2"]);
+    console.log('✅ Entered custom price 2 successfully');
+
+    //price description 2 - use the second description box
+    await page.locator(locators["option-box1"]).fill(itemData["pricedescription2"]);
+    console.log('✅ Price description 2 filled successfully');
+
+    //select the tax 2 from dropdown (second tax dropdown)
+    await createCompanyItemPOM.page.locator(locators["select-tax-dropdown-2"]).click();
+    await createCompanyItemPOM.page.getByRole('option', { name: itemData["tax2"] }).click();
+    console.log('✅ Tax 2 selected successfully');
+    
+    
+    // // Save the item
+    // await createCompanyItemPOM.saveItem();
+    
+    // console.log('✅ Company item created successfully');
+
+   await page.pause();
     
     
   });

@@ -93,8 +93,8 @@ export default class CreateCompanyItemPOM {
    */
   async fillItemName(itemName) {
     await this.page.locator(locators["item-name"]).click();
-    await this.page.locator(locators["item-name"]).fill("item-name 1");
-    await expect(this.page.locator(locators["item-name"])).toHaveValue("item-name 1");
+    await this.page.locator(locators["item-name"]).fill(itemName);
+    await expect(this.page.locator(locators["item-name"])).toHaveValue(itemName);
     console.log(`✅ Item name filled: ${itemName}`);
   }
   /**
@@ -108,14 +108,19 @@ export default class CreateCompanyItemPOM {
   }
   /**
    * Select a menu from the menu dropdown
-   * @param {string} menuName - The name of the menu to select
+   * @param {string} menu - The name of the menu to select
    */
-  async selectMenu(menuName) {
+  async selectMenu(menu) {
     await this.page.locator(locators["select-menu-dropdown"]).click();
-    await this.page.getByRole('option', { name: Italian }).click();
-    console.log(`✅ Menu selected: ${Italian}`);
+    await this.page.getByRole('option', { name: menu }).first().click();
+    console.log(`✅ Menu selected: ${menu}`);
   }
-
+  //select the category from dropdown
+  async selectItemCategory(category) {
+    await this.page.locator(locators["select-category-dropdown"]).click();
+    await this.page.getByRole('option', { name: category }).first().click();
+    console.log(`✅ Category selected: ${category}`);
+  }
   /**
    * Fill item description
    * @param {string} description - The item description to fill
@@ -123,20 +128,87 @@ export default class CreateCompanyItemPOM {
   async fillItemDescription(description) {
     if (description && description.trim() !== '') {
       await this.page.locator(locators["description-box-item"]).click();
-      await this.page.locator(locators["description-box-item"]).fill("Description 1");
+      // await this.page.waitForTimeout(1000); // Wait for editor to activate
+      
+      // Type the description in the rich text editor
+      await this.page.locator(locators["description-box-item"]).fill(description);
       console.log(`✅ Item description filled: ${description}`);
     }
   }
+    /**
+     * Fill 1st item price (select 'Enter Custom Price' after opening dropdown)
+     * @param {string} price - The price to fill
+     */
+    async fillItemPrice(price) {
+      await this.page.locator(locators["price-dropdown"]).click();
+      await this.page.locator(locators["pricedefault"]).click();
+      await this.page.locator(locators["enter-custom-price"]).click();
+      await this.page.locator(locators["enter-custom-price"]).fill(price);
+      console.log(`✅ Entered custom price successfully`);
+    }
+    /**
+     * Fill item price description
+     * @param {string} priceDescription - The price description to fill
+     */
+    async fillItemPriceDescription(priceDescription) {
+      await this.page.locator(locators["price-discription"]).fill(priceDescription);
+      console.log(`✅ Item price description filled: ${priceDescription}`);
+    }
+    /**
+     * Select item tax
+     * @param {string} tax - The tax to select
+     */
+    async selectItemTax(tax) {
+      await this.page.locator(locators["select-tax-dropdown"]).click();
+      await this.page.getByRole('option', { name: tax }).first().click();
+      console.log(`✅ Item tax selected: ${tax}`);
+    }
+    /**
+     * Select default price
+     * @param {string} defaultPrice - The default price to select
+     */
+    async selectDefaultPrice(defaultPrice) {
+      await this.page.locator(locators["pricedefaultcheckbox"]).click();
+      console.log(`✅ Default price selected: ${defaultPrice}`);
+    }
+    /**
+     * Click on 'Add Extra' button using the locator defined in locators["add-extra"]
+     */
+    async clickOnAddExtra() {
+      const addExtraBtn = this.page.locator(locators["add-extra"]);
+      await addExtraBtn.click();
+      console.log('✅ Add extra button clicked (locator: add-extra)');
+    }
 
-  /**
-   * Select item category
-   * @param {string} categoryName - The category name to select
-   */
-  async selectItemCategory(categoryName) {
-    await this.page.locator(locators["select-category-dropdown"]).click();
-    await this.page.getByRole('option', { name: "Category 1" }).click();
-    console.log(`✅ Category selected: ${categoryName}`);
-  }
+
+    //fill the second price details
+    /**
+     * Fill second price details (custom price, description, and tax)
+     * @param {object} priceDetails - Object containing price2, pricedescription2, and tax2
+     *   priceDetails = {
+     *     price2: string,
+     *     pricedescription2: string,
+     *     tax2: string
+     *   }
+     */
+    async fillSecondPriceDetails(priceDetails) {
+      // Click the price dropdown and select custom price option for price 2
+      await this.page.locator(locators["price-dropdown-2"]).click();
+      await this.page.locator(locators["pricedefault"]).click();
+      // Focus the second price textbox and enter the price
+      await this.page.locator(locators["enter-custom-price-2"]).click();
+      await this.page.locator(locators["enter-custom-price-2"]).fill(priceDetails.price2);
+
+      // Enter price description 2
+      await this.page.locator(locators["price-discription"]).fill(priceDetails.pricedescription2);
+
+      // Select tax for price 2
+      await this.page.locator(locators["select-tax-dropdown-2"]).click();
+      await this.page.getByRole('option', { name: priceDetails.tax2 }).click();
+
+      console.log(`✅ Second price details filled: Price2=${priceDetails.price2}, Description2=${priceDetails.pricedescription2}, Tax2=${priceDetails.tax2}`);
+    }
+
 
   /**
    * Select item status (in stock/out of stock)
@@ -148,15 +220,7 @@ export default class CreateCompanyItemPOM {
     console.log(`✅ Item status selected: ${status}`);
   }
 
-  /**
-   * Fill item price
-   * @param {string} price - The price to fill
-   */
-  async fillItemPrice(price) {
-    await this.page.locator(locators["price-dropdown"]).click();
-    await this.page.locator(locators["enter-custom-price"]).fill("3.99");
-    console.log(`✅ Item price filled: ${price}`);
-  }
+ 
 
   /**
    * Select item cuisine
@@ -256,33 +320,33 @@ export default class CreateCompanyItemPOM {
     }
   }
 
-  /**
-   * Save the item
-   */
-  async saveItem() {
-    await this.page.getByRole('button', { name: 'Save' }).click();
-    await this.page.waitForLoadState('networkidle');
-    console.log('✅ Item saved successfully');
-  }
+  // /**
+  //  * Save the item
+  //  */
+  // async saveItem() {
+  //   await this.page.getByRole('button', { name: 'Save' }).click();
+  //   await this.page.waitForLoadState('networkidle');
+  //   console.log('✅ Item saved successfully');
+  // }
 
   /**
    * Create a complete company item
    * @param {Object} itemData - Item data object
    */
   async createCompanyItem(itemData) {
-    const itemName = itemData["item-name 1"];
-    const description = itemData["description 1"];
-    const category = itemData["Category 1"];
-    const status = itemData["in stock 1"];
-    const price = itemData["Price 1"];
-    const cuisine = itemData["Cuisine 1"];
-    const servePeople = itemData["Served People 1"];
-    const ingredients = itemData["Ingredients 1"];
-    const tags = itemData["tags 1"];
-    const customizations = itemData["Customizations 1"];
-    const stockCount = itemData["stock-count"];
-    const imagePath = itemData["itemimagecompany.png"];
-    const imageName = itemData["itemimagecompany.png"];
+    const itemName = itemData["item-name1"];
+    const description = itemData["Description"];
+    const category = itemData["Category"];
+    const status = itemData["in stock"] === "yes" ? "In Stock" : "Out of Stock";
+    const price = itemData["Price "];
+    const cuisine = itemData["Cuisine"];
+    const servePeople = itemData["Served People"];
+    const ingredients = itemData["Ingredients"];
+    const tags = itemData["Mark item as"];
+    const customizations = itemData["Add Customizations"];
+    const stockCount = itemData["Stock Count"];
+    const imagePath = itemData["item-image"];
+    const imageName = itemData["item-image"];
     
     console.log(`🍽️ Creating company item: ${itemName}`);
     

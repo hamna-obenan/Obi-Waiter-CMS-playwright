@@ -1,22 +1,22 @@
-<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="32.868503000000004">
-<testsuite name="Items\createcomapanyitem.spec.js" timestamp="2025-10-09T13:26:21.742Z" hostname="all-tests" tests="1" failures="1" skipped="0" time="31.397" errors="0">
-<testcase name="Item Management - Company Level › Create Company Item" classname="Items\createcomapanyitem.spec.js" time="31.397">
+<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="24.489396">
+<testsuite name="Items\createcomapanyitem.spec.js" timestamp="2025-10-10T13:21:28.950Z" hostname="all-tests" tests="1" failures="1" skipped="0" time="23.043" errors="0">
+<testcase name="Item Management - Company Level › Create Company Item" classname="Items\createcomapanyitem.spec.js" time="23.043">
 <failure message="createcomapanyitem.spec.js:15:3 Create Company Item" type="FAILURE">
 <![CDATA[  [all-tests] › Items\createcomapanyitem.spec.js:15:3 › Item Management - Company Level › Create Company Item 
 
-    ReferenceError: Italian is not defined
+    TimeoutError: locator.click: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('//input[@id=\':r1o:\' and @placeholder=\'Select tax\']')
 
-       at ..\object-Page\items\createcomapnyitem.js:115
 
-      113 |   async selectMenu(menuName) {
-      114 |     await this.page.locator(locators["select-menu-dropdown"]).click();
-    > 115 |     await this.page.getByRole('option', { name: Italian }).click();
-          |                                                 ^
-      116 |     console.log(`✅ Menu selected: ${Italian}`);
-      117 |   }
-      118 |
-        at CreateCompanyItemPOM.selectMenu (C:\Users\HP\Desktop\Obi-Waiter-CMS-playwright-main\object-Page\items\createcomapnyitem.js:115:49)
-        at C:\Users\HP\Desktop\Obi-Waiter-CMS-playwright-main\tests\Items\createcomapanyitem.spec.js:95:5
+      158 |
+      159 |     //select the tax 2 from dropdown (second tax dropdown)
+    > 160 |     await page.locator(locators["select-tax-dropdown-2"]).click();
+          |                                                           ^
+      161 |     await page.getByRole('option', { name: itemData["tax2"] }).first().click();
+      162 |     console.log('✅ Tax 2 selected successfully');
+      163 |     
+        at C:\Users\HP\Desktop\Obi-Waiter-CMS-playwright-main\tests\Items\createcomapanyitem.spec.js:160:59
 
     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
     ..\test-results\Items-createcomapanyitem-I-ac7df-y-Level-Create-Company-Item-all-tests\test-failed-1.png
@@ -57,12 +57,23 @@
 ✅ Company button clicked
 ✅ Verified: Item creation form is ready
 🍽️ Starting company item creation process...
-🍽️ Creating company item: Chicken Sandwich
-✅ Item name filled: Chicken Sandwich
-✅ Item saved successfully
-✅ Company item "Chicken Sandwich" created successfully
 ✅ Item name filled: Chicken Sandwich
 ✅ Item status selected: In Stock
+✅ Menu selected: Italian
+✅ Verified: Menu selected successfully
+✅ Category selected: Appetizers
+✅ Verified: Category selected successfully
+✅ Item description filled: A deliciously hearty chicken sandwich made with tender, juicy chicken breast seasoned to perfection and layered between fresh bread slices. Packed with crisp lettuce, ripe tomato, onions, and creamy mayonnaise, this sandwich balances savory flavors with a refreshing crunch. Ideal for a quick lunch, light dinner, or an on-the-go meal, it’s a wholesome and satisfying choice for chicken lovers.
+✅ Verified: Description filled successfully
+✅ Entered custom price successfully
+✅ Item price description filled: Regular
+✅ Verified: Price discription filled successfully
+✅ Item tax selected: Standard: Taxes (9% Dine-In, 7% Take-Away)
+✅ Default price selected: yes
+✅ Add extra button clicked (locator: add-extra)
+✅ Verified: Form is still active after Add Extra
+✅ Entered custom price 2 successfully
+✅ Price description 2 filled successfully
 
 [[ATTACHMENT|..\..\test-results\Items-createcomapanyitem-I-ac7df-y-Level-Create-Company-Item-all-tests\test-failed-1.png]]
 
