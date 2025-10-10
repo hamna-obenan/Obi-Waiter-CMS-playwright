@@ -173,20 +173,11 @@ export default class VenueDuplicationPOM {
    */
   async clickSaveButton() {
     await this.page.getByRole('button', { name: 'Save' }).click();
+    await this.page.getByRole('button', { name: 'Save' }).click();
     console.log('✅ Save button clicked');
     
     // Wait for save operation to complete
-    await this.page.waitForLoadState('networkidle');
+    // await this.page.waitForLoadState('networkidle');
     console.log('⏳ Waiting for save operation to complete...');
   }
-
-  /**
-   * Check for venue duplicate error
-   */
-  async checkVenueDuplicateError() {
-    console.log('🔍 Checking for venue duplicate error...');
-    const duplicateAlert = await this.page.locator(locators["venue-duplicate-alert"]).isVisible();
-    return duplicateAlert;
-  }
-  
 }

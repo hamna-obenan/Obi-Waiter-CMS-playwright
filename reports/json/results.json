@@ -66,131 +66,204 @@
   },
   "suites": [
     {
-      "title": "Venue\\venue1.spec.js",
-      "file": "Venue/venue1.spec.js",
+      "title": "Items\\createcomapanyitem.spec.js",
+      "file": "Items/createcomapanyitem.spec.js",
       "column": 0,
       "line": 0,
-      "specs": [
+      "specs": [],
+      "suites": [
         {
-          "title": "Venue Duplication Testing - Complete Flow",
-          "ok": true,
-          "tags": [],
-          "tests": [
+          "title": "Item Management - Company Level",
+          "file": "Items/createcomapanyitem.spec.js",
+          "line": 13,
+          "column": 6,
+          "specs": [
             {
-              "timeout": 120000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "all-tests",
-              "projectName": "all-tests",
-              "results": [
+              "title": "Create Company Item",
+              "ok": false,
+              "tags": [],
+              "tests": [
                 {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 62650,
-                  "errors": [],
-                  "stdout": [
+                  "timeout": 120000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "all-tests",
+                  "projectName": "all-tests",
+                  "results": [
                     {
-                      "text": "Logging in with email: hamna123@gmail.com\n"
-                    },
-                    {
-                      "text": "✅ Login form filled successfully\n"
-                    },
-                    {
-                      "text": "✅ Login completed successfully\n"
-                    },
-                    {
-                      "text": "🎯 Creating venue with standard data\n"
-                    },
-                    {
-                      "text": "📝 Filling venue basic information...\n"
-                    },
-                    {
-                      "text": "✅ Basic information filled\n"
-                    },
-                    {
-                      "text": "📝 Filling venue details and branding...\n"
-                    },
-                    {
-                      "text": "✅ Venue details filled\n"
-                    },
-                    {
-                      "text": "📸 Uploading Logo...\n"
-                    },
-                    {
-                      "text": "✅ Logo uploaded successfully\n"
-                    },
-                    {
-                      "text": "📸 Uploading Cover image...\n"
-                    },
-                    {
-                      "text": "✅ Cover image uploaded successfully\n"
-                    },
-                    {
-                      "text": "📝 Filling story and experience section...\n"
-                    },
-                    {
-                      "text": "📸 Uploading Story image...\n"
-                    },
-                    {
-                      "text": "✅ Story image uploaded successfully\n"
-                    },
-                    {
-                      "text": "✅ Story and experience filled\n"
-                    },
-                    {
-                      "text": "📝 Adding gallery items...\n"
-                    },
-                    {
-                      "text": "✅ Gallery item 1 added\n"
-                    },
-                    {
-                      "text": "✅ Gallery item 2 added\n"
-                    },
-                    {
-                      "text": "✅ Gallery item 3 added\n"
-                    },
-                    {
-                      "text": "✅ Save button clicked\n"
-                    },
-                    {
-                      "text": "⏳ Waiting for save operation to complete...\n"
-                    },
-                    {
-                      "text": "⏳ Waiting for popup to appear...\n"
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 31397,
+                      "error": {
+                        "message": "ReferenceError: Italian is not defined",
+                        "stack": "ReferenceError: Italian is not defined\n    at CreateCompanyItemPOM.selectMenu (C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\object-Page\\items\\createcomapnyitem.js:115:49)\n    at C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Items\\createcomapanyitem.spec.js:95:5",
+                        "location": {
+                          "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\object-Page\\items\\createcomapnyitem.js",
+                          "column": 49,
+                          "line": 115
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39m..\\object-Page\\items\\createcomapnyitem.js:115\n\n\u001b[0m \u001b[90m 113 |\u001b[39m   \u001b[36masync\u001b[39m selectMenu(menuName) {\n \u001b[90m 114 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mlocator(locators[\u001b[32m\"select-menu-dropdown\"\u001b[39m])\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 115 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mgetByRole(\u001b[32m'option'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[33mItalian\u001b[39m })\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 116 |\u001b[39m     console\u001b[33m.\u001b[39mlog(\u001b[32m`✅ Menu selected: ${Italian}`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 117 |\u001b[39m   }\n \u001b[90m 118 |\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\object-Page\\items\\createcomapnyitem.js",
+                            "column": 49,
+                            "line": 115
+                          },
+                          "message": "ReferenceError: Italian is not defined\n\n\u001b[90m   at \u001b[39m..\\object-Page\\items\\createcomapnyitem.js:115\n\n\u001b[0m \u001b[90m 113 |\u001b[39m   \u001b[36masync\u001b[39m selectMenu(menuName) {\n \u001b[90m 114 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mlocator(locators[\u001b[32m\"select-menu-dropdown\"\u001b[39m])\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 115 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mgetByRole(\u001b[32m'option'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[33mItalian\u001b[39m })\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 116 |\u001b[39m     console\u001b[33m.\u001b[39mlog(\u001b[32m`✅ Menu selected: ${Italian}`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 117 |\u001b[39m   }\n \u001b[90m 118 |\u001b[39m\u001b[0m\n\u001b[2m    at CreateCompanyItemPOM.selectMenu (C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\object-Page\\items\\createcomapnyitem.js:115:49)\u001b[22m\n\u001b[2m    at C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Items\\createcomapanyitem.spec.js:95:5\u001b[22m"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "Logging in with email: hamna123@gmail.com\n"
+                        },
+                        {
+                          "text": "✅ Login form filled successfully\n"
+                        },
+                        {
+                          "text": "✅ Login completed successfully\n"
+                        },
+                        {
+                          "text": "✅ Login completed successfully\n"
+                        },
+                        {
+                          "text": "✅ Verified: On venue page\n"
+                        },
+                        {
+                          "text": "🏢 Step 1: Click on created venue\n"
+                        },
+                        {
+                          "text": "✅ Landed on venue page and clicked on the created venue\n"
+                        },
+                        {
+                          "text": "📋 Step 2: Navigate to menu page\n"
+                        },
+                        {
+                          "text": "✅ Navigated to menu page (clicked 2nd menu)\n"
+                        },
+                        {
+                          "text": "✅ Navigated to menu page\n"
+                        },
+                        {
+                          "text": "📂 Step 3: Navigate to categories tab\n"
+                        },
+                        {
+                          "text": "✅ Verified: Successfully navigated to categories page\n"
+                        },
+                        {
+                          "text": "✅ Navigated to categories tab\n"
+                        },
+                        {
+                          "text": "✅ Verified: Successfully navigated to categories page\n"
+                        },
+                        {
+                          "text": "🍽️ Step 5: Navigate to items tab from header\n"
+                        },
+                        {
+                          "text": "✅ Navigated to items tab\n"
+                        },
+                        {
+                          "text": "✅ Verified: Successfully navigated to items page\n"
+                        },
+                        {
+                          "text": "➕ Step 6: Click on Add Item button\n"
+                        },
+                        {
+                          "text": "✅ Add Item button clicked\n"
+                        },
+                        {
+                          "text": "✅ Verified: Create button visible\n"
+                        },
+                        {
+                          "text": "🔨 Step 7: Click on the create button\n"
+                        },
+                        {
+                          "text": "✅ Create button clicked\n"
+                        },
+                        {
+                          "text": "✅ Verified: Company button visible\n"
+                        },
+                        {
+                          "text": "🏢 Step 8: Click on the company button\n"
+                        },
+                        {
+                          "text": "✅ Company button clicked\n"
+                        },
+                        {
+                          "text": "✅ Verified: Item creation form is ready\n"
+                        },
+                        {
+                          "text": "🍽️ Starting company item creation process...\n"
+                        },
+                        {
+                          "text": "🍽️ Creating company item: Chicken Sandwich\n"
+                        },
+                        {
+                          "text": "✅ Item name filled: Chicken Sandwich\n"
+                        },
+                        {
+                          "text": "✅ Item saved successfully\n"
+                        },
+                        {
+                          "text": "✅ Company item \"Chicken Sandwich\" created successfully\n"
+                        },
+                        {
+                          "text": "✅ Item name filled: Chicken Sandwich\n"
+                        },
+                        {
+                          "text": "✅ Item status selected: In Stock\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-10-09T13:26:22.486Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Items-createcomapanyitem-I-ac7df-y-Level-Create-Company-Item-all-tests\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Items-createcomapanyitem-I-ac7df-y-Level-Create-Company-Item-all-tests\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Items-createcomapanyitem-I-ac7df-y-Level-Create-Company-Item-all-tests\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\object-Page\\items\\createcomapnyitem.js",
+                        "column": 49,
+                        "line": 115
+                      }
                     }
                   ],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2025-10-08T13:23:06.825Z",
-                  "annotations": [],
-                  "attachments": [
-                    {
-                      "name": "video",
-                      "contentType": "video/webm",
-                      "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Venue-venue1-Venue-Duplication-Testing---Complete-Flow-all-tests\\video.webm"
-                    }
-                  ]
+                  "status": "unexpected"
                 }
               ],
-              "status": "expected"
+              "id": "4db3bfb0a1fb8deca379-d9b249ecf813adc05d27",
+              "file": "Items/createcomapanyitem.spec.js",
+              "line": 15,
+              "column": 3
             }
-          ],
-          "id": "e36c767ac0c7196bbe64-5f34497ffe62d031e302",
-          "file": "Venue/venue1.spec.js",
-          "line": 191,
-          "column": 1
+          ]
         }
       ]
     }
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-10-08T13:23:06.108Z",
-    "duration": 63910.568,
-    "expected": 1,
+    "startTime": "2025-10-09T13:26:21.492Z",
+    "duration": 32868.503000000004,
+    "expected": 0,
     "skipped": 0,
-    "unexpected": 0,
+    "unexpected": 1,
     "flaky": 0
   }
 }

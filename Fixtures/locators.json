@@ -1,4 +1,16 @@
 {
+   "verify-the-venue-navigated-url":"https://develop.d20aue3nu6xt33.amplifyapp.com/venue",
+   "verify-the-menu-navigated-url":"https://develop.d20aue3nu6xt33.amplifyapp.com/menus",
+   "verify-the-tags-navigated-url":"https://develop.d20aue3nu6xt33.amplifyapp.com/tags",
+   "verify-the-ingredients-navigated-url":"https://develop.d20aue3nu6xt33.amplifyapp.com/ingredients",
+   "verify-the-customizations-navigated-url":"https://develop.d20aue3nu6xt33.amplifyapp.com/customizations",
+   "verify-the-categories-navigated-url":"https://develop.d20aue3nu6xt33.amplifyapp.com/categories",
+   "verify-the-items-navigated-url":"https://develop.d20aue3nu6xt33.amplifyapp.com/items",
+ 
+
+
+
+
     "First name": "[name='firstName']",
     "Last name": "[name='lastName']",
     "Email": "[name='email']",
@@ -100,10 +112,10 @@
     "created-menu":"//img[@alt='logo']",
     "add-category-button":"//button[normalize-space(.)='New Category']",
     "category-name":"[name='categoryname.en']",
-    "select-menu-dropdown":"[placeholder='Select menus']",
+    "select-menu-dropdown":"[placeholder='Select menu']",
 
 
-
+    "Item-tab":"[href='/items']",
     "created-category-select":"//*[text()[normalize-space()='Appetizers']]",
     "add-item-button":"//button[normalize-space(.)='New Item']",
     "item-name":"[name='name.en']",

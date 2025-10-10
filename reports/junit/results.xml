@@ -1,32 +1,74 @@
-<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="63.910568">
-<testsuite name="Venue\venue1.spec.js" timestamp="2025-10-08T13:23:06.178Z" hostname="all-tests" tests="1" failures="0" skipped="0" time="62.65" errors="0">
-<testcase name="Venue Duplication Testing - Complete Flow" classname="Venue\venue1.spec.js" time="62.65">
+<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="32.868503000000004">
+<testsuite name="Items\createcomapanyitem.spec.js" timestamp="2025-10-09T13:26:21.742Z" hostname="all-tests" tests="1" failures="1" skipped="0" time="31.397" errors="0">
+<testcase name="Item Management - Company Level › Create Company Item" classname="Items\createcomapanyitem.spec.js" time="31.397">
+<failure message="createcomapanyitem.spec.js:15:3 Create Company Item" type="FAILURE">
+<![CDATA[  [all-tests] › Items\createcomapanyitem.spec.js:15:3 › Item Management - Company Level › Create Company Item 
+
+    ReferenceError: Italian is not defined
+
+       at ..\object-Page\items\createcomapnyitem.js:115
+
+      113 |   async selectMenu(menuName) {
+      114 |     await this.page.locator(locators["select-menu-dropdown"]).click();
+    > 115 |     await this.page.getByRole('option', { name: Italian }).click();
+          |                                                 ^
+      116 |     console.log(`✅ Menu selected: ${Italian}`);
+      117 |   }
+      118 |
+        at CreateCompanyItemPOM.selectMenu (C:\Users\HP\Desktop\Obi-Waiter-CMS-playwright-main\object-Page\items\createcomapnyitem.js:115:49)
+        at C:\Users\HP\Desktop\Obi-Waiter-CMS-playwright-main\tests\Items\createcomapanyitem.spec.js:95:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\test-results\Items-createcomapanyitem-I-ac7df-y-Level-Create-Company-Item-all-tests\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\test-results\Items-createcomapanyitem-I-ac7df-y-Level-Create-Company-Item-all-tests\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\test-results\Items-createcomapanyitem-I-ac7df-y-Level-Create-Company-Item-all-tests\error-context.md
+]]>
+</failure>
 <system-out>
 <![CDATA[Logging in with email: hamna123@gmail.com
 ✅ Login form filled successfully
 ✅ Login completed successfully
-🎯 Creating venue with standard data
-📝 Filling venue basic information...
-✅ Basic information filled
-📝 Filling venue details and branding...
-✅ Venue details filled
-📸 Uploading Logo...
-✅ Logo uploaded successfully
-📸 Uploading Cover image...
-✅ Cover image uploaded successfully
-📝 Filling story and experience section...
-📸 Uploading Story image...
-✅ Story image uploaded successfully
-✅ Story and experience filled
-📝 Adding gallery items...
-✅ Gallery item 1 added
-✅ Gallery item 2 added
-✅ Gallery item 3 added
-✅ Save button clicked
-⏳ Waiting for save operation to complete...
-⏳ Waiting for popup to appear...
+✅ Login completed successfully
+✅ Verified: On venue page
+🏢 Step 1: Click on created venue
+✅ Landed on venue page and clicked on the created venue
+📋 Step 2: Navigate to menu page
+✅ Navigated to menu page (clicked 2nd menu)
+✅ Navigated to menu page
+📂 Step 3: Navigate to categories tab
+✅ Verified: Successfully navigated to categories page
+✅ Navigated to categories tab
+✅ Verified: Successfully navigated to categories page
+🍽️ Step 5: Navigate to items tab from header
+✅ Navigated to items tab
+✅ Verified: Successfully navigated to items page
+➕ Step 6: Click on Add Item button
+✅ Add Item button clicked
+✅ Verified: Create button visible
+🔨 Step 7: Click on the create button
+✅ Create button clicked
+✅ Verified: Company button visible
+🏢 Step 8: Click on the company button
+✅ Company button clicked
+✅ Verified: Item creation form is ready
+🍽️ Starting company item creation process...
+🍽️ Creating company item: Chicken Sandwich
+✅ Item name filled: Chicken Sandwich
+✅ Item saved successfully
+✅ Company item "Chicken Sandwich" created successfully
+✅ Item name filled: Chicken Sandwich
+✅ Item status selected: In Stock
 
-[[ATTACHMENT|..\..\test-results\Venue-venue1-Venue-Duplication-Testing---Complete-Flow-all-tests\video.webm]]
+[[ATTACHMENT|..\..\test-results\Items-createcomapanyitem-I-ac7df-y-Level-Create-Company-Item-all-tests\test-failed-1.png]]
+
+[[ATTACHMENT|..\..\test-results\Items-createcomapanyitem-I-ac7df-y-Level-Create-Company-Item-all-tests\video.webm]]
+
+[[ATTACHMENT|..\..\test-results\Items-createcomapanyitem-I-ac7df-y-Level-Create-Company-Item-all-tests\error-context.md]]
 ]]>
 </system-out>
 </testcase>

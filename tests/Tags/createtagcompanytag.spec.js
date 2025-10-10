@@ -7,12 +7,12 @@ import { performLogin } from "../../utils/login-helper.js";
 
 /**
  * Tag Creation Test Suite - Company Level
- * Tests tag creation at company level
- * Flow: Login → Venue → Menu (nth 2) → Stop
+ * Tests multiple tag creation at company level
+ * Flow: Login → Venue → Menu (nth 2) → navigate to the cateogory page → click on the tag from header → click on the add tag button → click on the create button → click on the company button → create multiple tags
  */
 test.describe("Tag Management - Company Level", () => {
   
-  test("Create Tag Company - Food Category", async ({ page }) => {
+  test("Create Multiple Tags Company ", async ({ page }) => {
     test.setTimeout(120000);
     const tagCompanyPOM = new TagCompanyPOM(page);
     
@@ -68,37 +68,63 @@ test.describe("Tag Management - Company Level", () => {
       await page.waitForLoadState('networkidle');
       console.log('✅ Clicked on Company button');
       
-      // Get first tag data
-      const tagData = tags[0];
-      const tagName = tagData["tag-name 1"];
-      const displayName = tagData["display-name 1"];
+      // Create multiple tags using a loop
+      const tagIndices = [0, 1, 4, 7, 10]; // Tag indices to create
       
-      // Click on tag name field and fill it
-      console.log('📝 Step 7: Click on tag name field and fill it');
-      await page.locator(locators["tag-name"]).click();
-      await page.locator(locators["tag-name"]).fill(tagName);
-      console.log(`✅ Tag name field filled with: ${tagName}`);
+      for (let i = 0; i < tagIndices.length; i++) {
+        const tagIndex = tagIndices[i];
+        const tagData = tags[tagIndex];
+        const tagName = tagData[`tag-name ${tagIndex + 1}`];
+        const displayName = tagData[`display-name ${tagIndex + 1}`];
+        
+        console.log(`\n🏷️ Creating tag ${i + 1}/${tagIndices.length}: ${tagName}`);
+        
+        // Click on Add Tag button (only for subsequent tags)
+        if (i > 0) {
+          console.log('➕ Clicking Add Tag button');
+          await page.locator(locators["create-tag-button"]).click();
+          await page.waitForLoadState('networkidle');
+          console.log('✅ Add Tag button clicked');
+          
+          // Click on Create button
+          console.log('🔨 Clicking Create button');
+          await page.locator(locators["create-button"]).click();
+          await page.waitForLoadState('networkidle');
+          console.log('✅ Create button clicked');
+          
+          // Click on Company button
+          console.log('🏢 Clicking Company button');
+          await page.locator(locators["company-button"]).click();
+          await page.waitForLoadState('networkidle');
+          console.log('✅ Company button clicked');
+        }
+        
+        // Fill tag name
+        console.log('📝 Filling tag name');
+        await page.locator(locators["tag-name"]).click();
+        await page.locator(locators["tag-name"]).fill(tagName);
+        console.log(`✅ Tag name filled: ${tagName}`);
+        
+        // Select tag icon
+        console.log('🎨 Selecting tag icon');
+        const iconSelector = locators[`tag-${tagIndex + 1}`];
+        await page.waitForSelector(iconSelector, { timeout: 10000 });
+        await page.locator(iconSelector).click();
+        console.log(`✅ Tag icon ${tagIndex + 1} selected`);
+        
+        // Save tag
+        console.log('💾 Saving tag');
+        await page.getByRole('button', { name: 'Save' }).click();
+        await page.waitForLoadState('networkidle');
+        console.log(`✅ Tag "${tagName}" saved successfully`);
+      }
       
-      // Click on tag icon and select the first icon
-      console.log('🎨 Step 8: Click on tag icon and select first icon');
-      
-      // Wait for the tag icon to be visible
-      await page.waitForSelector(locators["tag-1"], { timeout: 10000 });
-      console.log('✅ Tag icon element found');
-      
-      await page.locator(locators["tag-1"]).click();
-      console.log('✅ First tag icon selected');
-      
-      // Click on Save button
-      console.log('💾 Step 9: Click on Save button');
-      await page.locator(locators["save-button"]).click();
-      await page.waitForLoadState('networkidle');
-      console.log('✅ Tag saved successfully');
+      console.log('\n🎉 All tags created successfully!');
     } else {
       console.log('❌ Not enough menu elements found');
     }
     
-    console.log('✅ Test completed - stopped at form filling');
+    console.log('✅ Test completed - all tags created');
     console.log('📍 Final URL:', page.url());
     
     await page.pause();
