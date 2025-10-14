@@ -1,22 +1,29 @@
-<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="24.489396">
-<testsuite name="Items\createcomapanyitem.spec.js" timestamp="2025-10-10T13:21:28.950Z" hostname="all-tests" tests="1" failures="1" skipped="0" time="23.043" errors="0">
-<testcase name="Item Management - Company Level › Create Company Item" classname="Items\createcomapanyitem.spec.js" time="23.043">
-<failure message="createcomapanyitem.spec.js:15:3 Create Company Item" type="FAILURE">
-<![CDATA[  [all-tests] › Items\createcomapanyitem.spec.js:15:3 › Item Management - Company Level › Create Company Item 
+<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="74.509472">
+<testsuite name="Items\createcomapanyitem.spec.js" timestamp="2025-10-14T13:14:25.229Z" hostname="all-tests" tests="1" failures="1" skipped="0" time="73.263" errors="0">
+<testcase name="Item Management - Company Level › Create Company Item" classname="Items\createcomapanyitem.spec.js" time="73.263">
+<failure message="createcomapanyitem.spec.js:13:3 Create Company Item" type="FAILURE">
+<![CDATA[  [all-tests] › Items\createcomapanyitem.spec.js:13:3 › Item Management - Company Level › Create Company Item 
 
-    TimeoutError: locator.click: Timeout 10000ms exceeded.
+    Error: expect(locator).toBeVisible() failed
+
+    Locator:  getByRole('item-create-success-toast')
+    Expected: visible
+    Received: <element(s) not found>
+    Timeout:  10000ms
+
     Call log:
-      - waiting for locator('//input[@id=\':r1o:\' and @placeholder=\'Select tax\']')
+      - Expect "toBeVisible" with timeout 10000ms
+      - waiting for getByRole('item-create-success-toast')
 
 
-      158 |
-      159 |     //select the tax 2 from dropdown (second tax dropdown)
-    > 160 |     await page.locator(locators["select-tax-dropdown-2"]).click();
-          |                                                           ^
-      161 |     await page.getByRole('option', { name: itemData["tax2"] }).first().click();
-      162 |     console.log('✅ Tax 2 selected successfully');
-      163 |     
-        at C:\Users\HP\Desktop\Obi-Waiter-CMS-playwright-main\tests\Items\createcomapanyitem.spec.js:160:59
+      249 |     // Alternative method: Wait for a network response or a success toast/snackbar that appears after save.
+      250 |     // Here, we assert for a success notification/snackbar, which confirms the save.
+    > 251 |     await expect(page.getByRole('item-create-success-toast')).toBeVisible("item.ITEM_CREATED");
+          |                                                               ^
+      252 |     
+      253 |     console.log('✅ Company item created successfully');
+      254 |
+        at C:\Users\HP\Desktop\Obi-Waiter-CMS-playwright-main\tests\Items\createcomapanyitem.spec.js:251:63
 
     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
     ..\test-results\Items-createcomapanyitem-I-ac7df-y-Level-Create-Company-Item-all-tests\test-failed-1.png
@@ -74,6 +81,20 @@
 ✅ Verified: Form is still active after Add Extra
 ✅ Entered custom price 2 successfully
 ✅ Price description 2 filled successfully
+✅ Tax 2 selected successfully
+✅ Cover image uploaded successfully
+✅ Upload button clicked successfully
+✅ Cuisine selected: Brunch
+✅ Verified: Cuisine selected successfully
+✅ Verified: Serve people selected successfully
+✅ Verified: Customization 'Sauces' selected successfully
+✅ Stock count filled successfully
+✅ Stock count filled successfully
+✅ Generate button clicked: Generate
+✅ Generate button clicked successfully
+✅ Verified: Generate button visible
+✅ Item saved successfully
+✅ Verified: Save button visible
 
 [[ATTACHMENT|..\..\test-results\Items-createcomapanyitem-I-ac7df-y-Level-Create-Company-Item-all-tests\test-failed-1.png]]
 

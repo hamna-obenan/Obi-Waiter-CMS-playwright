@@ -75,7 +75,7 @@
         {
           "title": "Item Management - Company Level",
           "file": "Items/createcomapanyitem.spec.js",
-          "line": 13,
+          "line": 11,
           "column": 6,
           "specs": [
             {
@@ -94,25 +94,25 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 23043,
+                      "duration": 73263,
                       "error": {
-                        "message": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('//input[@id=\\':r1o:\\' and @placeholder=\\'Select tax\\']')\u001b[22m\n",
-                        "stack": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('//input[@id=\\':r1o:\\' and @placeholder=\\'Select tax\\']')\u001b[22m\n\n    at C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Items\\createcomapanyitem.spec.js:160:59",
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m failed\n\nLocator:  getByRole('item-create-success-toast')\nExpected: visible\nReceived: <element(s) not found>\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('item-create-success-toast')\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m failed\n\nLocator:  getByRole('item-create-success-toast')\nExpected: visible\nReceived: <element(s) not found>\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('item-create-success-toast')\u001b[22m\n\n    at C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Items\\createcomapanyitem.spec.js:251:63",
                         "location": {
                           "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Items\\createcomapanyitem.spec.js",
-                          "column": 59,
-                          "line": 160
+                          "column": 63,
+                          "line": 251
                         },
-                        "snippet": "\u001b[0m \u001b[90m 158 |\u001b[39m\n \u001b[90m 159 |\u001b[39m     \u001b[90m//select the tax 2 from dropdown (second tax dropdown)\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 160 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(locators[\u001b[32m\"select-tax-dropdown-2\"\u001b[39m])\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                                           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 161 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'option'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m itemData[\u001b[32m\"tax2\"\u001b[39m] })\u001b[33m.\u001b[39mfirst()\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m 162 |\u001b[39m     console\u001b[33m.\u001b[39mlog(\u001b[32m'✅ Tax 2 selected successfully'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 163 |\u001b[39m     \u001b[0m"
+                        "snippet": "\u001b[0m \u001b[90m 249 |\u001b[39m     \u001b[90m// Alternative method: Wait for a network response or a success toast/snackbar that appears after save.\u001b[39m\n \u001b[90m 250 |\u001b[39m     \u001b[90m// Here, we assert for a success notification/snackbar, which confirms the save.\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 251 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'item-create-success-toast'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible(\u001b[32m\"item.ITEM_CREATED\"\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 252 |\u001b[39m     \n \u001b[90m 253 |\u001b[39m     console\u001b[33m.\u001b[39mlog(\u001b[32m'✅ Company item created successfully'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 254 |\u001b[39m\u001b[0m"
                       },
                       "errors": [
                         {
                           "location": {
                             "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Items\\createcomapanyitem.spec.js",
-                            "column": 59,
-                            "line": 160
+                            "column": 63,
+                            "line": 251
                           },
-                          "message": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('//input[@id=\\':r1o:\\' and @placeholder=\\'Select tax\\']')\u001b[22m\n\n\n\u001b[0m \u001b[90m 158 |\u001b[39m\n \u001b[90m 159 |\u001b[39m     \u001b[90m//select the tax 2 from dropdown (second tax dropdown)\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 160 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(locators[\u001b[32m\"select-tax-dropdown-2\"\u001b[39m])\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                                           \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 161 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'option'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m itemData[\u001b[32m\"tax2\"\u001b[39m] })\u001b[33m.\u001b[39mfirst()\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m 162 |\u001b[39m     console\u001b[33m.\u001b[39mlog(\u001b[32m'✅ Tax 2 selected successfully'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 163 |\u001b[39m     \u001b[0m\n\u001b[2m    at C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Items\\createcomapanyitem.spec.js:160:59\u001b[22m"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m failed\n\nLocator:  getByRole('item-create-success-toast')\nExpected: visible\nReceived: <element(s) not found>\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('item-create-success-toast')\u001b[22m\n\n\n\u001b[0m \u001b[90m 249 |\u001b[39m     \u001b[90m// Alternative method: Wait for a network response or a success toast/snackbar that appears after save.\u001b[39m\n \u001b[90m 250 |\u001b[39m     \u001b[90m// Here, we assert for a success notification/snackbar, which confirms the save.\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 251 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'item-create-success-toast'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible(\u001b[32m\"item.ITEM_CREATED\"\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 252 |\u001b[39m     \n \u001b[90m 253 |\u001b[39m     console\u001b[33m.\u001b[39mlog(\u001b[32m'✅ Company item created successfully'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 254 |\u001b[39m\u001b[0m\n\u001b[2m    at C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Items\\createcomapanyitem.spec.js:251:63\u001b[22m"
                         }
                       ],
                       "stdout": [
@@ -247,11 +247,53 @@
                         },
                         {
                           "text": "✅ Price description 2 filled successfully\n"
+                        },
+                        {
+                          "text": "✅ Tax 2 selected successfully\n"
+                        },
+                        {
+                          "text": "✅ Cover image uploaded successfully\n"
+                        },
+                        {
+                          "text": "✅ Upload button clicked successfully\n"
+                        },
+                        {
+                          "text": "✅ Cuisine selected: Brunch\n"
+                        },
+                        {
+                          "text": "✅ Verified: Cuisine selected successfully\n"
+                        },
+                        {
+                          "text": "✅ Verified: Serve people selected successfully\n"
+                        },
+                        {
+                          "text": "✅ Verified: Customization 'Sauces' selected successfully\n"
+                        },
+                        {
+                          "text": "✅ Stock count filled successfully\n"
+                        },
+                        {
+                          "text": "✅ Stock count filled successfully\n"
+                        },
+                        {
+                          "text": "✅ Generate button clicked: Generate\n"
+                        },
+                        {
+                          "text": "✅ Generate button clicked successfully\n"
+                        },
+                        {
+                          "text": "✅ Verified: Generate button visible\n"
+                        },
+                        {
+                          "text": "✅ Item saved successfully\n"
+                        },
+                        {
+                          "text": "✅ Verified: Save button visible\n"
                         }
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-10T13:21:29.760Z",
+                      "startTime": "2025-10-14T13:14:25.810Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -272,8 +314,8 @@
                       ],
                       "errorLocation": {
                         "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Items\\createcomapanyitem.spec.js",
-                        "column": 59,
-                        "line": 160
+                        "column": 63,
+                        "line": 251
                       }
                     }
                   ],
@@ -282,7 +324,7 @@
               ],
               "id": "4db3bfb0a1fb8deca379-d9b249ecf813adc05d27",
               "file": "Items/createcomapanyitem.spec.js",
-              "line": 15,
+              "line": 13,
               "column": 3
             }
           ]
@@ -292,8 +334,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-10-10T13:21:28.894Z",
-    "duration": 24489.396,
+    "startTime": "2025-10-14T13:14:25.175Z",
+    "duration": 74509.47200000001,
     "expected": 0,
     "skipped": 0,
     "unexpected": 1,

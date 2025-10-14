@@ -209,100 +209,14 @@ export default class CreateCompanyItemPOM {
       console.log(`✅ Second price details filled: Price2=${priceDetails.price2}, Description2=${priceDetails.pricedescription2}, Tax2=${priceDetails.tax2}`);
     }
 
-
-  /**
-   * Select item status (in stock/out of stock)
-   * @param {string} status - The status to select
-   */
-  async selectItemStatus(status) {
-    await this.page.locator(locators["instock-dropdown"]).click();
-    await this.page.getByRole('option', { name: "In Stock" }).click();
-    console.log(`✅ Item status selected: ${status}`);
-  }
-
- 
-
-  /**
-   * Select item cuisine
-   * @param {string} cuisine - The cuisine to select
-   */
-  async selectItemCuisine(cuisine) {
-    await this.page.locator(locators["select-cuisine-dropdown"]).click();
-    await this.page.getByRole('option', { name: "Cuisine 1" }).click();
-    console.log(`✅ Cuisine selected: ${cuisine}`);
-  }
-
-  /**
-   * Select serve people count
-   * @param {string} serveCount - The serve count to select
-   */
-  async selectServePeople(serveCount) {
-    await this.page.locator(locators["serve-people"]).click();
-    await this.page.getByRole('option', { name: "1" }).click();
-    console.log(`✅ Serve people selected: ${serveCount}`);
-  }
-
-  /**
-   * Select item ingredients
-   * @param {Array} ingredients - Array of ingredient names to select
-   */
-  async selectItemIngredients(ingredients) {
-    if (ingredients && ingredients.length > 0) {
-      await this.page.locator(locators["select-ingredients"]).click();
-      for (const ingredient of ingredients) {
-        await this.page.getByRole('option', { name: "Ingredient 1" }).click();
-      }
-      console.log(`✅ Ingredients selected: ${ingredients.join(', ')}`);
-    }
-  }
-
-  /**
-   * Select item tags
-   * @param {Array} tags - Array of tag names to select
-   */
-  async selectItemTags(tags) {
-    if (tags && tags.length > 0) {
-      await this.page.locator(locators["item-tag"]).click();
-      for (const tag of tags) {
-        await this.page.getByRole('option', { name: "Tag 1" }).click();
-      }
-      console.log(`✅ Tags selected: ${tags.join(', ')}`);
-    }
-  }
-
-  /**
-   * Select item customizations
-   * @param {Array} customizations - Array of customization names to select
-   */
-  async selectItemCustomizations(customizations) {
-    if (customizations && customizations.length > 0) {
-      await this.page.locator(locators["select-customizations"]).click();
-      for (const customization of customizations) {
-        await this.page.getByRole('option', { name: "Customization 1" }).click();
-      }
-      console.log(`✅ Customizations selected: ${customizations.join(', ')}`);
-    }
-  }
-
-  /**
-   * Fill stock count
-   * @param {string} stockCount - The stock count to fill
-   */
-  async fillStockCount(stockCount) {
-    if (stockCount && stockCount.trim() !== '') {
-      await this.page.locator(locators["stock-count"]).fill("10");
-      console.log(`✅ Stock count filled: ${stockCount}`);
-    }
-  }
-
-  /**
+    /**
    * Upload item image
    * @param {string} imagePath - Path to the image file
    * @param {string} imageName - Name of the image for logging
    */
   async uploadItemImage(imagePath, imageName) {
     console.log(`📸 Uploading ${imageName}...`);
-    await this.page.getByText('Choose image').click();
+    await this.page.getByText('picture-box').click();
     await this.page.setInputFiles('input[type="file"]', "itemimagecompany.png");
     await this.page.waitForTimeout(2000);
     await expect(this.page.getByRole('img', { name: 'Upload image*' })).toBeVisible();
@@ -320,14 +234,113 @@ export default class CreateCompanyItemPOM {
     }
   }
 
-  // /**
-  //  * Save the item
-  //  */
-  // async saveItem() {
-  //   await this.page.getByRole('button', { name: 'Save' }).click();
-  //   await this.page.waitForLoadState('networkidle');
-  //   console.log('✅ Item saved successfully');
-  // }
+
+    /**
+   * Select item cuisine
+   * @param {string} cuisine - The cuisine to select
+   */
+    async selectItemCuisine(cuisine) {
+      await this.page.locator(locators["select-cuisine-dropdown"]).click();
+      await this.page.getByRole('option', { name: cuisine }).click();
+      console.log(`✅ Cuisine selected: ${cuisine}`);
+    }
+
+    
+  /**
+   * Select serve people count
+   * @param {string} serveCount - The serve count to select
+   */
+  async selectServePeople(serveCount) {
+    await this.page.locator(locators["serve-people"]).click();
+    await this.page.getByRole('option', { name: serveCount }).click();
+    console.log(`✅ Serve people selected: ${serveCount}`);
+  }
+
+
+  /**
+   * Select item ingredients
+   * @param {Array} ingredients - Array of ingredient names to select
+   */
+  async selectItemIngredients(ingredients) {
+    if (ingredients && ingredients.length > 0) {
+      await this.page.locator(locators["select-ingredients"]).click();
+      for (const ingredient of ingredients) {
+        await this.page.getByRole('option', { name: ingredient }).click();
+      }
+      console.log(`✅ Ingredients selected: ${ingredients.join(', ')}`);
+    }
+  }
+   /**
+   * Select item tags
+   * @param {Array} tags - Array of tag names to select
+   */
+  async selectItemTags(tags) {
+    if (tags && tags.length > 0) {
+      await this.page.locator(locators["item-tag"]).click();
+      for (const tag of tags) {
+        await this.page.getByRole('option', { name: "markItemAs" }).click();
+      }
+      console.log(`✅ Tags selected: ${tags.join(', ')}`);
+    }
+  }
+
+
+    /**
+   * Select item customizations
+   * @param {Array} customizations - Array of customization names to select
+   */
+    async selectItemCustomizations(customizations) {
+      if (customizations && customizations.length > 0) {
+        await this.page.locator(locators["select-customizations"]).click();
+        for (const customization of customizations) {
+        await this.page.getByRole('option', { name: "Sauces" }).click();
+        }
+        console.log(`✅ Customizations selected: ${customizations.join(', ')}`);
+      }
+    }
+
+  /**
+   * Select item status (in stock/out of stock)
+   * @param {string} status - The status to select
+   */
+  async selectItemStatus(status) {
+    await this.page.locator(locators["instock-dropdown"]).click();
+    await this.page.getByRole('option', { name: "In Stock" }).click();
+    console.log(`✅ Item status selected: ${status}`);
+  }
+
+
+  /**
+   * Fill stock count
+   * @param {string} stockCount - The stock count to fill
+   */
+  async fillStockCount(stockCount) {
+    if (stockCount && stockCount.trim() !== '') {
+      await this.page.locator(locators["stock-count"]).fill("10");
+      console.log(`✅ Stock count filled: ${stockCount}`);
+    }
+  }
+
+
+    /**
+   * Click on the generate button
+   * @param {string} genratebutton - The generate button to click
+   */
+    async clickOnGenerateButton(genratebutton) {
+      if (genratebutton && genratebutton.trim() !== '') {
+        await this.page.locator(locators["item-details-genrate-button"]).click();
+        console.log(`✅ Generate button clicked: ${genratebutton}`);
+      }
+    }
+
+  /**
+   * Save the item
+   */
+  async saveItem() {
+    await this.page.getByRole('button', { name: 'Save' }).click();
+    await this.page.waitForLoadState('networkidle');
+    console.log('✅ Item saved successfully');
+  }
 
   /**
    * Create a complete company item

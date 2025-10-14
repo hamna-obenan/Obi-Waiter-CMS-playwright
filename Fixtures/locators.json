@@ -101,7 +101,6 @@
     "venue-button":"//button[normalize-space()='Venue']",
     "company-button":"//button[normalize-space()='Company']",
     "click-on-the-menu-name":"[type='text']",
-    "picture-box":"getByText('Choose image')",
     "inner-picture-box":"[id='fileInput']",
     "upload-button":"[type='submit']",
     "cancel-button":"[type ='submit']",
@@ -134,7 +133,6 @@
     "price-discription":"[placeholder='Description']",
     "price-discription-2":"[name='prices.1.description.en']",
     "select-tax-dropdown":"[placeholder='Select tax']",
-    "select-tax-dropdown-2":"//input[@id=':r1o:' and @placeholder='Select tax']",
     "pricedefaultcheckbox":"[name='prices.0.isDefault']",
     "picture-placeholder":"//input[@type='checkbox' and @name='isPlaceholderAdded']",
     "select-cuisine-dropdown":"[placeholder='Select cuisine']",
@@ -144,6 +142,7 @@
     "select-customizations":"[placeholder='Select Customizations']",
     "stock-count":"[placeholder='Enter stock count']",
     "item-details-genrate-button":"//button[normalize-space(text())='Generate']",
+    "item-create-success-toast":"//div[@role='alert']//*[normalize-space()='item.ITEM_CREATED']",
 
 
 
