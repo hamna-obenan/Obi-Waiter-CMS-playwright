@@ -20,26 +20,28 @@ test.describe("Ingredient Management - Venue Level", () => {
     await performLogin(page, login.TC1001.Email, login.TC1001.Password);
     await expect(page.locator(locators["click-on-the-created-venue"])).toBeVisible();
     
-    // Navigate to ingredients page
+    // navigate to venue page
     await ingredientsVenuePOM.navigateToVenuePage();
     await expect(page.locator('text=Venue')).toBeVisible();
     
+    // navigate to menu page
     await ingredientsVenuePOM.navigateToMenuPage();
     await expect(page.locator('text=Select menu')).toBeVisible();
     
+    // navigate to category page
     await ingredientsVenuePOM.navigateToCategoryPage();
     await expect(page).toHaveURL(/.*categories.*/);
-    
+    // navigate to ingredients page
     await ingredientsVenuePOM.navigateToIngredientsPage();
     await expect(page).toHaveURL(/.*ingredients.*/);
     
     // Create ingredient
     await ingredientsVenuePOM.clickAddNewIngredient();
     await expect(page.locator(locators["create-button"])).toBeVisible();
-    
+    // click on create button
     await ingredientsVenuePOM.clickCreateButton();
     await expect(page.locator(locators["venue-button"])).toBeVisible();
-    
+    // click on venue button
     await ingredientsVenuePOM.clickVenueButton();
     await expect(page.locator(locators["ingredient-name"])).toBeVisible();
     
@@ -48,15 +50,17 @@ test.describe("Ingredient Management - Venue Level", () => {
     // Fill form
     const inStock = ingredientData["in stock"];
     const hasAllergen = ingredientData["ingredient-allergen"] === "yes";
-    
+    // fill ingredient name
     await ingredientsVenuePOM.fillIngredientName(ingredientName);
+    // set stock status
     await ingredientsVenuePOM.setStockStatus(inStock === "yes");
+    // set allergen status
     await ingredientsVenuePOM.setAllergenStatus(hasAllergen);
     
     // Verify form data
     await expect(page.locator(locators["ingredient-name"])).toHaveValue(ingredientName);
     await expect(page.locator(locators["ingredient-instock-checkbox"])).toBeChecked();
-    
+    // verify allergen status
     if (hasAllergen) {
       await expect(page.locator(locators["ingredient-allergen-checkbox"])).toBeChecked();
     } else {
@@ -76,7 +80,7 @@ test.describe("Ingredient Management - Venue Level", () => {
         // Try pagination if ingredient not found on current page
         const page2Button = page.locator('button:has-text("2")');
         const nextPageButton = page.locator('button:has-text("Go to next page")');
-        
+        // click on page 2 button
         try {
           await page2Button.click({ timeout: 5000 });
           await page.waitForLoadState('networkidle');
@@ -91,63 +95,63 @@ test.describe("Ingredient Management - Venue Level", () => {
     
     await page.pause();
   }
-
+  // create ingredient venue - grilled chicken
   test("Create Ingredient Venue - Grilled chicken", async ({ page }) => {
     test.setTimeout(120000);
     const ingredientData = ingredients.ingredients[0];
     const ingredientName = ingredientData["ingredient-name 1"];
     await createVenueIngredient(page, ingredientData, ingredientName);
   });
-
+  // create ingredient venue - tomato slices
   test("Create Ingredient Venue - Tomato slices", async ({ page }) => {
     test.setTimeout(120000);
     const ingredientData = ingredients.ingredients[2];
     const ingredientName = ingredientData["ingredient-name 3"];
     await createVenueIngredient(page, ingredientData, ingredientName);
   });
-
+  // create ingredient venue - onion
   test("Create Ingredient Venue - Onion", async ({ page }) => {
     test.setTimeout(120000);
     const ingredientData = ingredients.ingredients[4];
     const ingredientName = ingredientData["ingredient-name 5"];
     await createVenueIngredient(page, ingredientData, ingredientName);
   });
-
+  // create ingredient venue - pickles
   test("Create Ingredient Venue - Pickles", async ({ page }) => {
     test.setTimeout(120000);
     const ingredientData = ingredients.ingredients[6];
     const ingredientName = ingredientData["ingredient-name 7"];
     await createVenueIngredient(page, ingredientData, ingredientName);
   });
-
+  // create ingredient venue - butter
   test("Create Ingredient Venue - Butter", async ({ page }) => {
     test.setTimeout(120000);
     const ingredientData = ingredients.ingredients[8];
     const ingredientName = ingredientData["ingredient-name 9"];
     await createVenueIngredient(page, ingredientData, ingredientName);
   });
-
+  // create ingredient venue - ketchup
   test("Create Ingredient Venue - Ketchup", async ({ page }) => {
     test.setTimeout(120000);
     const ingredientData = ingredients.ingredients[10];
     const ingredientName = ingredientData["ingredient-name 11"];
     await createVenueIngredient(page, ingredientData, ingredientName);
   });
-
+  // create ingredient venue - jalapeños
   test("Create Ingredient Venue - Jalapeños", async ({ page }) => {
     test.setTimeout(120000);
     const ingredientData = ingredients.ingredients[12];
     const ingredientName = ingredientData["ingredient-name 13"];
     await createVenueIngredient(page, ingredientData, ingredientName);
   });
-
+  // create ingredient venue - salt & pepper
   test("Create Ingredient Venue - Salt & pepper", async ({ page }) => {
     test.setTimeout(120000);
     const ingredientData = ingredients.ingredients[14];
     const ingredientName = ingredientData["ingredient-name 15"];
     await createVenueIngredient(page, ingredientData, ingredientName);
   });
-
+  // create ingredient venue - cheese slice is allergen
   test("Create Ingredient Venue - Cheese", async ({ page }) => {
     test.setTimeout(120000);
     const ingredientData = ingredients.ingredients[16];

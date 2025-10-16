@@ -66,21 +66,21 @@
   },
   "suites": [
     {
-      "title": "Items\\createcomapanyitem.spec.js",
-      "file": "Items/createcomapanyitem.spec.js",
+      "title": "Items\\venueitem.spec.js",
+      "file": "Items/venueitem.spec.js",
       "column": 0,
       "line": 0,
       "specs": [],
       "suites": [
         {
-          "title": "Item Management - Company Level",
-          "file": "Items/createcomapanyitem.spec.js",
+          "title": "Item Venue - Venue Level",
+          "file": "Items/venueitem.spec.js",
           "line": 11,
           "column": 6,
           "specs": [
             {
-              "title": "Create Company Item",
-              "ok": false,
+              "title": "Create Venue Item",
+              "ok": true,
               "tags": [],
               "tests": [
                 {
@@ -93,28 +93,9 @@
                     {
                       "workerIndex": 0,
                       "parallelIndex": 0,
-                      "status": "failed",
-                      "duration": 73263,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m failed\n\nLocator:  getByRole('item-create-success-toast')\nExpected: visible\nReceived: <element(s) not found>\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('item-create-success-toast')\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m failed\n\nLocator:  getByRole('item-create-success-toast')\nExpected: visible\nReceived: <element(s) not found>\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('item-create-success-toast')\u001b[22m\n\n    at C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Items\\createcomapanyitem.spec.js:251:63",
-                        "location": {
-                          "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Items\\createcomapanyitem.spec.js",
-                          "column": 63,
-                          "line": 251
-                        },
-                        "snippet": "\u001b[0m \u001b[90m 249 |\u001b[39m     \u001b[90m// Alternative method: Wait for a network response or a success toast/snackbar that appears after save.\u001b[39m\n \u001b[90m 250 |\u001b[39m     \u001b[90m// Here, we assert for a success notification/snackbar, which confirms the save.\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 251 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'item-create-success-toast'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible(\u001b[32m\"item.ITEM_CREATED\"\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 252 |\u001b[39m     \n \u001b[90m 253 |\u001b[39m     console\u001b[33m.\u001b[39mlog(\u001b[32m'✅ Company item created successfully'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 254 |\u001b[39m\u001b[0m"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Items\\createcomapanyitem.spec.js",
-                            "column": 63,
-                            "line": 251
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m failed\n\nLocator:  getByRole('item-create-success-toast')\nExpected: visible\nReceived: <element(s) not found>\nTimeout:  10000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('item-create-success-toast')\u001b[22m\n\n\n\u001b[0m \u001b[90m 249 |\u001b[39m     \u001b[90m// Alternative method: Wait for a network response or a success toast/snackbar that appears after save.\u001b[39m\n \u001b[90m 250 |\u001b[39m     \u001b[90m// Here, we assert for a success notification/snackbar, which confirms the save.\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 251 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'item-create-success-toast'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible(\u001b[32m\"item.ITEM_CREATED\"\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 252 |\u001b[39m     \n \u001b[90m 253 |\u001b[39m     console\u001b[33m.\u001b[39mlog(\u001b[32m'✅ Company item created successfully'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 254 |\u001b[39m\u001b[0m\n\u001b[2m    at C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Items\\createcomapanyitem.spec.js:251:63\u001b[22m"
-                        }
-                      ],
+                      "status": "passed",
+                      "duration": 10395,
+                      "errors": [],
                       "stdout": [
                         {
                           "text": "Logging in with email: hamna123@gmail.com\n"
@@ -126,204 +107,33 @@
                           "text": "✅ Login completed successfully\n"
                         },
                         {
-                          "text": "✅ Login completed successfully\n"
-                        },
-                        {
-                          "text": "✅ Verified: On venue page\n"
-                        },
-                        {
-                          "text": "🏢 Step 1: Click on created venue\n"
-                        },
-                        {
                           "text": "✅ Landed on venue page and clicked on the created venue\n"
-                        },
-                        {
-                          "text": "📋 Step 2: Navigate to menu page\n"
                         },
                         {
                           "text": "✅ Navigated to menu page (clicked 2nd menu)\n"
                         },
                         {
-                          "text": "✅ Navigated to menu page\n"
-                        },
-                        {
-                          "text": "📂 Step 3: Navigate to categories tab\n"
-                        },
-                        {
                           "text": "✅ Verified: Successfully navigated to categories page\n"
-                        },
-                        {
-                          "text": "✅ Navigated to categories tab\n"
-                        },
-                        {
-                          "text": "✅ Verified: Successfully navigated to categories page\n"
-                        },
-                        {
-                          "text": "🍽️ Step 5: Navigate to items tab from header\n"
-                        },
-                        {
-                          "text": "✅ Navigated to items tab\n"
-                        },
-                        {
-                          "text": "✅ Verified: Successfully navigated to items page\n"
-                        },
-                        {
-                          "text": "➕ Step 6: Click on Add Item button\n"
-                        },
-                        {
-                          "text": "✅ Add Item button clicked\n"
-                        },
-                        {
-                          "text": "✅ Verified: Create button visible\n"
-                        },
-                        {
-                          "text": "🔨 Step 7: Click on the create button\n"
-                        },
-                        {
-                          "text": "✅ Create button clicked\n"
-                        },
-                        {
-                          "text": "✅ Verified: Company button visible\n"
-                        },
-                        {
-                          "text": "🏢 Step 8: Click on the company button\n"
-                        },
-                        {
-                          "text": "✅ Company button clicked\n"
-                        },
-                        {
-                          "text": "✅ Verified: Item creation form is ready\n"
-                        },
-                        {
-                          "text": "🍽️ Starting company item creation process...\n"
-                        },
-                        {
-                          "text": "✅ Item name filled: Chicken Sandwich\n"
-                        },
-                        {
-                          "text": "✅ Item status selected: In Stock\n"
-                        },
-                        {
-                          "text": "✅ Menu selected: Italian\n"
-                        },
-                        {
-                          "text": "✅ Verified: Menu selected successfully\n"
-                        },
-                        {
-                          "text": "✅ Category selected: Appetizers\n"
-                        },
-                        {
-                          "text": "✅ Verified: Category selected successfully\n"
-                        },
-                        {
-                          "text": "✅ Item description filled: A deliciously hearty chicken sandwich made with tender, juicy chicken breast seasoned to perfection and layered between fresh bread slices. Packed with crisp lettuce, ripe tomato, onions, and creamy mayonnaise, this sandwich balances savory flavors with a refreshing crunch. Ideal for a quick lunch, light dinner, or an on-the-go meal, it’s a wholesome and satisfying choice for chicken lovers.\n"
-                        },
-                        {
-                          "text": "✅ Verified: Description filled successfully\n"
-                        },
-                        {
-                          "text": "✅ Entered custom price successfully\n"
-                        },
-                        {
-                          "text": "✅ Item price description filled: Regular\n"
-                        },
-                        {
-                          "text": "✅ Verified: Price discription filled successfully\n"
-                        },
-                        {
-                          "text": "✅ Item tax selected: Standard: Taxes (9% Dine-In, 7% Take-Away)\n"
-                        },
-                        {
-                          "text": "✅ Default price selected: yes\n"
-                        },
-                        {
-                          "text": "✅ Add extra button clicked (locator: add-extra)\n"
-                        },
-                        {
-                          "text": "✅ Verified: Form is still active after Add Extra\n"
-                        },
-                        {
-                          "text": "✅ Entered custom price 2 successfully\n"
-                        },
-                        {
-                          "text": "✅ Price description 2 filled successfully\n"
-                        },
-                        {
-                          "text": "✅ Tax 2 selected successfully\n"
-                        },
-                        {
-                          "text": "✅ Cover image uploaded successfully\n"
-                        },
-                        {
-                          "text": "✅ Upload button clicked successfully\n"
-                        },
-                        {
-                          "text": "✅ Cuisine selected: Brunch\n"
-                        },
-                        {
-                          "text": "✅ Verified: Cuisine selected successfully\n"
-                        },
-                        {
-                          "text": "✅ Verified: Serve people selected successfully\n"
-                        },
-                        {
-                          "text": "✅ Verified: Customization 'Sauces' selected successfully\n"
-                        },
-                        {
-                          "text": "✅ Stock count filled successfully\n"
-                        },
-                        {
-                          "text": "✅ Stock count filled successfully\n"
-                        },
-                        {
-                          "text": "✅ Generate button clicked: Generate\n"
-                        },
-                        {
-                          "text": "✅ Generate button clicked successfully\n"
-                        },
-                        {
-                          "text": "✅ Verified: Generate button visible\n"
-                        },
-                        {
-                          "text": "✅ Item saved successfully\n"
-                        },
-                        {
-                          "text": "✅ Verified: Save button visible\n"
                         }
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-14T13:14:25.810Z",
+                      "startTime": "2025-10-16T06:42:02.222Z",
                       "annotations": [],
                       "attachments": [
                         {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Items-createcomapanyitem-I-ac7df-y-Level-Create-Company-Item-all-tests\\test-failed-1.png"
-                        },
-                        {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Items-createcomapanyitem-I-ac7df-y-Level-Create-Company-Item-all-tests\\video.webm"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Items-createcomapanyitem-I-ac7df-y-Level-Create-Company-Item-all-tests\\error-context.md"
+                          "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Items-venueitem-Item-Venue---Venue-Level-Create-Venue-Item-all-tests\\video.webm"
                         }
-                      ],
-                      "errorLocation": {
-                        "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Items\\createcomapanyitem.spec.js",
-                        "column": 63,
-                        "line": 251
-                      }
+                      ]
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
                 }
               ],
-              "id": "4db3bfb0a1fb8deca379-d9b249ecf813adc05d27",
-              "file": "Items/createcomapanyitem.spec.js",
+              "id": "39fc1fc191e78dec2adb-2739b978f4799b3eb167",
+              "file": "Items/venueitem.spec.js",
               "line": 13,
               "column": 3
             }
@@ -334,11 +144,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-10-14T13:14:25.175Z",
-    "duration": 74509.47200000001,
-    "expected": 0,
+    "startTime": "2025-10-16T06:42:01.451Z",
+    "duration": 11669.393,
+    "expected": 1,
     "skipped": 0,
-    "unexpected": 1,
+    "unexpected": 0,
     "flaky": 0
   }
 }

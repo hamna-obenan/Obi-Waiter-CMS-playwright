@@ -1,106 +1,15 @@
-<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="74.509472">
-<testsuite name="Items\createcomapanyitem.spec.js" timestamp="2025-10-14T13:14:25.229Z" hostname="all-tests" tests="1" failures="1" skipped="0" time="73.263" errors="0">
-<testcase name="Item Management - Company Level › Create Company Item" classname="Items\createcomapanyitem.spec.js" time="73.263">
-<failure message="createcomapanyitem.spec.js:13:3 Create Company Item" type="FAILURE">
-<![CDATA[  [all-tests] › Items\createcomapanyitem.spec.js:13:3 › Item Management - Company Level › Create Company Item 
-
-    Error: expect(locator).toBeVisible() failed
-
-    Locator:  getByRole('item-create-success-toast')
-    Expected: visible
-    Received: <element(s) not found>
-    Timeout:  10000ms
-
-    Call log:
-      - Expect "toBeVisible" with timeout 10000ms
-      - waiting for getByRole('item-create-success-toast')
-
-
-      249 |     // Alternative method: Wait for a network response or a success toast/snackbar that appears after save.
-      250 |     // Here, we assert for a success notification/snackbar, which confirms the save.
-    > 251 |     await expect(page.getByRole('item-create-success-toast')).toBeVisible("item.ITEM_CREATED");
-          |                                                               ^
-      252 |     
-      253 |     console.log('✅ Company item created successfully');
-      254 |
-        at C:\Users\HP\Desktop\Obi-Waiter-CMS-playwright-main\tests\Items\createcomapanyitem.spec.js:251:63
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\test-results\Items-createcomapanyitem-I-ac7df-y-Level-Create-Company-Item-all-tests\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\test-results\Items-createcomapanyitem-I-ac7df-y-Level-Create-Company-Item-all-tests\video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\test-results\Items-createcomapanyitem-I-ac7df-y-Level-Create-Company-Item-all-tests\error-context.md
-]]>
-</failure>
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="11.669393">
+<testsuite name="Items\venueitem.spec.js" timestamp="2025-10-16T06:42:01.509Z" hostname="all-tests" tests="1" failures="0" skipped="0" time="10.395" errors="0">
+<testcase name="Item Venue - Venue Level › Create Venue Item" classname="Items\venueitem.spec.js" time="10.395">
 <system-out>
 <![CDATA[Logging in with email: hamna123@gmail.com
 ✅ Login form filled successfully
 ✅ Login completed successfully
-✅ Login completed successfully
-✅ Verified: On venue page
-🏢 Step 1: Click on created venue
 ✅ Landed on venue page and clicked on the created venue
-📋 Step 2: Navigate to menu page
 ✅ Navigated to menu page (clicked 2nd menu)
-✅ Navigated to menu page
-📂 Step 3: Navigate to categories tab
 ✅ Verified: Successfully navigated to categories page
-✅ Navigated to categories tab
-✅ Verified: Successfully navigated to categories page
-🍽️ Step 5: Navigate to items tab from header
-✅ Navigated to items tab
-✅ Verified: Successfully navigated to items page
-➕ Step 6: Click on Add Item button
-✅ Add Item button clicked
-✅ Verified: Create button visible
-🔨 Step 7: Click on the create button
-✅ Create button clicked
-✅ Verified: Company button visible
-🏢 Step 8: Click on the company button
-✅ Company button clicked
-✅ Verified: Item creation form is ready
-🍽️ Starting company item creation process...
-✅ Item name filled: Chicken Sandwich
-✅ Item status selected: In Stock
-✅ Menu selected: Italian
-✅ Verified: Menu selected successfully
-✅ Category selected: Appetizers
-✅ Verified: Category selected successfully
-✅ Item description filled: A deliciously hearty chicken sandwich made with tender, juicy chicken breast seasoned to perfection and layered between fresh bread slices. Packed with crisp lettuce, ripe tomato, onions, and creamy mayonnaise, this sandwich balances savory flavors with a refreshing crunch. Ideal for a quick lunch, light dinner, or an on-the-go meal, it’s a wholesome and satisfying choice for chicken lovers.
-✅ Verified: Description filled successfully
-✅ Entered custom price successfully
-✅ Item price description filled: Regular
-✅ Verified: Price discription filled successfully
-✅ Item tax selected: Standard: Taxes (9% Dine-In, 7% Take-Away)
-✅ Default price selected: yes
-✅ Add extra button clicked (locator: add-extra)
-✅ Verified: Form is still active after Add Extra
-✅ Entered custom price 2 successfully
-✅ Price description 2 filled successfully
-✅ Tax 2 selected successfully
-✅ Cover image uploaded successfully
-✅ Upload button clicked successfully
-✅ Cuisine selected: Brunch
-✅ Verified: Cuisine selected successfully
-✅ Verified: Serve people selected successfully
-✅ Verified: Customization 'Sauces' selected successfully
-✅ Stock count filled successfully
-✅ Stock count filled successfully
-✅ Generate button clicked: Generate
-✅ Generate button clicked successfully
-✅ Verified: Generate button visible
-✅ Item saved successfully
-✅ Verified: Save button visible
 
-[[ATTACHMENT|..\..\test-results\Items-createcomapanyitem-I-ac7df-y-Level-Create-Company-Item-all-tests\test-failed-1.png]]
-
-[[ATTACHMENT|..\..\test-results\Items-createcomapanyitem-I-ac7df-y-Level-Create-Company-Item-all-tests\video.webm]]
-
-[[ATTACHMENT|..\..\test-results\Items-createcomapanyitem-I-ac7df-y-Level-Create-Company-Item-all-tests\error-context.md]]
+[[ATTACHMENT|..\..\test-results\Items-venueitem-Item-Venue---Venue-Level-Create-Venue-Item-all-tests\video.webm]]
 ]]>
 </system-out>
 </testcase>
