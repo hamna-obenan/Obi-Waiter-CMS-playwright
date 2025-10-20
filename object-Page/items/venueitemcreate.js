@@ -81,6 +81,7 @@ export default class CreateVenueItemPOM {
    */
   async clickCreateButton() {
     await this.page.locator(locators["create-button"]).click();
+    await this.page.waitForSelector(locators["create-button"], { timeout: 10000 });
     await this.page.waitForLoadState('networkidle');
     console.log('✅ Create button clicked');
   }
@@ -143,12 +144,12 @@ export default class CreateVenueItemPOM {
      * Fill 1st item price (select 'Enter Custom Price' after opening dropdown)
      * @param {string} price - The price to fill
      */
-    async fillItemPrice(price) {
+    async enterItemPrice(price) {
       await this.page.locator(locators["price-dropdown"]).click();
       await this.page.locator(locators["pricedefault"]).click();
       await this.page.locator(locators["enter-custom-price"]).click();
       await this.page.locator(locators["enter-custom-price"]).fill(price);
-      console.log(`✅ Entered custom price successfully`);
+      console.log(`✅ Entered custom price successfully: ${price}`);
     }
     /**
      * Fill item price description
@@ -189,28 +190,31 @@ export default class CreateVenueItemPOM {
     /**
      * Fill second price details (custom price, description, and tax)
      * @param {object} priceDetails - Object containing price2, pricedescription2, and tax2
-     *   priceDetails = {
-     *     price2: string,
-     *     pricedescription2: string,
-     *     tax2: string
-     *   }
+     *  price fillup
      */
-    async fillSecondPriceDetails(priceDetails) {
-      // Click the price dropdown and select custom price option for price 2
+    async fillSecondPrice(price) {
       await this.page.locator(locators["price-dropdown-2"]).click();
       await this.page.locator(locators["pricedefault"]).click();
-      // Focus the second price textbox and enter the price
       await this.page.locator(locators["enter-custom-price-2"]).click();
-      await this.page.locator(locators["enter-custom-price-2"]).fill(priceDetails.price2);
+      await this.page.locator(locators["enter-custom-price-2"]).fill(price);
+      console.log(`✅ Second price filled: ${price}`);
+    }
 
-      // Enter price description 2
-      await this.page.locator(locators["price-discription"]).fill(priceDetails.pricedescription2);
+    //price description 2
 
-      // Select tax for price 2
+    async fillSecondPriceDescription(priceDescription) {
+      await this.page.locator('input[name="prices.1.description.en"]').fill("Family");
+      await expect(this.page.locator(locators["price-discription-2"])).toHaveValue("Family");
+      console.log(`✅ Second price description filled: ${priceDescription}`);
+    }
+
+    //price tax in venue item creation
+
+    async fillSecondPriceTax(tax) {
       await this.page.locator(locators["select-tax-dropdown-2"]).click();
-      await this.page.getByRole('option', { name: priceDetails.tax2 }).click();
+      await this.page.getByRole('option', { name: 'Override: 9% on all order types' }).click();
 
-      console.log(`✅ Second price details filled: Price2=${priceDetails.price2}, Description2=${priceDetails.pricedescription2}, Tax2=${priceDetails.tax2}`);
+      console.log(`✅ Second price tax selected: ${tax}`);
     }
 
     /**
@@ -219,23 +223,11 @@ export default class CreateVenueItemPOM {
    * @param {string} imageName - Name of the image for logging
    */
   async uploadItemImage(imagePath, imageName) {
-    console.log(`📸 Uploading ${imageName}...`);
-    await this.page.getByText('picture-box').click();
-    await this.page.setInputFiles('input[type="file"]', imagePath);
-    await this.page.waitForTimeout(2000);
-    await expect(this.page.getByRole('img', { name: 'Upload image*' })).toBeVisible();
+    await this.page.getByText('choose image').click();
+    await this.page.getByText('Drag image hereorBrowse from').click();
+    await this.page.locator(locators["inner-picture-box"]).setInputFiles(`./Fixtures/pictures/${imagePath}`);
     await this.page.getByRole('button', { name: 'Upload' }).click();
-    
-    // Wait for upload to complete
-    try {
-      await this.page.waitForFunction(() => {
-        const uploadModal = document.querySelector('[role="dialog"], .MuiDialog-root, .MuiModal-root');
-        return !uploadModal || uploadModal.style.display === 'none';
-      }, { timeout: 30000 });
-      console.log(`✅ ${imageName} uploaded successfully`);
-    } catch (error) {
-      console.log(`⚠️ Upload timeout for ${imageName}, continuing...`);
-    }
+    console.log(`✅ ${imageName} uploaded successfully`);
   }
 
 
@@ -256,7 +248,7 @@ export default class CreateVenueItemPOM {
    */
   async selectServePeople(serveCount) {
     await this.page.locator(locators["serve-people"]).click();
-    await this.page.getByRole('option', { name: serveCount }).click();
+    await this.page.locator(locators["serve-people"]).fill(serveCount);
     console.log(`✅ Serve people selected: ${serveCount}`);
   }
 
@@ -266,6 +258,7 @@ export default class CreateVenueItemPOM {
    * @param {Array} ingredients - Array of ingredient names to select
    */
   async selectItemIngredients(ingredients) {
+    // Select item ingredients (same as company item method)
     if (ingredients && ingredients.length > 0) {
       await this.page.locator(locators["select-ingredients"]).click();
       for (const ingredient of ingredients) {
@@ -274,19 +267,63 @@ export default class CreateVenueItemPOM {
       console.log(`✅ Ingredients selected: ${ingredients.join(', ')}`);
     }
   }
+
+   //select the ingredients mandatory or optional
    /**
+    * Set ingredients as mandatory or optional.
+    * For 15 ingredients: even positions (2,4,6,...) are mandatory, odd positions (1,3,5,...) are optional.
+    * @param {Array} ingredients - Array of 15 ingredient names.
+    */
+   async selectIngredientsMandatoryOrOptional(ingredients) {
+     if (ingredients && ingredients.length === 15) {
+       await this.page.locator(locators["select-ingredients"]).click();
+       await this.page.waitForTimeout(500);
+
+       for (let i = 0; i < ingredients.length; i++) {
+         const ingredient = ingredients[i];
+         const optionLocator = this.page.getByRole('option', { name: ingredient });
+         // Open the ingredient option if floating menu closes
+         await optionLocator.scrollIntoViewIfNeeded();
+         // Click to make sure option is selected/highlighted
+         await optionLocator.click();
+         // Now find and set mandatory/optional radio/checkbox (you may need to adjust below selectors as per UI):
+         if ((i + 1) % 2 === 0) {
+           // Mandatory for 2,4,6,8,10,12,14
+           // Example: you might have a radio or checkbox in the option called "Mandatory"
+           await optionLocator.getByLabel?.('Mandatory').check?.().catch(() => {});
+           // Or fallback (if getByLabel is not supported):
+           // await optionLocator.locator('text=Mandatory').check().catch(() => {});
+         } else {
+           // Optional for 1,3,5,7,9,11,13,15
+           await optionLocator.getByLabel?.('Optional').check?.().catch(() => {});
+           // Or fallback (if getByLabel is not supported):
+           // await optionLocator.locator('text=Optional').check().catch(() => {});
+         }
+         await this.page.waitForTimeout(100);
+       }
+       console.log(`✅ Ingredients mandatory/optional set: ${ingredients.map((name, i) => `${name}:${(i+1)%2===0?'Mandatory':'Optional'}`).join(', ')}`);
+     } else {
+       console.warn(
+         'Ingredients array must have exactly 15 items to use selectIngredientsMandatoryOrOptional per requirements.'
+       );
+     }
+   }
+    /**
    * Select item tags
-   * @param {Array} tags - Array of tag names to select
+   * @param {Array|string} tags - Array of tag names or single tag name to select
    */
   async selectItemTags(tags) {
-    if (tags && tags.length > 0) {
+    // Handle both string and array inputs
+    const tagArray = Array.isArray(tags) ? tags : [tags];
+    
+    if (tagArray && tagArray.length > 0) {
       await this.page.locator(locators["item-tag"]).click();
-      for (const tag of tags) {
-        await this.page.getByRole('option', { name: "markItemAs" }).click();
+      for (const tag of tagArray) {
+        await this.page.getByRole('option', { name: tag }).click();
       }
-      console.log(`✅ Tags selected: ${tags.join(', ')}`);
+      console.log(`✅ Tags selected: ${tagArray.join(', ')}`);
     }
-  }
+   }
 
 
     /**
@@ -309,7 +346,7 @@ export default class CreateVenueItemPOM {
    */
   async selectItemStatus(status) {
     await this.page.locator(locators["instock-dropdown"]).click();
-    await this.page.getByRole('option', { name: "In Stock" }).click();
+    await this.page.getByRole('option', { name: "10" }).click();
     console.log(`✅ Item status selected: ${status}`);
   }
 

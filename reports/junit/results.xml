@@ -1,6 +1,6 @@
-<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="11.669393">
-<testsuite name="Items\venueitem.spec.js" timestamp="2025-10-16T06:42:01.509Z" hostname="all-tests" tests="1" failures="0" skipped="0" time="10.395" errors="0">
-<testcase name="Item Venue - Venue Level › Create Venue Item" classname="Items\venueitem.spec.js" time="10.395">
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="34.546787">
+<testsuite name="Items\venueitem.spec.js" timestamp="2025-10-20T10:06:09.733Z" hostname="all-tests" tests="1" failures="0" skipped="0" time="32.345" errors="0">
+<testcase name="Item Venue - Venue Level › Create Venue Item" classname="Items\venueitem.spec.js" time="32.345">
 <system-out>
 <![CDATA[Logging in with email: hamna123@gmail.com
 ✅ Login form filled successfully
@@ -8,6 +8,37 @@
 ✅ Landed on venue page and clicked on the created venue
 ✅ Navigated to menu page (clicked 2nd menu)
 ✅ Verified: Successfully navigated to categories page
+✅ Navigated to items tab
+✅ Add Item button clicked
+✅ Venue button clicked
+✅ Item name filled: Special Plater
+✅ Item status selected: in stock
+✅ Menu selected: Italian
+✅ Category selected: Noodles
+✅ Item description filled: Our Special Platter is the ultimate combination of flavors and textures a delicious mix of crispy golden fries, a freshly prepared sandwich, zesty sauces, and a refreshing vegetable salad. Perfectly balanced with crunch, flavor, and freshness, it’s a fulfilling meal that satisfies every craving in one plate
+✅ Entered custom price successfully: 3.99
+✅ Item price description filled: Regular
+✅ Item tax selected: Standard: Taxes (9% Dine-In, 7% Take-Away)
+Standard: Taxes (9% Dine-In, 7% Take-Away)
+✅ Default price selected: yes
+✅ Default price selected successfully
+✅ Add extra button clicked (locator: add-extra)
+✅ Add extra button clicked successfully
+✅ Second price filled: 4.99
+✅ Second price filled successfully
+✅ Second price description filled: Family
+✅ Second price description filled successfully
+✅ Second price tax selected: Override: 9% on all order types
+✅ Second price tax filled successfully
+✅ undefined uploaded successfully
+✅ Cover image uploaded successfully
+✅ Cuisine selected: Brunch
+✅ Serve people selected: 3
+✅ Ingredients selected: Grilled chicken, Lettuce, Tomato slices, Cucumber, Onion, Bell peppers, Pickles, Mayonnaise, Butter, Mustard, Ketchup, Olives, Jalapeños, Herbs, Salt & pepper
+✅ Tags selected: Chef’s Special
+✅ Customizations selected: Sauces
+✅ Stock count filled: 10
+✅ Generate button clicked: Generate
 
 [[ATTACHMENT|..\..\test-results\Items-venueitem-Item-Venue---Venue-Level-Create-Venue-Item-all-tests\video.webm]]
 ]]>

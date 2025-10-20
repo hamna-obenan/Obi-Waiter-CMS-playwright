@@ -133,6 +133,7 @@
     "price-discription":"[placeholder='Description']",
     "price-discription-2":"[name='prices.1.description.en']",
     "select-tax-dropdown":"[placeholder='Select tax']",
+    "select-tax-dropdown-2":"(//input[@placeholder='Select tax'])[2]",
     "pricedefaultcheckbox":"[name='prices.0.isDefault']",
     "picture-placeholder":"//input[@type='checkbox' and @name='isPlaceholderAdded']",
     "select-cuisine-dropdown":"[placeholder='Select cuisine']",
