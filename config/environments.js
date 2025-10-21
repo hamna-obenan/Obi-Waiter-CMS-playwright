@@ -40,6 +40,7 @@ export const config = {
     api: process.env.API_URL || 'http://localhost:8000',
     admin: process.env.ADMIN_URL || 'http://localhost:3001',
     login: process.env.LOGIN_URL || 'http://localhost:3000/login',
+    signup: process.env.SIGNUP_URL || 'http://localhost:3000/signup',
     venue: process.env.VENUE_URL || 'http://localhost:3000/venue',
   },
 

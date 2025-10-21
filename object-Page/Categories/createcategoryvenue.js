@@ -89,7 +89,7 @@ export default class CreateCategoryVenuePOM {
    */
   async selectMenuForCategory() {
     console.log('📋 Selecting menu for category...');
-    await this.page.locator(locators["select-menu-for-category"]).click();
+    await this.page.locator(locators["select-menu-dropdown"]).click();
     // Wait for dropdown options and select the first one
     await this.page.waitForTimeout(1000);
     const firstOption = this.page.locator('[role="option"]').first();

@@ -1,6 +1,7 @@
 import { expect } from "@playwright/test";
 import LoginPage from "../object-Page/pomlogin/pomlogin1.js";
 import locators from "../Fixtures/locators.json" assert { type: "json" };
+import { config } from '../config/environments.js';
 
 /**
  * Reusable Login Helper Function
@@ -11,7 +12,7 @@ import locators from "../Fixtures/locators.json" assert { type: "json" };
  */
 export async function performLogin(page, email, password) {
   // Navigate to login page
-  await page.goto("https://develop.d20aue3nu6xt33.amplifyapp.com/login");
+  await page.goto(config.urls.login);
   await expect(page).toHaveURL(/.*login/);
   
   // Perform login

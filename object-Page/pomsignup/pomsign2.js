@@ -1,5 +1,6 @@
 import locators from "../../Fixtures/locators.json" assert { type: "json" };
 import signup from "../../Fixtures/sign up.json";
+import { config } from '../../config/environments.js';
 
 export default class PomSign2 {
   constructor(page) {
@@ -7,7 +8,7 @@ export default class PomSign2 {
   }
 
   async goto() {
-    await this.page.goto("https://develop.d20aue3nu6xt33.amplifyapp.com/signup");
+    await this.page.goto(config.urls.signup);
   }
 
   async fill(data) {

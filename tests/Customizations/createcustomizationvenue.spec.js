@@ -64,7 +64,7 @@ test.describe("Customization Management - Venue Level", () => {
     
     // Fill title field
     console.log('📝 Step 7: Fill title field');
-    await page.locator(locators["customization-name"]).fill(title);
+    await page.locator(locators["customization-name"]).fill("customizationtitle2");
     console.log(`✅ Title filled: ${title}`);
     
     // Check the required checkbox
@@ -83,7 +83,7 @@ test.describe("Customization Management - Venue Level", () => {
     
     // Step 1: Click on price field (dropdown appears)
     const priceField = page.locator(locators["price-dropdown"]).nth(1);
-    await priceField.click({force: true});
+    // await priceField.click({force: true});
     await page.waitForTimeout(1000);
     console.log('✅ Price field clicked - dropdown appeared');
     

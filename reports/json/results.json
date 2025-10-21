@@ -66,25 +66,25 @@
   },
   "suites": [
     {
-      "title": "Items\\venueitem.spec.js",
-      "file": "Items/venueitem.spec.js",
+      "title": "Venue\\createvenue-pom.spec.js",
+      "file": "Venue/createvenue-pom.spec.js",
       "column": 0,
       "line": 0,
       "specs": [],
       "suites": [
         {
-          "title": "Item Venue - Venue Level",
-          "file": "Items/venueitem.spec.js",
-          "line": 11,
+          "title": "Venue Creation - Environment: development",
+          "file": "Venue/createvenue-pom.spec.js",
+          "line": 12,
           "column": 6,
           "specs": [
             {
-              "title": "Create Venue Item",
-              "ok": true,
+              "title": "Complete venue creation flow with environment integration",
+              "ok": false,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 120000,
+                  "timeout": 60000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "all-tests",
@@ -93,141 +93,321 @@
                     {
                       "workerIndex": 0,
                       "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 32345,
-                      "errors": [],
+                      "status": "failed",
+                      "duration": 9458,
+                      "error": {
+                        "message": "Error: locator.fill: value: expected string, got undefined",
+                        "stack": "Error: locator.fill: value: expected string, got undefined\n    at AddVenuePage.fillBasicInfo (C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\object-Page\\venue\\addvenue-pom.js:102:57)\n    at C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Venue\\createvenue-pom.spec.js:47:5",
+                        "location": {
+                          "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\object-Page\\venue\\addvenue-pom.js",
+                          "column": 57,
+                          "line": 102
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39m..\\object-Page\\venue\\addvenue-pom.js:102\n\n\u001b[0m \u001b[90m 100 |\u001b[39m     \u001b[90m// Currency\u001b[39m\n \u001b[90m 101 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mloc(\u001b[32m\"venue-Currency\"\u001b[39m)\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 102 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mlocator(locators[\u001b[32m\"venue-Currency\"\u001b[39m])\u001b[33m.\u001b[39mfill(venueData[\u001b[32m'venue-Currency'\u001b[39m])\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                                         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 103 |\u001b[39m     console\u001b[33m.\u001b[39mlog(\u001b[32m`Currency: ${venueData.currency}`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 104 |\u001b[39m     \n \u001b[90m 105 |\u001b[39m     \u001b[90m// Cuisine\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\object-Page\\venue\\addvenue-pom.js",
+                            "column": 57,
+                            "line": 102
+                          },
+                          "message": "Error: locator.fill: value: expected string, got undefined\n\n\u001b[90m   at \u001b[39m..\\object-Page\\venue\\addvenue-pom.js:102\n\n\u001b[0m \u001b[90m 100 |\u001b[39m     \u001b[90m// Currency\u001b[39m\n \u001b[90m 101 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mloc(\u001b[32m\"venue-Currency\"\u001b[39m)\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 102 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mlocator(locators[\u001b[32m\"venue-Currency\"\u001b[39m])\u001b[33m.\u001b[39mfill(venueData[\u001b[32m'venue-Currency'\u001b[39m])\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                                         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 103 |\u001b[39m     console\u001b[33m.\u001b[39mlog(\u001b[32m`Currency: ${venueData.currency}`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 104 |\u001b[39m     \n \u001b[90m 105 |\u001b[39m     \u001b[90m// Cuisine\u001b[39m\u001b[0m\n\u001b[2m    at AddVenuePage.fillBasicInfo (C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\object-Page\\venue\\addvenue-pom.js:102:57)\u001b[22m\n\u001b[2m    at C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Venue\\createvenue-pom.spec.js:47:5\u001b[22m"
+                        }
+                      ],
                       "stdout": [
                         {
-                          "text": "Logging in with email: hamna123@gmail.com\n"
+                          "text": "Running test in development environment\n"
                         },
                         {
-                          "text": "✅ Login form filled successfully\n"
+                          "text": "Base URL: https://develop.d20aue3nu6xt33.amplifyapp.com\n"
                         },
                         {
-                          "text": "✅ Login completed successfully\n"
+                          "text": "Login URL: https://develop.d20aue3nu6xt33.amplifyapp.com/login\n"
                         },
                         {
-                          "text": "✅ Landed on venue page and clicked on the created venue\n"
+                          "text": "Starting venue creation test\n"
                         },
                         {
-                          "text": "✅ Navigated to menu page (clicked 2nd menu)\n"
+                          "text": "Step 1: Login\n"
                         },
                         {
-                          "text": "✅ Verified: Successfully navigated to categories page\n"
+                          "text": "Login successful\n"
                         },
                         {
-                          "text": "✅ Navigated to items tab\n"
+                          "text": "Step 2: Navigate to venue creation\n"
                         },
                         {
-                          "text": "✅ Add Item button clicked\n"
+                          "text": "Clicking Add Venue button\n"
                         },
                         {
-                          "text": "✅ Venue button clicked\n"
+                          "text": "Venue creation page loaded\n"
                         },
                         {
-                          "text": "✅ Item name filled: Special Plater\n"
+                          "text": "Step 3: Fill basic venue information\n"
                         },
                         {
-                          "text": "✅ Item status selected: in stock\n"
+                          "text": "Filling basic venue information\n"
                         },
                         {
-                          "text": "✅ Menu selected: Italian\n"
+                          "text": "Venue name: Skyline\n"
                         },
                         {
-                          "text": "✅ Category selected: Noodles\n"
+                          "text": "Venue email: hamna123@gmail.com\n"
                         },
                         {
-                          "text": "✅ Item description filled: Our Special Platter is the ultimate combination of flavors and textures a delicious mix of crispy golden fries, a freshly prepared sandwich, zesty sauces, and a refreshing vegetable salad. Perfectly balanced with crunch, flavor, and freshness, it’s a fulfilling meal that satisfies every craving in one plate\n"
+                          "text": "Venue type: Restaurant\n"
                         },
                         {
-                          "text": "✅ Entered custom price successfully: 3.99\n"
+                          "text": "Default language: English\n"
                         },
                         {
-                          "text": "✅ Item price description filled: Regular\n"
-                        },
-                        {
-                          "text": "✅ Item tax selected: Standard: Taxes (9% Dine-In, 7% Take-Away)\n"
-                        },
-                        {
-                          "text": "Standard: Taxes (9% Dine-In, 7% Take-Away)\n"
-                        },
-                        {
-                          "text": "✅ Default price selected: yes\n"
-                        },
-                        {
-                          "text": "✅ Default price selected successfully\n"
-                        },
-                        {
-                          "text": "✅ Add extra button clicked (locator: add-extra)\n"
-                        },
-                        {
-                          "text": "✅ Add extra button clicked successfully\n"
-                        },
-                        {
-                          "text": "✅ Second price filled: 4.99\n"
-                        },
-                        {
-                          "text": "✅ Second price filled successfully\n"
-                        },
-                        {
-                          "text": "✅ Second price description filled: Family\n"
-                        },
-                        {
-                          "text": "✅ Second price description filled successfully\n"
-                        },
-                        {
-                          "text": "✅ Second price tax selected: Override: 9% on all order types\n"
-                        },
-                        {
-                          "text": "✅ Second price tax filled successfully\n"
-                        },
-                        {
-                          "text": "✅ undefined uploaded successfully\n"
-                        },
-                        {
-                          "text": "✅ Cover image uploaded successfully\n"
-                        },
-                        {
-                          "text": "✅ Cuisine selected: Brunch\n"
-                        },
-                        {
-                          "text": "✅ Serve people selected: 3\n"
-                        },
-                        {
-                          "text": "✅ Ingredients selected: Grilled chicken, Lettuce, Tomato slices, Cucumber, Onion, Bell peppers, Pickles, Mayonnaise, Butter, Mustard, Ketchup, Olives, Jalapeños, Herbs, Salt & pepper\n"
-                        },
-                        {
-                          "text": "✅ Tags selected: Chef’s Special\n"
-                        },
-                        {
-                          "text": "✅ Customizations selected: Sauces\n"
-                        },
-                        {
-                          "text": "✅ Stock count filled: 10\n"
-                        },
-                        {
-                          "text": "✅ Generate button clicked: Generate\n"
+                          "text": "Time zone: (UTC+05:00) Asia/Karachi\n"
                         }
                       ],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2025-10-20T10:06:10.371Z",
+                      "startTime": "2025-10-21T12:43:17.469Z",
                       "annotations": [],
                       "attachments": [
                         {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Venue-createvenue-pom-Venu-0a8e4-ith-environment-integration-all-tests\\test-failed-1.png"
+                        },
+                        {
                           "name": "video",
                           "contentType": "video/webm",
-                          "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Items-venueitem-Item-Venue---Venue-Level-Create-Venue-Item-all-tests\\video.webm"
+                          "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Venue-createvenue-pom-Venu-0a8e4-ith-environment-integration-all-tests\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Venue-createvenue-pom-Venu-0a8e4-ith-environment-integration-all-tests\\error-context.md"
                         }
-                      ]
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\object-Page\\venue\\addvenue-pom.js",
+                        "column": 57,
+                        "line": 102
+                      }
+                    },
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 7567,
+                      "error": {
+                        "message": "Error: locator.fill: value: expected string, got undefined",
+                        "stack": "Error: locator.fill: value: expected string, got undefined\n    at AddVenuePage.fillBasicInfo (C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\object-Page\\venue\\addvenue-pom.js:102:57)\n    at C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Venue\\createvenue-pom.spec.js:47:5",
+                        "location": {
+                          "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\object-Page\\venue\\addvenue-pom.js",
+                          "column": 57,
+                          "line": 102
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39m..\\object-Page\\venue\\addvenue-pom.js:102\n\n\u001b[0m \u001b[90m 100 |\u001b[39m     \u001b[90m// Currency\u001b[39m\n \u001b[90m 101 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mloc(\u001b[32m\"venue-Currency\"\u001b[39m)\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 102 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mlocator(locators[\u001b[32m\"venue-Currency\"\u001b[39m])\u001b[33m.\u001b[39mfill(venueData[\u001b[32m'venue-Currency'\u001b[39m])\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                                         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 103 |\u001b[39m     console\u001b[33m.\u001b[39mlog(\u001b[32m`Currency: ${venueData.currency}`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 104 |\u001b[39m     \n \u001b[90m 105 |\u001b[39m     \u001b[90m// Cuisine\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\object-Page\\venue\\addvenue-pom.js",
+                            "column": 57,
+                            "line": 102
+                          },
+                          "message": "Error: locator.fill: value: expected string, got undefined\n\n\u001b[90m   at \u001b[39m..\\object-Page\\venue\\addvenue-pom.js:102\n\n\u001b[0m \u001b[90m 100 |\u001b[39m     \u001b[90m// Currency\u001b[39m\n \u001b[90m 101 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mloc(\u001b[32m\"venue-Currency\"\u001b[39m)\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 102 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mlocator(locators[\u001b[32m\"venue-Currency\"\u001b[39m])\u001b[33m.\u001b[39mfill(venueData[\u001b[32m'venue-Currency'\u001b[39m])\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                                         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 103 |\u001b[39m     console\u001b[33m.\u001b[39mlog(\u001b[32m`Currency: ${venueData.currency}`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 104 |\u001b[39m     \n \u001b[90m 105 |\u001b[39m     \u001b[90m// Cuisine\u001b[39m\u001b[0m\n\u001b[2m    at AddVenuePage.fillBasicInfo (C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\object-Page\\venue\\addvenue-pom.js:102:57)\u001b[22m\n\u001b[2m    at C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Venue\\createvenue-pom.spec.js:47:5\u001b[22m"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "Running test in development environment\n"
+                        },
+                        {
+                          "text": "Base URL: https://develop.d20aue3nu6xt33.amplifyapp.com\n"
+                        },
+                        {
+                          "text": "Login URL: https://develop.d20aue3nu6xt33.amplifyapp.com/login\n"
+                        },
+                        {
+                          "text": "Starting venue creation test\n"
+                        },
+                        {
+                          "text": "Step 1: Login\n"
+                        },
+                        {
+                          "text": "Login successful\n"
+                        },
+                        {
+                          "text": "Step 2: Navigate to venue creation\n"
+                        },
+                        {
+                          "text": "Clicking Add Venue button\n"
+                        },
+                        {
+                          "text": "Venue creation page loaded\n"
+                        },
+                        {
+                          "text": "Step 3: Fill basic venue information\n"
+                        },
+                        {
+                          "text": "Filling basic venue information\n"
+                        },
+                        {
+                          "text": "Venue name: Skyline\n"
+                        },
+                        {
+                          "text": "Venue email: hamna123@gmail.com\n"
+                        },
+                        {
+                          "text": "Venue type: Restaurant\n"
+                        },
+                        {
+                          "text": "Default language: English\n"
+                        },
+                        {
+                          "text": "Time zone: (UTC+05:00) Asia/Karachi\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 1,
+                      "startTime": "2025-10-21T12:43:28.304Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Venue-createvenue-pom-Venu-0a8e4-ith-environment-integration-all-tests-retry1\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Venue-createvenue-pom-Venu-0a8e4-ith-environment-integration-all-tests-retry1\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Venue-createvenue-pom-Venu-0a8e4-ith-environment-integration-all-tests-retry1\\error-context.md"
+                        },
+                        {
+                          "name": "trace",
+                          "contentType": "application/zip",
+                          "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Venue-createvenue-pom-Venu-0a8e4-ith-environment-integration-all-tests-retry1\\trace.zip"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\object-Page\\venue\\addvenue-pom.js",
+                        "column": 57,
+                        "line": 102
+                      }
+                    },
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 6923,
+                      "error": {
+                        "message": "Error: locator.fill: value: expected string, got undefined",
+                        "stack": "Error: locator.fill: value: expected string, got undefined\n    at AddVenuePage.fillBasicInfo (C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\object-Page\\venue\\addvenue-pom.js:102:57)\n    at C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Venue\\createvenue-pom.spec.js:47:5",
+                        "location": {
+                          "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\object-Page\\venue\\addvenue-pom.js",
+                          "column": 57,
+                          "line": 102
+                        },
+                        "snippet": "\u001b[90m   at \u001b[39m..\\object-Page\\venue\\addvenue-pom.js:102\n\n\u001b[0m \u001b[90m 100 |\u001b[39m     \u001b[90m// Currency\u001b[39m\n \u001b[90m 101 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mloc(\u001b[32m\"venue-Currency\"\u001b[39m)\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 102 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mlocator(locators[\u001b[32m\"venue-Currency\"\u001b[39m])\u001b[33m.\u001b[39mfill(venueData[\u001b[32m'venue-Currency'\u001b[39m])\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                                         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 103 |\u001b[39m     console\u001b[33m.\u001b[39mlog(\u001b[32m`Currency: ${venueData.currency}`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 104 |\u001b[39m     \n \u001b[90m 105 |\u001b[39m     \u001b[90m// Cuisine\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\object-Page\\venue\\addvenue-pom.js",
+                            "column": 57,
+                            "line": 102
+                          },
+                          "message": "Error: locator.fill: value: expected string, got undefined\n\n\u001b[90m   at \u001b[39m..\\object-Page\\venue\\addvenue-pom.js:102\n\n\u001b[0m \u001b[90m 100 |\u001b[39m     \u001b[90m// Currency\u001b[39m\n \u001b[90m 101 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mloc(\u001b[32m\"venue-Currency\"\u001b[39m)\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 102 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mlocator(locators[\u001b[32m\"venue-Currency\"\u001b[39m])\u001b[33m.\u001b[39mfill(venueData[\u001b[32m'venue-Currency'\u001b[39m])\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                                         \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 103 |\u001b[39m     console\u001b[33m.\u001b[39mlog(\u001b[32m`Currency: ${venueData.currency}`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 104 |\u001b[39m     \n \u001b[90m 105 |\u001b[39m     \u001b[90m// Cuisine\u001b[39m\u001b[0m\n\u001b[2m    at AddVenuePage.fillBasicInfo (C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\object-Page\\venue\\addvenue-pom.js:102:57)\u001b[22m\n\u001b[2m    at C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Venue\\createvenue-pom.spec.js:47:5\u001b[22m"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "Running test in development environment\n"
+                        },
+                        {
+                          "text": "Base URL: https://develop.d20aue3nu6xt33.amplifyapp.com\n"
+                        },
+                        {
+                          "text": "Login URL: https://develop.d20aue3nu6xt33.amplifyapp.com/login\n"
+                        },
+                        {
+                          "text": "Starting venue creation test\n"
+                        },
+                        {
+                          "text": "Step 1: Login\n"
+                        },
+                        {
+                          "text": "Login successful\n"
+                        },
+                        {
+                          "text": "Step 2: Navigate to venue creation\n"
+                        },
+                        {
+                          "text": "Clicking Add Venue button\n"
+                        },
+                        {
+                          "text": "Venue creation page loaded\n"
+                        },
+                        {
+                          "text": "Step 3: Fill basic venue information\n"
+                        },
+                        {
+                          "text": "Filling basic venue information\n"
+                        },
+                        {
+                          "text": "Venue name: Skyline\n"
+                        },
+                        {
+                          "text": "Venue email: hamna123@gmail.com\n"
+                        },
+                        {
+                          "text": "Venue type: Restaurant\n"
+                        },
+                        {
+                          "text": "Default language: English\n"
+                        },
+                        {
+                          "text": "Time zone: (UTC+05:00) Asia/Karachi\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 2,
+                      "startTime": "2025-10-21T12:43:37.167Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Venue-createvenue-pom-Venu-0a8e4-ith-environment-integration-all-tests-retry2\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Venue-createvenue-pom-Venu-0a8e4-ith-environment-integration-all-tests-retry2\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Venue-createvenue-pom-Venu-0a8e4-ith-environment-integration-all-tests-retry2\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\object-Page\\venue\\addvenue-pom.js",
+                        "column": 57,
+                        "line": 102
+                      }
                     }
                   ],
-                  "status": "expected"
+                  "status": "unexpected"
                 }
               ],
-              "id": "39fc1fc191e78dec2adb-2739b978f4799b3eb167",
-              "file": "Items/venueitem.spec.js",
-              "line": 13,
+              "id": "9ea8611ea5944fdb2ee4-01e03d764ece6eb1221f",
+              "file": "Venue/createvenue-pom.spec.js",
+              "line": 26,
               "column": 3
             }
           ]
@@ -237,11 +417,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-10-20T10:06:09.523Z",
-    "duration": 34546.787000000004,
-    "expected": 1,
+    "startTime": "2025-10-21T12:43:16.636Z",
+    "duration": 27975.036,
+    "expected": 0,
     "skipped": 0,
-    "unexpected": 0,
+    "unexpected": 1,
     "flaky": 0
   }
 }

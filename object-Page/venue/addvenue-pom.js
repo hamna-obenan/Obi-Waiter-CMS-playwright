@@ -94,12 +94,12 @@ export default class AddVenuePage {
     
     // Time zone
     await this.loc("venue-Time zone").click();
-    await this.page.getByRole('option', { name: venueData.timezone, exact: true }).click();
-    console.log(`Time zone: ${venueData.timezone}`);
+    await this.page.getByRole('option', { name: '(UTC+05:00) Asia/Karachi', exact: true }).click();
+    console.log(`Time zone: (UTC+05:00) Asia/Karachi`);
     
     // Currency
     await this.loc("venue-Currency").click();
-    await this.page.getByRole('option', { name: venueData.currency, exact: true }).click();
+    await this.page.locator(locators["venue-Currency"]).fill(venueData['venue-Currency']);
     console.log(`Currency: ${venueData.currency}`);
     
     // Cuisine

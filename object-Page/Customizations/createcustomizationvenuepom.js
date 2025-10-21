@@ -36,4 +36,12 @@ export default class CustomizationVenuePOM {
     await this.page.waitForLoadState('networkidle');
     console.log('✅ Clicked on 3rd menu');
   }
+  /**
+   * click on the price dropdown
+   */
+  async clickOnPriceDropdown() {
+    await this.page.locator(locators["price-dropdown"]).nth(1).click();
+    await this.page.waitForLoadState('networkidle');
+    console.log('✅ Clicked on price dropdown');
+  }
 }

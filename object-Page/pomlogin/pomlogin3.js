@@ -1,6 +1,7 @@
 // POM dedicated for tests/login/login3.spec.js (negative: correct email, wrong password)
 import locators from "../../Fixtures/locators.json" assert { type: "json" };
 import login from "../../Fixtures/login.json" assert { type: "json" };
+import { config } from '../../config/environments.js';
 
 export default class PomLogin3 {
   constructor(page) {
@@ -8,7 +9,7 @@ export default class PomLogin3 {
   }
 
   async goto() {
-    await this.page.goto("https://develop.d20aue3nu6xt33.amplifyapp.com/login");
+    await this.page.goto(config.urls.login);
   }
 
   async login(email, password) {

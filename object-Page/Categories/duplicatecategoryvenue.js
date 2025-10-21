@@ -48,7 +48,7 @@ export default class DuplicateCategoryVenuePOM {
   }
 
   async selectMenuForCategory() {
-    await this.page.locator(locators["select-menu-for-category"]).click();
+    await this.page.locator(locators["select-menu-dropdown"]).click();
     await this.page.waitForTimeout(1000);
     const firstOption = this.page.locator('[role="option"]').first();
     await firstOption.click();

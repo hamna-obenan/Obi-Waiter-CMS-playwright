@@ -70,7 +70,13 @@ test("Create Duplicate Category Company - Same Name and Data", async ({ page }) 
     console.log('✅ Test passed - System properly handles duplicate category names');
   } else {
     // If no error, check if category was created (which might indicate no duplicate protection)
-    const isCreated = await categoryPOM.verifyCategoryCreation(categories["category-company-name"]);
+    let isCreated = false;
+    try {
+      await categoryPOM.verifyCategoryCreation(categories["category-company-name"]);
+      isCreated = true;
+    } catch (e) {
+      isCreated = false;
+    }
     if (isCreated) {
       console.log('⚠️ Category was created despite being duplicate - no duplicate protection detected');
     } else {

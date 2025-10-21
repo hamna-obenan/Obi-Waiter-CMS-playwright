@@ -25,7 +25,9 @@ test.describe("Tag Management - Venue Level", () => {
     await createVenueTagPOM.navigateToVenuePage();
     
     // Assert: Verify we're on the venue page
-    await expect(page).toHaveURL(locators["verify-the-venue-navigated-url"]);
+    // Verify that we are on the venue URL
+    const currentUrl = page.url();
+    expect(currentUrl).toMatch(/\/venue$/);
     // Points to: "https://develop.d20aue3nu6xt33.amplifyapp.com/venue"    
     console.log('✅ Verified: On venue page');
     

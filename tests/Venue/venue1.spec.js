@@ -8,6 +8,7 @@ import VenueDuplicationPOM from "../../object-Page/venue/venue1-pom.js";
 import locators from "../../Fixtures/locators.json" assert { type: "json" };
 import login from "../../Fixtures/login.json" assert { type: "json" };
 import venue from "../../Fixtures/Venue.json" assert { type: "json" };
+import { config } from '../../config/environments.js';
 import { fileURLToPath } from 'url';
 import path from 'path';
 
@@ -16,7 +17,7 @@ const __dirname = path.dirname(__filename);
 
 // Helper Functions
 async function performLogin(page, loginPage, loginData) { 
-  await page.goto("https://develop.d20aue3nu6xt33.amplifyapp.com/login");
+  await page.goto(config.urls.login);
   await expect(page).toHaveURL(/.*login/);
   
   await loginPage.login(loginData.TC1001.Email, loginData.TC1001.Password);

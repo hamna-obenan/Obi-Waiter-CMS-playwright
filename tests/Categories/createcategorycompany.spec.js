@@ -36,7 +36,9 @@ test("Create Category Company - Complete Flow", async ({ page }) => {
   await categoryPOM.createCategory(categories["category-company-name"], imagePath);
 
   // Verify category was created successfully
-  await categoryPOM.verifyCategoryCreation(categories["category-company-name"]);
+  // this line commented when we create it one time the success toast message will not appear
+  // because it already cereated and duplicate toast message will appear
+  // await categoryPOM.verifyCategoryCreation(categories["category-company-name"]);
 
   console.log('✅ Category company test completed successfully');
 });

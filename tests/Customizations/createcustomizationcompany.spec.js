@@ -82,26 +82,26 @@ test.describe("Customization Management", () => {
     console.log('💰 Step 10: Handle price dropdown');
     
     // Step 1: Click on price field (dropdown appears)
-    const priceField = page.locator(locators["price-dropdown"]).nth(1);
+    const priceField = page.locator(locators["price-dropdown"]);
 
     await priceField.click({force: true});
     await page.waitForTimeout(1000);
     console.log('✅ Price field clicked - dropdown appeared');
     
     // Step 2: Click on dropdown option (Enter Custom Price)
-    await page.locator(locators["price default"]).click();
+    await page.locator(locators["pricedefault"]).click();
     await page.waitForTimeout(1000);
     console.log('✅ Custom price option selected');
     
     // Step 3: Find the custom price input field using the provided locator
-    const priceInput = page.locator(locators["enter-custom-price"]);
-    await priceInput.click();
+    const priceInput2 = page.locator(locators["enter-custom-price"]);
+    await priceInput2.click();
     await page.waitForTimeout(500);
     console.log('✅ Custom price input field clicked');
     
-    // Step 4: Add the price for ketchup
-    await priceInput.fill('0.00');
-    console.log('✅ Price added for ketchup: $0.00');
+    // Step 4: Add the price for Chilli-sauce
+    await priceInput2.fill('0.00');
+    console.log('✅ Price added for Chilli-sauce: $0.00');
     
     // Select tax type from dropdown
     console.log('🏷️ Step 11: Select tax type');
@@ -122,39 +122,50 @@ test.describe("Customization Management", () => {
     await page.waitForTimeout(1000);
     console.log('✅ Add More button clicked');
     
-    // Add second option (chilli-sauce) with price from data
+    // Add second option (chilli-sauce) 
     console.log('📝 Step 13: Add second option - chilli-sauce');
     const secondOptionBox = page.locator(locators["option-box1"]);
     await secondOptionBox.fill('chilli-sauce');
     console.log('✅ Chilli-sauce added to second option box');
     
-    // Handle price dropdown for second option
+    // Handle price dropdown for second option using POM
     console.log('💰 Step 14: Handle price dropdown for second option');
-    
     // Wait for the second price field to be visible
     await page.waitForTimeout(2000);
-    
     // Step 1: Click on price field (dropdown appears)
-    const secondPriceField = page.locator(locators["price-dropdown"]).nth(1);
-    await secondPriceField.click({force: true});
+    const priceField2 = page.locator(locators["price-dropdown-2"]);
+    await priceField2.click({force: true});
     await page.waitForTimeout(1000);
-    console.log('✅ Second price field clicked - dropdown appeared');
+    console.log('✅ Price field clicked - dropdown appeared');
     
     // Step 2: Click on dropdown option (Enter Custom Price)
-    await page.locator(locators["price default"]).click();
+    await page.locator(locators["pricedefault"]).click();
     await page.waitForTimeout(1000);
-    console.log('✅ Custom price option selected for second option');
+    console.log('✅ Custom price option selected');
     
-    // Step 3: Find the custom price input field for second option
-    const secondPriceInput = page.locator(locators["enter-custom-price-2"]);
-    await secondPriceInput.click();
+    // Step 3: Find the custom price input field using the provided locator
+    const priceInput2Second = page.locator(locators["enter-custom-price-2"]);
+    await priceInput2Second.click();
     await page.waitForTimeout(500);
-    console.log('✅ Second custom price input field clicked');
+    console.log('✅ Custom price input field clicked');
     
-    // Step 4: Add the price for chilli-sauce from customization data
-    const chilliSaucePrice = customizationData["chilli-sauce"];
-    await secondPriceInput.fill(chilliSaucePrice);
-    console.log(`✅ Price added for chilli-sauce: $${chilliSaucePrice}`);
+    // Step 4: Add the price for Chilli-sauce
+    await priceInput2Second.fill('0.24');
+    console.log('✅ Price added for Chilli-sauce: $0.24');
+    
+    // Select tax type from dropdown
+    console.log('🏷️ Step 11: Select tax type');
+    
+    // Click on tax dropdown
+    const taxDropdown2 = page.locator(locators["select-tax-dropdown-2"]).first();
+    await taxDropdown2.click({force: true});
+    await page.waitForTimeout(1000);
+    console.log('✅ Tax dropdown clicked - dropdown appeared');
+    
+    // Select Standard tax option
+    await page.locator('text=Standard').first().click();
+    console.log('✅ Standard tax selected');
+  
     
     // Select tax type for second option
     console.log('🏷️ Step 15: Select tax type for second option');
@@ -180,37 +191,57 @@ test.describe("Customization Management", () => {
     await thirdOptionBox.fill('garlic-sauce');
     console.log('✅ Garlic-sauce added to third option box');
     
-    // Handle price dropdown for third option
+    // Handle price dropdown for second option using POM
     console.log('💰 Step 18: Handle price dropdown for third option');
+    // Wait for the second price field to be visible
     await page.waitForTimeout(2000);
-    
-    const thirdPriceField = page.locator(locators["price-dropdown"]).nth(1);
-    await thirdPriceField.click({force: true});
+    // Step 1: Click on price field (dropdown appears)
+    const priceField3 = page.locator(locators["price-dropdown-3"]);
+    await priceField3.click({force: true});
     await page.waitForTimeout(1000);
-    console.log('✅ Third price field clicked - dropdown appeared');
-    
-    await page.locator(locators["price default"]).click();
+    console.log('✅ Price field clicked - dropdown appeared');
+     
+    // Step 2: Click on dropdown option (Enter Custom Price)
+    await page.locator(locators["pricedefault"]).click();
     await page.waitForTimeout(1000);
-    console.log('✅ Custom price option selected for third option');
-    
-    const thirdPriceInput = page.locator(locators["enter-custom-price-3"]);
-    await thirdPriceInput.click();
+    console.log('✅ Custom price option selected');
+     
+    // Step 3: Find the custom price input field using the provided locator
+    const priceInput3 = page.locator(locators["enter-custom-price-3"]);
+    await priceInput3.click();
     await page.waitForTimeout(500);
-    console.log('✅ Third custom price input field clicked');
-    
-    const garlicSaucePrice = customizationData["garlic-sauce"];
-    await thirdPriceInput.fill(garlicSaucePrice);
-    console.log(`✅ Price added for garlic-sauce: $${garlicSaucePrice}`);
-    
-    // Select tax type for third option
-    console.log('🏷️ Step 19: Select tax type for third option');
-    const thirdTaxDropdown = page.locator(locators["select-tax-dropdown"]).nth(1);
-    await thirdTaxDropdown.click({force: true});
+    console.log('✅ Custom price input field clicked');
+     
+    // Step 4: Add the price for Chilli-sauce
+    await priceInput3.fill('0.24');
+    console.log('✅ Price added for Chilli-sauce: $0.24');
+     
+    // Select tax type from dropdown
+    console.log('🏷️ Step 11: Select tax type');
+     
+    // Click on tax dropdown
+    const taxDropdown3 = page.locator(locators["select-tax-dropdown-3"]).first();
+    await taxDropdown3.click({force: true});
     await page.waitForTimeout(1000);
-    console.log('✅ Third tax dropdown clicked - dropdown appeared');
-    
+    console.log('✅ Tax dropdown clicked - dropdown appeared');
+     
+    // Select Standard tax option
     await page.locator('text=Standard').first().click();
-    console.log('✅ Standard tax selected for third option');
+    console.log('✅ Standard tax selected');
+   
+     
+    // Select tax type for second option
+    console.log('🏷️ Step 15: Select tax type for second option');
+     
+    // Click on tax dropdown for second option
+    const secondTaxDropdown3 = page.locator(locators["select-tax-dropdown"]).nth(1);
+    await secondTaxDropdown3.click({force: true});
+    await page.waitForTimeout(1000);
+    console.log('✅ Second tax dropdown clicked - dropdown appeared');
+     
+    // Select Standard tax option for second option
+    await page.locator('text=Standard').first().click();
+    console.log('✅ Standard tax selected for second option');
     
     // Add fourth option (mayonnaise)
     console.log('➕ Step 20: Click Add More for fourth option');
@@ -223,37 +254,57 @@ test.describe("Customization Management", () => {
     await fourthOptionBox.fill('mayonnaise');
     console.log('✅ Mayonnaise added to fourth option box');
     
-    // Handle price dropdown for fourth option
-    console.log('💰 Step 22: Handle price dropdown for fourth option');
-    await page.waitForTimeout(2000);
-    
-    const fourthPriceField = page.locator(locators["price-dropdown"]).nth(1);
-    await fourthPriceField.click({force: true});
-    await page.waitForTimeout(1000);
-    console.log('✅ Fourth price field clicked - dropdown appeared');
-    
-    await page.locator(locators["price default"]).click();
-    await page.waitForTimeout(1000);
-    console.log('✅ Custom price option selected for fourth option');
-    
-    const fourthPriceInput = page.locator(locators["enter-custom-price-4"]);
-    await fourthPriceInput.click();
-    await page.waitForTimeout(500);
-    console.log('✅ Fourth custom price input field clicked');
-    
-    const mayonnaisePrice = customizationData["mayonnaise"];
-    await fourthPriceInput.fill(mayonnaisePrice);
-    console.log(`✅ Price added for mayonnaise: $${mayonnaisePrice}`);
-    
-    // Select tax type for fourth option
-    console.log('🏷️ Step 23: Select tax type for fourth option');
-    const fourthTaxDropdown = page.locator(locators["select-tax-dropdown"]).nth(3);
-    await fourthTaxDropdown.click({force: true});
-    await page.waitForTimeout(1000);
-    console.log('✅ Fourth tax dropdown clicked - dropdown appeared');
-    
-    await page.locator('text=Standard').first().click();
-    console.log('✅ Standard tax selected for fourth option');
+   // Handle price dropdown for second option using POM
+   console.log('💰 Step 22: Handle price dropdown for fourth option');
+   // Wait for the second price field to be visible
+   await page.waitForTimeout(2000);
+   // Step 1: Click on price field (dropdown appears)
+   const priceField4 = page.locator(locators["price-dropdown-4"]);
+   await priceField4.click({force: true});
+   await page.waitForTimeout(1000);
+   console.log('✅ Price field clicked - dropdown appeared');
+         
+   // Step 2: Click on dropdown option (Enter Custom Price)
+   await page.locator(locators["pricedefault"]).click();
+   await page.waitForTimeout(1000);
+   console.log('✅ Custom price option selected');
+         
+   // Step 3: Find the custom price input field using the provided locator
+   const priceInput4 = page.locator(locators["enter-custom-price-4"]);
+   await priceInput4.click();
+   await page.waitForTimeout(500);
+   console.log('✅ Custom price input field clicked');
+         
+   // Step 4: Add the price for Chilli-sauce
+   await priceInput4.fill('0.24');
+   console.log('✅ Price added for mayonnaise: $0.24');
+         
+   // Select tax type from dropdown
+   console.log('🏷️ Step 23: Select tax type for fourth option');
+         
+   // Click on tax dropdown
+   const taxDropdown4 = page.locator(locators["select-tax-dropdown-4"]).first();
+   await taxDropdown4.click({force: true});
+   await page.waitForTimeout(1000);
+   console.log('✅ Tax dropdown clicked - dropdown appeared');
+         
+   // Select Standard tax option
+   await page.locator('text=Standard').first().click();
+   console.log('✅ Standard tax selected');
+       
+         
+   // Select tax type for second option
+   console.log('🏷️ Step 24: Select tax type for fourth option');
+         
+   // Click on tax dropdown for second option
+   const secondTaxDropdown4 = page.locator(locators["select-tax-dropdown"]).nth(1);
+   await secondTaxDropdown4.click({force: true});
+   await page.waitForTimeout(1000);
+   console.log('✅ Second tax dropdown clicked - dropdown appeared');
+         
+   // Select Standard tax option for second option
+   await page.locator('text=Standard').first().click();
+   console.log('✅ Standard tax selected for fourth option');
     
     // Save the customization
     console.log('💾 Step 24: Save the customization');

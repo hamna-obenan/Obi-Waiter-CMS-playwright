@@ -111,7 +111,7 @@
     "created-menu":"//img[@alt='logo']",
     "add-category-button":"//button[normalize-space(.)='New Category']",
     "category-name":"[name='categoryname.en']",
-    "select-menu-dropdown":"[placeholder='Select menu']",
+    "select-menu-dropdown":"[placeholder='Select menus']",
 
 
     "Item-tab":"[href='/items']",
@@ -123,6 +123,8 @@
     "description-box-item":"[class='editable']",
     "price-dropdown":"//div[@role='combobox' and @id='mui-component-select-prices.0.variants' and contains(@class,'MuiSelect-outlined')]",
     "price-dropdown-2":"//div[@role='combobox' and contains(@id, 'mui-component-select-prices')]",
+    "price-dropdown-3":"//div[@role='combobox' and contains(@id, 'mui-component-select-prices')]",
+    "price-dropdown-4":"//div[@role='combobox' and contains(@id, 'mui-component-select-prices')]",
     "pricedefault":"[data-value='custom']",
     "add-extra":"//button[@type='button' and normalize-space(text())='Add Extras']",
     "enter-custom-price":"(//input[@type='number' and @placeholder='Enter Custom Price'])[1]",
@@ -134,6 +136,8 @@
     "price-discription-2":"[name='prices.1.description.en']",
     "select-tax-dropdown":"[placeholder='Select tax']",
     "select-tax-dropdown-2":"(//input[@placeholder='Select tax'])[2]",
+    "select-tax-dropdown-3":"(//input[@placeholder='Select tax'])[3]",
+    "select-tax-dropdown-4":"(//input[@placeholder='Select tax'])[4]",
     "pricedefaultcheckbox":"[name='prices.0.isDefault']",
     "picture-placeholder":"//input[@type='checkbox' and @name='isPlaceholderAdded']",
     "select-cuisine-dropdown":"[placeholder='Select cuisine']",
