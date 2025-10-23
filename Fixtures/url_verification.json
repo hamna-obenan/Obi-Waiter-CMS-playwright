@@ -1,0 +1,9 @@
+{
+    "verify-the-venue-navigated-url":"https://develop.d20aue3nu6xt33.amplifyapp.com/venue",
+    "verify-the-menu-navigated-url":"https://develop.d20aue3nu6xt33.amplifyapp.com/menus",
+    "verify-the-tags-navigated-url":"https://develop.d20aue3nu6xt33.amplifyapp.com/tags",
+    "verify-the-ingredients-navigated-url":"https://develop.d20aue3nu6xt33.amplifyapp.com/ingredients",
+    "verify-the-customizations-navigated-url":"https://develop.d20aue3nu6xt33.amplifyapp.com/customizations",
+    "verify-the-categories-navigated-url":"https://develop.d20aue3nu6xt33.amplifyapp.com/categories",
+    "verify-the-items-navigated-url":"https://develop.d20aue3nu6xt33.amplifyapp.com/items"
+}

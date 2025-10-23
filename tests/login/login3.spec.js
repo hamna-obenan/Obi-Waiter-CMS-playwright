@@ -18,14 +18,15 @@ test("Login fails with correct email but wrong password (TC1003)", async ({ page
   await expect(page.getByRole('textbox', { name: 'Password' })).toBeVisible();
 
   // Step 2: Fill in correct email but wrong password
-  await loginPage.loginById("TC1003");
+  await loginPage.fillForm(login["TC1003"].Email, login["TC1003"].Password);
   
   // Assert: Verify form fields are filled
   await expect(page.getByRole('textbox', { name: 'Email' })).not.toBeEmpty();
   await expect(page.getByRole('textbox', { name: 'Password' })).not.toBeEmpty();
 
   // Step 3: Click the sign-in button
-  await loginPage.signinButton();
+  // Since signinButton() is missing, call the sign-in button directly here.
+  await page.getByRole('button', { name: /sign in/i }).click();
 
   // Assert: Still on login page (no navigation)
   await expect(page).toHaveURL(/.*login/);

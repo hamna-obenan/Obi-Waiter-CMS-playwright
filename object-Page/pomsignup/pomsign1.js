@@ -31,6 +31,7 @@ export default class PomSign1 {
     console.log(' Submitting signup form...');
     await this.page.locator(locators["signup-button"]).click();
     console.log(' Signup form submitted');
+    await this.page.waitForTimeout(5000);
   }
 
   // Convenience: fill and submit with one call

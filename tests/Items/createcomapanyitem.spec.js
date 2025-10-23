@@ -4,7 +4,7 @@ import locators from "../../Fixtures/locators.json" assert { type: "json" };
 import login from "../../Fixtures/login.json" assert { type: "json" };
 import items from "../../Fixtures/items.json" assert { type: "json" };
 import { performLogin } from "../../utils/login-helper.js";
-
+import urlVerification from "../../Fixtures/url_verification.json" assert { type: "json" };
 /**
  * Item Creation Company Level
  */
@@ -19,7 +19,7 @@ test.describe("Item Management - Company Level", () => {
     console.log('✅ Login completed successfully');
 
     // Assert: Verify we're on the venue page
-    await expect(page).toHaveURL(locators["verify-the-venue-navigated-url"]);
+    await expect(page).toHaveURL(urlVerification["verify-the-venue-navigated-url"]);
     console.log('✅ Verified: On venue page');
     
     // Click on created venue (this takes us to venue page)
@@ -39,7 +39,7 @@ test.describe("Item Management - Company Level", () => {
     console.log('✅ Navigated to categories tab');
     
     // Assert: Verify we're on the categories page
-    await expect(page).toHaveURL(locators["verify-the-categories-navigated-url"]);
+    await expect(page).toHaveURL(urlVerification["verify-the-categories-navigated-url"]);
     console.log('✅ Verified: Successfully navigated to categories page');
       
     // Navigate to items tab from header
@@ -47,7 +47,7 @@ test.describe("Item Management - Company Level", () => {
     await createCompanyItemPOM.navigateToItemsTab();
       
     // Assert: Verify we're on the items page
-    await expect(page).toHaveURL(locators["verify-the-items-navigated-url"]);
+    await expect(page).toHaveURL(urlVerification["verify-the-items-navigated-url"]);
     console.log('✅ Verified: Successfully navigated to items page');
       
     // Click on Add Item button
@@ -88,11 +88,13 @@ test.describe("Item Management - Company Level", () => {
     await createCompanyItemPOM.selectTheStatus('In Stock');
    
 
-    //select the menu from dropdown
-    await createCompanyItemPOM.selectMenu(itemData["menu"]);
+    // Select the menu from dropdown using the actual key from items.json
+    // If the menu name is "Main Menu" as per the fixture, pass the correct string.
+    await createCompanyItemPOM.selectMenu(itemData["menu"] || "Main Menu");
 
     //assertion for verify the menu selected successfully
-    await expect(page.locator(locators["select-menu-dropdown"])).toBeVisible();
+    // await expect(page.locator(locators["select-menu-dropdown"])).toBeVisible();
+    await expect(page.getByRole('combobox', { name: 'Select menu' })).toBeVisible();
     console.log('✅ Verified: Menu selected successfully');
 
     //select the category from dropdown

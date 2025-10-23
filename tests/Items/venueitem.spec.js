@@ -4,7 +4,7 @@ import locators from "../../Fixtures/locators.json" assert { type: "json" };
 import login from "../../Fixtures/login.json" assert { type: "json" };
 import items from "../../Fixtures/items.json" assert { type: "json" };
 import { performLogin } from "../../utils/login-helper.js";
-
+import urlVerification from "../../Fixtures/url_verification.json" assert { type: "json" };
 /**
  * Venue Level Item Creation Test Suite
  */
@@ -36,7 +36,7 @@ test.describe("Item Venue - Venue Level", () => {
     await createVenueItemPOM.navigateTocategoriesPage();
 
     // Verify that you landed at the category page
-    await expect(page).toHaveURL(locators["verify-the-categories-navigated-url"]);
+    await expect(page).toHaveURL(urlVerification["verify-the-categories-navigated-url"]);
 
     //click on the item tab
     await createVenueItemPOM.navigateToItemsTab();
@@ -64,8 +64,8 @@ test.describe("Item Venue - Venue Level", () => {
     await createVenueItemPOM.selectTheStatus(items[1]["instock2"]);
 
     // click on the menu dropdown
-    await expect(page.locator(locators["select-menu-dropdown"])).toBeVisible();
-    await createVenueItemPOM.selectMenu(items[1]["menu"]);
+    await expect(page.getByRole('combobox', { name: 'Select menu' })).toBeVisible();
+    await createVenueItemPOM.selectMenu("Italian");
     // await page.pause();
 
     // click on the category dropdown

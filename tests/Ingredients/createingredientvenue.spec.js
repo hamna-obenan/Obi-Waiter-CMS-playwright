@@ -4,7 +4,7 @@ import locators from "../../Fixtures/locators.json" assert { type: "json" };
 import login from "../../Fixtures/login.json" assert { type: "json" };
 import ingredients from "../../Fixtures/Ingredients.json" assert { type: "json" };
 import { performLogin } from "../../utils/login-helper.js";
-
+import urlVerification from "../../Fixtures/url_verification.json" assert { type: "json" };
 /**
  * Venue Level Ingredient Creation Test Suite
  * Tests ingredient creation flow for venue level
@@ -18,7 +18,7 @@ test.describe("Ingredient Management - Venue Level", () => {
     
     // Login
     await performLogin(page, login.TC1001.Email, login.TC1001.Password);
-    await expect(page.locator(locators["click-on-the-created-venue"])).toBeVisible();
+    await expect(page).toHaveURL(urlVerification["verify-the-venue-navigated-url"]);
     
     // navigate to venue page
     await ingredientsVenuePOM.navigateToVenuePage();
@@ -30,10 +30,10 @@ test.describe("Ingredient Management - Venue Level", () => {
     
     // navigate to category page
     await ingredientsVenuePOM.navigateToCategoryPage();
-    await expect(page).toHaveURL(/.*categories.*/);
+    await expect(page).toHaveURL(urlVerification["verify-the-categories-navigated-url"]);
     // navigate to ingredients page
     await ingredientsVenuePOM.navigateToIngredientsPage();
-    await expect(page).toHaveURL(/.*ingredients.*/);
+    await expect(page).toHaveURL(urlVerification["verify-the-ingredients-navigated-url"]);
     
     // Create ingredient
     await ingredientsVenuePOM.clickAddNewIngredient();

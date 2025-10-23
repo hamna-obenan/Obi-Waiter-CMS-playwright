@@ -37,7 +37,7 @@ test("Create Duplicate Company Menu - Same Name and Data", async ({ page }) => {
   const randomNumber = await duplicateCompanyMenuPOM.getRandomIntInclusive(minNum, maxNum);
   const menuName = menu['menu-name'];
   console.log('✅ Menu name generated successfully: ' + menuName);
-await page.pause();
+
 
   // Fill menu name with same data as original test using locators
   console.log('📝 Filling menu name with duplicate data...');
@@ -60,12 +60,7 @@ await page.pause();
   // await page.waitForTimeout(3000);
   
   // Check for the specific "Master menu already exist" popup message
-  const duplicateError = await page.locator(locators["duplicate-menu-alert"]).isVisible();
-  
-  // Assert that the popup is visible and log success message
-  expect(duplicateError).toBe(true);
-  if (duplicateError) {
-    console.log('✅ popup detected');
-  }
- 
+  // Wait and assert that the popup is visible and log success message
+  await expect(page.locator(locators["duplicate-menu-alert"])).toHaveText('Master menu already exist');
+  console.log('✅ popup detected');
 });

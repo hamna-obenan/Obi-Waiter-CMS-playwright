@@ -4,7 +4,7 @@ import locators from "../../Fixtures/locators.json" assert { type: "json" };
 import login from "../../Fixtures/login.json" assert { type: "json" };
 import tags from "../../Fixtures/tags.json" assert { type: "json" };
 import { performLogin } from "../../utils/login-helper.js";
-
+import urlVerification from "../../Fixtures/url_verification.json" assert { type: "json" };
 /**
  * Tag Creation Test Suite - Venue Level
  * Tests multiple tag creation at venue level
@@ -27,7 +27,7 @@ test.describe("Tag Management - Venue Level", () => {
     // Assert: Verify we're on the venue page
     // Verify that we are on the venue URL
     const currentUrl = page.url();
-    expect(currentUrl).toMatch(/\/venue$/);
+    await expect(page).toHaveURL(urlVerification["verify-the-menu-navigated-url"]);
     // Points to: "https://develop.d20aue3nu6xt33.amplifyapp.com/venue"    
     console.log('✅ Verified: On venue page');
     
@@ -47,7 +47,7 @@ test.describe("Tag Management - Venue Level", () => {
       await createVenueTagPOM.navigateToMenuPage();
       
       // Assert: Verify menu navigation worked
-      await expect(page).toHaveURL(locators["verify-the-menu-navigated-url"]);
+      await expect(page).toHaveURL(urlVerification["verify-the-menu-navigated-url"]);
       console.log('✅ Verified: Successfully navigated to menu page');
       
       // Navigate to tags tab
@@ -55,7 +55,7 @@ test.describe("Tag Management - Venue Level", () => {
       await createVenueTagPOM.navigateToTagsTab();
       
       // Assert: Verify we're on the tags page
-      await expect(page).toHaveURL(locators["verify-the-tags-navigated-url"]);
+      await expect(page).toHaveURL(urlVerification["verify-the-tags-navigated-url"]);
       console.log('✅ Verified: Successfully navigated to tags page');
       
       // Click on Add Tag button

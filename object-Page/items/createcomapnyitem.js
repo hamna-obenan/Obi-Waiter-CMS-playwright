@@ -1,7 +1,8 @@
 import { expect } from '@playwright/test';
 import locators from '../../Fixtures/locators.json' assert { type: "json" };
 import login from '../../Fixtures/login.json' assert { type: "json" };
-
+import urlVerification from '../../Fixtures/url_verification.json' assert { type: "json" };
+import items from '../../Fixtures/items.json' assert { type: "json" };
 /**
  * Page Object Model for Company Item Creation
  * Handles company item creation, navigation, and form interactions
@@ -46,7 +47,7 @@ export default class CreateCompanyItemPOM {
    */
   async navigateTocategoriesPage() {
     // Verify the categories page URL
-    await expect(this.page).toHaveURL(locators["verify-the-categories-navigated-url"]);
+    await expect(this.page).toHaveURL(urlVerification["verify-the-categories-navigated-url"]);
     console.log('✅ Verified: Successfully navigated to categories page');
   }
 
@@ -111,7 +112,9 @@ export default class CreateCompanyItemPOM {
    * @param {string} menu - The name of the menu to select
    */
   async selectMenu(menu) {
-    await this.page.locator(locators["select-menu-dropdown"]).click();
+    // Click the combobox using role selector (best practice)
+    await this.page.getByRole('combobox', { name: 'Select menu' }).click();
+    // Wait for options to appear and select by name
     await this.page.getByRole('option', { name: menu }).first().click();
     console.log(`✅ Menu selected: ${menu}`);
   }

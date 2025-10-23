@@ -1,163 +1,34 @@
-<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="27.975036">
-<testsuite name="Venue\createvenue-pom.spec.js" timestamp="2025-10-21T12:43:16.691Z" hostname="all-tests" tests="1" failures="1" skipped="0" time="23.948" errors="0">
-<testcase name="Venue Creation - Environment: development › Complete venue creation flow with environment integration" classname="Venue\createvenue-pom.spec.js" time="23.948">
-<failure message="createvenue-pom.spec.js:26:3 Complete venue creation flow with environment integration" type="FAILURE">
-<![CDATA[  [all-tests] › Venue\createvenue-pom.spec.js:26:3 › Venue Creation - Environment: development › Complete venue creation flow with environment integration 
+<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="1.652069">
+<testsuite name="Venue\createvenue-pom.spec.js" timestamp="2025-10-23T12:47:58.761Z" hostname="all-tests" tests="1" failures="1" skipped="0" time="0.523" errors="0">
+<testcase name="Create venue" classname="Venue\createvenue-pom.spec.js" time="0.523">
+<failure message="createvenue-pom.spec.js:9:1 Create venue" type="FAILURE">
+<![CDATA[  [all-tests] › Venue\createvenue-pom.spec.js:9:1 › Create venue ───────────────────────────────────
 
-    Error: locator.fill: value: expected string, got undefined
+    TypeError: addVenuePage.login is not a function
 
-       at ..\object-Page\venue\addvenue-pom.js:102
-
-      100 |     // Currency
-      101 |     await this.loc("venue-Currency").click();
-    > 102 |     await this.page.locator(locators["venue-Currency"]).fill(venueData['venue-Currency']);
-          |                                                         ^
-      103 |     console.log(`Currency: ${venueData.currency}`);
-      104 |     
-      105 |     // Cuisine
-        at AddVenuePage.fillBasicInfo (C:\Users\HP\Desktop\Obi-Waiter-CMS-playwright-main\object-Page\venue\addvenue-pom.js:102:57)
-        at C:\Users\HP\Desktop\Obi-Waiter-CMS-playwright-main\tests\Venue\createvenue-pom.spec.js:47:5
+      10 |   const addVenuePage = new AddVenuePage(page);
+      11 |   // Login using credentials from login fixture
+    > 12 |   await addVenuePage.login(login.TC1001.Email, login.TC1001.Password);
+         |                      ^
+      13 |   // Navigate to Add Venue page using the method from addvenue-pom.js
+      14 |   await addVenuePage.navigateToAddVenue();
+      15 |   
+        at C:\Users\HP\Desktop\Obi-Waiter-CMS-playwright-main\tests\Venue\createvenue-pom.spec.js:12:22
 
     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\test-results\Venue-createvenue-pom-Venu-0a8e4-ith-environment-integration-all-tests\test-failed-1.png
+    ..\test-results\Venue-createvenue-pom-Create-venue-all-tests\test-failed-1.png
     ────────────────────────────────────────────────────────────────────────────────────────────────
 
     attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\test-results\Venue-createvenue-pom-Venu-0a8e4-ith-environment-integration-all-tests\video.webm
+    ..\test-results\Venue-createvenue-pom-Create-venue-all-tests\video.webm
     ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\test-results\Venue-createvenue-pom-Venu-0a8e4-ith-environment-integration-all-tests\error-context.md
-
-    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
-
-    Error: locator.fill: value: expected string, got undefined
-
-       at ..\object-Page\venue\addvenue-pom.js:102
-
-      100 |     // Currency
-      101 |     await this.loc("venue-Currency").click();
-    > 102 |     await this.page.locator(locators["venue-Currency"]).fill(venueData['venue-Currency']);
-          |                                                         ^
-      103 |     console.log(`Currency: ${venueData.currency}`);
-      104 |     
-      105 |     // Cuisine
-        at AddVenuePage.fillBasicInfo (C:\Users\HP\Desktop\Obi-Waiter-CMS-playwright-main\object-Page\venue\addvenue-pom.js:102:57)
-        at C:\Users\HP\Desktop\Obi-Waiter-CMS-playwright-main\tests\Venue\createvenue-pom.spec.js:47:5
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\test-results\Venue-createvenue-pom-Venu-0a8e4-ith-environment-integration-all-tests-retry1\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\test-results\Venue-createvenue-pom-Venu-0a8e4-ith-environment-integration-all-tests-retry1\video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\test-results\Venue-createvenue-pom-Venu-0a8e4-ith-environment-integration-all-tests-retry1\error-context.md
-
-    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
-    ..\test-results\Venue-createvenue-pom-Venu-0a8e4-ith-environment-integration-all-tests-retry1\trace.zip
-    Usage:
-
-        npx playwright show-trace ..\test-results\Venue-createvenue-pom-Venu-0a8e4-ith-environment-integration-all-tests-retry1\trace.zip
-
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Retry #2 ───────────────────────────────────────────────────────────────────────────────────────
-
-    Error: locator.fill: value: expected string, got undefined
-
-       at ..\object-Page\venue\addvenue-pom.js:102
-
-      100 |     // Currency
-      101 |     await this.loc("venue-Currency").click();
-    > 102 |     await this.page.locator(locators["venue-Currency"]).fill(venueData['venue-Currency']);
-          |                                                         ^
-      103 |     console.log(`Currency: ${venueData.currency}`);
-      104 |     
-      105 |     // Cuisine
-        at AddVenuePage.fillBasicInfo (C:\Users\HP\Desktop\Obi-Waiter-CMS-playwright-main\object-Page\venue\addvenue-pom.js:102:57)
-        at C:\Users\HP\Desktop\Obi-Waiter-CMS-playwright-main\tests\Venue\createvenue-pom.spec.js:47:5
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\test-results\Venue-createvenue-pom-Venu-0a8e4-ith-environment-integration-all-tests-retry2\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\test-results\Venue-createvenue-pom-Venu-0a8e4-ith-environment-integration-all-tests-retry2\video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\test-results\Venue-createvenue-pom-Venu-0a8e4-ith-environment-integration-all-tests-retry2\error-context.md
 ]]>
 </failure>
 <system-out>
-<![CDATA[Running test in development environment
-Base URL: https://develop.d20aue3nu6xt33.amplifyapp.com
-Login URL: https://develop.d20aue3nu6xt33.amplifyapp.com/login
-Starting venue creation test
-Step 1: Login
-Login successful
-Step 2: Navigate to venue creation
-Clicking Add Venue button
-Venue creation page loaded
-Step 3: Fill basic venue information
-Filling basic venue information
-Venue name: Skyline
-Venue email: hamna123@gmail.com
-Venue type: Restaurant
-Default language: English
-Time zone: (UTC+05:00) Asia/Karachi
+<![CDATA[
+[[ATTACHMENT|..\..\test-results\Venue-createvenue-pom-Create-venue-all-tests\test-failed-1.png]]
 
-[[ATTACHMENT|..\..\test-results\Venue-createvenue-pom-Venu-0a8e4-ith-environment-integration-all-tests\test-failed-1.png]]
-
-[[ATTACHMENT|..\..\test-results\Venue-createvenue-pom-Venu-0a8e4-ith-environment-integration-all-tests\video.webm]]
-
-[[ATTACHMENT|..\..\test-results\Venue-createvenue-pom-Venu-0a8e4-ith-environment-integration-all-tests\error-context.md]]
-Running test in development environment
-Base URL: https://develop.d20aue3nu6xt33.amplifyapp.com
-Login URL: https://develop.d20aue3nu6xt33.amplifyapp.com/login
-Starting venue creation test
-Step 1: Login
-Login successful
-Step 2: Navigate to venue creation
-Clicking Add Venue button
-Venue creation page loaded
-Step 3: Fill basic venue information
-Filling basic venue information
-Venue name: Skyline
-Venue email: hamna123@gmail.com
-Venue type: Restaurant
-Default language: English
-Time zone: (UTC+05:00) Asia/Karachi
-
-[[ATTACHMENT|..\..\test-results\Venue-createvenue-pom-Venu-0a8e4-ith-environment-integration-all-tests-retry1\test-failed-1.png]]
-
-[[ATTACHMENT|..\..\test-results\Venue-createvenue-pom-Venu-0a8e4-ith-environment-integration-all-tests-retry1\video.webm]]
-
-[[ATTACHMENT|..\..\test-results\Venue-createvenue-pom-Venu-0a8e4-ith-environment-integration-all-tests-retry1\error-context.md]]
-
-[[ATTACHMENT|..\..\test-results\Venue-createvenue-pom-Venu-0a8e4-ith-environment-integration-all-tests-retry1\trace.zip]]
-Running test in development environment
-Base URL: https://develop.d20aue3nu6xt33.amplifyapp.com
-Login URL: https://develop.d20aue3nu6xt33.amplifyapp.com/login
-Starting venue creation test
-Step 1: Login
-Login successful
-Step 2: Navigate to venue creation
-Clicking Add Venue button
-Venue creation page loaded
-Step 3: Fill basic venue information
-Filling basic venue information
-Venue name: Skyline
-Venue email: hamna123@gmail.com
-Venue type: Restaurant
-Default language: English
-Time zone: (UTC+05:00) Asia/Karachi
-
-[[ATTACHMENT|..\..\test-results\Venue-createvenue-pom-Venu-0a8e4-ith-environment-integration-all-tests-retry2\test-failed-1.png]]
-
-[[ATTACHMENT|..\..\test-results\Venue-createvenue-pom-Venu-0a8e4-ith-environment-integration-all-tests-retry2\video.webm]]
-
-[[ATTACHMENT|..\..\test-results\Venue-createvenue-pom-Venu-0a8e4-ith-environment-integration-all-tests-retry2\error-context.md]]
+[[ATTACHMENT|..\..\test-results\Venue-createvenue-pom-Create-venue-all-tests\video.webm]]
 ]]>
 </system-out>
 </testcase>

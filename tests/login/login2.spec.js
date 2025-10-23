@@ -5,7 +5,6 @@
 import { test, expect } from "@playwright/test";
 import PomLogin from "../../object-Page/pomlogin/pomlogin1.js";
 import login from "../../Fixtures/login.json" assert { type: "json" };
-
 test("Login fails with wrong email but correct password (TC1002)", async ({ page }) => {
   const loginPage = new PomLogin(page);
 
@@ -18,14 +17,16 @@ test("Login fails with wrong email but correct password (TC1002)", async ({ page
   await expect(page.getByRole('textbox', { name: 'Password' })).toBeVisible();
 
   // Step 2: Fill in wrong email but correct password
-  await loginPage.loginById("TC1002");
+  // Fill in the email and password fields manually using the credentials from TC1002
+  await loginPage.fillForm(login["TC1002"].Email, login["TC1002"].Password);
   
   // Assert: Verify form fields are filled
   await expect(page.getByRole('textbox', { name: 'Email' })).not.toBeEmpty();
   await expect(page.getByRole('textbox', { name: 'Password' })).not.toBeEmpty();
 
   // Step 3: Click the sign-in button
-  await loginPage.signinButton();
+  // Since signinButton() is missing, call the sign-in button directly here.
+  await page.getByRole('button', { name: /sign in/i }).click();
 
   // Assert: Still on login page (no navigation)
   await expect(page).toHaveURL(/.*login/);

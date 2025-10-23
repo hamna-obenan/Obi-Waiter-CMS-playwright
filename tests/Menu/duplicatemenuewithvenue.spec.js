@@ -45,11 +45,6 @@ test("Create Duplicate Menu with Venue - Same Name and Data", async ({ page }) =
   console.log('🔍 Checking for "Menu already exist in this venue" popup...');
   
   // Check for the specific "Menu already exist in this venue" popup message
-  const duplicateVenueError = await page.locator(locators["duplicate-menu-alert-venue"]).isVisible();
-   // Assert that the popup is visible and log success message
-   expect(duplicateVenueError).toBe(true);
-   if (duplicateVenueError) {
-     console.log('✅ popup detected');
-   }
-      
+  await expect(page.locator(locators["duplicate-menu-alert-venue"])).toHaveText('Menu already exist in this venue');
+   console.log('✅ popup detected');
 });

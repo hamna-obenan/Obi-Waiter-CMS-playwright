@@ -1,6 +1,7 @@
 import { expect } from '@playwright/test';
 import locators from '../../Fixtures/locators.json' assert { type: "json" };
 import login from '../../Fixtures/login.json' assert { type: "json" };
+import urlVerification from '../../Fixtures/url_verification.json' assert { type: "json" };
 
 /**
  * Page Object Model for Venue Item Creation
@@ -50,7 +51,7 @@ export default class CreateVenueItemPOM {
    */
   async navigateTocategoriesPage() {
     // Verify the categories page URL
-    await expect(this.page).toHaveURL(locators["verify-the-categories-navigated-url"]);
+    await expect(this.page).toHaveURL(urlVerification["verify-the-categories-navigated-url"]);
     console.log('✅ Verified: Successfully navigated to categories page');
   }
 
@@ -113,12 +114,13 @@ export default class CreateVenueItemPOM {
   }
   /**
    * Select a menu from the menu dropdown
-   * @param {string} menu - The name of the menu to select
    */
-  async selectMenu(menu) {
-    await this.page.locator(locators["select-menu-dropdown"]).click();
-    await this.page.getByRole('option', { name: menu }).first().click();
-    console.log(`✅ Menu selected: ${menu}`);
+  async selectMenu(Italian) {
+    // Click the combobox using role selector (best practice)
+    await this.page.getByRole('combobox', { name: 'Select menu' }).click();
+    // Wait for options to appear and select by name
+    await this.page.getByRole('option', { name: Italian }).first().click();
+    console.log(`✅ Menu selected: ${Italian}`);
   }
   //select the category from dropdown
   async selectItemCategory(category) {
