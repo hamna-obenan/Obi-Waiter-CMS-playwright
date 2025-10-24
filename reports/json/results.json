@@ -66,8 +66,8 @@
   },
   "suites": [
     {
-      "title": "Venue\\createvenue-pom.spec.js",
-      "file": "Venue/createvenue-pom.spec.js",
+      "title": "Venue\\createvenuepom.spec.js",
+      "file": "Venue/createvenuepom.spec.js",
       "column": 0,
       "line": 0,
       "specs": [
@@ -87,57 +87,72 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "failed",
-                  "duration": 523,
+                  "duration": 12248,
                   "error": {
-                    "message": "TypeError: addVenuePage.login is not a function",
-                    "stack": "TypeError: addVenuePage.login is not a function\n    at C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Venue\\createvenue-pom.spec.js:12:22",
+                    "message": "Error: ENOENT: no such file or directory, stat 'C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Fixtures\\pictures\\venuelogo.png'",
+                    "stack": "Error: ENOENT: no such file or directory, stat 'C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Fixtures\\pictures\\venuelogo.png'\n    at C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Venue\\createvenuepom.spec.js:210:3",
                     "location": {
-                      "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Venue\\createvenue-pom.spec.js",
-                      "column": 22,
-                      "line": 12
+                      "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Venue\\createvenuepom.spec.js",
+                      "column": 3,
+                      "line": 210
                     },
-                    "snippet": "\u001b[0m \u001b[90m 10 |\u001b[39m   \u001b[36mconst\u001b[39m addVenuePage \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mAddVenuePage\u001b[39m(page)\u001b[33m;\u001b[39m\n \u001b[90m 11 |\u001b[39m   \u001b[90m// Login using credentials from login fixture\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 12 |\u001b[39m   \u001b[36mawait\u001b[39m addVenuePage\u001b[33m.\u001b[39mlogin(login\u001b[33m.\u001b[39m\u001b[33mTC1001\u001b[39m\u001b[33m.\u001b[39m\u001b[33mEmail\u001b[39m\u001b[33m,\u001b[39m login\u001b[33m.\u001b[39m\u001b[33mTC1001\u001b[39m\u001b[33m.\u001b[39m\u001b[33mPassword\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 13 |\u001b[39m   \u001b[90m// Navigate to Add Venue page using the method from addvenue-pom.js\u001b[39m\n \u001b[90m 14 |\u001b[39m   \u001b[36mawait\u001b[39m addVenuePage\u001b[33m.\u001b[39mnavigateToAddVenue()\u001b[33m;\u001b[39m\n \u001b[90m 15 |\u001b[39m   \u001b[0m"
+                    "snippet": "\u001b[0m \u001b[90m 208 |\u001b[39m   \u001b[36mconst\u001b[39m logoPath \u001b[33m=\u001b[39m \u001b[32m`${process.cwd()}/tests/Fixtures/pictures/venuelogo.png`\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 209 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 210 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'input[type=\"file\"]'\u001b[39m)\u001b[33m.\u001b[39msetInputFiles(logoPath)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m   \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 211 |\u001b[39m   console\u001b[33m.\u001b[39mlog(\u001b[32m' Logo image selected from pictures folder'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 212 |\u001b[39m   \n \u001b[90m 213 |\u001b[39m   \u001b[90m// Assert: Verify image is uploaded and visible\u001b[39m\u001b[0m"
                   },
                   "errors": [
                     {
                       "location": {
-                        "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Venue\\createvenue-pom.spec.js",
-                        "column": 22,
-                        "line": 12
+                        "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Venue\\createvenuepom.spec.js",
+                        "column": 3,
+                        "line": 210
                       },
-                      "message": "TypeError: addVenuePage.login is not a function\n\n\u001b[0m \u001b[90m 10 |\u001b[39m   \u001b[36mconst\u001b[39m addVenuePage \u001b[33m=\u001b[39m \u001b[36mnew\u001b[39m \u001b[33mAddVenuePage\u001b[39m(page)\u001b[33m;\u001b[39m\n \u001b[90m 11 |\u001b[39m   \u001b[90m// Login using credentials from login fixture\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 12 |\u001b[39m   \u001b[36mawait\u001b[39m addVenuePage\u001b[33m.\u001b[39mlogin(login\u001b[33m.\u001b[39m\u001b[33mTC1001\u001b[39m\u001b[33m.\u001b[39m\u001b[33mEmail\u001b[39m\u001b[33m,\u001b[39m login\u001b[33m.\u001b[39m\u001b[33mTC1001\u001b[39m\u001b[33m.\u001b[39m\u001b[33mPassword\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 13 |\u001b[39m   \u001b[90m// Navigate to Add Venue page using the method from addvenue-pom.js\u001b[39m\n \u001b[90m 14 |\u001b[39m   \u001b[36mawait\u001b[39m addVenuePage\u001b[33m.\u001b[39mnavigateToAddVenue()\u001b[33m;\u001b[39m\n \u001b[90m 15 |\u001b[39m   \u001b[0m\n\u001b[2m    at C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Venue\\createvenue-pom.spec.js:12:22\u001b[22m"
+                      "message": "Error: ENOENT: no such file or directory, stat 'C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Fixtures\\pictures\\venuelogo.png'\n\n\u001b[0m \u001b[90m 208 |\u001b[39m   \u001b[36mconst\u001b[39m logoPath \u001b[33m=\u001b[39m \u001b[32m`${process.cwd()}/tests/Fixtures/pictures/venuelogo.png`\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 209 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 210 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'input[type=\"file\"]'\u001b[39m)\u001b[33m.\u001b[39msetInputFiles(logoPath)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m   \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 211 |\u001b[39m   console\u001b[33m.\u001b[39mlog(\u001b[32m' Logo image selected from pictures folder'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 212 |\u001b[39m   \n \u001b[90m 213 |\u001b[39m   \u001b[90m// Assert: Verify image is uploaded and visible\u001b[39m\u001b[0m\n\u001b[2m    at C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Venue\\createvenuepom.spec.js:210:3\u001b[22m"
                     }
                   ],
-                  "stdout": [],
+                  "stdout": [
+                    {
+                      "text": "Starting logo upload...\n"
+                    },
+                    {
+                      "text": " Clicked on Choose image button for logo\n"
+                    },
+                    {
+                      "text": " File input is available for logo upload\n"
+                    }
+                  ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2025-10-23T12:47:59.387Z",
+                  "startTime": "2025-10-24T12:21:29.351Z",
                   "annotations": [],
                   "attachments": [
                     {
                       "name": "screenshot",
                       "contentType": "image/png",
-                      "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Venue-createvenue-pom-Create-venue-all-tests\\test-failed-1.png"
+                      "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Venue-createvenuepom-Create-venue-all-tests\\test-failed-1.png"
                     },
                     {
                       "name": "video",
                       "contentType": "video/webm",
-                      "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Venue-createvenue-pom-Create-venue-all-tests\\video.webm"
+                      "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Venue-createvenuepom-Create-venue-all-tests\\video.webm"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Venue-createvenuepom-Create-venue-all-tests\\error-context.md"
                     }
                   ],
                   "errorLocation": {
-                    "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Venue\\createvenue-pom.spec.js",
-                    "column": 22,
-                    "line": 12
+                    "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Venue\\createvenuepom.spec.js",
+                    "column": 3,
+                    "line": 210
                   }
                 }
               ],
               "status": "unexpected"
             }
           ],
-          "id": "9ea8611ea5944fdb2ee4-6f0a0240571154c3ba5d",
-          "file": "Venue/createvenue-pom.spec.js",
-          "line": 9,
+          "id": "1867a2a4347dd3c3c6e4-86b28e15da26c0f64477",
+          "file": "Venue/createvenuepom.spec.js",
+          "line": 13,
           "column": 1
         }
       ]
@@ -145,8 +160,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-10-23T12:47:58.727Z",
-    "duration": 1652.069,
+    "startTime": "2025-10-24T12:21:28.537Z",
+    "duration": 13586.525,
     "expected": 0,
     "skipped": 0,
     "unexpected": 1,

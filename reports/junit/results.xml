@@ -1,34 +1,41 @@
-<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="1.652069">
-<testsuite name="Venue\createvenue-pom.spec.js" timestamp="2025-10-23T12:47:58.761Z" hostname="all-tests" tests="1" failures="1" skipped="0" time="0.523" errors="0">
-<testcase name="Create venue" classname="Venue\createvenue-pom.spec.js" time="0.523">
-<failure message="createvenue-pom.spec.js:9:1 Create venue" type="FAILURE">
-<![CDATA[  [all-tests] › Venue\createvenue-pom.spec.js:9:1 › Create venue ───────────────────────────────────
+<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="13.586525">
+<testsuite name="Venue\createvenuepom.spec.js" timestamp="2025-10-24T12:21:28.736Z" hostname="all-tests" tests="1" failures="1" skipped="0" time="12.248" errors="0">
+<testcase name="Create venue" classname="Venue\createvenuepom.spec.js" time="12.248">
+<failure message="createvenuepom.spec.js:13:1 Create venue" type="FAILURE">
+<![CDATA[  [all-tests] › Venue\createvenuepom.spec.js:13:1 › Create venue ───────────────────────────────────
 
-    TypeError: addVenuePage.login is not a function
+    Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\Obi-Waiter-CMS-playwright-main\tests\Fixtures\pictures\venuelogo.png'
 
-      10 |   const addVenuePage = new AddVenuePage(page);
-      11 |   // Login using credentials from login fixture
-    > 12 |   await addVenuePage.login(login.TC1001.Email, login.TC1001.Password);
-         |                      ^
-      13 |   // Navigate to Add Venue page using the method from addvenue-pom.js
-      14 |   await addVenuePage.navigateToAddVenue();
-      15 |   
-        at C:\Users\HP\Desktop\Obi-Waiter-CMS-playwright-main\tests\Venue\createvenue-pom.spec.js:12:22
+      208 |   const logoPath = `${process.cwd()}/tests/Fixtures/pictures/venuelogo.png`;
+      209 |
+    > 210 |   await page.locator('input[type="file"]').setInputFiles(logoPath);
+          |   ^
+      211 |   console.log(' Logo image selected from pictures folder');
+      212 |   
+      213 |   // Assert: Verify image is uploaded and visible
+        at C:\Users\HP\Desktop\Obi-Waiter-CMS-playwright-main\tests\Venue\createvenuepom.spec.js:210:3
 
     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\test-results\Venue-createvenue-pom-Create-venue-all-tests\test-failed-1.png
+    ..\test-results\Venue-createvenuepom-Create-venue-all-tests\test-failed-1.png
     ────────────────────────────────────────────────────────────────────────────────────────────────
 
     attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\test-results\Venue-createvenue-pom-Create-venue-all-tests\video.webm
+    ..\test-results\Venue-createvenuepom-Create-venue-all-tests\video.webm
     ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\test-results\Venue-createvenuepom-Create-venue-all-tests\error-context.md
 ]]>
 </failure>
 <system-out>
-<![CDATA[
-[[ATTACHMENT|..\..\test-results\Venue-createvenue-pom-Create-venue-all-tests\test-failed-1.png]]
+<![CDATA[Starting logo upload...
+ Clicked on Choose image button for logo
+ File input is available for logo upload
 
-[[ATTACHMENT|..\..\test-results\Venue-createvenue-pom-Create-venue-all-tests\video.webm]]
+[[ATTACHMENT|..\..\test-results\Venue-createvenuepom-Create-venue-all-tests\test-failed-1.png]]
+
+[[ATTACHMENT|..\..\test-results\Venue-createvenuepom-Create-venue-all-tests\video.webm]]
+
+[[ATTACHMENT|..\..\test-results\Venue-createvenuepom-Create-venue-all-tests\error-context.md]]
 ]]>
 </system-out>
 </testcase>
