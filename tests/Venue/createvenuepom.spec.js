@@ -205,7 +205,7 @@ test("Create venue", async ({ page }) => {
   
   // Step 2: Wait for file input and select logo image
   await page.waitForSelector('input[type="file"]', { state: 'attached' });
-  const logoPath = `${process.cwd()}/tests/Fixtures/pictures/venuelogo.png`;
+  const logoPath = `${process.cwd()}/tests/Fixtures/pictures/venue-logo.png`;
 
   await page.locator('input[type="file"]').setInputFiles(logoPath);
   console.log(' Logo image selected from pictures folder');
