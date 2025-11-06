@@ -8,13 +8,22 @@
 
 ## 📋 Executive Summary
 
-This document outlines a comprehensive improvement plan for the Obi-Waiter CMS test automation framework. The plan addresses **10 critical issues** identified during code review and aligns the framework with **2025 test automation trends** including AI-powered testing, TypeScript adoption, API-first testing, and visual regression testing.
+This document outlines a comprehensive improvement plan for the Obi-Waiter CMS test automation framework. The plan addresses **critical issues identified across all 9 modules** (28 test files, 25 POM files) during comprehensive code review and aligns the framework with **2025 test automation trends** including AI-powered testing, TypeScript adoption, API-first testing, and visual regression testing.
+
+**Scope:** Complete Test Automation Framework
+- **9 Modules:** Venue, Login, Signup, Menu, Categories, Items, Ingredients, Customizations, Tags
+- **28 Test Files:** All test specifications across modules
+- **25 POM Files:** All Page Object Models
+- **138 Hard Wait Instances:** Found across entire codebase
+- **40% Code Duplication:** Across multiple modules
 
 **Expected Outcomes:**
 - 73% faster test execution (45 min → 12 min)
 - 94% reduction in code duplication (90% → 5%)
 - 75% reduction in maintenance time (8 hrs/week → 2 hrs/week)
 - 46% improvement in test reliability (65% → 95%)
+- 100% elimination of hard waits (138 instances → 0)
+- 95% reduction in wait time (200-300s → <10s per suite)
 
 ---
 
@@ -28,14 +37,19 @@ This document outlines a comprehensive improvement plan for the Obi-Waiter CMS t
 - Centralized locator management
 
 ### **Weaknesses** ❌
+- **138 hard wait instances** across all modules (75 in test files + 63 in POM files)
+- **90% code duplication** in Items module (920 lines duplicate between venueitemcreate.js and createcomapnyitem.js)
+- **Code duplication patterns** across Venue, Customizations, Menu, and Categories modules
 - Hard-coded URLs and values throughout codebase
-- 90% code duplication between Company and Venue item POMs
-- Inconsistent locator strategies (3 different approaches)
-- Excessive hard waits (5000ms timeouts)
-- Missing error handling and assertions
-- No authentication state reuse
+- Inconsistent locator strategies (3 different approaches) across all 25 POM files
+- Excessive hard waits (1000ms-6000ms timeouts) across all modules
+- **0% error handling coverage** (0/25 POM files have try-catch blocks)
+- **100-150 unnecessary clicks** before fill operations across all modules
+- Missing navigation verification across all modules
+- No authentication state reuse (every test performs login)
 - Poor test data management
 - Lack of TypeScript type safety
+- No test structure (missing `test.describe()` blocks in 28 test files)
 
 ---
 
@@ -51,6 +65,8 @@ This document outlines a comprehensive improvement plan for the Obi-Waiter CMS t
 **Impact:** Tests always run against development environment  
 **Files Affected:** 
 - `utils/login-helper.js` (Line 14)
+- Multiple POM files across all modules
+- Test files that navigate directly
 
 **Current Code:**
 ```javascript
@@ -82,8 +98,10 @@ await page.goto(config.urls.login);
 **Severity:** CRITICAL  
 **Impact:** Methods ignore parameters and use fixed values  
 **Files Affected:**
-- `object-Page/items/venueitemcreate.js` (Lines 205-209, 337-340, 348-351, 359-363)
-- `object-Page/items/createcomapnyitem.js` (Similar patterns)
+- **Items Module:** `object-Page/items/venueitemcreate.js` (Lines 205-209, 337-340, 348-351, 359-363)
+- **Items Module:** `object-Page/items/createcomapnyitem.js` (Similar patterns)
+- **Venue Module:** Multiple POM files with similar issues
+- **Customizations Module:** Methods using hardcoded values
 
 **Current Code:**
 ```javascript
@@ -137,13 +155,30 @@ async fillStockCount(stockCount) {
 
 ---
 
-#### **Problem 3: Excessive Hard Waits**
+#### **Problem 3: Excessive Hard Waits (138 Instances)**
 
 **Severity:** CRITICAL  
-**Impact:** Tests are slow and unreliable  
+**Impact:** Tests are slow and unreliable, 200-300 seconds wasted per suite run  
 **Files Affected:**
-- `tests/Items/venueitem.spec.js` (Line 216)
-- Multiple POM files with `waitForTimeout()`
+- **Total: 138 instances** (75 in test files + 63 in POM files)
+- **Customizations Module:** 37 instances (HIGHEST PRIORITY - 18 in venue, 19 in company test files)
+- **Venue Module:** 40 instances (28 in POMs + 12 in tests)
+- **Menu Module:** 20 instances in POM files
+- **Items Module:** 4 instances with long waits (3000ms, 5000ms, 6000ms)
+- **Categories Module:** 6 instances
+- **All other modules:** Various instances across POM and test files
+
+**Module Breakdown:**
+- `tests/Customizations/createcustomizationcompany.spec.js` - 19 instances
+- `tests/Customizations/createcustomizationvenue.spec.js` - 18 instances
+- `tests/Venue/createvenue.spec.js` - 7 instances
+- `tests/Venue/venue1.spec.js` - 5 instances
+- `object-Page/venue/mandatorydatavenue.js` - 10 instances
+- `object-Page/venue/addvenuepom.js` - 10 instances
+- `object-Page/venue/venue1-pom.js` - 8 instances
+- `object-Page/menu/menupom.js` - 7 instances
+- `object-Page/menu/menuvenuecreate.js` - 7 instances
+- And 50+ more instances across remaining files
 
 **Current Code:**
 ```javascript
@@ -169,27 +204,53 @@ await this.page.waitForFunction(() => {
 await this.page.waitForTimeout(300); // Minimal wait
 ```
 
-**Implementation Steps:**
-1. Identify all `waitForTimeout()` calls
-2. Replace with appropriate dynamic waits
-3. Add element visibility checks
-4. Use `waitForLoadState('networkidle')` for page loads
-5. Reduce timeout values to minimum necessary
+**Module-Specific Implementation:**
 
-**Effort:** 1.5 hours  
+**Phase 1: Customizations Module (Highest Priority - 37 instances)**
+1. Replace all 37 `waitForTimeout()` calls in Customizations module
+2. Add explicit waits after each action
+3. Verify all test files pass
+
+**Phase 2: Venue Module (40 instances)**
+1. Replace 28 instances in POM files
+2. Replace 12 instances in test files
+3. Add navigation verification
+
+**Phase 3: Menu Module (20 instances)**
+1. Replace all instances in POM files
+2. Add proper waits for navigation
+
+**Phase 4: Remaining Modules (41 instances)**
+1. Items module: Replace long waits (3000ms, 5000ms, 6000ms)
+2. Categories module: Replace 6 instances
+3. All other modules: Systematic replacement
+
+**Implementation Steps:**
+1. Create script to identify all `waitForTimeout()` calls across all files
+2. Categorize by module and priority
+3. Replace with appropriate dynamic waits (module by module)
+4. Add element visibility checks
+5. Use `waitForLoadState('networkidle')` for page loads
+6. Reduce timeout values to minimum necessary (<300ms only for animations)
+7. Test each module after replacement
+
+**Effort:** 8 hours (distributed across all modules)  
 **Priority:** P0 - Must fix immediately
 
 ---
 
-#### **Problem 4: 90% Code Duplication**
+#### **Problem 4: Code Duplication Across Multiple Modules**
 
 **Severity:** CRITICAL  
 **Impact:** Maintenance nightmare, bug multiplication  
 **Files Affected:**
-- `object-Page/items/venueitemcreate.js` (481 lines)
-- `object-Page/items/createcomapnyitem.js` (439 lines)
+- **Items Module (CRITICAL):** 90% duplication between `venueitemcreate.js` (481 lines) and `createcomapnyitem.js` (439 lines) = **920 lines duplicate!**
+- **Venue Module:** Gallery methods duplicated 3 times in 3 POM files = 9 duplicate methods
+- **Customizations Module:** Similar patterns duplicated across files
+- **Menu Module:** Duplicate patterns in `menupom.js` and `menuvenuecreate.js`
+- **Categories Module:** Duplicate category creation logic
 
-**Root Cause:** No inheritance, methods copied between files
+**Root Cause:** No inheritance, methods copied between files, no base classes
 
 **Solution:** Create base class with common methods
 
@@ -222,25 +283,52 @@ object-Page/items/
 - Easier to maintain and extend
 - Better code organization
 
-**Implementation Steps:**
-1. Create `base-item-pom.js` file
-2. Move all common methods to base class
-3. Update `venueitemcreate.js` to extend base
-4. Update `createcomapnyitem.js` to extend base
-5. Keep only specific methods in child classes
-6. Run all tests to verify functionality
-7. Remove duplicate code
+**Module-Specific Solutions:**
 
-**Effort:** 4 hours  
+**Items Module (CRITICAL - 920 lines duplicate):**
+1. Create `base-item-pom.js` file
+2. Move all common methods to base class (~300 lines)
+3. Update `venueitemcreate.js` to extend base (~100 lines, venue-specific only)
+4. Update `createcomapnyitem.js` to extend base (~80 lines, company-specific only)
+5. Result: 920 lines → 480 lines (48% reduction)
+
+**Venue Module (9 duplicate gallery methods):**
+1. Create parameterized `fillGalleryItem(itemIndex)` method
+2. Replace `fillupgalleryimage1()`, `fillupgalleryimage2()`, `fillupgalleryimage3()` in all 3 POM files
+3. Result: 9 methods → 3 methods (67% reduction)
+
+**Customizations, Menu, Categories Modules:**
+1. Identify common patterns
+2. Create shared utility methods
+3. Refactor to use shared methods
+
+**Implementation Steps:**
+1. **Phase 1:** Items module - Create base class (4 hours)
+2. **Phase 2:** Venue module - Refactor gallery methods (2 hours)
+3. **Phase 3:** Other modules - Systematic refactoring (4 hours)
+4. Test each module after refactoring
+5. Remove all duplicate code
+
+**Effort:** 10 hours (distributed across all modules)  
 **Priority:** P0 - Must fix immediately
 
 ---
 
-#### **Problem 5: Missing Error Handling**
+#### **Problem 5: Missing Error Handling (0% Coverage)**
 
 **Severity:** HIGH  
 **Impact:** Cryptic failures, hard to debug  
-**Files Affected:** All POM files
+**Files Affected:** **ALL 25 POM files** (0% error handling coverage)
+
+**Module Breakdown:**
+- **Venue Module:** `mandatorydatavenue.js`, `addvenuepom.js`, `venue1-pom.js` - No error handling
+- **Menu Module:** `menupom.js`, `menuvenuecreate.js`, `duplicatecompanymenu.js`, `duplicatmenuwithvenue.js` - No error handling
+- **Categories Module:** `createcategorycomapnypom.js`, `createcategoryvenue.js`, `duplicatecategoryvenue.js` - No error handling
+- **Items Module:** `venueitemcreate.js`, `createcomapnyitem.js` - No error handling
+- **Customizations Module:** `createcustomizationvenuepom.js`, `customizationpom.js` - No error handling
+- **Ingredients Module:** `ingredientpom.js`, `ingredientsvenue.js` - No error handling
+- **Tags Module:** `createtagcompany-pom.js`, `createvenuetag.js` - No error handling
+- **Login/Signup POMs:** All 7 POM files - No error handling
 
 **Current Code:**
 ```javascript
@@ -314,14 +402,20 @@ export async function withRetry(fn, options = {}) {
 ```
 
 **Implementation Steps:**
-1. Create `utils/error-handler.js`
-2. Add try-catch to critical methods (upload, save, etc.)
-3. Add screenshot capture on failure
-4. Add retry mechanism for flaky operations
-5. Improve error messages with context
-6. Add error logging
+1. Create `utils/error-handler.js` utility
+2. **Phase 1:** Add try-catch to critical methods in Items module (upload, save)
+3. **Phase 2:** Add try-catch to Venue module (upload methods, navigation)
+4. **Phase 3:** Add try-catch to Customizations module (all methods)
+5. **Phase 4:** Add try-catch to Menu module (navigation, upload)
+6. **Phase 5:** Add try-catch to remaining modules
+7. Add screenshot capture on failure
+8. Add retry mechanism for flaky operations
+9. Improve error messages with context (include module name, method name)
+10. Add error logging
 
-**Effort:** 3 hours  
+**Target:** 100% coverage for critical methods across all 25 POM files
+
+**Effort:** 8 hours (distributed across all modules)  
 **Priority:** P1 - High priority
 
 ---
@@ -334,7 +428,13 @@ export async function withRetry(fn, options = {}) {
 
 **Severity:** HIGH  
 **Impact:** Maintenance confusion, different approaches in same file  
-**Files Affected:** All POM files
+**Files Affected:** **ALL 25 POM files** across all 9 modules
+
+**Issues Found:**
+- Mix of XPath, CSS selectors, and Playwright locators in same files
+- Hardcoded XPath in navigation methods across all modules
+- Fragile selectors using `.first()` or `.last()` in multiple modules
+- Inconsistent use of `locators.json` across modules
 
 **Current Issues:**
 1. JSON-based: `locators["item-name"]`
@@ -376,15 +476,26 @@ await this.page.locator(locators["complex-dynamic-selector"]).click();
 2. **Phase 2:** Request dev team add data-testid attributes
 3. **Phase 3:** Update JSON locators for complex cases only
 
-**Implementation Steps:**
-1. Audit all locators in project
-2. Create locator strategy document
-3. Update locators file by file
-4. Add comments explaining complex locators
-5. Train team on new strategy
-6. Add linting rules to enforce
+**Module-Specific Issues:**
+- **Venue Module:** XPath in `navigateToAddVenue()` across all 3 POM files
+- **Menu Module:** Hardcoded selectors in navigation methods
+- **Categories Module:** Inconsistent locator usage
+- **Items Module:** Mix of strategies throughout
+- **All Modules:** Need standardization
 
-**Effort:** 6 hours  
+**Implementation Steps:**
+1. Audit all locators across all 25 POM files
+2. Create locator strategy document
+3. **Phase 1:** Standardize Venue module (highest usage)
+4. **Phase 2:** Standardize Items module (complex flows)
+5. **Phase 3:** Standardize Customizations module
+6. **Phase 4:** Standardize remaining modules
+7. Add comments explaining complex locators
+8. Update `locators.json` with consistent patterns
+9. Train team on new strategy
+10. Add linting rules to enforce
+
+**Effort:** 10 hours (distributed across all modules)  
 **Priority:** P1 - High priority
 
 ---
@@ -392,10 +503,15 @@ await this.page.locator(locators["complex-dynamic-selector"]).click();
 #### **Problem 7: No Authentication State Reuse**
 
 **Severity:** HIGH  
-**Impact:** Tests 50-70% slower than necessary  
+**Impact:** Tests 50-70% slower than necessary, 420 seconds wasted per suite run (28 tests × 15s each)  
 **Files Affected:**
-- Every test file performs login
+- **ALL 28 test files** perform login individually
 - `utils/login-helper.js`
+- All POM files that navigate to authenticated pages
+
+**Current Impact:**
+- 28 test files × 15 seconds login = 420 seconds (7 minutes) wasted per suite run
+- With 10 test runs = 4200 seconds (70 minutes) wasted
 
 **Current Flow:**
 ```
@@ -471,11 +587,18 @@ await page.goto('/venues');
 2. Create `.auth/` directory
 3. Update `playwright.config.js`
 4. Add `.auth/` to `.gitignore`
-5. Remove login calls from all tests
-6. Update test to start at correct pages
-7. Measure performance improvement
+5. **Phase 1:** Remove login from Venue module tests (4 tests)
+6. **Phase 2:** Remove login from Menu module tests (4 tests)
+7. **Phase 3:** Remove login from Categories module tests (4 tests)
+8. **Phase 4:** Remove login from Items module tests (2 tests)
+9. **Phase 5:** Remove login from Customizations module tests (2 tests)
+10. **Phase 6:** Remove login from Ingredients module tests (2 tests)
+11. **Phase 7:** Remove login from Tags module tests (2 tests)
+12. **Phase 8:** Remove login from remaining test files
+13. Update all tests to start at correct authenticated pages
+14. Measure performance improvement (target: 7 minutes saved per suite run)
 
-**Effort:** 2 hours  
+**Effort:** 4 hours (to update all 28 test files)  
 **Priority:** P1 - High priority
 
 ---
@@ -486,7 +609,12 @@ await page.goto('/venues');
 **Impact:** Maintenance issues, data inconsistencies  
 **Files Affected:**
 - `Fixtures/items.json`
-- All fixture files
+- `Fixtures/Venue.json`
+- `Fixtures/menu.json`
+- `Fixtures/Categories.json`
+- `Fixtures/customization.json`
+- `Fixtures/Ingredients.json`
+- All fixture files across all modules
 
 **Current Issues:**
 ```json
@@ -578,7 +706,14 @@ await page.goto('/venues');
 
 **Severity:** MEDIUM  
 **Impact:** Tests pass even when functionality is broken  
-**Files Affected:** All test files
+**Files Affected:** **ALL 28 test files** across all modules
+
+**Module Breakdown:**
+- **Venue Module:** Missing assertions after navigation, uploads, saves
+- **Items Module:** Missing assertions after form fills, uploads
+- **Customizations Module:** Missing assertions throughout
+- **Menu Module:** Missing assertions after navigation
+- **All Modules:** Need comprehensive assertion coverage
 
 **Current Code:**
 ```javascript
@@ -620,15 +755,20 @@ await expect(page.getByText('Item created successfully')).toBeVisible();
 4. **Visual Assertions:** Verify UI updated correctly
 
 **Implementation Steps:**
-1. Audit all test files for missing assertions
-2. Add assertions after each critical action
-3. Add assertions in POM methods
-4. Verify success messages
-5. Verify URL changes
-6. Verify element states
-7. Add visual checks where appropriate
+1. Audit all 28 test files for missing assertions
+2. **Phase 1:** Add assertions to Venue module tests (4 files)
+3. **Phase 2:** Add assertions to Items module tests (2 files)
+4. **Phase 3:** Add assertions to Customizations module tests (2 files - highest priority)
+5. **Phase 4:** Add assertions to Menu module tests (4 files)
+6. **Phase 5:** Add assertions to remaining modules
+7. Add assertions after each critical action
+8. Add assertions in POM methods (all 25 files)
+9. Verify success messages
+10. Verify URL changes
+11. Verify element states
+12. Add visual checks where appropriate
 
-**Effort:** 5 hours  
+**Effort:** 10 hours (distributed across all 28 test files)  
 **Priority:** P2 - Medium priority
 
 ---
@@ -637,7 +777,14 @@ await expect(page.getByText('Item created successfully')).toBeVisible();
 
 **Severity:** LOW  
 **Impact:** Code clutter, confusion  
-**Files Affected:** Multiple files
+**Files Affected:** Multiple files across all modules
+
+**Issues Found:**
+- **Venue Module:** Large commented blocks in `createvenue.spec.js` (Lines 40-118)
+- **Venue Module:** Commented methods in `mandatorydataentry.spec.js`
+- **Menu Module:** Commented waits in `duplicatecompanymenu.spec.js`
+- **Items Module:** Commented waits in multiple files
+- **All Modules:** Various commented code blocks
 
 **Examples:**
 ```javascript
@@ -648,13 +795,15 @@ await expect(page.getByText('Item created successfully')).toBeVisible();
 **Solution:** Remove all commented code and debug statements
 
 **Implementation Steps:**
-1. Search for commented code
-2. Remove unnecessary comments
-3. Remove debug pause statements
-4. Keep only meaningful comments
-5. Update documentation instead
+1. Search for commented code across all 28 test files and 25 POM files
+2. Remove commented `waitForTimeout()` calls
+3. Remove commented test methods (use `test.skip()` instead)
+4. Remove debug `pause()` statements
+5. Remove unnecessary comments
+6. Keep only meaningful comments
+7. Update documentation instead
 
-**Effort:** 1 hour  
+**Effort:** 2 hours (to clean all files)  
 **Priority:** P3 - Low priority
 
 ---
@@ -890,44 +1039,57 @@ jobs:
 ## 📅 Implementation Timeline
 
 ### **Phase 1: Critical Fixes (Week 1)**
-**Goal:** Fix breaking issues and technical debt
+**Goal:** Fix breaking issues and technical debt across all modules
 
 | Task | Effort | Priority | Status |
 |------|--------|----------|--------|
-| Fix hardcoded URLs | 30 min | P0 | ⏳ Pending |
-| Fix hardcoded parameter values | 2 hrs | P0 | ⏳ Pending |
-| Remove hard waits | 1.5 hrs | P0 | ⏳ Pending |
-| Create base POM class | 4 hrs | P0 | ⏳ Pending |
-| Add error handling | 3 hrs | P1 | ⏳ Pending |
-| **Total Week 1** | **11 hrs** | | |
+| Fix hardcoded URLs (all modules) | 1 hr | P0 | ⏳ Pending |
+| Fix hardcoded parameter values (Items, Venue, Customizations) | 3 hrs | P0 | ⏳ Pending |
+| Remove hard waits - Customizations module (37 instances) | 2 hrs | P0 | ⏳ Pending |
+| Remove hard waits - Venue module (40 instances) | 2 hrs | P0 | ⏳ Pending |
+| Remove hard waits - Menu module (20 instances) | 1 hr | P0 | ⏳ Pending |
+| Remove hard waits - Remaining modules (41 instances) | 3 hrs | P0 | ⏳ Pending |
+| Create base POM class (Items module) | 4 hrs | P0 | ⏳ Pending |
+| Refactor gallery methods (Venue module) | 2 hrs | P0 | ⏳ Pending |
+| Add error handling - Critical methods (all modules) | 4 hrs | P1 | ⏳ Pending |
+| **Total Week 1** | **22 hrs** | | |
 
 **Deliverables:**
-- ✅ All tests run against correct environment
-- ✅ No hardcoded values in methods
-- ✅ No hard waits over 500ms
-- ✅ Base POM class with 90% reduction in duplication
-- ✅ Try-catch blocks in all critical methods
+- ✅ All tests run against correct environment (all 28 test files)
+- ✅ No hardcoded values in methods (Items, Venue, Customizations modules)
+- ✅ No hard waits over 500ms (all 138 instances replaced)
+- ✅ Base POM class for Items module (90% reduction in duplication)
+- ✅ Gallery methods refactored in Venue module (67% reduction)
+- ✅ Try-catch blocks in all critical methods (all 25 POM files)
 
 ---
 
 ### **Phase 2: Architecture Improvements (Week 2)**
-**Goal:** Improve test architecture and reliability
+**Goal:** Improve test architecture and reliability across all modules
 
 | Task | Effort | Priority | Status |
 |------|--------|----------|--------|
-| Implement auth state reuse | 2 hrs | P1 | ⏳ Pending |
-| Standardize locator strategy | 6 hrs | P1 | ⏳ Pending |
-| Fix test data structure | 4 hrs | P2 | ⏳ Pending |
-| Add missing assertions | 5 hrs | P2 | ⏳ Pending |
-| Clean up dead code | 1 hr | P3 | ⏳ Pending |
-| **Total Week 2** | **18 hrs** | | |
+| Implement auth state reuse (all 28 test files) | 4 hrs | P1 | ⏳ Pending |
+| Standardize locator strategy - Venue module | 2 hrs | P1 | ⏳ Pending |
+| Standardize locator strategy - Items module | 2 hrs | P1 | ⏳ Pending |
+| Standardize locator strategy - Remaining modules | 6 hrs | P1 | ⏳ Pending |
+| Fix test data structure (all fixture files) | 4 hrs | P2 | ⏳ Pending |
+| Add missing assertions - Customizations module | 2 hrs | P2 | ⏳ Pending |
+| Add missing assertions - Venue module | 2 hrs | P2 | ⏳ Pending |
+| Add missing assertions - Remaining modules | 6 hrs | P2 | ⏳ Pending |
+| Remove unnecessary clicks (all modules) | 3 hrs | P2 | ⏳ Pending |
+| Add navigation verification (all modules) | 2 hrs | P2 | ⏳ Pending |
+| Clean up dead code (all files) | 2 hrs | P3 | ⏳ Pending |
+| **Total Week 2** | **35 hrs** | | |
 
 **Deliverables:**
-- ✅ Tests 50% faster (no repeated logins)
-- ✅ Consistent locator strategy across codebase
-- ✅ Clean, structured test data
-- ✅ Comprehensive assertions in all tests
-- ✅ No commented code
+- ✅ Tests 50% faster (no repeated logins - 7 minutes saved per suite run)
+- ✅ Consistent locator strategy across all 25 POM files
+- ✅ Clean, structured test data (all fixture files)
+- ✅ Comprehensive assertions in all 28 test files
+- ✅ No unnecessary clicks (100-150 instances removed)
+- ✅ Navigation verification in all modules
+- ✅ No commented code across all files
 
 ---
 
@@ -997,12 +1159,16 @@ jobs:
 | Metric | Current | Target | Measurement |
 |--------|---------|--------|-------------|
 | **Test Execution Time** | 45 min | 12 min | Total suite runtime |
-| **Test Setup Time** | 5 min | 30 sec | Per test login time |
-| **Code Duplication** | 90% | <5% | Code analysis tools |
+| **Test Setup Time** | 5 min (28 tests × 15s) | 30 sec | Per test login time |
+| **Hard Wait Instances** | 138 instances | 0 instances | Code analysis |
+| **Hard Wait Time** | 200-300s/suite | <10s/suite | Total wait time |
+| **Code Duplication** | 40% (Items: 920 lines, Venue: 9 methods) | <5% | Code analysis tools |
 | **Test Reliability** | 65% | 95% | Pass rate over 100 runs |
 | **Maintenance Time** | 8 hrs/week | 2 hrs/week | Team tracking |
 | **Code Coverage** | 45% | 75% | Playwright coverage |
 | **Flaky Tests** | 25% | <5% | Retry rate analysis |
+| **Error Handling Coverage** | 0% (0/25 POM files) | 100% (critical methods) | Code review |
+| **Unnecessary Clicks** | 100-150 clicks/suite | 0 clicks | Code analysis |
 
 ### **Quality Metrics**
 
@@ -1196,20 +1362,27 @@ npm run test:api
 ## ✅ Acceptance Criteria
 
 ### **Phase 1 Complete When:**
-- [ ] All tests pass with environment-based URLs
-- [ ] No hardcoded parameter values found in code search
-- [ ] No hard waits over 500ms (except documented cases)
-- [ ] Base POM class created with >80% common code
-- [ ] All critical methods have error handling
+- [ ] All 28 tests pass with environment-based URLs (all modules)
+- [ ] No hardcoded parameter values found in code search (Items, Venue, Customizations)
+- [ ] All 138 hard wait instances replaced (0 remaining)
+- [ ] Customizations module: 37 instances replaced
+- [ ] Venue module: 40 instances replaced
+- [ ] Menu module: 20 instances replaced
+- [ ] Remaining modules: 41 instances replaced
+- [ ] Base POM class created for Items module with >80% common code
+- [ ] Gallery methods refactored in Venue module (9 methods → 3 methods)
+- [ ] All critical methods have error handling (all 25 POM files)
 - [ ] Code review approved by 2+ team members
 
 ### **Phase 2 Complete When:**
-- [ ] Auth state reuse working for all test suites
-- [ ] Single locator strategy used consistently
-- [ ] All test data follows new JSON structure
-- [ ] Every test has minimum 3 assertions
-- [ ] No commented code in codebase
-- [ ] Test execution 40%+ faster than baseline
+- [ ] Auth state reuse working for all 28 test files (all modules)
+- [ ] Single locator strategy used consistently across all 25 POM files
+- [ ] All test data follows new JSON structure (all fixture files)
+- [ ] Every test file has minimum 3 assertions (28 test files)
+- [ ] No unnecessary clicks (100-150 instances removed)
+- [ ] Navigation verification added to all modules
+- [ ] No commented code in codebase (all files)
+- [ ] Test execution 40%+ faster than baseline (7 minutes saved per suite run)
 
 ### **Phase 3 Complete When:**
 - [ ] API helpers working for all test data setup

@@ -1,41 +1,76 @@
-<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="13.586525">
-<testsuite name="Venue\createvenuepom.spec.js" timestamp="2025-10-24T12:21:28.736Z" hostname="all-tests" tests="1" failures="1" skipped="0" time="12.248" errors="0">
-<testcase name="Create venue" classname="Venue\createvenuepom.spec.js" time="12.248">
-<failure message="createvenuepom.spec.js:13:1 Create venue" type="FAILURE">
-<![CDATA[  [all-tests] › Venue\createvenuepom.spec.js:13:1 › Create venue ───────────────────────────────────
+<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="29.610336">
+<testsuite name="Venue\mandatorydataentry.spec.js" timestamp="2025-11-06T06:59:43.436Z" hostname="all-tests" tests="1" failures="1" skipped="0" time="28.236" errors="0">
+<testcase name="Mandatory data entry" classname="Venue\mandatorydataentry.spec.js" time="28.236">
+<failure message="mandatorydataentry.spec.js:9:1 Mandatory data entry" type="FAILURE">
+<![CDATA[  [all-tests] › Venue\mandatorydataentry.spec.js:9:1 › Mandatory data entry ────────────────────────
 
-    Error: ENOENT: no such file or directory, stat 'C:\Users\HP\Desktop\Obi-Waiter-CMS-playwright-main\tests\Fixtures\pictures\venuelogo.png'
+    Error: expect.toBeVisible: Error: strict mode violation: getByText('DishUp') resolved to 3 elements:
+        1) <span data-slate-string="true">DishUp is more than just a restaurant; it's a jou…</span> aka getByText('DishUp is more than just a').first()
+        2) <textarea id=":r19:" autocomplete="off" aria-invalid="false" name="gallery.1.description.en" placeholder="Gallery Description" class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiInputBase-inputAdornedEnd css-v59wfm">Every moment at DishUp is carefully curated to cr…</textarea> aka getByText('Every moment at DishUp is')
+        3) <textarea id=":r1b:" autocomplete="off" aria-invalid="false" name="gallery.2.description.en" placeholder="Gallery Description" class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiInputBase-inputAdornedEnd css-v59wfm">DishUp is more than just a restaurant; it's a jou…</textarea> aka locator('textarea[name="gallery.2.description.en"]')
 
-      208 |   const logoPath = `${process.cwd()}/tests/Fixtures/pictures/venuelogo.png`;
-      209 |
-    > 210 |   await page.locator('input[type="file"]').setInputFiles(logoPath);
-          |   ^
-      211 |   console.log(' Logo image selected from pictures folder');
-      212 |   
-      213 |   // Assert: Verify image is uploaded and visible
-        at C:\Users\HP\Desktop\Obi-Waiter-CMS-playwright-main\tests\Venue\createvenuepom.spec.js:210:3
+    Call log:
+      - Expect "toBeVisible" with timeout 10000ms
+      - waiting for getByText('DishUp')
+
+
+       at ..\object-Page\venue\mandatorydatavenue.js:301
+
+      299 |     await this.page.locator(locators["save-button"]).click();
+      300 |     await this.page.waitForTimeout(2000);
+    > 301 |     await expect(this.page.getByText('DishUp')).toBeVisible();
+          |                                                 ^
+      302 |     console.log('Venue saved successfully');
+      303 |   }
+      304 | }
+        at MandatoryDataVenuePOM.clicksavebutton (C:\Users\HP\Desktop\Obi-Waiter-CMS-playwright-main\object-Page\venue\mandatorydatavenue.js:301:49)
+        at C:\Users\HP\Desktop\Obi-Waiter-CMS-playwright-main\tests\Venue\mandatorydataentry.spec.js:86:2
 
     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\test-results\Venue-createvenuepom-Create-venue-all-tests\test-failed-1.png
+    ..\test-results\Venue-mandatorydataentry-Mandatory-data-entry-all-tests\test-failed-1.png
     ────────────────────────────────────────────────────────────────────────────────────────────────
 
     attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\test-results\Venue-createvenuepom-Create-venue-all-tests\video.webm
+    ..\test-results\Venue-mandatorydataentry-Mandatory-data-entry-all-tests\video.webm
     ────────────────────────────────────────────────────────────────────────────────────────────────
 
-    Error Context: ..\test-results\Venue-createvenuepom-Create-venue-all-tests\error-context.md
+    Error Context: ..\test-results\Venue-mandatorydataentry-Mandatory-data-entry-all-tests\error-context.md
 ]]>
 </failure>
 <system-out>
-<![CDATA[Starting logo upload...
- Clicked on Choose image button for logo
- File input is available for logo upload
+<![CDATA[click on the venue name and add name
+Venue type selected successfully
+Email filled
+Language selected successfully
+Timezone selected successfully
+currency selected successfully
+Cuisine fill successfully
+Address fill successfully
+Next button clicked successfully
+Venue description filled successfully
+Client app url filled successfully
+Dine-In Tax filled successfully
+Take-Away Tax filled successfully
+Starting logo upload...
+Clicked on Choose image button for logo
+Cover image selected from pictures folder
+Cover image upload completed
+Cover image is now displayed in the venue form
+Cover image upload completed successfully
+Next button clicked successfully
+Contact number filled successfully
+Story title filled successfully
+Story description filled successfully
+Story image upload completed successfully
+Gallery item 1 completed successfully
+Gallery item 2 completed successfully
+Gallery item 3 completed successfully
 
-[[ATTACHMENT|..\..\test-results\Venue-createvenuepom-Create-venue-all-tests\test-failed-1.png]]
+[[ATTACHMENT|..\..\test-results\Venue-mandatorydataentry-Mandatory-data-entry-all-tests\test-failed-1.png]]
 
-[[ATTACHMENT|..\..\test-results\Venue-createvenuepom-Create-venue-all-tests\video.webm]]
+[[ATTACHMENT|..\..\test-results\Venue-mandatorydataentry-Mandatory-data-entry-all-tests\video.webm]]
 
-[[ATTACHMENT|..\..\test-results\Venue-createvenuepom-Create-venue-all-tests\error-context.md]]
+[[ATTACHMENT|..\..\test-results\Venue-mandatorydataentry-Mandatory-data-entry-all-tests\error-context.md]]
 ]]>
 </system-out>
 </testcase>

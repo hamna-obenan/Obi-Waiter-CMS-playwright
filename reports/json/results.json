@@ -66,13 +66,13 @@
   },
   "suites": [
     {
-      "title": "Venue\\createvenuepom.spec.js",
-      "file": "Venue/createvenuepom.spec.js",
+      "title": "Venue\\mandatorydataentry.spec.js",
+      "file": "Venue/mandatorydataentry.spec.js",
       "column": 0,
       "line": 0,
       "specs": [
         {
-          "title": "Create venue",
+          "title": "Mandatory data entry",
           "ok": false,
           "tags": [],
           "tests": [
@@ -87,72 +87,144 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "failed",
-                  "duration": 12248,
+                  "duration": 28236,
                   "error": {
-                    "message": "Error: ENOENT: no such file or directory, stat 'C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Fixtures\\pictures\\venuelogo.png'",
-                    "stack": "Error: ENOENT: no such file or directory, stat 'C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Fixtures\\pictures\\venuelogo.png'\n    at C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Venue\\createvenuepom.spec.js:210:3",
+                    "message": "Error: expect.toBeVisible: Error: strict mode violation: getByText('DishUp') resolved to 3 elements:\n    1) <span data-slate-string=\"true\">DishUp is more than just a restaurant; it's a jou…</span> aka getByText('DishUp is more than just a').first()\n    2) <textarea id=\":r19:\" autocomplete=\"off\" aria-invalid=\"false\" name=\"gallery.1.description.en\" placeholder=\"Gallery Description\" class=\"MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiInputBase-inputAdornedEnd css-v59wfm\">Every moment at DishUp is carefully curated to cr…</textarea> aka getByText('Every moment at DishUp is')\n    3) <textarea id=\":r1b:\" autocomplete=\"off\" aria-invalid=\"false\" name=\"gallery.2.description.en\" placeholder=\"Gallery Description\" class=\"MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiInputBase-inputAdornedEnd css-v59wfm\">DishUp is more than just a restaurant; it's a jou…</textarea> aka locator('textarea[name=\"gallery.2.description.en\"]')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByText('DishUp')\u001b[22m\n",
+                    "stack": "Error: expect.toBeVisible: Error: strict mode violation: getByText('DishUp') resolved to 3 elements:\n    1) <span data-slate-string=\"true\">DishUp is more than just a restaurant; it's a jou…</span> aka getByText('DishUp is more than just a').first()\n    2) <textarea id=\":r19:\" autocomplete=\"off\" aria-invalid=\"false\" name=\"gallery.1.description.en\" placeholder=\"Gallery Description\" class=\"MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiInputBase-inputAdornedEnd css-v59wfm\">Every moment at DishUp is carefully curated to cr…</textarea> aka getByText('Every moment at DishUp is')\n    3) <textarea id=\":r1b:\" autocomplete=\"off\" aria-invalid=\"false\" name=\"gallery.2.description.en\" placeholder=\"Gallery Description\" class=\"MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiInputBase-inputAdornedEnd css-v59wfm\">DishUp is more than just a restaurant; it's a jou…</textarea> aka locator('textarea[name=\"gallery.2.description.en\"]')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByText('DishUp')\u001b[22m\n\n    at MandatoryDataVenuePOM.clicksavebutton (C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\object-Page\\venue\\mandatorydatavenue.js:301:49)\n    at C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Venue\\mandatorydataentry.spec.js:86:2",
                     "location": {
-                      "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Venue\\createvenuepom.spec.js",
-                      "column": 3,
-                      "line": 210
+                      "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\object-Page\\venue\\mandatorydatavenue.js",
+                      "column": 49,
+                      "line": 301
                     },
-                    "snippet": "\u001b[0m \u001b[90m 208 |\u001b[39m   \u001b[36mconst\u001b[39m logoPath \u001b[33m=\u001b[39m \u001b[32m`${process.cwd()}/tests/Fixtures/pictures/venuelogo.png`\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 209 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 210 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'input[type=\"file\"]'\u001b[39m)\u001b[33m.\u001b[39msetInputFiles(logoPath)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m   \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 211 |\u001b[39m   console\u001b[33m.\u001b[39mlog(\u001b[32m' Logo image selected from pictures folder'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 212 |\u001b[39m   \n \u001b[90m 213 |\u001b[39m   \u001b[90m// Assert: Verify image is uploaded and visible\u001b[39m\u001b[0m"
+                    "snippet": "\u001b[90m   at \u001b[39m..\\object-Page\\venue\\mandatorydatavenue.js:301\n\n\u001b[0m \u001b[90m 299 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mlocator(locators[\u001b[32m\"save-button\"\u001b[39m])\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m 300 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m2000\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 301 |\u001b[39m     \u001b[36mawait\u001b[39m expect(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mgetByText(\u001b[32m'DishUp'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 302 |\u001b[39m     console\u001b[33m.\u001b[39mlog(\u001b[32m'Venue saved successfully'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 303 |\u001b[39m   }\n \u001b[90m 304 |\u001b[39m }\u001b[0m"
                   },
                   "errors": [
                     {
                       "location": {
-                        "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Venue\\createvenuepom.spec.js",
-                        "column": 3,
-                        "line": 210
+                        "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\object-Page\\venue\\mandatorydatavenue.js",
+                        "column": 49,
+                        "line": 301
                       },
-                      "message": "Error: ENOENT: no such file or directory, stat 'C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Fixtures\\pictures\\venuelogo.png'\n\n\u001b[0m \u001b[90m 208 |\u001b[39m   \u001b[36mconst\u001b[39m logoPath \u001b[33m=\u001b[39m \u001b[32m`${process.cwd()}/tests/Fixtures/pictures/venuelogo.png`\u001b[39m\u001b[33m;\u001b[39m\n \u001b[90m 209 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 210 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'input[type=\"file\"]'\u001b[39m)\u001b[33m.\u001b[39msetInputFiles(logoPath)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m   \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 211 |\u001b[39m   console\u001b[33m.\u001b[39mlog(\u001b[32m' Logo image selected from pictures folder'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 212 |\u001b[39m   \n \u001b[90m 213 |\u001b[39m   \u001b[90m// Assert: Verify image is uploaded and visible\u001b[39m\u001b[0m\n\u001b[2m    at C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Venue\\createvenuepom.spec.js:210:3\u001b[22m"
+                      "message": "Error: expect.toBeVisible: Error: strict mode violation: getByText('DishUp') resolved to 3 elements:\n    1) <span data-slate-string=\"true\">DishUp is more than just a restaurant; it's a jou…</span> aka getByText('DishUp is more than just a').first()\n    2) <textarea id=\":r19:\" autocomplete=\"off\" aria-invalid=\"false\" name=\"gallery.1.description.en\" placeholder=\"Gallery Description\" class=\"MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiInputBase-inputAdornedEnd css-v59wfm\">Every moment at DishUp is carefully curated to cr…</textarea> aka getByText('Every moment at DishUp is')\n    3) <textarea id=\":r1b:\" autocomplete=\"off\" aria-invalid=\"false\" name=\"gallery.2.description.en\" placeholder=\"Gallery Description\" class=\"MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiInputBase-inputAdornedEnd css-v59wfm\">DishUp is more than just a restaurant; it's a jou…</textarea> aka locator('textarea[name=\"gallery.2.description.en\"]')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByText('DishUp')\u001b[22m\n\n\n\u001b[90m   at \u001b[39m..\\object-Page\\venue\\mandatorydatavenue.js:301\n\n\u001b[0m \u001b[90m 299 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mlocator(locators[\u001b[32m\"save-button\"\u001b[39m])\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m 300 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m2000\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 301 |\u001b[39m     \u001b[36mawait\u001b[39m expect(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mgetByText(\u001b[32m'DishUp'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 302 |\u001b[39m     console\u001b[33m.\u001b[39mlog(\u001b[32m'Venue saved successfully'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 303 |\u001b[39m   }\n \u001b[90m 304 |\u001b[39m }\u001b[0m\n\u001b[2m    at MandatoryDataVenuePOM.clicksavebutton (C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\object-Page\\venue\\mandatorydatavenue.js:301:49)\u001b[22m\n\u001b[2m    at C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Venue\\mandatorydataentry.spec.js:86:2\u001b[22m"
                     }
                   ],
                   "stdout": [
                     {
+                      "text": "click on the venue name and add name\n"
+                    },
+                    {
+                      "text": "Venue type selected successfully\n"
+                    },
+                    {
+                      "text": "Email filled\n"
+                    },
+                    {
+                      "text": "Language selected successfully\n"
+                    },
+                    {
+                      "text": "Timezone selected successfully\n"
+                    },
+                    {
+                      "text": "currency selected successfully\n"
+                    },
+                    {
+                      "text": "Cuisine fill successfully\n"
+                    },
+                    {
+                      "text": "Address fill successfully\n"
+                    },
+                    {
+                      "text": "Next button clicked successfully\n"
+                    },
+                    {
+                      "text": "Venue description filled successfully\n"
+                    },
+                    {
+                      "text": "Client app url filled successfully\n"
+                    },
+                    {
+                      "text": "Dine-In Tax filled successfully\n"
+                    },
+                    {
+                      "text": "Take-Away Tax filled successfully\n"
+                    },
+                    {
                       "text": "Starting logo upload...\n"
                     },
                     {
-                      "text": " Clicked on Choose image button for logo\n"
+                      "text": "Clicked on Choose image button for logo\n"
                     },
                     {
-                      "text": " File input is available for logo upload\n"
+                      "text": "Cover image selected from pictures folder\n"
+                    },
+                    {
+                      "text": "Cover image upload completed\n"
+                    },
+                    {
+                      "text": "Cover image is now displayed in the venue form\n"
+                    },
+                    {
+                      "text": "Cover image upload completed successfully\n"
+                    },
+                    {
+                      "text": "Next button clicked successfully\n"
+                    },
+                    {
+                      "text": "Contact number filled successfully\n"
+                    },
+                    {
+                      "text": "Story title filled successfully\n"
+                    },
+                    {
+                      "text": "Story description filled successfully\n"
+                    },
+                    {
+                      "text": "Story image upload completed successfully\n"
+                    },
+                    {
+                      "text": "Gallery item 1 completed successfully\n"
+                    },
+                    {
+                      "text": "Gallery item 2 completed successfully\n"
+                    },
+                    {
+                      "text": "Gallery item 3 completed successfully\n"
                     }
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2025-10-24T12:21:29.351Z",
+                  "startTime": "2025-11-06T06:59:44.058Z",
                   "annotations": [],
                   "attachments": [
                     {
                       "name": "screenshot",
                       "contentType": "image/png",
-                      "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Venue-createvenuepom-Create-venue-all-tests\\test-failed-1.png"
+                      "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Venue-mandatorydataentry-Mandatory-data-entry-all-tests\\test-failed-1.png"
                     },
                     {
                       "name": "video",
                       "contentType": "video/webm",
-                      "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Venue-createvenuepom-Create-venue-all-tests\\video.webm"
+                      "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Venue-mandatorydataentry-Mandatory-data-entry-all-tests\\video.webm"
                     },
                     {
                       "name": "error-context",
                       "contentType": "text/markdown",
-                      "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Venue-createvenuepom-Create-venue-all-tests\\error-context.md"
+                      "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Venue-mandatorydataentry-Mandatory-data-entry-all-tests\\error-context.md"
                     }
                   ],
                   "errorLocation": {
-                    "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Venue\\createvenuepom.spec.js",
-                    "column": 3,
-                    "line": 210
+                    "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\object-Page\\venue\\mandatorydatavenue.js",
+                    "column": 49,
+                    "line": 301
                   }
                 }
               ],
               "status": "unexpected"
             }
           ],
-          "id": "1867a2a4347dd3c3c6e4-86b28e15da26c0f64477",
-          "file": "Venue/createvenuepom.spec.js",
-          "line": 13,
+          "id": "1df96eb342325094ec77-32225f9383a9e57bff1a",
+          "file": "Venue/mandatorydataentry.spec.js",
+          "line": 9,
           "column": 1
         }
       ]
@@ -160,8 +232,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-10-24T12:21:28.537Z",
-    "duration": 13586.525,
+    "startTime": "2025-11-06T06:59:43.210Z",
+    "duration": 29610.336,
     "expected": 0,
     "skipped": 0,
     "unexpected": 1,
