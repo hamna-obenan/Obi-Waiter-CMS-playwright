@@ -44,7 +44,7 @@ export default class DuplicateCompanyMenuPOM {
     await this.page.waitForTimeout(2000);
 
     // Click on the created venue using locators
-    await this.page.locator(locators["click-on-the-created-venue"]).click();
+    await this.page.locator(locators["click-on-the-created-venue"]).first().click();
     await this.page.waitForLoadState('networkidle');
     console.log('✅ Venue selected');
   }

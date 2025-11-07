@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 import { config } from "../../config/environments.js";
-import AddVenuePage from "../../object-Page/venue/addvenue-pom.js";
+import AddVenuePage from "../../object-Page/venue/addvenuepom.js";
 import locators from "../../Fixtures/locators.json" assert { type: "json" };
 import login from "../../Fixtures/login.json" assert { type: "json" };
 import { performLogin } from "../../utils/login-helper.js";
@@ -43,16 +43,16 @@ test("Create venue", async ({ page }) => {
   // click on the add venue button
   await page.locator(locators["click-add-venue-button"]).click();
   // fill up the venue name in the field
-  await page.locator(locators["venue-name"]).fill(venue["venue-name"]);
+  await page.locator(locators["venue-name"]).fill(venue["venuetitlename"]);
   //assertion for the venue name field to have the value
-  await expect(page.locator(locators["venue-name"])).toHaveValue(venue["venue-name"]);
+  await expect(page.locator(locators["venue-name"])).toHaveValue(venue["venuetitlename"]);
 
   
 
   // Wait for the venue name field to be visible
-  await page.locator(locators["venuename"]).waitFor({ timeout: 60000 });
+  await page.locator(locators["venue-name"]).waitFor({ timeout: 60000 });
   //assertion for the venue name field to be visible
-  await expect(page.locator(locators["venuename"])).toBeVisible();
+  await expect(page.locator(locators["venue-name"])).toBeVisible();
 
  
 
@@ -124,18 +124,18 @@ test("Create venue", async ({ page }) => {
   await expect(page.locator(locators["venue-description"])).toHaveText(venue["venue-description"])
 
   //facebook url
-  await page.locator(locators["Facebookurl"]).click();
+  await page.locator(locators["Facebook (optional)"]).click();
   //fill up the link tab
-  await page.locator(locators["Facebookurl"]).fill(venue["facebookurl"]);
+  await page.locator(locators["Facebook (optional)"]).fill(venue["facebookurl"]);
   //assertion to verify the tes facebook url have correct url
-  await expect(page.locator(locators["Facebookurl"])).toHaveValue(venue["facebookurl"])
+  await expect(page.locator(locators["Facebook (optional)"])).toHaveValue(venue["facebookurl"])
 
   //instagram url
-  await page.locator(locators["Instagramurl"]).click();
+  await page.locator(locators["Instagram address (optional)"]).click();
   //fill up the link tab
-  await page.locator(locators["Instagramurl"]).fill(venue["instagramurl"]);
+  await page.locator(locators["Instagram address (optional)"]).fill(venue["instagramurl"]);
   //assertion to verify the tes instagram url have correct url
-  await expect(page.locator(locators["Instagramurl"])).toHaveValue(venue["instagramurl"]);
+  await expect(page.locator(locators["Instagram address (optional)"])).toHaveValue(venue["instagramurl"]);
 
   //enter company slug url
   // click on the slug
@@ -146,14 +146,18 @@ test("Create venue", async ({ page }) => {
   await expect(page.locator(locators["Client app url"])).toHaveValue(venue["Client app url"]);
   
   //enable pay by later
-  await page.locator(locators["EnablePayLater"]).nth(0).click();
+  // The failure occurred because `locators["Enable Pay Later "]` is just '[type="checkbox"]', which matches two checkboxes.
+  // Playwright's `.check()` requires a unique locator in strict mode.
+  // To fix, use `.getByRole('checkbox', { name: 'Enable Pay Later' })` or scope by visible label:
+
+  await page.getByRole('checkbox', { name: 'Enable Pay Later' }).check();
   // // fill up the link tab
   // await page.locator(locators["Enable Pay Later"]).fill(venue["Enable Pay Later"]);
   // //assertion to verify the tes instagram url have correct url
   // await expect(page.locator(locators["Enable Pay Later)"])).toHaveText(venue["Enable Pay Later"]);
 
   //enable tip
-  await page.locator(locators["enableTipping"]).nth(1).click();
+  await page.locator(locators["Enable Tipping"]).check();
   // //fill up the link tab
   // await page.locator(locators["Enable Tipping"]).fill(venue["Enable Tipping"]);
   // //assertion to verify the tes instagram url have correct url

@@ -75,7 +75,7 @@
     "gallary-item-image-2":"//div[.//*[@data-testid='AddPhotoAlternateOutlinedIcon'] and .//p[normalize-space()='Choose image']]",
     "add-galary-items-3":"//input[@name='gallery.2.title.en' and @placeholder='Gallery Title']",
     "gallary-item-description-3":"//textarea[@name='gallery.2.description.en' and @placeholder='Gallery Description']",
-    "save-button":"//button[@tabindex='0'][@type='button'][text()='Save'][contains(@class, 'MuiButton')]",
+    "save-button":"//button[text()='Save']",
     "crop-handle":"getByRole('group', { name: 'Use the arrow keys to move' })",
     "venue-add-button2":"//*[@data-testid='AddSharpIcon']/following-sibling::p[normalize-space()='Add']",
     "venue-duplicate-alert":"//div[@role='alert']//*[normalize-space()='Venue already exist']",

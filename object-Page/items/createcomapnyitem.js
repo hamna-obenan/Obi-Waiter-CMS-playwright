@@ -15,9 +15,9 @@ export default class CreateCompanyItemPOM {
 
   //login and navigate to venue page
   async loginAndNavigateToVenuePage() {
-    await this.page.locator(locators["login-email"]).fill(login.TC1001.Email);
-    await this.page.locator(locators["login-password"]).fill(login.TC1001.Password);
-    await this.page.locator(locators["login-button"]).click();
+    await this.page.locator(locators["signin-email"]).fill(login.TC1001.Email);
+    await this.page.locator(locators["signin-password"]).fill(login.TC1001.Password);
+    await this.page.locator(locators["signin-button"]).click();
     await this.page.waitForLoadState('networkidle');
   } 
   // After login, land at the venue page and then click on the created venue

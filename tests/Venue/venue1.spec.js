@@ -39,11 +39,11 @@ async function performLogin(page, loginPage, loginData) {
 async function fillBasicInfo(page, venueData) {
   console.log('📝 Filling venue basic information...');
   
-  await page.getByRole('textbox', { name: 'Venue name' }).fill(venueData['venue-name']);
-  await page.getByRole('textbox', { name: 'Email' }).fill(venueData['venue-email']);
+  await page.locator(locators["venue-name"]).fill(venueData['venuetitlename']);
+  await page.locator(locators["venue-email"]).fill(venueData['venue-email']);
   
-  await page.getByRole('combobox', { name: 'Venue type' }).click();
-  await page.getByRole('option', { name: venueData['venue-type'], exact: true }).click();
+  await page.locator(locators["venue-type"]).click();
+  await page.getByRole('option', { name: venueData['venue-type'], exact: true }).first().click();
   
   await page.getByRole('combobox', { name: 'Venue default language' }).click();
   await page.getByRole('option', { name: venueData['venue-default-language'], exact: true }).click();
@@ -64,16 +64,16 @@ async function fillVenueDetails(page, venueData) {
   console.log('📝 Filling venue details and branding...');
   
   await page.getByRole('textbox', { name: 'Venue description' }).fill(venueData['venue-description']);
-  await page.locator("[name='instagram']").fill(venueData['Instagram address (optional)']);
-  await page.locator("[name='facebook']").fill(venueData['Facebook (optional)']);
-  await page.locator("[name='slug']").fill(venueData['Client app url *']);
+  await page.locator(locators["Instagram address (optional)"]).fill(venueData['instagramurl']);
+  await page.locator(locators["Facebook (optional)"]).fill(venueData['facebookurl']);
+  await page.locator("client app url").fill(venueData['clientappurl']);
   
-  await page.locator("[type='checkbox']").first().check();
-  await page.getByRole('checkbox').nth(1).check();
+  await page.locator(locators["Enable Pay Later"]).check();
+  await page.locator(locators["Enable Tipping"]).check();
   
-  await page.locator("[name='defaultTipPercentage']").fill(venueData['Tip Percentage (%)']);
-  await page.locator("[name='dineInTax']").fill(venueData['Dine-In Tax (%) *']);
-  await page.locator("[name='takeawayTax']").fill(venueData['Take-Away Tax (%) *']);
+  await page.locator("tip percentage (%)").fill(venueData['Tip Percentage (%)']);
+  await page.locator("dine-in tax (%)").fill(venueData['Dine-In Tax (%)']);
+  await page.locator("takeaway tax (%)").fill(venueData['Take-Away Tax (%)']);
   
   console.log('✅ Venue details filled');
 }

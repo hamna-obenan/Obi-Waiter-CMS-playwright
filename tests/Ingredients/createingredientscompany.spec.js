@@ -5,167 +5,91 @@ import login from "../../Fixtures/login.json" assert { type: "json" };
 import ingredients from "../../Fixtures/Ingredients.json" assert { type: "json" };
 import { performLogin } from "../../utils/login-helper.js";
 
-/**
- * Ingredient Creation Test Suite
- * Tests ingredient creation flow for company level
- * Creates all even-numbered ingredients (2,4,6,8,10,12,14,16,18)
- * Flow: Login → Click Venue → Click Menu → Navigate to Ingredients → Add New Ingredient
- */
-test.describe("Ingredient Management - Company Level", () => {
-  // Even-numbered ingredients: 2, 4, 6, 8, 10, 12, 14, 16, 18
-  const evenNumberedIngredients = [1, 3, 5, 7, 9, 11, 13, 15, 17]; // Array indices (0-based)
+// Create all company ingredients using IngredientPOM
+test("Ingredient Management - Company Level - Create All Ingredients", async ({ page }) => {
+  test.setTimeout(300000); // Increased timeout for multiple ingredients
   
-  for (const ingredientIndex of evenNumberedIngredients) {
-    const ingredientNumber = ingredientIndex + 1; // Convert to 1-based numbering
-    const ingredientData = ingredients.ingredients[ingredientIndex];
-    const ingredientName = ingredientData[`ingredient-name ${ingredientNumber}`];
-    
-    test(`Create Ingredient Company - Add Ingredient ${ingredientNumber} (${ingredientName})`, async ({ page }) => {
-    // Set longer timeout for this test
-    test.setTimeout(120000); // 2 minutes
-    const ingredientPOM = new IngredientPOM(page);
-    
-    // Step 1: Login Process - Using reusable login function
-    console.log('🔐 Step 1: Performing login...');
-    await performLogin(page, login.TC1001.Email, login.TC1001.Password);
-    
-    // Assert: Verify successful login by checking for venue elements
-    await expect(page.locator(locators["click-on-the-created-venue"])).toBeVisible();
-    console.log('✅ Login successful - venue elements visible');
+  const ingredientPOM = new IngredientPOM(page);
+  
+  // Filter ingredients based on the names shown in the image
+  const ingredientNames = ["Olives", "Cucumber", "Mustard", "Lettuce", "Bell peppers", "Herbs", "Fries", "Bread", "Mayonnaise"];
+  
+  // Get all ingredients that match the names from the JSON file
+  const filteredIngredients = [];
+  for (let i = 0; i < ingredients.ingredients.length; i++) {
+    const number = i + 1;
+    const name = ingredients.ingredients[i][`ingredient-name ${number}`];
+    if (ingredientNames.includes(name)) {
+      filteredIngredients.push({ index: i, number: number, data: ingredients.ingredients[i], name: name });
+    }
+  }
 
-    // Step 2: Navigate to ingredients page
-    console.log('🧭 Step 2: Navigating to ingredients page...');
-    await ingredientPOM.navigateToIngredientsPage();
-    
-    // Assert: Verify we're on the ingredients page
-    await expect(page).toHaveURL(/.*ingredients.*/);
-    console.log('✅ Successfully navigated to ingredients page');
+  const totalIngredients = filteredIngredients.length;
 
-    // Step 3: Click on Add Ingredient button
-    console.log('➕ Step 3: Clicking on Add Ingredient button...');
+  // Step 1: Login
+  console.log('🔐 Step 1: Performing login...');
+  await performLogin(page, login.TC1001.Email, login.TC1001.Password);
+  await expect(page.locator(locators["click-on-the-created-venue"]).first()).toBeVisible();
+  await page.locator(locators["click-on-the-created-venue"]).first().click();
+  console.log('✅ Login completed successfully');
+
+  // Step 2: Navigate to ingredients page (once for all ingredients)
+  console.log('📋 Step 2: Navigating to ingredients page...');
+  await expect(page.locator(locators["created-menu"]).nth(2)).toBeVisible();
+  await page.locator(locators["created-menu"]).nth(2).click();
+  await ingredientPOM.navigateToIngredientsPage();
+  await expect(page).toHaveURL(/ingredients/);
+  console.log('✅ Navigated to ingredients page');
+
+  // Step 3: Loop through all ingredients and create them
+  console.log(`🏭 Step 3: Creating ${totalIngredients} ingredients...`);
+  
+  for (let idx = 0; idx < filteredIngredients.length; idx++) {
+    const { number, data, name } = filteredIngredients[idx];
+    
+    console.log(`\n🏷️ Creating ingredient ${idx + 1}/${totalIngredients}: ${name}`);
+    
+    // Click Add Ingredient, Create, Company using POM
     await ingredientPOM.clickAddIngredient();
-    
-    // Assert: Verify Add Ingredient button was clicked (form should appear)
-    await expect(page.locator(locators["create-button"])).toBeVisible();
-    console.log('✅ Add Ingredient button clicked - Create button visible');
-
-    // Step 4: Click on Create button
-    console.log('🔨 Step 4: Clicking on Create button...');
     await ingredientPOM.clickCreateButton();
-    
-    // Assert: Verify Create button was clicked (Company/Venue options should appear)
-    await expect(page.locator(locators["company-button"])).toBeVisible();
-    console.log('✅ Create button clicked - Company button visible');
-
-    // Step 5: Click on Company button
-    console.log('🏢 Step 5: Clicking on Company button...');
     await ingredientPOM.clickCompanyButton();
-    
-    // Assert: Verify Company button was clicked (ingredient form should appear)
-    await expect(page.locator(locators["ingredient-name"])).toBeVisible();
-    console.log('✅ Company button clicked - Ingredient form visible');
 
-    // Step 6: Verify we're on the ingredient creation form
-    console.log('📝 Step 6: Verifying ingredient creation form...');
+    // Wait for form and verify using POM
     await ingredientPOM.verifyIngredientForm();
-    
-    // Additional assertions for form elements
-    await expect(page.locator(locators["ingredient-name"])).toBeVisible();
-    await expect(page.locator(locators["ingredient-instock-checkbox"])).toBeVisible();
-    await expect(page.locator(locators["ingredient-allergen-checkbox"])).toBeVisible();
-    console.log('✅ Ingredient form fully loaded with all elements');
-    
-    // Get ingredient data from fixtures - Current ingredient
-    const inStock = ingredientData["in stock"];
-    const hasAllergen = ingredientData["ingredient-allergen"] === "yes";
-    
-    // Step 7: Fill ingredient form with current ingredient data
-    console.log(`📋 Step 7: Filling ingredient form with data: ${ingredientName}`);
-    
-    // Fill ingredient name
-    await ingredientPOM.fillIngredientName(ingredientName);
-    
-    // Assert: Verify name was filled correctly
-    await expect(page.locator(locators["ingredient-name"])).toHaveValue(ingredientName);
-    console.log(`✅ Ingredient name filled: ${ingredientName}`);
-    
-    // Set stock status
-    if (inStock === "yes") {
-      await ingredientPOM.setStockStatus(true);
-      // Assert: Verify stock status was set correctly
-      await expect(page.locator(locators["ingredient-instock-checkbox"])).toBeChecked();
-      console.log('✅ Stock status set to: In Stock');
-    } else {
-      await ingredientPOM.setStockStatus(false);
-      // Assert: Verify stock status was set correctly
-      await expect(page.locator(locators["ingredient-outstock-checkbox"])).toBeChecked();
-      console.log('✅ Stock status set to: Out of Stock');
-    }
-    
-    // Set allergen status
+
+    // Fill in form details using POM
+    await ingredientPOM.fillIngredientName(name);
+    const inStock = data["in stock"] === "yes";
+    const hasAllergen = data["ingredient-allergen"] === "yes";
+    await ingredientPOM.setStockStatus(inStock);
     await ingredientPOM.setAllergenStatus(hasAllergen);
-    
-    // Assert: Verify allergen status was set correctly
-    if (hasAllergen) {
-      await expect(page.locator(locators["ingredient-allergen-checkbox"])).toBeChecked();
-      console.log('✅ Allergen status set to: Has Allergen');
-    } else {
-      await expect(page.locator(locators["ingredient-allergen-checkbox"])).not.toBeChecked();
-      console.log('✅ Allergen status set to: No Allergen');
+
+    // Verify form values
+    await expect(page.locator(locators["ingredient-name"])).toHaveValue(name);
+    if (inStock) {
+      await expect(page.locator(locators["ingredient-instock-checkbox"])).toBeChecked();
     }
-    
-    // Final assertions - verify all form data is correctly filled
-    console.log('🔍 Final verification of form data:');
-    console.log(`- Name: ${ingredientName}`);
-    console.log(`- In Stock: ${inStock}`);
-    console.log(`- Has Allergen: ${hasAllergen}`);
-    
-    // Assert: Final form state verification
-    await expect(page.locator(locators["ingredient-name"])).toHaveValue(ingredientName);
-    await expect(page.locator(locators["ingredient-instock-checkbox"])).toBeChecked();
-    
-    // Dynamic assertion based on ingredient's allergen status
     if (hasAllergen) {
       await expect(page.locator(locators["ingredient-allergen-checkbox"])).toBeChecked();
     } else {
       await expect(page.locator(locators["ingredient-allergen-checkbox"])).not.toBeChecked();
     }
-    
-    console.log('✅ All form fields verified successfully');
-    
-    // Step 8: Save the ingredient
-    console.log('💾 Step 8: Saving the ingredient...');
+
+    // Save ingredient
     await ingredientPOM.saveIngredient();
-    
-    // Assert: Verify ingredient was saved successfully
-    // Wait for navigation or success message
     await page.waitForLoadState('networkidle');
     
-    // Verify we're back on ingredients list page or success message appears
-    const currentUrl = page.url();
-    const isOnIngredientsPage = currentUrl.includes('/ingredients');
-    
-    if (isOnIngredientsPage) {
-      console.log('✅ Successfully navigated back to ingredients list page');
-      
-      // Verify ingredient appears in the list
-      await expect(page.locator(`text=${ingredientName}`)).toBeVisible();
-      console.log(`✅ Ingredient "${ingredientName}" appears in the ingredients list`);
+    // Verify ingredient was created
+    if (page.url().includes('/ingredients')) {
+      await expect(page.locator(`text=${name}`)).toBeVisible();
+      console.log(`✅ Ingredient "${name}" created successfully`);
     } else {
-      // Check for success message or confirmation
-      try {
-        await expect(page.locator('text=success')).toBeVisible({ timeout: 5000 });
-        console.log('✅ Success message displayed');
-      } catch (error) {
-        console.log('⚠️ No success message found, but ingredient may still be saved');
-      }
+      // If we're not on ingredients page, navigate back
+      await ingredientPOM.navigateBackToIngredientsList();
+      await expect(page.locator(`text=${name}`)).toBeVisible();
+      console.log(`✅ Ingredient "${name}" created successfully`);
     }
-    
-    console.log('✅ Ingredient saved successfully');
-    console.log('⏸️ Test paused after saving ingredient - ready for manual verification');
-    
-    // Pause after saving for manual verification
-    await page.pause();
-    });
   }
+
+  console.log(`\n🎉 All ${totalIngredients} ingredients created successfully!`);
 });

@@ -17,7 +17,7 @@ export default class IngredientsVenuePOM {
    */
   async navigateToVenuePage() {
     // Click on the created venue
-    await this.page.locator(locators["click-on-the-created-venue"]).click();
+    await this.page.locator(locators["click-on-the-created-venue"]).first().click();
     await this.page.waitForLoadState('networkidle');
     console.log('✅ Navigated to venue page');
   }
@@ -169,50 +169,5 @@ export default class IngredientsVenuePOM {
       inStock: inStock,
       hasAllergen: hasAllergen
     };
-  }
-
-  /**
-   * Verify ingredient creation
-   * @param {string} ingredientName - The name of the ingredient to verify
-   */
-  async verifyIngredientCreation(ingredientName) {
-    await expect(this.page.locator(`text=${ingredientName}`)).toBeVisible();
-    console.log(`✅ Ingredient "${ingredientName}" verified in ingredients list`);
-  }
-
-  /**
-   * Complete flow for creating venue-level ingredient
-   * @param {Object} ingredientData - Ingredient data object
-   * @param {string} ingredientNumber - The ingredient number
-   */
-  async createVenueIngredient(ingredientData, ingredientNumber) {
-    // Navigate through the complete flow
-    await this.navigateToVenuePage();
-    await this.navigateToMenuPage();
-    await this.navigateToCategoryPage();
-    await this.navigateToIngredientsPage();
-    
-    // Click Add New Ingredient
-    await this.clickAddNewIngredient();
-    
-    // Click Create
-    await this.clickCreateButton();
-    
-    // Click Venue
-    await this.clickVenueButton();
-    
-    // Verify form
-    await this.verifyIngredientForm();
-    
-    // Create ingredient from data
-    const ingredientInfo = await this.createIngredientFromData(ingredientData, ingredientNumber);
-    
-    // Save ingredient
-    await this.saveIngredient();
-    
-    // Verify creation
-    await this.verifyIngredientCreation(ingredientInfo.name);
-    
-    return ingredientInfo;
   }
 }

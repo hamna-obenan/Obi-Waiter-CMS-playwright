@@ -16,7 +16,8 @@ export default class IngredientPOM {
    */
   async navigateToIngredientsPage() {
     // Click on the created venue
-    await this.page.locator(locators["click-on-the-created-venue"]).click();
+    // Click on the "Ingredients" option from the navigation bar using locator from locator.json
+    await this.page.locator(locators["ingredient-tab"]).click();
     await this.page.waitForLoadState('networkidle');
     
     // Wait for and click on the created menu
@@ -74,14 +75,6 @@ export default class IngredientPOM {
    */
   async fillIngredientName(ingredientName) {
     await this.page.locator(locators["ingredient-name"]).fill(ingredientName);
-  }
-
-  /**
-   * Fill ingredient description
-   * @param {string} description - The description of the ingredient
-   */
-  async fillIngredientDescription(description) {
-    await this.page.locator(locators["ingredient-description-field"]).fill(description);
   }
 
   /**

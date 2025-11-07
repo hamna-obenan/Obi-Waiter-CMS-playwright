@@ -127,6 +127,5 @@ test.describe("Tag Management - Company Level", () => {
     console.log('✅ Test completed - all tags created');
     console.log('📍 Final URL:', page.url());
     
-    await page.pause();
   });
 });

@@ -61,23 +61,23 @@
     "updateSnapshots": "missing",
     "updateSourceMethod": "patch",
     "version": "1.55.0",
-    "workers": 6,
+    "workers": 1,
     "webServer": null
   },
   "suites": [
     {
-      "title": "Venue\\mandatorydataentry.spec.js",
-      "file": "Venue/mandatorydataentry.spec.js",
+      "title": "Venue\\venue1.spec.js",
+      "file": "Venue/venue1.spec.js",
       "column": 0,
       "line": 0,
       "specs": [
         {
-          "title": "Mandatory data entry",
+          "title": "Venue Duplication Testing - Complete Flow",
           "ok": false,
           "tags": [],
           "tests": [
             {
-              "timeout": 60000,
+              "timeout": 120000,
               "annotations": [],
               "expectedStatus": "passed",
               "projectId": "all-tests",
@@ -87,144 +87,78 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "failed",
-                  "duration": 28236,
+                  "duration": 7361,
                   "error": {
-                    "message": "Error: expect.toBeVisible: Error: strict mode violation: getByText('DishUp') resolved to 3 elements:\n    1) <span data-slate-string=\"true\">DishUp is more than just a restaurant; it's a jou…</span> aka getByText('DishUp is more than just a').first()\n    2) <textarea id=\":r19:\" autocomplete=\"off\" aria-invalid=\"false\" name=\"gallery.1.description.en\" placeholder=\"Gallery Description\" class=\"MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiInputBase-inputAdornedEnd css-v59wfm\">Every moment at DishUp is carefully curated to cr…</textarea> aka getByText('Every moment at DishUp is')\n    3) <textarea id=\":r1b:\" autocomplete=\"off\" aria-invalid=\"false\" name=\"gallery.2.description.en\" placeholder=\"Gallery Description\" class=\"MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiInputBase-inputAdornedEnd css-v59wfm\">DishUp is more than just a restaurant; it's a jou…</textarea> aka locator('textarea[name=\"gallery.2.description.en\"]')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByText('DishUp')\u001b[22m\n",
-                    "stack": "Error: expect.toBeVisible: Error: strict mode violation: getByText('DishUp') resolved to 3 elements:\n    1) <span data-slate-string=\"true\">DishUp is more than just a restaurant; it's a jou…</span> aka getByText('DishUp is more than just a').first()\n    2) <textarea id=\":r19:\" autocomplete=\"off\" aria-invalid=\"false\" name=\"gallery.1.description.en\" placeholder=\"Gallery Description\" class=\"MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiInputBase-inputAdornedEnd css-v59wfm\">Every moment at DishUp is carefully curated to cr…</textarea> aka getByText('Every moment at DishUp is')\n    3) <textarea id=\":r1b:\" autocomplete=\"off\" aria-invalid=\"false\" name=\"gallery.2.description.en\" placeholder=\"Gallery Description\" class=\"MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiInputBase-inputAdornedEnd css-v59wfm\">DishUp is more than just a restaurant; it's a jou…</textarea> aka locator('textarea[name=\"gallery.2.description.en\"]')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByText('DishUp')\u001b[22m\n\n    at MandatoryDataVenuePOM.clicksavebutton (C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\object-Page\\venue\\mandatorydatavenue.js:301:49)\n    at C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Venue\\mandatorydataentry.spec.js:86:2",
+                    "message": "Error: locator.fill: Unexpected token \"(\" while parsing css selector \"instagram address (optional)\". Did you mean to CSS.escape it?\nCall log:\n\u001b[2m  - waiting for instagram address (optional)\u001b[22m\n",
+                    "stack": "Error: locator.fill: Unexpected token \"(\" while parsing css selector \"instagram address (optional)\". Did you mean to CSS.escape it?\nCall log:\n\u001b[2m  - waiting for instagram address (optional)\u001b[22m\n\n    at fillVenueDetails (C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Venue\\venue1.spec.js:67:54)\n    at C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Venue\\venue1.spec.js:212:3",
                     "location": {
-                      "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\object-Page\\venue\\mandatorydatavenue.js",
-                      "column": 49,
-                      "line": 301
+                      "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Venue\\venue1.spec.js",
+                      "column": 54,
+                      "line": 67
                     },
-                    "snippet": "\u001b[90m   at \u001b[39m..\\object-Page\\venue\\mandatorydatavenue.js:301\n\n\u001b[0m \u001b[90m 299 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mlocator(locators[\u001b[32m\"save-button\"\u001b[39m])\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m 300 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m2000\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 301 |\u001b[39m     \u001b[36mawait\u001b[39m expect(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mgetByText(\u001b[32m'DishUp'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 302 |\u001b[39m     console\u001b[33m.\u001b[39mlog(\u001b[32m'Venue saved successfully'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 303 |\u001b[39m   }\n \u001b[90m 304 |\u001b[39m }\u001b[0m"
+                    "snippet": "\u001b[0m \u001b[90m 65 |\u001b[39m   \n \u001b[90m 66 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'textbox'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m'Venue description'\u001b[39m })\u001b[33m.\u001b[39mfill(venueData[\u001b[32m'venue-description'\u001b[39m])\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 67 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m\"instagram address (optional)\"\u001b[39m)\u001b[33m.\u001b[39mfill(venueData[\u001b[32m'instagramurl'\u001b[39m])\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 68 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m\"facebook (optional)\"\u001b[39m)\u001b[33m.\u001b[39mfill(venueData[\u001b[32m'facebookurl'\u001b[39m])\u001b[33m;\u001b[39m\n \u001b[90m 69 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m\"client app url\"\u001b[39m)\u001b[33m.\u001b[39mfill(venueData[\u001b[32m'Client app url'\u001b[39m])\u001b[33m;\u001b[39m\n \u001b[90m 70 |\u001b[39m   \u001b[0m"
                   },
                   "errors": [
                     {
                       "location": {
-                        "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\object-Page\\venue\\mandatorydatavenue.js",
-                        "column": 49,
-                        "line": 301
+                        "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Venue\\venue1.spec.js",
+                        "column": 54,
+                        "line": 67
                       },
-                      "message": "Error: expect.toBeVisible: Error: strict mode violation: getByText('DishUp') resolved to 3 elements:\n    1) <span data-slate-string=\"true\">DishUp is more than just a restaurant; it's a jou…</span> aka getByText('DishUp is more than just a').first()\n    2) <textarea id=\":r19:\" autocomplete=\"off\" aria-invalid=\"false\" name=\"gallery.1.description.en\" placeholder=\"Gallery Description\" class=\"MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiInputBase-inputAdornedEnd css-v59wfm\">Every moment at DishUp is carefully curated to cr…</textarea> aka getByText('Every moment at DishUp is')\n    3) <textarea id=\":r1b:\" autocomplete=\"off\" aria-invalid=\"false\" name=\"gallery.2.description.en\" placeholder=\"Gallery Description\" class=\"MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiInputBase-inputAdornedEnd css-v59wfm\">DishUp is more than just a restaurant; it's a jou…</textarea> aka locator('textarea[name=\"gallery.2.description.en\"]')\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for getByText('DishUp')\u001b[22m\n\n\n\u001b[90m   at \u001b[39m..\\object-Page\\venue\\mandatorydatavenue.js:301\n\n\u001b[0m \u001b[90m 299 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mlocator(locators[\u001b[32m\"save-button\"\u001b[39m])\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m 300 |\u001b[39m     \u001b[36mawait\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m2000\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 301 |\u001b[39m     \u001b[36mawait\u001b[39m expect(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mgetByText(\u001b[32m'DishUp'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 302 |\u001b[39m     console\u001b[33m.\u001b[39mlog(\u001b[32m'Venue saved successfully'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 303 |\u001b[39m   }\n \u001b[90m 304 |\u001b[39m }\u001b[0m\n\u001b[2m    at MandatoryDataVenuePOM.clicksavebutton (C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\object-Page\\venue\\mandatorydatavenue.js:301:49)\u001b[22m\n\u001b[2m    at C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Venue\\mandatorydataentry.spec.js:86:2\u001b[22m"
+                      "message": "Error: locator.fill: Unexpected token \"(\" while parsing css selector \"instagram address (optional)\". Did you mean to CSS.escape it?\nCall log:\n\u001b[2m  - waiting for instagram address (optional)\u001b[22m\n\n\n\u001b[0m \u001b[90m 65 |\u001b[39m   \n \u001b[90m 66 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByRole(\u001b[32m'textbox'\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m'Venue description'\u001b[39m })\u001b[33m.\u001b[39mfill(venueData[\u001b[32m'venue-description'\u001b[39m])\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 67 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m\"instagram address (optional)\"\u001b[39m)\u001b[33m.\u001b[39mfill(venueData[\u001b[32m'instagramurl'\u001b[39m])\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 68 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m\"facebook (optional)\"\u001b[39m)\u001b[33m.\u001b[39mfill(venueData[\u001b[32m'facebookurl'\u001b[39m])\u001b[33m;\u001b[39m\n \u001b[90m 69 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m\"client app url\"\u001b[39m)\u001b[33m.\u001b[39mfill(venueData[\u001b[32m'Client app url'\u001b[39m])\u001b[33m;\u001b[39m\n \u001b[90m 70 |\u001b[39m   \u001b[0m\n\u001b[2m    at fillVenueDetails (C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Venue\\venue1.spec.js:67:54)\u001b[22m\n\u001b[2m    at C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Venue\\venue1.spec.js:212:3\u001b[22m"
                     }
                   ],
                   "stdout": [
                     {
-                      "text": "click on the venue name and add name\n"
+                      "text": "✅ Login completed successfully\n"
                     },
                     {
-                      "text": "Venue type selected successfully\n"
+                      "text": "🎯 Creating venue with standard data\n"
                     },
                     {
-                      "text": "Email filled\n"
+                      "text": "📝 Filling venue basic information...\n"
                     },
                     {
-                      "text": "Language selected successfully\n"
+                      "text": "✅ Basic information filled\n"
                     },
                     {
-                      "text": "Timezone selected successfully\n"
-                    },
-                    {
-                      "text": "currency selected successfully\n"
-                    },
-                    {
-                      "text": "Cuisine fill successfully\n"
-                    },
-                    {
-                      "text": "Address fill successfully\n"
-                    },
-                    {
-                      "text": "Next button clicked successfully\n"
-                    },
-                    {
-                      "text": "Venue description filled successfully\n"
-                    },
-                    {
-                      "text": "Client app url filled successfully\n"
-                    },
-                    {
-                      "text": "Dine-In Tax filled successfully\n"
-                    },
-                    {
-                      "text": "Take-Away Tax filled successfully\n"
-                    },
-                    {
-                      "text": "Starting logo upload...\n"
-                    },
-                    {
-                      "text": "Clicked on Choose image button for logo\n"
-                    },
-                    {
-                      "text": "Cover image selected from pictures folder\n"
-                    },
-                    {
-                      "text": "Cover image upload completed\n"
-                    },
-                    {
-                      "text": "Cover image is now displayed in the venue form\n"
-                    },
-                    {
-                      "text": "Cover image upload completed successfully\n"
-                    },
-                    {
-                      "text": "Next button clicked successfully\n"
-                    },
-                    {
-                      "text": "Contact number filled successfully\n"
-                    },
-                    {
-                      "text": "Story title filled successfully\n"
-                    },
-                    {
-                      "text": "Story description filled successfully\n"
-                    },
-                    {
-                      "text": "Story image upload completed successfully\n"
-                    },
-                    {
-                      "text": "Gallery item 1 completed successfully\n"
-                    },
-                    {
-                      "text": "Gallery item 2 completed successfully\n"
-                    },
-                    {
-                      "text": "Gallery item 3 completed successfully\n"
+                      "text": "📝 Filling venue details and branding...\n"
                     }
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2025-11-06T06:59:44.058Z",
+                  "startTime": "2025-11-07T14:09:30.512Z",
                   "annotations": [],
                   "attachments": [
                     {
                       "name": "screenshot",
                       "contentType": "image/png",
-                      "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Venue-mandatorydataentry-Mandatory-data-entry-all-tests\\test-failed-1.png"
+                      "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Venue-venue1-Venue-Duplication-Testing---Complete-Flow-all-tests\\test-failed-1.png"
                     },
                     {
                       "name": "video",
                       "contentType": "video/webm",
-                      "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Venue-mandatorydataentry-Mandatory-data-entry-all-tests\\video.webm"
+                      "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Venue-venue1-Venue-Duplication-Testing---Complete-Flow-all-tests\\video.webm"
                     },
                     {
                       "name": "error-context",
                       "contentType": "text/markdown",
-                      "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Venue-mandatorydataentry-Mandatory-data-entry-all-tests\\error-context.md"
+                      "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Venue-venue1-Venue-Duplication-Testing---Complete-Flow-all-tests\\error-context.md"
                     }
                   ],
                   "errorLocation": {
-                    "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\object-Page\\venue\\mandatorydatavenue.js",
-                    "column": 49,
-                    "line": 301
+                    "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Venue\\venue1.spec.js",
+                    "column": 54,
+                    "line": 67
                   }
                 }
               ],
               "status": "unexpected"
             }
           ],
-          "id": "1df96eb342325094ec77-32225f9383a9e57bff1a",
-          "file": "Venue/mandatorydataentry.spec.js",
-          "line": 9,
+          "id": "e36c767ac0c7196bbe64-5f34497ffe62d031e302",
+          "file": "Venue/venue1.spec.js",
+          "line": 192,
           "column": 1
         }
       ]
@@ -232,8 +166,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-11-06T06:59:43.210Z",
-    "duration": 29610.336,
+    "startTime": "2025-11-07T14:09:29.675Z",
+    "duration": 8795.253,
     "expected": 0,
     "skipped": 0,
     "unexpected": 1,

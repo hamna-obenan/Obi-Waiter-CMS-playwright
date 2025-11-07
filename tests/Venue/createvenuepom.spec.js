@@ -48,14 +48,14 @@ test("Create venue", async ({ page }) => {
 
 
   // Wait for the venue name field to be visible
-  await page.locator(locators["venuename"]).waitFor({ timeout: 60000 });
+  await page.locator(locators["venue-name"]).waitFor({ timeout: 60000 });
   //assertion for the venue name field to be visible
-  await expect(page.locator(locators["venuename"])).toBeVisible();
+  await expect(page.locator(locators["venue-name"])).toBeVisible();
 
   // fill up the venue name in the field
-  await page.locator(locators["venuename"]).fill(venue["venuetitlename"]);
+  await page.locator(locators["venue-name"]).fill(venue["venuetitlename"]);
   //assertion for the venue name field to have the value
-  await expect(page.locator(locators["venuename"])).toHaveValue(venue["venuetitlename"]);
+  await expect(page.locator(locators["venue-name"])).toHaveValue(venue["venuetitlename"]);
 
 
   //click on the venue type dropdown

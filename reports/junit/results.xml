@@ -1,76 +1,47 @@
-<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="29.610336">
-<testsuite name="Venue\mandatorydataentry.spec.js" timestamp="2025-11-06T06:59:43.436Z" hostname="all-tests" tests="1" failures="1" skipped="0" time="28.236" errors="0">
-<testcase name="Mandatory data entry" classname="Venue\mandatorydataentry.spec.js" time="28.236">
-<failure message="mandatorydataentry.spec.js:9:1 Mandatory data entry" type="FAILURE">
-<![CDATA[  [all-tests] › Venue\mandatorydataentry.spec.js:9:1 › Mandatory data entry ────────────────────────
+<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="8.795253">
+<testsuite name="Venue\venue1.spec.js" timestamp="2025-11-07T14:09:29.886Z" hostname="all-tests" tests="1" failures="1" skipped="0" time="7.361" errors="0">
+<testcase name="Venue Duplication Testing - Complete Flow" classname="Venue\venue1.spec.js" time="7.361">
+<failure message="venue1.spec.js:192:1 Venue Duplication Testing - Complete Flow" type="FAILURE">
+<![CDATA[  [all-tests] › Venue\venue1.spec.js:192:1 › Venue Duplication Testing - Complete Flow ─────────────
 
-    Error: expect.toBeVisible: Error: strict mode violation: getByText('DishUp') resolved to 3 elements:
-        1) <span data-slate-string="true">DishUp is more than just a restaurant; it's a jou…</span> aka getByText('DishUp is more than just a').first()
-        2) <textarea id=":r19:" autocomplete="off" aria-invalid="false" name="gallery.1.description.en" placeholder="Gallery Description" class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiInputBase-inputAdornedEnd css-v59wfm">Every moment at DishUp is carefully curated to cr…</textarea> aka getByText('Every moment at DishUp is')
-        3) <textarea id=":r1b:" autocomplete="off" aria-invalid="false" name="gallery.2.description.en" placeholder="Gallery Description" class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiInputBase-inputAdornedEnd css-v59wfm">DishUp is more than just a restaurant; it's a jou…</textarea> aka locator('textarea[name="gallery.2.description.en"]')
-
+    Error: locator.fill: Unexpected token "(" while parsing css selector "instagram address (optional)". Did you mean to CSS.escape it?
     Call log:
-      - Expect "toBeVisible" with timeout 10000ms
-      - waiting for getByText('DishUp')
+      - waiting for instagram address (optional)
 
 
-       at ..\object-Page\venue\mandatorydatavenue.js:301
-
-      299 |     await this.page.locator(locators["save-button"]).click();
-      300 |     await this.page.waitForTimeout(2000);
-    > 301 |     await expect(this.page.getByText('DishUp')).toBeVisible();
-          |                                                 ^
-      302 |     console.log('Venue saved successfully');
-      303 |   }
-      304 | }
-        at MandatoryDataVenuePOM.clicksavebutton (C:\Users\HP\Desktop\Obi-Waiter-CMS-playwright-main\object-Page\venue\mandatorydatavenue.js:301:49)
-        at C:\Users\HP\Desktop\Obi-Waiter-CMS-playwright-main\tests\Venue\mandatorydataentry.spec.js:86:2
+      65 |   
+      66 |   await page.getByRole('textbox', { name: 'Venue description' }).fill(venueData['venue-description']);
+    > 67 |   await page.locator("instagram address (optional)").fill(venueData['instagramurl']);
+         |                                                      ^
+      68 |   await page.locator("facebook (optional)").fill(venueData['facebookurl']);
+      69 |   await page.locator("client app url").fill(venueData['Client app url']);
+      70 |   
+        at fillVenueDetails (C:\Users\HP\Desktop\Obi-Waiter-CMS-playwright-main\tests\Venue\venue1.spec.js:67:54)
+        at C:\Users\HP\Desktop\Obi-Waiter-CMS-playwright-main\tests\Venue\venue1.spec.js:212:3
 
     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\test-results\Venue-mandatorydataentry-Mandatory-data-entry-all-tests\test-failed-1.png
+    ..\test-results\Venue-venue1-Venue-Duplication-Testing---Complete-Flow-all-tests\test-failed-1.png
     ────────────────────────────────────────────────────────────────────────────────────────────────
 
     attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\test-results\Venue-mandatorydataentry-Mandatory-data-entry-all-tests\video.webm
+    ..\test-results\Venue-venue1-Venue-Duplication-Testing---Complete-Flow-all-tests\video.webm
     ────────────────────────────────────────────────────────────────────────────────────────────────
 
-    Error Context: ..\test-results\Venue-mandatorydataentry-Mandatory-data-entry-all-tests\error-context.md
+    Error Context: ..\test-results\Venue-venue1-Venue-Duplication-Testing---Complete-Flow-all-tests\error-context.md
 ]]>
 </failure>
 <system-out>
-<![CDATA[click on the venue name and add name
-Venue type selected successfully
-Email filled
-Language selected successfully
-Timezone selected successfully
-currency selected successfully
-Cuisine fill successfully
-Address fill successfully
-Next button clicked successfully
-Venue description filled successfully
-Client app url filled successfully
-Dine-In Tax filled successfully
-Take-Away Tax filled successfully
-Starting logo upload...
-Clicked on Choose image button for logo
-Cover image selected from pictures folder
-Cover image upload completed
-Cover image is now displayed in the venue form
-Cover image upload completed successfully
-Next button clicked successfully
-Contact number filled successfully
-Story title filled successfully
-Story description filled successfully
-Story image upload completed successfully
-Gallery item 1 completed successfully
-Gallery item 2 completed successfully
-Gallery item 3 completed successfully
+<![CDATA[✅ Login completed successfully
+🎯 Creating venue with standard data
+📝 Filling venue basic information...
+✅ Basic information filled
+📝 Filling venue details and branding...
 
-[[ATTACHMENT|..\..\test-results\Venue-mandatorydataentry-Mandatory-data-entry-all-tests\test-failed-1.png]]
+[[ATTACHMENT|..\..\test-results\Venue-venue1-Venue-Duplication-Testing---Complete-Flow-all-tests\test-failed-1.png]]
 
-[[ATTACHMENT|..\..\test-results\Venue-mandatorydataentry-Mandatory-data-entry-all-tests\video.webm]]
+[[ATTACHMENT|..\..\test-results\Venue-venue1-Venue-Duplication-Testing---Complete-Flow-all-tests\video.webm]]
 
-[[ATTACHMENT|..\..\test-results\Venue-mandatorydataentry-Mandatory-data-entry-all-tests\error-context.md]]
+[[ATTACHMENT|..\..\test-results\Venue-venue1-Venue-Duplication-Testing---Complete-Flow-all-tests\error-context.md]]
 ]]>
 </system-out>
 </testcase>

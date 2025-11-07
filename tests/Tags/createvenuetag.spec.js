@@ -94,6 +94,5 @@ test.describe("Tag Management - Venue Level", () => {
     console.log('✅ Test completed - all venue tags created');
     console.log('📍 Final URL:', page.url());
     
-    await page.pause();
   });
 });

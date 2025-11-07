@@ -14,7 +14,7 @@ export default class TagCompanyPOM {
    * Navigate to venue page
    */
   async navigateToVenuePage() {
-    await this.page.locator(locators["click-on-the-created-venue"]).click();
+    await this.page.locator(locators["click-on-the-created-venue"]).first().click();
     await this.page.waitForLoadState('networkidle');
     console.log('✅ Navigated to venue page');
   }

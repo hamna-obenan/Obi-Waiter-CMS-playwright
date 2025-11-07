@@ -44,7 +44,7 @@ export default class MenuVenueCreatePOM {
     await this.page.waitForTimeout(2000);
     
     // Click on the created venue using the locator from locators.json
-    await this.page.locator(locators["click-on-the-created-venue"]).click();
+    await this.page.locator(locators["click-on-the-created-venue"]).first().click();
     await this.page.waitForLoadState('networkidle');
     console.log('✅ Venue selected');
   }

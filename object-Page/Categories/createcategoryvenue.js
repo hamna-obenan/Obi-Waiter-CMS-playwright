@@ -16,7 +16,7 @@ export default class CreateCategoryVenuePOM {
    */
   async navigateToCategoryPage() {
     console.log('🏢 Selecting created venue...');
-    await this.page.locator(locators["click-on-the-created-venue"]).click();
+    await this.page.locator(locators["click-on-the-created-venue"]).first().click();
     await this.page.waitForLoadState('networkidle');
     console.log('✅ Venue selected successfully');
 

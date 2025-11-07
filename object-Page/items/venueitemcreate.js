@@ -15,9 +15,9 @@ export default class CreateVenueItemPOM {
 
   //login and navigate to venue page
   async loginAndNavigateToVenuePage() {
-    await this.page.locator(locators["login-email"]).fill(login.TC1001.Email);
-    await this.page.locator(locators["login-password"]).fill(login.TC1001.Password);
-    await this.page.locator(locators["login-button"]).click();
+    await this.page.locator(locators["signin-email"]).fill(login.TC1001.Email);
+    await this.page.locator(locators["signin-password"]).fill(login.TC1001.Password);
+    await this.page.locator(locators["signin-button"]).click();
     await this.page.waitForLoadState('networkidle');
   } 
   // After login, land at the venue page and then click on the created venue
@@ -117,15 +117,15 @@ export default class CreateVenueItemPOM {
    */
   async selectMenu(Italian) {
     // Click the combobox using role selector (best practice)
-    await this.page.getByRole('combobox', { name: 'Select menu' }).click();
+    await this.page.locator(locators["select-menu-dropdown"]).click();
     // Wait for options to appear and select by name
-    await this.page.getByRole('option', { name: Italian }).first().click();
+    await this.page.locator(locators["select-menu-dropdown"]).getByRole('option', { name: Italian }).first().click();
     console.log(`✅ Menu selected: ${Italian}`);
   }
   //select the category from dropdown
   async selectItemCategory(category) {
     await this.page.locator(locators["select-category-dropdown"]).click();
-    await this.page.getByRole('option', { name: category }).first().click();
+    await this.page.locator(locators["select-category-dropdown"]).getByRole('option', { name: category }).first().click();
     console.log(`✅ Category selected: ${category}`);
   }
   /**
@@ -167,7 +167,7 @@ export default class CreateVenueItemPOM {
      */
     async selectItemTax(tax) {
       await this.page.locator(locators["select-tax-dropdown"]).click();
-      await this.page.getByRole('option', { name: tax }).first().click();
+      await this.page.locator(locators["select-tax-dropdown"]).getByRole('option', { name: tax }).first().click();
       console.log(`✅ Item tax selected: ${tax}`);
     }
     /**
@@ -239,7 +239,7 @@ export default class CreateVenueItemPOM {
    */
     async selectItemCuisine(cuisine) {
       await this.page.locator(locators["select-cuisine-dropdown"]).click();
-      await this.page.getByRole('option', { name: cuisine }).click();
+      await this.page.locator(locators["select-cuisine-dropdown"]).getByRole('option', { name: cuisine }).click();
       console.log(`✅ Cuisine selected: ${cuisine}`);
     }
 
@@ -264,7 +264,7 @@ export default class CreateVenueItemPOM {
     if (ingredients && ingredients.length > 0) {
       await this.page.locator(locators["select-ingredients"]).click();
       for (const ingredient of ingredients) {
-        await this.page.getByRole('option', { name: ingredient }).click();
+        await this.page.locator(locators["select-ingredients"]).getByRole('option', { name: ingredient }).click();
       }
       console.log(`✅ Ingredients selected: ${ingredients.join(', ')}`);
     }
@@ -283,7 +283,7 @@ export default class CreateVenueItemPOM {
 
        for (let i = 0; i < ingredients.length; i++) {
          const ingredient = ingredients[i];
-         const optionLocator = this.page.getByRole('option', { name: ingredient });
+         const optionLocator = this.page.locator(locators["select-ingredients"]).getByRole('option', { name: ingredient });
          // Open the ingredient option if floating menu closes
          await optionLocator.scrollIntoViewIfNeeded();
          // Click to make sure option is selected/highlighted
@@ -321,7 +321,7 @@ export default class CreateVenueItemPOM {
     if (tagArray && tagArray.length > 0) {
       await this.page.locator(locators["item-tag"]).click();
       for (const tag of tagArray) {
-        await this.page.getByRole('option', { name: tag }).click();
+        await this.page.locator(locators["item-tag"]).getByRole('option', { name: tag }).click();
       }
       console.log(`✅ Tags selected: ${tagArray.join(', ')}`);
     }
@@ -336,7 +336,7 @@ export default class CreateVenueItemPOM {
       if (customizations && customizations.length > 0) {
         await this.page.locator(locators["select-customizations"]).click();
         for (const customization of customizations) {
-        await this.page.getByRole('option', { name: "Sauces" }).click();
+        await this.page.locator(locators["select-customizations"]).getByRole('option', { name: "Sauces" }).click();
         }
         console.log(`✅ Customizations selected: ${customizations.join(', ')}`);
       }
@@ -348,7 +348,7 @@ export default class CreateVenueItemPOM {
    */
   async selectItemStatus(status) {
     await this.page.locator(locators["instock-dropdown"]).click();
-    await this.page.getByRole('option', { name: "10" }).click();
+    await this.page.locator(locators["instock-dropdown"]).getByRole('option', { name: "10" }).click();
     console.log(`✅ Item status selected: ${status}`);
   }
 
@@ -380,10 +380,10 @@ export default class CreateVenueItemPOM {
    * Save the item
    */
   async saveItem() {
-    await this.page.getByRole('button', { name: 'Save' }).click();
+    await this.page.locator(locators["save-button"]).click();
     await this.page.waitForLoadState('networkidle');
     console.log('✅ Item saved successfully');
-  }
+  }   
 
   /**
    * Create a complete venue item

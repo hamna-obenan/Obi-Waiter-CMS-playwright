@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 import { config } from "../../config/environments.js";
-import AddVenuePage from "../../object-Page/venue/addvenue-pom.js";
+import AddVenuePage from "../../object-Page/venue/addvenuepom.js";
 import locators from "../../Fixtures/locators.json" assert { type: "json" };
 import login from "../../Fixtures/login.json" assert { type: "json" };
 import venue from "../../Fixtures/Venue.json" assert { type: "json" };
@@ -29,9 +29,9 @@ test("open Add Venue and wait @translationBugOnCreateVenue", async ({ page }) =>
   await expect(page.getByRole('textbox', { name: 'Venue name' })).toBeVisible();
 
   // Step 1: Fill Venue name from fixture
-  await page.getByRole('textbox', { name: 'Venue name' }).fill(venue["venue-name"]);
+  await page.getByRole('textbox', { name: 'Venue name' }).fill(venue["venuetitlename"]);
   // Assert: Verify venue name field contains the entered value
-  await expect(page.getByRole('textbox', { name: 'Venue name' })).toHaveValue(venue["venue-name"]);
+  await expect(page.getByRole('textbox', { name: 'Venue name' })).toHaveValue(venue["venuetitlename"]);
 
   // // translate the venue name using locators from locators.json
   // console.log('Starting venue name translation...');
@@ -119,36 +119,37 @@ test("open Add Venue and wait @translationBugOnCreateVenue", async ({ page }) =>
   await expect(page.getByRole('textbox', { name: 'Email' })).toHaveValue(venue["venue-email"]);
 
   // Step 1: Select Venue type from dropdown
-  await page.getByRole('combobox', { name: 'Venue type' }).click();
-  await page.getByRole('option', { name: venue["venue-type"], exact: true }).click();
+  // Use locator for selecting venue type dropdown
+  await page.locator(locators["venue-type"]).click();
+  await page.locator(`text=${venue["venuetype"]}`).click();
   // Assert: Verify venue type dropdown has the selected value
-  await expect(page.getByRole('combobox', { name: 'Venue type' })).toHaveValue(venue["venue-type"]);
+  await expect(page.locator(locators["venue-type"])).toHaveValue(venue["venuetype"]);
 
   // Step 1: Select Venue default language from dropdown
-  await page.getByRole('combobox', { name: 'Venue default language' }).click();
-  await page.getByRole('option', { name: venue["venue-default-language"], exact: true }).click();
+  await page.locator(locators["venue-default-language"]).click();
+  await page.locator(`text=${venue["venue-default-language"]}`).click();
   // Assert: Verify language dropdown has the selected value
-  await expect(page.getByRole('combobox', { name: 'Venue default language' })).toHaveValue(venue["venue-default-language"]);
+  await expect(page.locator(locators["venue-default-language"])).toHaveValue(venue["venue-default-language"]);
 
   // Step 1: Select Time zone from dropdown
-  await page.getByRole('combobox', { name: 'Time zone' }).click();
-  await page.getByRole('option', { name: venue["venue-Time zone"], exact: true }).click();
+  await page.locator(locators["venue-Time zone"]).click();
+  await page.locator(`text=${venue["venue-Time zone"]}`).click();
   // Assert: Verify time zone dropdown has the selected value
-  await expect(page.getByRole('combobox', { name: 'Time zone' })).toHaveValue(venue["venue-Time zone"]);
+  await expect(page.locator(locators["venue-Time zone"])).toHaveValue(venue["venue-Time zone"]);
 
   // Step 1: Select Currency (Euro) from dropdown
-  await page.getByRole('combobox', { name: 'Currency' }).click();
-  await page.getByRole('option', { name: venue["venue-Currency"], exact: true }).click();
+  await page.locator(locators["venue-Currency"]).click();
+  await page.locator(`text=${venue["venue-Currency"]}`).click();
   // Assert: Verify currency dropdown has the selected value
-  await expect(page.getByRole('combobox', { name: 'Currency' })).toHaveValue(venue["venue-Currency"]);
+  await expect(page.locator(locators["venue-Currency"])).toHaveValue(venue["venue-Currency"]);
 
   // Step 1: Fill Cuisine and Address
-  await page.getByRole('textbox', { name: 'Cuisine' }).fill(venue["venue-Cuisine"]);
+  await page.locator(locators["venue-Cuisine"]).fill(venue["venue-Cuisine"]);
   // Assert: Verify cuisine field contains the entered value
   await expect(page.getByRole('textbox', { name: 'Cuisine' })).toHaveValue(venue["venue-Cuisine"]);
-  await page.getByRole('textbox', { name: 'Address' }).fill(venue["venue-Address"]);
+  await page.locator(locators["venue-Address"]).fill(venue["venue-Address"]);
   // Assert: Verify address field contains the entered value
-  await expect(page.getByRole('textbox', { name: 'Address' })).toHaveValue(venue["venue-Address"]);
+  await expect(page.locator(locators["venue-Address"])).toHaveValue(venue["venue-Address"]);
 
   // Simple wait before clicking Next
   await page.waitForTimeout(2000);
@@ -176,17 +177,17 @@ test("open Add Venue and wait @translationBugOnCreateVenue", async ({ page }) =>
   await expect(page.getByRole('textbox', { name: 'Venue description' })).toHaveValue(venue["venue-description"]);
 
   // Socials and client app url
-  await page.locator(locators["Instagram address (optional)"]).fill(venue["Instagram address (optional)"]);
+  await page.locator(locators["Instagram address (optional)"]).fill(venue["instagramurl"]);
   // Assert: Verify Instagram field contains the entered value
-  await expect(page.locator(locators["Instagram address (optional)"])).toHaveValue(venue["Instagram address (optional)"]);
-  await page.locator(locators["Facebook (optional)"]).fill(venue["Facebook (optional)"]);
+  await expect(page.locator(locators["Instagram address (optional)"])).toHaveValue(venue["instagramurl"]);
+  await page.locator(locators["Facebook (optional)"]).fill(venue["facebookurl"]);
   // Assert: Verify Facebook field contains the entered value
-  await expect(page.locator(locators["Facebook (optional)"])).toHaveValue(venue["Facebook (optional)"]);
+  await expect(page.locator(locators["Facebook (optional)"])).toHaveValue(venue["facebookurl"]);
 
   // Client app url (from fixture) using locator from locators.json
-  await page.locator(locators["Client app url *"]).fill(venue["Client app url *"]);
+  await page.locator(locators["Client app url"]).fill(venue["Client app url"]);
   // Assert: Verify client app URL field contains the entered value
-  await expect(page.locator(locators["Client app url *"])).toHaveValue(venue["Client app url *"]);
+  await expect(page.locator(locators["Client app url"])).toHaveValue(venue["Client app url"]);
 
 
   // Enable Pay Later and Enable Tipping using locators
@@ -204,14 +205,14 @@ test("open Add Venue and wait @translationBugOnCreateVenue", async ({ page }) =>
   await expect(page.locator(locators["Tip Percentage (%)"])).toHaveValue(venue["Tip Percentage (%)"]);
 
   // Fill Dine-In Tax using locator and data from fixture
-  await page.locator(locators["Dine-In Tax (%)"]).fill(venue["Dine-In Tax (%) *"]);
+  await page.locator(locators["Dine-In Tax (%)"]).fill(venue["Dine-In Tax (%)"]);
   // Assert: Verify dine-in tax field contains the entered value
-  await expect(page.locator(locators["Dine-In Tax (%)"])).toHaveValue(venue["Dine-In Tax (%) *"]);
+  await expect(page.locator(locators["Dine-In Tax (%)"])).toHaveValue(venue["Dine-In Tax (%)"]);
 
   // Fill Take-Away Tax using locator and data from fixture
-  await page.locator(locators["Take-Away Tax (%) *"]).fill(venue["Take-Away Tax (%) *"]);
+  await page.locator(locators["Take-Away Tax (%)"]).fill(venue["Take-Away Tax (%)"]);
   // Assert: Verify take-away tax field contains the entered value
-  await expect(page.locator(locators["Take-Away Tax (%) *"])).toHaveValue(venue["Take-Away Tax (%) *"]);
+  await expect(page.locator(locators["Take-Away Tax (%)"])).toHaveValue(venue["Take-Away Tax (%)"]);
 
   // Logo Upload
   console.log('Starting logo upload...');
@@ -720,7 +721,6 @@ test("open Add Venue and wait @translationBugOnCreateVenue", async ({ page }) =>
   console.log(' Gallery item 3 completed successfully');
   
   console.log(' All gallery items completed successfully');
-  await page.pause();
   
   // Click Save button and verify navigation
   console.log('Clicking Save button...');

@@ -15,7 +15,7 @@ export default class DuplicateCategoryVenuePOM {
    * Flow: Login → Navigate to Venue Page → Click Venue → Click Menu → Navigate to Categories Page
    */
   async navigateToCategoryPage() {
-    await this.page.locator(locators["click-on-the-created-venue"]).click();
+    await this.page.locator(locators["click-on-the-created-venue"]).first().click();
     await this.page.waitForLoadState('networkidle');
     await this.page.waitForSelector(locators["created-menu"], { timeout: 10000 });
     await this.page.locator(locators["created-menu"]).nth(2).click();
