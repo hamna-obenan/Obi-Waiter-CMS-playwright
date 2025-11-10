@@ -147,7 +147,7 @@ export default class MenuVenueCreatePOM {
    */
   async saveMenu() {
     console.log('💾 Saving menu...');
-    await this.page.getByRole('button', { name: 'Save' }).click();
+    await this.page.locator(locators["save-button"]).click();
     await this.page.waitForTimeout(3000);
     console.log('✅ Menu save button clicked');
   }

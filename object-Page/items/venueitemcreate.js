@@ -117,15 +117,16 @@ export default class CreateVenueItemPOM {
    */
   async selectMenu(Italian) {
     // Click the combobox using role selector (best practice)
-    await this.page.locator(locators["select-menu-dropdown"]).click();
+    await this.page.locator(locators["select-menu-dropdown"]).first().click();
     // Wait for options to appear and select by name
-    await this.page.locator(locators["select-menu-dropdown"]).getByRole('option', { name: Italian }).first().click();
+    // After opening the dropdown, click on the first checkbox for "Italian"
+    await this.page.getByRole('option', { name: Italian }).first().click();
     console.log(`✅ Menu selected: ${Italian}`);
   }
   //select the category from dropdown
   async selectItemCategory(category) {
     await this.page.locator(locators["select-category-dropdown"]).click();
-    await this.page.locator(locators["select-category-dropdown"]).getByRole('option', { name: category }).first().click();
+    await this.page.getByRole('option', { name: category }).first().click();
     console.log(`✅ Category selected: ${category}`);
   }
   /**
@@ -167,7 +168,7 @@ export default class CreateVenueItemPOM {
      */
     async selectItemTax(tax) {
       await this.page.locator(locators["select-tax-dropdown"]).click();
-      await this.page.locator(locators["select-tax-dropdown"]).getByRole('option', { name: tax }).first().click();
+      await this.page.getByRole('option', { name: tax }).first().click();
       console.log(`✅ Item tax selected: ${tax}`);
     }
     /**
@@ -239,7 +240,7 @@ export default class CreateVenueItemPOM {
    */
     async selectItemCuisine(cuisine) {
       await this.page.locator(locators["select-cuisine-dropdown"]).click();
-      await this.page.locator(locators["select-cuisine-dropdown"]).getByRole('option', { name: cuisine }).click();
+      await this.page.getByRole('option', { name: cuisine }).click();
       console.log(`✅ Cuisine selected: ${cuisine}`);
     }
 
@@ -256,17 +257,27 @@ export default class CreateVenueItemPOM {
 
 
   /**
-   * Select item ingredients
+   * Select item ingredients from the dropdown
    * @param {Array} ingredients - Array of ingredient names to select
    */
   async selectItemIngredients(ingredients) {
-    // Select item ingredients (same as company item method)
     if (ingredients && ingredients.length > 0) {
-      await this.page.locator(locators["select-ingredients"]).click();
+      console.log(`📋 Selecting ${ingredients.length} ingredient(s): ${ingredients.join(', ')}`);
+      
+      // Select each ingredient one by one
       for (const ingredient of ingredients) {
-        await this.page.locator(locators["select-ingredients"]).getByRole('option', { name: ingredient }).click();
+        // Click on the "Select ingredients" combobox to open the dropdown
+        await this.page.getByRole('combobox', { name: 'Select ingredients' }).click();
+        await this.page.waitForTimeout(300); // Wait for dropdown to open
+        
+        // Click on the ingredient option from the dropdown
+        await this.page.getByRole('option', { name: ingredient }).click();
+        await this.page.waitForTimeout(300); // Wait for selection to complete
+        
+        console.log(`  ✓ Selected: ${ingredient}`);
       }
-      console.log(`✅ Ingredients selected: ${ingredients.join(', ')}`);
+      
+      console.log(`✅ All ingredients selected successfully`);
     }
   }
 
@@ -310,8 +321,8 @@ export default class CreateVenueItemPOM {
        );
      }
    }
-    /**
-   * Select item tags
+  /**
+   * Select item tags from the dropdown (e.g., "Spicy", "Hot", etc.)
    * @param {Array|string} tags - Array of tag names or single tag name to select
    */
   async selectItemTags(tags) {
@@ -319,28 +330,50 @@ export default class CreateVenueItemPOM {
     const tagArray = Array.isArray(tags) ? tags : [tags];
     
     if (tagArray && tagArray.length > 0) {
-      await this.page.locator(locators["item-tag"]).click();
+      console.log(`📋 Selecting ${tagArray.length} tag(s): ${tagArray.join(', ')}`);
+      
+      // Select each tag one by one
       for (const tag of tagArray) {
-        await this.page.locator(locators["item-tag"]).getByRole('option', { name: tag }).click();
+        // Click on the "Select tags" combobox to open the dropdown
+        await this.page.getByRole('combobox', { name: 'Select tags' }).click();
+        await this.page.waitForTimeout(300); // Wait for dropdown to open
+        
+        // Click on the tag option from the dropdown
+        await this.page.getByRole('option', { name: tag }).click();
+        await this.page.waitForTimeout(300); // Wait for selection to complete
+        
+        console.log(`  ✓ Selected: ${tag}`);
       }
-      console.log(`✅ Tags selected: ${tagArray.join(', ')}`);
+      
+      console.log(`✅ All tags selected successfully`);
     }
-   }
+  }
 
 
-    /**
-   * Select item customizations
+  /**
+   * Select item customizations from the dropdown (e.g., "Sauces", "Cheese", etc.)
    * @param {Array} customizations - Array of customization names to select
    */
-    async selectItemCustomizations(customizations) {
-      if (customizations && customizations.length > 0) {
-        await this.page.locator(locators["select-customizations"]).click();
-        for (const customization of customizations) {
-        await this.page.locator(locators["select-customizations"]).getByRole('option', { name: "Sauces" }).click();
-        }
-        console.log(`✅ Customizations selected: ${customizations.join(', ')}`);
+  async selectItemCustomizations(customizations) {
+    if (customizations && customizations.length > 0) {
+      console.log(`📋 Selecting ${customizations.length} customization(s): ${customizations.join(', ')}`);
+      
+      // Select each customization one by one
+      for (const customization of customizations) {
+        // Click on the "Select Customizations" combobox to open the dropdown
+        await this.page.getByRole('combobox', { name: 'Select Customizations' }).click();
+        await this.page.waitForTimeout(300); // Wait for dropdown to open
+        
+        // Click on the customization option from the dropdown
+        await this.page.getByRole('option', { name: customization }).click();
+        await this.page.waitForTimeout(300); // Wait for selection to complete
+        
+        console.log(`  ✓ Selected: ${customization}`);
       }
+      
+      console.log(`✅ All customizations selected successfully`);
     }
+  }
 
   /**
    * Select item status (in stock/out of stock)

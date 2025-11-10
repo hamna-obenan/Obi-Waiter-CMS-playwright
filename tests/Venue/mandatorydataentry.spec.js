@@ -6,7 +6,7 @@ import login from "../../Fixtures/login.json" assert { type: "json" };
 import { performLogin } from "../../utils/login-helper.js";
 import venue from "../../Fixtures/Venue.json" assert { type: "json" };
 
-test("Mandatory data entry", async ({ page }) => {
+test("create venue with Mandatory data entry", async ({ page }) => {
   const venuePage = new MandatoryDataVenuePOM(page);
  // Go to login page
  await page.goto(config.urls.login);

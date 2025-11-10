@@ -66,14 +66,14 @@ async function fillVenueDetails(page, venueData) {
   await page.getByRole('textbox', { name: 'Venue description' }).fill(venueData['venue-description']);
   await page.locator(locators["Instagram address (optional)"]).fill(venueData['instagramurl']);
   await page.locator(locators["Facebook (optional)"]).fill(venueData['facebookurl']);
-  await page.locator("client app url").fill(venueData['clientappurl']);
+  await page.locator(locators["Client app url"]).fill(venueData['Client app url'], { timeout: 15000 });
   
-  await page.locator(locators["Enable Pay Later"]).check();
-  await page.locator(locators["Enable Tipping"]).check();
+  await page.locator(locators["Enable Pay Later "]).nth(0).check();
+  await page.locator(locators["Enable Tipping"]).nth(1).check();
   
-  await page.locator("tip percentage (%)").fill(venueData['Tip Percentage (%)']);
-  await page.locator("dine-in tax (%)").fill(venueData['Dine-In Tax (%)']);
-  await page.locator("takeaway tax (%)").fill(venueData['Take-Away Tax (%)']);
+  await page.locator(locators["Tip Percentage (%)"]).fill(venueData['Tip Percentage (%)']);
+  await page.locator(locators["Dine-In Tax (%)"]).fill(venueData['Dine-In Tax (%)']);
+  await page.locator(locators["Take-Away Tax (%)"]).fill(venueData['Take-Away Tax (%)']);
   
   console.log('✅ Venue details filled');
 }

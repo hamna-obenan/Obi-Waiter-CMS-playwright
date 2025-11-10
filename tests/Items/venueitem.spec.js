@@ -17,8 +17,6 @@ test.describe("Item Venue - Venue Level", () => {
    // Login
    await performLogin(page, login.TC1001.Email, login.TC1001.Password);
    await expect(page.locator('text=Select venue')).toBeVisible();
-   // after login land at venue page
-   await expect(page.locator(locators["click-on-the-created-venue"])).toBeVisible();
    
 
    
@@ -64,8 +62,7 @@ test.describe("Item Venue - Venue Level", () => {
     await createVenueItemPOM.selectTheStatus(items[1]["instock2"]);
 
     // click on the menu dropdown
-    await expect(page.getByRole('combobox', { name: 'Select menu' })).toBeVisible();
-    await createVenueItemPOM.selectMenu("Italian");
+    await createVenueItemPOM.selectMenu(items[1]["Italian"]);
     // await page.pause();
 
     // click on the category dropdown

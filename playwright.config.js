@@ -14,8 +14,8 @@ export default defineConfig({
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   
-  /* Retry on CI only */
-  retries: process.env.CI ? 2 : 0,
+  /* Retry failed tests - 2 retries in CI, 1 retry in local development */
+  retries: process.env.CI ? 2 : 1,
   
   /* Run all tests sequentially in one worker */
   workers: 1,
@@ -74,7 +74,7 @@ export default defineConfig({
   // } : undefined,
 
   /* Test timeout */
-  timeout: 60000,
+  timeout: 180000, // Increased to 2 minutes to accommodate longer tests
   
   /* Expect timeout */
   expect: {

@@ -123,4 +123,14 @@ export default class VenueDuplicationPOM {
     await this.page.locator(locators["Take-Away Tax (%)"]).click();
     await this.page.locator(locators["Take-Away Tax (%)"]).fill(Venuediscription["Take-Away Tax (%)"]);
   }
+  //upload venue logo
+  async uploadvenuelogo(){
+    await this.page.locator(locators["venuelogo"]).click();
+    await this.page.locator(locators["venuelogoimageselector"]).click();
+    await this.page.locator(locators["logouploadbutton"]).click();
+    await this.page.locator(locators["clickonthelogopicture"]).click();
+    await this.page.locator(locators["venueCoverimage"]).click();
+    await this.page.locator(locators["venueCoverimageimageselector"]).fill(Venuediscription["venueCoverimage"]);
+    await this.page.locator(locators["venueCoverimageuploadbutton"]).click();
+  }
 }

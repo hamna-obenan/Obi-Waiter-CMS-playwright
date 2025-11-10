@@ -36,8 +36,8 @@
     "Instagram address (optional)": "[name='instagram']",
     "Facebook (optional)": "[name='facebook']",
     "Client app url": "[name='slug']",
-    "Enable Pay Later ": "[type='checkbox'].first().check()",
-    "Enable Tipping": "getByRole('checkbox').nth(1).check()",
+    "Enable Pay Later ": "[type='checkbox']",
+    "Enable Tipping": "[type='checkbox']",
     "Tip Percentage (%)": "[name='defaultTipPercentage']",
     "Dine-In Tax (%)": "[name='dineInTax']",
     "Take-Away Tax (%)": "[name='takeawayTax']",
@@ -98,7 +98,9 @@
     "created-menu":"//img[@alt='logo']",
     "add-category-button":"//button[normalize-space(.)='New Category']",
     "category-name":"[name='categoryname.en']",
-    "select-menu-dropdown":"[placeholder='Select menus']",
+    "select-menu-dropdown":"[placeholder='Select menu']",
+    "select-menu-dropdown-category":"[placeholder='Select menus']",
+
 
 
     "Item-tab":"[href='/items']",
