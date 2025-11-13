@@ -188,7 +188,10 @@
     "option-box3":"[name='prices.3.description.en']",
     "option-box4":"[name='prices.4.description.en']",
     "delete-created-option":"[data-testid='DeleteForeverOutlinedIcon']",
-    "add-more-customization-button":"//button[normalize-space(text())='Add More']"
+    "add-more-customization-button":"//button[normalize-space(text())='Add More']",
+
+
+    "ai-genrated-menu-button":"//button[normalize-space()='AI Menu Generate']"
 
     
     
