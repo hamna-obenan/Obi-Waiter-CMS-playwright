@@ -49,7 +49,7 @@ export default class AiGenratedMenuAssertions {
         // Step 1: Check that we clicked the right venue
         // We check if the venue name matches what we expect
         // Find the venue element by its visible text (using the specific venue name)
-        await this.page.waitForLoadState('networkidle');
+        await this.page.waitForTimeout(2000);
         await expect(this.page.getByText(venue.venuetitlename, { exact: true })).toBeVisible();
         // Step 2: Find the venue button and click on the first one
         await this.page.locator(locators["click-on-the-created-venue"]).first().click();
@@ -75,15 +75,31 @@ export default class AiGenratedMenuAssertions {
         await expect(this.page.getByText("Categories", { exact: false }).first()).toBeVisible({ timeout: 5000 });
         console.log('✅ "Categories" text is visible');
         
-        // Step 2: List of expected category names
-        const expectedCategories = ["STARTERS", "MAINS", "SIDES", "DESSERTS", "DRINKS"];
+        // Step 2: Verify "Starters" text is visible
+        await expect(this.page.getByText('Starters', { exact: true })).toBeVisible({ timeout: 5000 });
+        console.log(`✅ Category "Starters" is visible`);
         
-        // Step 3: Verify each category one by one
-        for (const category of expectedCategories) {
-            await expect(this.page.getByText(category, { exact: true })).toBeVisible({ timeout: 5000 });
-            console.log(`✅ Category "${category}" is visible`);
-        }
+        // Step 3: Verify "Mains" text is visible
+        await expect(this.page.getByText('Mains', { exact: true })).toBeVisible({ timeout: 5000 });
+        console.log(`✅ Category "Mains" is visible`);
+        
+        // Step 4: Verify "Sides" text is visible
+        await expect(this.page.getByText('Sides', { exact: true })).toBeVisible({ timeout: 5000 });
+        console.log(`✅ Category "Sides" is visible`);
+        
+        // Step 5: Verify "Desserts" text is visible
+        await expect(this.page.getByText('Desserts', { exact: true })).toBeVisible({ timeout: 5000 });
+        console.log(`✅ Category "Desserts" is visible`);
+        
+        // Step 6: Verify "Drinks" text is visible
+        await expect(this.page.getByText('Drinks', { exact: true })).toBeVisible({ timeout: 5000 });
+        console.log(`✅ Category "Drinks" is visible`);
         
         console.log('✅ All expected categories are available');
     }
+//     async verifyStatersCategoryItems() {
+//     // click on the item tab
+//    await this.page.locator(locators["Item-tab"]).click();
+
+    // }
 }

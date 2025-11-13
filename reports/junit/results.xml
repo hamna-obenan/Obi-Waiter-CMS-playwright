@@ -1,56 +1,10 @@
-<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="89.05267899999998">
-<testsuite name="Menu\ai-gerneated-menu-assertion.spec.js" timestamp="2025-11-12T13:35:06.882Z" hostname="all-tests" tests="1" failures="1" skipped="0" time="87.516" errors="0">
-<testcase name="AI Genrated Menu Assertions to verify is the menu data is correct" classname="Menu\ai-gerneated-menu-assertion.spec.js" time="87.516">
-<failure message="ai-gerneated-menu-assertion.spec.js:3:1 AI Genrated Menu Assertions to verify is the menu data is correct" type="FAILURE">
-<![CDATA[  [all-tests] › Menu\ai-gerneated-menu-assertion.spec.js:3:1 › AI Genrated Menu Assertions to verify is the menu data is correct 
-
-    Error: expect(locator).toBeVisible() failed
-
-    Locator:  getByText('STARTERS', { exact: true })
-    Expected: visible
-    Received: <element(s) not found>
-    Timeout:  5000ms
-
-    Call log:
-      - Expect "toBeVisible" with timeout 5000ms
-      - waiting for getByText('STARTERS', { exact: true })
-
-
-       at ..\object-Page\menu\ai-genrated-menu-assertions.js:83
-
-      81 |         // Step 3: Verify each category one by one
-      82 |         for (const category of expectedCategories) {
-    > 83 |             await expect(this.page.getByText(category, { exact: true })).toBeVisible({ timeout: 5000 });
-         |                                                                          ^
-      84 |             console.log(`✅ Category "${category}" is visible`);
-      85 |         }
-      86 |         
-        at AiGenratedMenuAssertions.verifyCategoryNames (C:\Users\HP\Desktop\Obi-Waiter-CMS-playwright-main\object-Page\menu\ai-genrated-menu-assertions.js:83:74)
-        at C:\Users\HP\Desktop\Obi-Waiter-CMS-playwright-main\tests\Menu\ai-gerneated-menu-assertion.spec.js:19:4
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\test-results\Menu-ai-gerneated-menu-ass-ffed5-is-the-menu-data-is-correct-all-tests\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\test-results\Menu-ai-gerneated-menu-ass-ffed5-is-the-menu-data-is-correct-all-tests\video.webm
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: ..\test-results\Menu-ai-gerneated-menu-ass-ffed5-is-the-menu-data-is-correct-all-tests\error-context.md
-]]>
-</failure>
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="25.953346999999997">
+<testsuite name="Categories\update-the category.spec.js" timestamp="2025-11-13T11:58:15.817Z" hostname="all-tests" tests="1" failures="0" skipped="0" time="24.534" errors="0">
+<testcase name="Update the category" classname="Categories\update-the category.spec.js" time="24.534">
 <system-out>
 <![CDATA[✅ Login completed successfully
-✅ Login completed successfully
-✅ Clicked on created Venue
-✅ Clicked on Created Menu
-✅ "Categories" text is visible
 
-[[ATTACHMENT|..\..\test-results\Menu-ai-gerneated-menu-ass-ffed5-is-the-menu-data-is-correct-all-tests\test-failed-1.png]]
-
-[[ATTACHMENT|..\..\test-results\Menu-ai-gerneated-menu-ass-ffed5-is-the-menu-data-is-correct-all-tests\video.webm]]
-
-[[ATTACHMENT|..\..\test-results\Menu-ai-gerneated-menu-ass-ffed5-is-the-menu-data-is-correct-all-tests\error-context.md]]
+[[ATTACHMENT|..\..\test-results\Categories-update-the category-Update-the-category-all-tests\video.webm]]
 ]]>
 </system-out>
 </testcase>

@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+
 import AiGenratedMenuAssertions from "../../object-Page/menu/ai-genrated-menu-assertions.js";
 test("AI Genrated Menu Assertions to verify is the menu data is correct", async ({ page }) => {
    const aiGenratedMenuAssertions = new AiGenratedMenuAssertions(page);
@@ -13,10 +14,14 @@ test("AI Genrated Menu Assertions to verify is the menu data is correct", async 
    // click on the created menu
    await aiGenratedMenuAssertions.clickOnCreatedMenu();
    console.log('✅ Clicked on Created Menu');
-   await page.pause();
+  
 
    // verify the category names
    await aiGenratedMenuAssertions.verifyCategoryNames();
    console.log('✅ Category names verified successfully');
+
+   // verify the starters category items
+   await aiGenratedMenuAssertions.verifyStatersCategoryItems();
+   console.log('✅ Starters category items verified successfully');
 
 });

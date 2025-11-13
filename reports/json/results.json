@@ -66,18 +66,18 @@
   },
   "suites": [
     {
-      "title": "Menu\\ai-gerneated-menu-assertion.spec.js",
-      "file": "Menu/ai-gerneated-menu-assertion.spec.js",
+      "title": "Categories\\update-the category.spec.js",
+      "file": "Categories/update-the category.spec.js",
       "column": 0,
       "line": 0,
       "specs": [
         {
-          "title": "AI Genrated Menu Assertions to verify is the menu data is correct",
-          "ok": false,
+          "title": "Update the category",
+          "ok": true,
           "tags": [],
           "tests": [
             {
-              "timeout": 180000,
+              "timeout": 120000,
               "annotations": [],
               "expectedStatus": "passed",
               "projectId": "all-tests",
@@ -86,78 +86,32 @@
                 {
                   "workerIndex": 0,
                   "parallelIndex": 0,
-                  "status": "failed",
-                  "duration": 87516,
-                  "error": {
-                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m failed\n\nLocator:  getByText('STARTERS', { exact: true })\nExpected: visible\nReceived: <element(s) not found>\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('STARTERS', { exact: true })\u001b[22m\n",
-                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m failed\n\nLocator:  getByText('STARTERS', { exact: true })\nExpected: visible\nReceived: <element(s) not found>\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('STARTERS', { exact: true })\u001b[22m\n\n    at AiGenratedMenuAssertions.verifyCategoryNames (C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\object-Page\\menu\\ai-genrated-menu-assertions.js:83:74)\n    at C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Menu\\ai-gerneated-menu-assertion.spec.js:19:4",
-                    "location": {
-                      "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\object-Page\\menu\\ai-genrated-menu-assertions.js",
-                      "column": 74,
-                      "line": 83
-                    },
-                    "snippet": "\u001b[90m   at \u001b[39m..\\object-Page\\menu\\ai-genrated-menu-assertions.js:83\n\n\u001b[0m \u001b[90m 81 |\u001b[39m         \u001b[90m// Step 3: Verify each category one by one\u001b[39m\n \u001b[90m 82 |\u001b[39m         \u001b[36mfor\u001b[39m (\u001b[36mconst\u001b[39m category \u001b[36mof\u001b[39m expectedCategories) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 83 |\u001b[39m             \u001b[36mawait\u001b[39m expect(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mgetByText(category\u001b[33m,\u001b[39m { exact\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m }))\u001b[33m.\u001b[39mtoBeVisible({ timeout\u001b[33m:\u001b[39m \u001b[35m5000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 84 |\u001b[39m             console\u001b[33m.\u001b[39mlog(\u001b[32m`✅ Category \"${category}\" is visible`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 85 |\u001b[39m         }\n \u001b[90m 86 |\u001b[39m         \u001b[0m"
-                  },
-                  "errors": [
-                    {
-                      "location": {
-                        "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\object-Page\\menu\\ai-genrated-menu-assertions.js",
-                        "column": 74,
-                        "line": 83
-                      },
-                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m failed\n\nLocator:  getByText('STARTERS', { exact: true })\nExpected: visible\nReceived: <element(s) not found>\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('STARTERS', { exact: true })\u001b[22m\n\n\n\u001b[90m   at \u001b[39m..\\object-Page\\menu\\ai-genrated-menu-assertions.js:83\n\n\u001b[0m \u001b[90m 81 |\u001b[39m         \u001b[90m// Step 3: Verify each category one by one\u001b[39m\n \u001b[90m 82 |\u001b[39m         \u001b[36mfor\u001b[39m (\u001b[36mconst\u001b[39m category \u001b[36mof\u001b[39m expectedCategories) {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 83 |\u001b[39m             \u001b[36mawait\u001b[39m expect(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mgetByText(category\u001b[33m,\u001b[39m { exact\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m }))\u001b[33m.\u001b[39mtoBeVisible({ timeout\u001b[33m:\u001b[39m \u001b[35m5000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 84 |\u001b[39m             console\u001b[33m.\u001b[39mlog(\u001b[32m`✅ Category \"${category}\" is visible`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 85 |\u001b[39m         }\n \u001b[90m 86 |\u001b[39m         \u001b[0m\n\u001b[2m    at AiGenratedMenuAssertions.verifyCategoryNames (C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\object-Page\\menu\\ai-genrated-menu-assertions.js:83:74)\u001b[22m\n\u001b[2m    at C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Menu\\ai-gerneated-menu-assertion.spec.js:19:4\u001b[22m"
-                    }
-                  ],
+                  "status": "passed",
+                  "duration": 24534,
+                  "errors": [],
                   "stdout": [
                     {
                       "text": "✅ Login completed successfully\n"
-                    },
-                    {
-                      "text": "✅ Login completed successfully\n"
-                    },
-                    {
-                      "text": "✅ Clicked on created Venue\n"
-                    },
-                    {
-                      "text": "✅ Clicked on Created Menu\n"
-                    },
-                    {
-                      "text": "✅ \"Categories\" text is visible\n"
                     }
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2025-11-12T13:35:07.652Z",
+                  "startTime": "2025-11-13T11:58:16.471Z",
                   "annotations": [],
                   "attachments": [
                     {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Menu-ai-gerneated-menu-ass-ffed5-is-the-menu-data-is-correct-all-tests\\test-failed-1.png"
-                    },
-                    {
                       "name": "video",
                       "contentType": "video/webm",
-                      "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Menu-ai-gerneated-menu-ass-ffed5-is-the-menu-data-is-correct-all-tests\\video.webm"
-                    },
-                    {
-                      "name": "error-context",
-                      "contentType": "text/markdown",
-                      "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Menu-ai-gerneated-menu-ass-ffed5-is-the-menu-data-is-correct-all-tests\\error-context.md"
+                      "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Categories-update-the category-Update-the-category-all-tests\\video.webm"
                     }
-                  ],
-                  "errorLocation": {
-                    "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\object-Page\\menu\\ai-genrated-menu-assertions.js",
-                    "column": 74,
-                    "line": 83
-                  }
+                  ]
                 }
               ],
-              "status": "unexpected"
+              "status": "expected"
             }
           ],
-          "id": "ff7845cb3a54dde81952-7a88c5f83a4720880826",
-          "file": "Menu/ai-gerneated-menu-assertion.spec.js",
+          "id": "4b6744b87543941affc6-569e21d4d0edb784f814",
+          "file": "Categories/update-the category.spec.js",
           "line": 3,
           "column": 1
         }
@@ -166,11 +120,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-11-12T13:35:06.676Z",
-    "duration": 89052.67899999999,
-    "expected": 0,
+    "startTime": "2025-11-13T11:58:15.638Z",
+    "duration": 25953.346999999998,
+    "expected": 1,
     "skipped": 0,
-    "unexpected": 1,
+    "unexpected": 0,
     "flaky": 0
   }
 }

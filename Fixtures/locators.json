@@ -191,13 +191,6 @@
     "add-more-customization-button":"//button[normalize-space(text())='Add More']",
 
 
-    "ai-genrated-menu-button":"//button[normalize-space()='AI Menu Generate']"
-
-    
-    
-   
-
-
-
-
+    "ai-genrated-menu-button":"//button[normalize-space()='AI Menu Generate']",
+    "edit-icon": "//*[name()='svg' and @data-testid='ModeEditOutlineOutlinedIcon']"
 }
