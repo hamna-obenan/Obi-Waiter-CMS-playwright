@@ -1,10 +1,101 @@
-<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="25.953346999999997">
-<testsuite name="Categories\update-the category.spec.js" timestamp="2025-11-13T11:58:15.817Z" hostname="all-tests" tests="1" failures="0" skipped="0" time="24.534" errors="0">
-<testcase name="Update the category" classname="Categories\update-the category.spec.js" time="24.534">
+<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="40.978991">
+<testsuite name="Menu\ai-gerneated-menu-assertion.spec.js" timestamp="2025-11-17T07:17:31.497Z" hostname="all-tests" tests="1" failures="1" skipped="0" time="38.524" errors="0">
+<testcase name="AI Genrated Menu Assertions to verify is the menu data is correct" classname="Menu\ai-gerneated-menu-assertion.spec.js" time="38.524">
+<failure message="ai-gerneated-menu-assertion.spec.js:4:1 AI Genrated Menu Assertions to verify is the menu data is correct" type="FAILURE">
+<![CDATA[  [all-tests] › Menu\ai-gerneated-menu-assertion.spec.js:4:1 › AI Genrated Menu Assertions to verify is the menu data is correct 
+
+    TypeError: aiGenratedMenuAssertions.getCategorySelectXpath is not a function
+
+      25 |    
+      26 |    // Fix the click problem by evaluating the XPath and then clicking the category
+    > 27 |    const startersCategoryXpath = await aiGenratedMenuAssertions.getCategorySelectXpath(categories["category-name"][0]);
+         |                                                                 ^
+      28 |    await page.locator(`xpath=${startersCategoryXpath}`).click();
+      29 |    console.log('✅ Starters category items verified successfully');
+      30 |    await page.waitForTimeout(2000);
+        at C:\Users\HP\Desktop\Obi-Waiter-CMS-playwright-main\tests\Menu\ai-gerneated-menu-assertion.spec.js:27:65
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\test-results\Menu-ai-gerneated-menu-ass-ffed5-is-the-menu-data-is-correct-all-tests\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\test-results\Menu-ai-gerneated-menu-ass-ffed5-is-the-menu-data-is-correct-all-tests\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\test-results\Menu-ai-gerneated-menu-ass-ffed5-is-the-menu-data-is-correct-all-tests\error-context.md
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    TypeError: aiGenratedMenuAssertions.getCategorySelectXpath is not a function
+
+      25 |    
+      26 |    // Fix the click problem by evaluating the XPath and then clicking the category
+    > 27 |    const startersCategoryXpath = await aiGenratedMenuAssertions.getCategorySelectXpath(categories["category-name"][0]);
+         |                                                                 ^
+      28 |    await page.locator(`xpath=${startersCategoryXpath}`).click();
+      29 |    console.log('✅ Starters category items verified successfully');
+      30 |    await page.waitForTimeout(2000);
+        at C:\Users\HP\Desktop\Obi-Waiter-CMS-playwright-main\tests\Menu\ai-gerneated-menu-assertion.spec.js:27:65
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\test-results\Menu-ai-gerneated-menu-ass-ffed5-is-the-menu-data-is-correct-all-tests-retry1\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\test-results\Menu-ai-gerneated-menu-ass-ffed5-is-the-menu-data-is-correct-all-tests-retry1\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\test-results\Menu-ai-gerneated-menu-ass-ffed5-is-the-menu-data-is-correct-all-tests-retry1\error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    ..\test-results\Menu-ai-gerneated-menu-ass-ffed5-is-the-menu-data-is-correct-all-tests-retry1\trace.zip
+    Usage:
+
+        npx playwright show-trace ..\test-results\Menu-ai-gerneated-menu-ass-ffed5-is-the-menu-data-is-correct-all-tests-retry1\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
 <system-out>
 <![CDATA[✅ Login completed successfully
+✅ Login completed successfully
+✅ Clicked on created Venue
+✅ Clicked on Created Menu
+✅ "Categories" text is visible
+✅ Category "Starters" is visible
+✅ Category "Mains" is visible
+✅ Category "Sides" is visible
+✅ Category "Desserts" is visible
+✅ Category "Drinks" is visible
+✅ All expected categories are available
+✅ Category names verified successfully
 
-[[ATTACHMENT|..\..\test-results\Categories-update-the category-Update-the-category-all-tests\video.webm]]
+[[ATTACHMENT|..\..\test-results\Menu-ai-gerneated-menu-ass-ffed5-is-the-menu-data-is-correct-all-tests\test-failed-1.png]]
+
+[[ATTACHMENT|..\..\test-results\Menu-ai-gerneated-menu-ass-ffed5-is-the-menu-data-is-correct-all-tests\video.webm]]
+
+[[ATTACHMENT|..\..\test-results\Menu-ai-gerneated-menu-ass-ffed5-is-the-menu-data-is-correct-all-tests\error-context.md]]
+✅ Login completed successfully
+✅ Login completed successfully
+✅ Clicked on created Venue
+✅ Clicked on Created Menu
+✅ "Categories" text is visible
+✅ Category "Starters" is visible
+✅ Category "Mains" is visible
+✅ Category "Sides" is visible
+✅ Category "Desserts" is visible
+✅ Category "Drinks" is visible
+✅ All expected categories are available
+✅ Category names verified successfully
+
+[[ATTACHMENT|..\..\test-results\Menu-ai-gerneated-menu-ass-ffed5-is-the-menu-data-is-correct-all-tests-retry1\test-failed-1.png]]
+
+[[ATTACHMENT|..\..\test-results\Menu-ai-gerneated-menu-ass-ffed5-is-the-menu-data-is-correct-all-tests-retry1\video.webm]]
+
+[[ATTACHMENT|..\..\test-results\Menu-ai-gerneated-menu-ass-ffed5-is-the-menu-data-is-correct-all-tests-retry1\error-context.md]]
+
+[[ATTACHMENT|..\..\test-results\Menu-ai-gerneated-menu-ass-ffed5-is-the-menu-data-is-correct-all-tests-retry1\trace.zip]]
 ]]>
 </system-out>
 </testcase>

@@ -104,7 +104,7 @@
 
 
     "Item-tab":"[href='/items']",
-    "created-category-select":"//*[text()[normalize-space()='Appetizers']]",
+    "created-category-select":"//*[text()[normalize-space()='name']]",
     "add-item-button":"//button[normalize-space(.)='New Item']",
     "item-name":"[name='name.en']",
     "instock-dropdown":"[placeholder='Select status']",

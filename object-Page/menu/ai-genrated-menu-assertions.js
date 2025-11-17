@@ -76,7 +76,7 @@ export default class AiGenratedMenuAssertions {
         console.log('✅ "Categories" text is visible');
         
         // Step 2: Verify "Starters" text is visible
-        await expect(this.page.getByText('Starters', { exact: true })).toBeVisible({ timeout: 5000 });
+        await expect(this.page.getByText('Starters', { exact: true }).first()).toBeVisible({ timeout: 5000 });
         console.log(`✅ Category "Starters" is visible`);
         
         // Step 3: Verify "Mains" text is visible
@@ -97,9 +97,11 @@ export default class AiGenratedMenuAssertions {
         
         console.log('✅ All expected categories are available');
     }
-//     async verifyStatersCategoryItems() {
-//     // click on the item tab
-//    await this.page.locator(locators["Item-tab"]).click();
+    async verifyStatersCategoryItems() {
+        //click on the created category
+        // await this.page.locator(locators["created-category-select"]).nth(2).click();
 
-    // }
+    }
+
+   
 }

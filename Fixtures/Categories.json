@@ -2,5 +2,7 @@
     "category-company-name": "Appetizers",
     "category-comapny-image":"category-comapany-image.png",
     "category-venue-name":"Noodles",
-    "category-venue-image":"categoryvenue.png"
+    "category-venue-image":"categoryvenue.png",
+    "updated-category-name":"Deals",
+    "category-name": ["Starters", "Mains", "Sides", "Desserts", "Drinks"]
 }
