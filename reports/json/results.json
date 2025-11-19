@@ -9,7 +9,7 @@
     "globalTimeout": 0,
     "grep": {},
     "grepInvert": null,
-    "maxFailures": 0,
+    "maxFailures": 1,
     "metadata": {
       "actualWorkers": 1
     },
@@ -43,7 +43,7 @@
       {
         "outputDir": "C:/Users/HP/Desktop/Obi-Waiter-CMS-playwright-main/test-results",
         "repeatEach": 1,
-        "retries": 1,
+        "retries": 0,
         "metadata": {
           "actualWorkers": 1
         },
@@ -54,7 +54,7 @@
         "testMatch": [
           "**/*.spec.js"
         ],
-        "timeout": 180000
+        "timeout": 0
       }
     ],
     "shard": null,
@@ -77,7 +77,7 @@
           "tags": [],
           "tests": [
             {
-              "timeout": 180000,
+              "timeout": 0,
               "annotations": [],
               "expectedStatus": "passed",
               "projectId": "all-tests",
@@ -87,25 +87,25 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "failed",
-                  "duration": 13561,
+                  "duration": 23891,
                   "error": {
-                    "message": "TypeError: aiGenratedMenuAssertions.getCategorySelectXpath is not a function",
-                    "stack": "TypeError: aiGenratedMenuAssertions.getCategorySelectXpath is not a function\n    at C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Menu\\ai-gerneated-menu-assertion.spec.js:27:65",
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m failed\n\nLocator:  getByText('Starters', { exact: true }).first()\nExpected: visible\nReceived: <element(s) not found>\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Starters', { exact: true }).first()\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m failed\n\nLocator:  getByText('Starters', { exact: true }).first()\nExpected: visible\nReceived: <element(s) not found>\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Starters', { exact: true }).first()\u001b[22m\n\n    at AiGenratedMenuAssertions.verifyCategoryNames (C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\object-Page\\menu\\ai-genrated-menu-assertions.js:79:80)\n    at C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Menu\\ai-gerneated-menu-assertion.spec.js:20:4",
                     "location": {
-                      "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Menu\\ai-gerneated-menu-assertion.spec.js",
-                      "column": 65,
-                      "line": 27
+                      "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\object-Page\\menu\\ai-genrated-menu-assertions.js",
+                      "column": 80,
+                      "line": 79
                     },
-                    "snippet": "\u001b[0m \u001b[90m 25 |\u001b[39m    \n \u001b[90m 26 |\u001b[39m    \u001b[90m// Fix the click problem by evaluating the XPath and then clicking the category\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 27 |\u001b[39m    \u001b[36mconst\u001b[39m startersCategoryXpath \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m aiGenratedMenuAssertions\u001b[33m.\u001b[39mgetCategorySelectXpath(categories[\u001b[32m\"category-name\"\u001b[39m][\u001b[35m0\u001b[39m])\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 28 |\u001b[39m    \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m`xpath=${startersCategoryXpath}`\u001b[39m)\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m 29 |\u001b[39m    console\u001b[33m.\u001b[39mlog(\u001b[32m'✅ Starters category items verified successfully'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 30 |\u001b[39m    \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m2000\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                    "snippet": "\u001b[90m   at \u001b[39m..\\object-Page\\menu\\ai-genrated-menu-assertions.js:79\n\n\u001b[0m \u001b[90m 77 |\u001b[39m         \n \u001b[90m 78 |\u001b[39m         \u001b[90m// Step 2: Verify \"Starters\" text is visible\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 79 |\u001b[39m         \u001b[36mawait\u001b[39m expect(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mgetByText(\u001b[32m'Starters'\u001b[39m\u001b[33m,\u001b[39m { exact\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m })\u001b[33m.\u001b[39mfirst())\u001b[33m.\u001b[39mtoBeVisible({ timeout\u001b[33m:\u001b[39m \u001b[35m5000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 80 |\u001b[39m         console\u001b[33m.\u001b[39mlog(\u001b[32m`✅ Category \"Starters\" is visible`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 81 |\u001b[39m         \n \u001b[90m 82 |\u001b[39m         \u001b[90m// Step 3: Verify \"Mains\" text is visible\u001b[39m\u001b[0m"
                   },
                   "errors": [
                     {
                       "location": {
-                        "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Menu\\ai-gerneated-menu-assertion.spec.js",
-                        "column": 65,
-                        "line": 27
+                        "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\object-Page\\menu\\ai-genrated-menu-assertions.js",
+                        "column": 80,
+                        "line": 79
                       },
-                      "message": "TypeError: aiGenratedMenuAssertions.getCategorySelectXpath is not a function\n\n\u001b[0m \u001b[90m 25 |\u001b[39m    \n \u001b[90m 26 |\u001b[39m    \u001b[90m// Fix the click problem by evaluating the XPath and then clicking the category\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 27 |\u001b[39m    \u001b[36mconst\u001b[39m startersCategoryXpath \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m aiGenratedMenuAssertions\u001b[33m.\u001b[39mgetCategorySelectXpath(categories[\u001b[32m\"category-name\"\u001b[39m][\u001b[35m0\u001b[39m])\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 28 |\u001b[39m    \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m`xpath=${startersCategoryXpath}`\u001b[39m)\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m 29 |\u001b[39m    console\u001b[33m.\u001b[39mlog(\u001b[32m'✅ Starters category items verified successfully'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 30 |\u001b[39m    \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m2000\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Menu\\ai-gerneated-menu-assertion.spec.js:27:65\u001b[22m"
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m failed\n\nLocator:  getByText('Starters', { exact: true }).first()\nExpected: visible\nReceived: <element(s) not found>\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Starters', { exact: true }).first()\u001b[22m\n\n\n\u001b[90m   at \u001b[39m..\\object-Page\\menu\\ai-genrated-menu-assertions.js:79\n\n\u001b[0m \u001b[90m 77 |\u001b[39m         \n \u001b[90m 78 |\u001b[39m         \u001b[90m// Step 2: Verify \"Starters\" text is visible\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 79 |\u001b[39m         \u001b[36mawait\u001b[39m expect(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mgetByText(\u001b[32m'Starters'\u001b[39m\u001b[33m,\u001b[39m { exact\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m })\u001b[33m.\u001b[39mfirst())\u001b[33m.\u001b[39mtoBeVisible({ timeout\u001b[33m:\u001b[39m \u001b[35m5000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 80 |\u001b[39m         console\u001b[33m.\u001b[39mlog(\u001b[32m`✅ Category \"Starters\" is visible`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 81 |\u001b[39m         \n \u001b[90m 82 |\u001b[39m         \u001b[90m// Step 3: Verify \"Mains\" text is visible\u001b[39m\u001b[0m\n\u001b[2m    at AiGenratedMenuAssertions.verifyCategoryNames (C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\object-Page\\menu\\ai-genrated-menu-assertions.js:79:80)\u001b[22m\n\u001b[2m    at C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Menu\\ai-gerneated-menu-assertion.spec.js:20:4\u001b[22m"
                     }
                   ],
                   "stdout": [
@@ -123,32 +123,11 @@
                     },
                     {
                       "text": "✅ \"Categories\" text is visible\n"
-                    },
-                    {
-                      "text": "✅ Category \"Starters\" is visible\n"
-                    },
-                    {
-                      "text": "✅ Category \"Mains\" is visible\n"
-                    },
-                    {
-                      "text": "✅ Category \"Sides\" is visible\n"
-                    },
-                    {
-                      "text": "✅ Category \"Desserts\" is visible\n"
-                    },
-                    {
-                      "text": "✅ Category \"Drinks\" is visible\n"
-                    },
-                    {
-                      "text": "✅ All expected categories are available\n"
-                    },
-                    {
-                      "text": "✅ Category names verified successfully\n"
                     }
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2025-11-17T07:17:32.073Z",
+                  "startTime": "2025-11-17T08:01:49.465Z",
                   "annotations": [],
                   "attachments": [
                     {
@@ -168,104 +147,9 @@
                     }
                   ],
                   "errorLocation": {
-                    "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Menu\\ai-gerneated-menu-assertion.spec.js",
-                    "column": 65,
-                    "line": 27
-                  }
-                },
-                {
-                  "workerIndex": 1,
-                  "parallelIndex": 0,
-                  "status": "failed",
-                  "duration": 24963,
-                  "error": {
-                    "message": "TypeError: aiGenratedMenuAssertions.getCategorySelectXpath is not a function",
-                    "stack": "TypeError: aiGenratedMenuAssertions.getCategorySelectXpath is not a function\n    at C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Menu\\ai-gerneated-menu-assertion.spec.js:27:65",
-                    "location": {
-                      "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Menu\\ai-gerneated-menu-assertion.spec.js",
-                      "column": 65,
-                      "line": 27
-                    },
-                    "snippet": "\u001b[0m \u001b[90m 25 |\u001b[39m    \n \u001b[90m 26 |\u001b[39m    \u001b[90m// Fix the click problem by evaluating the XPath and then clicking the category\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 27 |\u001b[39m    \u001b[36mconst\u001b[39m startersCategoryXpath \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m aiGenratedMenuAssertions\u001b[33m.\u001b[39mgetCategorySelectXpath(categories[\u001b[32m\"category-name\"\u001b[39m][\u001b[35m0\u001b[39m])\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 28 |\u001b[39m    \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m`xpath=${startersCategoryXpath}`\u001b[39m)\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m 29 |\u001b[39m    console\u001b[33m.\u001b[39mlog(\u001b[32m'✅ Starters category items verified successfully'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 30 |\u001b[39m    \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m2000\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
-                  },
-                  "errors": [
-                    {
-                      "location": {
-                        "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Menu\\ai-gerneated-menu-assertion.spec.js",
-                        "column": 65,
-                        "line": 27
-                      },
-                      "message": "TypeError: aiGenratedMenuAssertions.getCategorySelectXpath is not a function\n\n\u001b[0m \u001b[90m 25 |\u001b[39m    \n \u001b[90m 26 |\u001b[39m    \u001b[90m// Fix the click problem by evaluating the XPath and then clicking the category\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 27 |\u001b[39m    \u001b[36mconst\u001b[39m startersCategoryXpath \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m aiGenratedMenuAssertions\u001b[33m.\u001b[39mgetCategorySelectXpath(categories[\u001b[32m\"category-name\"\u001b[39m][\u001b[35m0\u001b[39m])\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 28 |\u001b[39m    \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m`xpath=${startersCategoryXpath}`\u001b[39m)\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m 29 |\u001b[39m    console\u001b[33m.\u001b[39mlog(\u001b[32m'✅ Starters category items verified successfully'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 30 |\u001b[39m    \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m2000\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Menu\\ai-gerneated-menu-assertion.spec.js:27:65\u001b[22m"
-                    }
-                  ],
-                  "stdout": [
-                    {
-                      "text": "✅ Login completed successfully\n"
-                    },
-                    {
-                      "text": "✅ Login completed successfully\n"
-                    },
-                    {
-                      "text": "✅ Clicked on created Venue\n"
-                    },
-                    {
-                      "text": "✅ Clicked on Created Menu\n"
-                    },
-                    {
-                      "text": "✅ \"Categories\" text is visible\n"
-                    },
-                    {
-                      "text": "✅ Category \"Starters\" is visible\n"
-                    },
-                    {
-                      "text": "✅ Category \"Mains\" is visible\n"
-                    },
-                    {
-                      "text": "✅ Category \"Sides\" is visible\n"
-                    },
-                    {
-                      "text": "✅ Category \"Desserts\" is visible\n"
-                    },
-                    {
-                      "text": "✅ Category \"Drinks\" is visible\n"
-                    },
-                    {
-                      "text": "✅ All expected categories are available\n"
-                    },
-                    {
-                      "text": "✅ Category names verified successfully\n"
-                    }
-                  ],
-                  "stderr": [],
-                  "retry": 1,
-                  "startTime": "2025-11-17T07:17:46.706Z",
-                  "annotations": [],
-                  "attachments": [
-                    {
-                      "name": "screenshot",
-                      "contentType": "image/png",
-                      "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Menu-ai-gerneated-menu-ass-ffed5-is-the-menu-data-is-correct-all-tests-retry1\\test-failed-1.png"
-                    },
-                    {
-                      "name": "video",
-                      "contentType": "video/webm",
-                      "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Menu-ai-gerneated-menu-ass-ffed5-is-the-menu-data-is-correct-all-tests-retry1\\video.webm"
-                    },
-                    {
-                      "name": "error-context",
-                      "contentType": "text/markdown",
-                      "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Menu-ai-gerneated-menu-ass-ffed5-is-the-menu-data-is-correct-all-tests-retry1\\error-context.md"
-                    },
-                    {
-                      "name": "trace",
-                      "contentType": "application/zip",
-                      "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Menu-ai-gerneated-menu-ass-ffed5-is-the-menu-data-is-correct-all-tests-retry1\\trace.zip"
-                    }
-                  ],
-                  "errorLocation": {
-                    "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Menu\\ai-gerneated-menu-assertion.spec.js",
-                    "column": 65,
-                    "line": 27
+                    "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\object-Page\\menu\\ai-genrated-menu-assertions.js",
+                    "column": 80,
+                    "line": 79
                   }
                 }
               ],
@@ -280,10 +164,14 @@
       ]
     }
   ],
-  "errors": [],
+  "errors": [
+    {
+      "message": "\u001b[31mTesting stopped early after 1 maximum allowed failures.\u001b[39m"
+    }
+  ],
   "stats": {
-    "startTime": "2025-11-17T07:17:31.317Z",
-    "duration": 40978.991,
+    "startTime": "2025-11-17T08:01:48.837Z",
+    "duration": 25026.341999999997,
     "expected": 0,
     "skipped": 0,
     "unexpected": 1,

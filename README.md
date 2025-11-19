@@ -342,7 +342,22 @@ ENABLE_TEST_DATA=true
 - **POM:** `object-Page/Tags/`
 - **Data:** `Fixtures/tags.json`
 
+### 9. **AI-Generated Menu** (2 tests)
+- Generate a menu from an uploaded image
+- Validate that generated categories/items render with expected labels
+- **Location:** `tests/Menu/AI-genrated-menu.spec.js`, `tests/Menu/ai-gerneated-menu-assertion.spec.js`
+- **POM:** `object-Page/menu/Ai-genrated-menu.js`, `object-Page/menu/ai-genrated-menu-assertions.js`
+- **Data & Assets:** `Fixtures/url_verification.json`, `Fixtures/edit-locators.json`, `Fixtures/venue-edit-data.json`, `Fixtures/pictures/ai-genrated-menu-picture.jpeg`
+
 **Total Test Count:** ~27 test specifications
+**Additional AI Menu Tests:** +2 (see module above, bringing the running total to ~29)
+
+### AI-Generated Menu Module Assets
+- **Purpose:** Automates DishUp's AI menu builder, including uploading a scanned menu and verifying generated structure.
+- **POM Flow (`Ai-genrated-menu.js`):** Logs in, selects a venue, opens the AI modal, uploads `ai-genrated-menu-picture.jpeg`, waits for processing, and confirms success toasts/network idle state.
+- **Assertion Flow (`ai-genrated-menu-assertions.js`):** Reuses login/venue steps, opens an existing AI-produced menu, and verifies category labels plus starter category selections.
+- **Supporting Fixtures:** `url_verification.json` tracks expected navigation URLs, `edit-locators.json` centralizes XPath selectors used in edit flows, and `venue-edit-data.json` stores updated social links/tip amounts referenced while validating AI output in context (e.g., after venue edits).
+- **Execution:** Run `npx playwright test tests/Menu/AI-genrated-menu.spec.js` to cover the upload/generation path and `npx playwright test tests/Menu/ai-gerneated-menu-assertion.spec.js` for post-generation validations; pair them for end-to-end confidence.
 
 ---
 

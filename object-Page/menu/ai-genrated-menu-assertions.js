@@ -99,8 +99,8 @@ export default class AiGenratedMenuAssertions {
     }
     async verifyStatersCategoryItems() {
         //click on the created category
-        // await this.page.locator(locators["created-category-select"]).nth(2).click();
-
+        await this.page.locator(locators["created-category-select"]).nth(3).click();
+        await this.page.waitForLoadState('networkidle');
     }
 
    
