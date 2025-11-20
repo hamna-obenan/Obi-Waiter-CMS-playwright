@@ -9,7 +9,7 @@
     "globalTimeout": 0,
     "grep": {},
     "grepInvert": null,
-    "maxFailures": 1,
+    "maxFailures": 0,
     "metadata": {
       "actualWorkers": 1
     },
@@ -54,7 +54,7 @@
         "testMatch": [
           "**/*.spec.js"
         ],
-        "timeout": 0
+        "timeout": 180000
       }
     ],
     "shard": null,
@@ -66,18 +66,18 @@
   },
   "suites": [
     {
-      "title": "Menu\\ai-gerneated-menu-assertion.spec.js",
-      "file": "Menu/ai-gerneated-menu-assertion.spec.js",
+      "title": "table-managment\\generate-qr-code.spec.js",
+      "file": "table-managment/generate-qr-code.spec.js",
       "column": 0,
       "line": 0,
       "specs": [
         {
-          "title": "AI Genrated Menu Assertions to verify is the menu data is correct",
+          "title": "Add first table: first time flow should redirect to generate QR code",
           "ok": false,
           "tags": [],
           "tests": [
             {
-              "timeout": 0,
+              "timeout": 180000,
               "annotations": [],
               "expectedStatus": "passed",
               "projectId": "all-tests",
@@ -87,25 +87,25 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "failed",
-                  "duration": 23891,
+                  "duration": 496750,
                   "error": {
-                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m failed\n\nLocator:  getByText('Starters', { exact: true }).first()\nExpected: visible\nReceived: <element(s) not found>\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Starters', { exact: true }).first()\u001b[22m\n",
-                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m failed\n\nLocator:  getByText('Starters', { exact: true }).first()\nExpected: visible\nReceived: <element(s) not found>\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Starters', { exact: true }).first()\u001b[22m\n\n    at AiGenratedMenuAssertions.verifyCategoryNames (C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\object-Page\\menu\\ai-genrated-menu-assertions.js:79:80)\n    at C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Menu\\ai-gerneated-menu-assertion.spec.js:20:4",
+                    "message": "TimeoutError: page.fill: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('input[placeholder=\"R\"]')\u001b[22m\n",
+                    "stack": "TimeoutError: page.fill: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('input[placeholder=\"R\"]')\u001b[22m\n\n    at C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\table-managment\\generate-qr-code.spec.js:44:14",
                     "location": {
-                      "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\object-Page\\menu\\ai-genrated-menu-assertions.js",
-                      "column": 80,
-                      "line": 79
+                      "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\table-managment\\generate-qr-code.spec.js",
+                      "column": 14,
+                      "line": 44
                     },
-                    "snippet": "\u001b[90m   at \u001b[39m..\\object-Page\\menu\\ai-genrated-menu-assertions.js:79\n\n\u001b[0m \u001b[90m 77 |\u001b[39m         \n \u001b[90m 78 |\u001b[39m         \u001b[90m// Step 2: Verify \"Starters\" text is visible\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 79 |\u001b[39m         \u001b[36mawait\u001b[39m expect(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mgetByText(\u001b[32m'Starters'\u001b[39m\u001b[33m,\u001b[39m { exact\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m })\u001b[33m.\u001b[39mfirst())\u001b[33m.\u001b[39mtoBeVisible({ timeout\u001b[33m:\u001b[39m \u001b[35m5000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 80 |\u001b[39m         console\u001b[33m.\u001b[39mlog(\u001b[32m`✅ Category \"Starters\" is visible`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 81 |\u001b[39m         \n \u001b[90m 82 |\u001b[39m         \u001b[90m// Step 3: Verify \"Mains\" text is visible\u001b[39m\u001b[0m"
+                    "snippet": "\u001b[0m \u001b[90m 42 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m3000\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 43 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 44 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mfill(\u001b[32m'input[placeholder=\"R\"]'\u001b[39m\u001b[33m,\u001b[39m \u001b[32m'255'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 45 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mfill(\u001b[32m'input[placeholder=\"G\"]'\u001b[39m\u001b[33m,\u001b[39m \u001b[32m'0'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 46 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mfill(\u001b[32m'input[placeholder=\"B\"]'\u001b[39m\u001b[33m,\u001b[39m \u001b[32m'0'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 47 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m3000\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
                   },
                   "errors": [
                     {
                       "location": {
-                        "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\object-Page\\menu\\ai-genrated-menu-assertions.js",
-                        "column": 80,
-                        "line": 79
+                        "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\table-managment\\generate-qr-code.spec.js",
+                        "column": 14,
+                        "line": 44
                       },
-                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m failed\n\nLocator:  getByText('Starters', { exact: true }).first()\nExpected: visible\nReceived: <element(s) not found>\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('Starters', { exact: true }).first()\u001b[22m\n\n\n\u001b[90m   at \u001b[39m..\\object-Page\\menu\\ai-genrated-menu-assertions.js:79\n\n\u001b[0m \u001b[90m 77 |\u001b[39m         \n \u001b[90m 78 |\u001b[39m         \u001b[90m// Step 2: Verify \"Starters\" text is visible\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 79 |\u001b[39m         \u001b[36mawait\u001b[39m expect(\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mpage\u001b[33m.\u001b[39mgetByText(\u001b[32m'Starters'\u001b[39m\u001b[33m,\u001b[39m { exact\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m })\u001b[33m.\u001b[39mfirst())\u001b[33m.\u001b[39mtoBeVisible({ timeout\u001b[33m:\u001b[39m \u001b[35m5000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 80 |\u001b[39m         console\u001b[33m.\u001b[39mlog(\u001b[32m`✅ Category \"Starters\" is visible`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 81 |\u001b[39m         \n \u001b[90m 82 |\u001b[39m         \u001b[90m// Step 3: Verify \"Mains\" text is visible\u001b[39m\u001b[0m\n\u001b[2m    at AiGenratedMenuAssertions.verifyCategoryNames (C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\object-Page\\menu\\ai-genrated-menu-assertions.js:79:80)\u001b[22m\n\u001b[2m    at C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\Menu\\ai-gerneated-menu-assertion.spec.js:20:4\u001b[22m"
+                      "message": "TimeoutError: page.fill: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('input[placeholder=\"R\"]')\u001b[22m\n\n\n\u001b[0m \u001b[90m 42 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m3000\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 43 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 44 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mfill(\u001b[32m'input[placeholder=\"R\"]'\u001b[39m\u001b[33m,\u001b[39m \u001b[32m'255'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 45 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mfill(\u001b[32m'input[placeholder=\"G\"]'\u001b[39m\u001b[33m,\u001b[39m \u001b[32m'0'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 46 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mfill(\u001b[32m'input[placeholder=\"B\"]'\u001b[39m\u001b[33m,\u001b[39m \u001b[32m'0'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 47 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m3000\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\table-managment\\generate-qr-code.spec.js:44:14\u001b[22m"
                     }
                   ],
                   "stdout": [
@@ -113,65 +113,91 @@
                       "text": "✅ Login completed successfully\n"
                     },
                     {
-                      "text": "✅ Login completed successfully\n"
+                      "text": "🏢 Selecting created venue...\n"
                     },
                     {
-                      "text": "✅ Clicked on created Venue\n"
+                      "text": "✅ Venue selected successfully\n"
                     },
                     {
-                      "text": "✅ Clicked on Created Menu\n"
+                      "text": "📋 Selecting created menu...\n"
                     },
                     {
-                      "text": "✅ \"Categories\" text is visible\n"
+                      "text": "✅ Menu elements found\n"
+                    },
+                    {
+                      "text": "📊 Found 2 menu elements\n"
+                    },
+                    {
+                      "text": "✅ First menu clicked\n"
+                    },
+                    {
+                      "text": "🎯 Navigating to categories page...\n"
+                    },
+                    {
+                      "text": "✅ Categories page loaded successfully\n"
+                    },
+                    {
+                      "text": "✅ Clicked on created Venue and then menu\n"
+                    },
+                    {
+                      "text": "✅ Clicked on table management button\n"
+                    },
+                    {
+                      "text": "✅ Clicked on new table button\n"
+                    },
+                    {
+                      "text": "✅ Uploaded logo image\n"
                     }
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2025-11-17T08:01:49.465Z",
+                  "steps": [
+                    {
+                      "title": "Login with valid venue credentials",
+                      "duration": 6782
+                    }
+                  ],
+                  "startTime": "2025-11-20T09:56:44.364Z",
                   "annotations": [],
                   "attachments": [
                     {
                       "name": "screenshot",
                       "contentType": "image/png",
-                      "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Menu-ai-gerneated-menu-ass-ffed5-is-the-menu-data-is-correct-all-tests\\test-failed-1.png"
+                      "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\table-managment-generate-q-150ee-edirect-to-generate-QR-code-all-tests\\test-failed-1.png"
                     },
                     {
                       "name": "video",
                       "contentType": "video/webm",
-                      "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Menu-ai-gerneated-menu-ass-ffed5-is-the-menu-data-is-correct-all-tests\\video.webm"
+                      "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\table-managment-generate-q-150ee-edirect-to-generate-QR-code-all-tests\\video.webm"
                     },
                     {
                       "name": "error-context",
                       "contentType": "text/markdown",
-                      "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Menu-ai-gerneated-menu-ass-ffed5-is-the-menu-data-is-correct-all-tests\\error-context.md"
+                      "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\table-managment-generate-q-150ee-edirect-to-generate-QR-code-all-tests\\error-context.md"
                     }
                   ],
                   "errorLocation": {
-                    "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\object-Page\\menu\\ai-genrated-menu-assertions.js",
-                    "column": 80,
-                    "line": 79
+                    "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\table-managment\\generate-qr-code.spec.js",
+                    "column": 14,
+                    "line": 44
                   }
                 }
               ],
               "status": "unexpected"
             }
           ],
-          "id": "ff7845cb3a54dde81952-7a88c5f83a4720880826",
-          "file": "Menu/ai-gerneated-menu-assertion.spec.js",
-          "line": 4,
+          "id": "3a655e8ada5d0c6d6894-c8f2eaf9fff0cb83d42b",
+          "file": "table-managment/generate-qr-code.spec.js",
+          "line": 10,
           "column": 1
         }
       ]
     }
   ],
-  "errors": [
-    {
-      "message": "\u001b[31mTesting stopped early after 1 maximum allowed failures.\u001b[39m"
-    }
-  ],
+  "errors": [],
   "stats": {
-    "startTime": "2025-11-17T08:01:48.837Z",
-    "duration": 25026.341999999997,
+    "startTime": "2025-11-20T09:56:43.580Z",
+    "duration": 498010.231,
     "expected": 0,
     "skipped": 0,
     "unexpected": 1,

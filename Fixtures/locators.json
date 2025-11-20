@@ -192,5 +192,14 @@
 
 
     "ai-genrated-menu-button":"//button[normalize-space()='AI Menu Generate']",
-    "edit-icon": "//*[name()='svg' and @data-testid='ModeEditOutlineOutlinedIcon']"
+    "edit-icon": "//*[name()='svg' and @data-testid='ModeEditOutlineOutlinedIcon']",
+
+
+    "table-management-button":"[href='/table-management']",
+    "new-table-button":"//button[@type='button' and normalize-space(text())='New Table']",
+    "foreground-color-QR-code":"[placeholder='Foreground Color']",
+    "background-color-QR-code":"[placeholder='Background Color']",
+    "qr-code-header-text":"[placeholder='e.g., Please Check In']",
+    "qr-code-subtext": "[placeholder='e.g., Scan to see the menu']"
+
 }

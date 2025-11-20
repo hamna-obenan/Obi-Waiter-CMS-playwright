@@ -5,5 +5,6 @@
     "verify-the-ingredients-navigated-url":"https://develop.d20aue3nu6xt33.amplifyapp.com/ingredients",
     "verify-the-customizations-navigated-url":"https://develop.d20aue3nu6xt33.amplifyapp.com/customizations",
     "verify-the-categories-navigated-url":"https://develop.d20aue3nu6xt33.amplifyapp.com/categories",
-    "verify-the-items-navigated-url":"https://develop.d20aue3nu6xt33.amplifyapp.com/items"
+    "verify-the-items-navigated-url":"https://develop.d20aue3nu6xt33.amplifyapp.com/items",
+    "verify-the-table-management-navigated-url":"https://develop.d20aue3nu6xt33.amplifyapp.com/table-management"
 }

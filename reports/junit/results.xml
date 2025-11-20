@@ -1,56 +1,54 @@
-<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="25.026341999999996">
-<testsuite name="Menu\ai-gerneated-menu-assertion.spec.js" timestamp="2025-11-17T08:01:48.873Z" hostname="all-tests" tests="1" failures="1" skipped="0" time="23.891" errors="0">
-<testcase name="AI Genrated Menu Assertions to verify is the menu data is correct" classname="Menu\ai-gerneated-menu-assertion.spec.js" time="23.891">
-<failure message="ai-gerneated-menu-assertion.spec.js:4:1 AI Genrated Menu Assertions to verify is the menu data is correct" type="FAILURE">
-<![CDATA[  [all-tests] › Menu\ai-gerneated-menu-assertion.spec.js:4:1 › AI Genrated Menu Assertions to verify is the menu data is correct 
+<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="498.01023100000003">
+<testsuite name="table-managment\generate-qr-code.spec.js" timestamp="2025-11-20T09:56:43.759Z" hostname="all-tests" tests="1" failures="1" skipped="0" time="496.75" errors="0">
+<testcase name="Add first table: first time flow should redirect to generate QR code" classname="table-managment\generate-qr-code.spec.js" time="496.75">
+<failure message="generate-qr-code.spec.js:10:1 Add first table: first time flow should redirect to generate QR code" type="FAILURE">
+<![CDATA[  [all-tests] › table-managment\generate-qr-code.spec.js:10:1 › Add first table: first time flow should redirect to generate QR code 
 
-    Error: expect(locator).toBeVisible() failed
-
-    Locator:  getByText('Starters', { exact: true }).first()
-    Expected: visible
-    Received: <element(s) not found>
-    Timeout:  5000ms
-
+    TimeoutError: page.fill: Timeout 10000ms exceeded.
     Call log:
-      - Expect "toBeVisible" with timeout 5000ms
-      - waiting for getByText('Starters', { exact: true }).first()
+      - waiting for locator('input[placeholder="R"]')
 
 
-       at ..\object-Page\menu\ai-genrated-menu-assertions.js:79
-
-      77 |         
-      78 |         // Step 2: Verify "Starters" text is visible
-    > 79 |         await expect(this.page.getByText('Starters', { exact: true }).first()).toBeVisible({ timeout: 5000 });
-         |                                                                                ^
-      80 |         console.log(`✅ Category "Starters" is visible`);
-      81 |         
-      82 |         // Step 3: Verify "Mains" text is visible
-        at AiGenratedMenuAssertions.verifyCategoryNames (C:\Users\HP\Desktop\Obi-Waiter-CMS-playwright-main\object-Page\menu\ai-genrated-menu-assertions.js:79:80)
-        at C:\Users\HP\Desktop\Obi-Waiter-CMS-playwright-main\tests\Menu\ai-gerneated-menu-assertion.spec.js:20:4
+      42 |   await page.waitForTimeout(3000);
+      43 |
+    > 44 |   await page.fill('input[placeholder="R"]', '255');
+         |              ^
+      45 |   await page.fill('input[placeholder="G"]', '0');
+      46 |   await page.fill('input[placeholder="B"]', '0');
+      47 |   await page.waitForTimeout(3000);
+        at C:\Users\HP\Desktop\Obi-Waiter-CMS-playwright-main\tests\table-managment\generate-qr-code.spec.js:44:14
 
     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    ..\test-results\Menu-ai-gerneated-menu-ass-ffed5-is-the-menu-data-is-correct-all-tests\test-failed-1.png
+    ..\test-results\table-managment-generate-q-150ee-edirect-to-generate-QR-code-all-tests\test-failed-1.png
     ────────────────────────────────────────────────────────────────────────────────────────────────
 
     attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
-    ..\test-results\Menu-ai-gerneated-menu-ass-ffed5-is-the-menu-data-is-correct-all-tests\video.webm
+    ..\test-results\table-managment-generate-q-150ee-edirect-to-generate-QR-code-all-tests\video.webm
     ────────────────────────────────────────────────────────────────────────────────────────────────
 
-    Error Context: ..\test-results\Menu-ai-gerneated-menu-ass-ffed5-is-the-menu-data-is-correct-all-tests\error-context.md
+    Error Context: ..\test-results\table-managment-generate-q-150ee-edirect-to-generate-QR-code-all-tests\error-context.md
 ]]>
 </failure>
 <system-out>
 <![CDATA[✅ Login completed successfully
-✅ Login completed successfully
-✅ Clicked on created Venue
-✅ Clicked on Created Menu
-✅ "Categories" text is visible
+🏢 Selecting created venue...
+✅ Venue selected successfully
+📋 Selecting created menu...
+✅ Menu elements found
+📊 Found 2 menu elements
+✅ First menu clicked
+🎯 Navigating to categories page...
+✅ Categories page loaded successfully
+✅ Clicked on created Venue and then menu
+✅ Clicked on table management button
+✅ Clicked on new table button
+✅ Uploaded logo image
 
-[[ATTACHMENT|..\..\test-results\Menu-ai-gerneated-menu-ass-ffed5-is-the-menu-data-is-correct-all-tests\test-failed-1.png]]
+[[ATTACHMENT|..\..\test-results\table-managment-generate-q-150ee-edirect-to-generate-QR-code-all-tests\test-failed-1.png]]
 
-[[ATTACHMENT|..\..\test-results\Menu-ai-gerneated-menu-ass-ffed5-is-the-menu-data-is-correct-all-tests\video.webm]]
+[[ATTACHMENT|..\..\test-results\table-managment-generate-q-150ee-edirect-to-generate-QR-code-all-tests\video.webm]]
 
-[[ATTACHMENT|..\..\test-results\Menu-ai-gerneated-menu-ass-ffed5-is-the-menu-data-is-correct-all-tests\error-context.md]]
+[[ATTACHMENT|..\..\test-results\table-managment-generate-q-150ee-edirect-to-generate-QR-code-all-tests\error-context.md]]
 ]]>
 </system-out>
 </testcase>
