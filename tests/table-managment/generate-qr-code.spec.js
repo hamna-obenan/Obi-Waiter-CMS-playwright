@@ -36,22 +36,36 @@ test("Add first table: first time flow should redirect to generate QR code", asy
   const logoPath = path.resolve(process.cwd(), "Fixtures/pictures/venue-logo.png");
   await logoInput.setInputFiles(logoPath);
   console.log('✅ Uploaded logo image');
-await page.pause();
   //fill the foreground color
   await page.locator(locators["foreground-color-QR-code"]).click();
   await page.waitForTimeout(3000);
 
-  await page.fill('input[placeholder="R"]', '255');
-  await page.fill('input[placeholder="G"]', '0');
-  await page.fill('input[placeholder="B"]', '0');
-  await page.waitForTimeout(3000);
+  await page.locator('input[placeholder="Foreground Color"][type="color"]').evaluate(
+    (el, value) => {
+      el.value = value;
+      el.dispatchEvent(new Event('input', { bubbles: true }));
+      el.dispatchEvent(new Event('change', { bubbles: true }));
+    },
+    '#008679'
+  );
 
-  // await expect(page.locator(locators["foreground-color-QR-code"])).toHaveValue("#ADD8E6");
-  // console.log('✅ Filled foreground color with light blue');
+
+  await expect(page.locator(locators["foreground-color-QR-code"])).toHaveValue("#008679");
+  console.log('✅ Filled foreground color with light blue');
   //fill the background color
-  // await page.locator(locators["background-color-QR-code"]).click();
-  // await page.getByPlaceholder('Foreground Color').fill('#ADD8E6');
-  // console.log('✅ Filled background color');
+  await page.locator(locators["background-color-QR-code"]).click();
+  await page.locator('input[placeholder="Foreground Color"][type="color"]').evaluate(
+    (el, value) => {
+      el.value = value;
+      el.dispatchEvent(new Event('input', { bubbles: true }));
+      el.dispatchEvent(new Event('change', { bubbles: true }));
+    },
+    '#000000'
+  );
+  console.log('✅ Filled background color');
+
+  await page.pause();
+
 //   //fill the QR code header text
 //   await page.locator(locators["qr-code-header-text"]).fill("Please Check In");
 //   console.log('✅ Filled QR code header text');
