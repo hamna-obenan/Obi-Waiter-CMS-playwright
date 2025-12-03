@@ -200,6 +200,28 @@
     "foreground-color-QR-code":"[placeholder='Foreground Color']",
     "background-color-QR-code":"[placeholder='Background Color']",
     "qr-code-header-text":"[placeholder='e.g., Please Check In']",
-    "qr-code-subtext": "[placeholder='e.g., Scan to see the menu']"
+    "qr-code-subtext": "[placeholder='e.g., Scan to see the menu']",
+
+
+    "table-name": "[placeholder='Enter table name']",
+    "table-capacity": "[placeholder='Enter table capacity']",
+    "generate-QR-code-button": "//button[@type='button' and normalize-space(text())='Generate QR Code']",
+
+    "new-deal-button": "//button[@type='button' and normalize-space(text())='Create Deal']",
+    "deal-type-name": "[placeholder='addDeal.selectDealType']",
+    "deal-name":"[placeholder='Enter deal name']",
+    "deal-active-checkbox":"[type='checkbox']",
+    "quantity-and-price":"[type='number']",
+    "start-time":"[name='startTime']",
+    "end-time":"[name='endTime']",
+
+    "combo-deal":"[name='comboPrice']",
+    "select-item-dropdown":"[placeholder='Select Item']",
+    "select-price-1":"//*[@role='combobox' and @id='mui-component-select-comboItems.0.variantId']",
+    "select-price-2":"//*[@id='mui-component-select-comboItems.1.variantId']",
+    "add-item-button-combo":"//button[@type='button' and normalize-space(text())='Add Item']"
+
+
+
 
 }

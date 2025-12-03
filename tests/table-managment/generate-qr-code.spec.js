@@ -24,7 +24,7 @@ test("Add first table: first time flow should redirect to generate QR code", asy
   await tableManagementPOM.openTableManagementTab();
   await expect(page).toHaveURL(/table-management/);
   console.log('✅ Clicked on table management button');
-
+ await page.pause();
   // Start first table flow
   await page.locator(locators["new-table-button"]).click();
   await expect(page.locator(locators["new-table-button"])).toBeHidden();
@@ -63,6 +63,8 @@ test("Add first table: first time flow should redirect to generate QR code", asy
     '#000000'
   );
   console.log('✅ Filled background color');
+  await page.locator(locators["save-button"]).click();
+  console.log('✅ Clicked on save button');
 
   await page.pause();
 

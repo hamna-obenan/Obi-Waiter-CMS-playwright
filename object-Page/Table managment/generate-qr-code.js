@@ -16,6 +16,6 @@ export default class TableManagementPOM {
   async openTableManagementTab() {
     await this.page.waitForSelector(locators['table-management-button'], { timeout: 15000 });
     await this.page.locator(locators['table-management-button']).click();
-    await this.page.waitForLoadState('networkidle');
+    await this.page.waitForLoadState('networkidle', { timeout: 30000 });
   }
 }

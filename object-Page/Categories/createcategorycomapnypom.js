@@ -31,12 +31,13 @@ export default class CreateCategoryCompanyPOM {
     
     // Click on the third menu (index 2)
     await this.page.locator(locators["created-menu"]).nth(2).click();
-    await this.page.waitForLoadState('networkidle');
+    await this.page.waitForLoadState('networkidle', { timeout: 30000 });
     console.log('✅ First menu clicked');
     
     // Now navigate to categories page
     console.log('🎯 Navigating to categories page...');
-    await this.page.goto('/categories');
+    await this.page.getByRole('link', { name: 'Categories' }).click();
+    await this.page.waitForURL('**/categories', { timeout: 30000 });
     await this.page.waitForLoadState('networkidle');
     console.log('✅ Categories page loaded successfully');
   }

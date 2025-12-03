@@ -1,6 +1,6 @@
-<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="16.705673">
-<testsuite name="table-managment\generate-qr-code.spec.js" timestamp="2025-11-21T12:33:48.654Z" hostname="all-tests" tests="1" failures="0" skipped="0" time="15.132" errors="0">
-<testcase name="Add first table: first time flow should redirect to generate QR code" classname="table-managment\generate-qr-code.spec.js" time="15.132">
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="18.521171">
+<testsuite name="Deal Managment\flat-percentage-off.spec.js" timestamp="2025-12-03T10:12:56.638Z" hostname="all-tests" tests="1" failures="0" skipped="0" time="16.801" errors="0">
+<testcase name="Flat Percentage Off Deal" classname="Deal Managment\flat-percentage-off.spec.js" time="16.801">
 <system-out>
 <![CDATA[✅ Login completed successfully
 🏢 Selecting created venue...
@@ -11,14 +11,14 @@
 ✅ First menu clicked
 🎯 Navigating to categories page...
 ✅ Categories page loaded successfully
-✅ Clicked on created Venue and then menu
-✅ Clicked on table management button
-✅ Clicked on new table button
-✅ Uploaded logo image
-✅ Filled foreground color with light blue
-✅ Filled background color
+Land at the Deal MAnagment tab
+image uploaded
+image upload successfully
+Discount value entered
+Minimum Order price entered
+Deal save successfully
 
-[[ATTACHMENT|..\..\test-results\table-managment-generate-q-150ee-edirect-to-generate-QR-code-all-tests\video.webm]]
+[[ATTACHMENT|..\..\test-results\Deal Managment-flat-percentage-off-Flat-Percentage-Off-Deal-all-tests\video.webm]]
 ]]>
 </system-out>
 </testcase>

@@ -66,13 +66,13 @@
   },
   "suites": [
     {
-      "title": "table-managment\\generate-qr-code.spec.js",
-      "file": "table-managment/generate-qr-code.spec.js",
+      "title": "Deal Managment\\flat-percentage-off.spec.js",
+      "file": "Deal Managment/flat-percentage-off.spec.js",
       "column": 0,
       "line": 0,
       "specs": [
         {
-          "title": "Add first table: first time flow should redirect to generate QR code",
+          "title": "Flat Percentage Off Deal",
           "ok": true,
           "tags": [],
           "tests": [
@@ -87,7 +87,7 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 15132,
+                  "duration": 16801,
                   "errors": [],
                   "stdout": [
                     {
@@ -118,39 +118,33 @@
                       "text": "✅ Categories page loaded successfully\n"
                     },
                     {
-                      "text": "✅ Clicked on created Venue and then menu\n"
+                      "text": "Land at the Deal MAnagment tab\n"
                     },
                     {
-                      "text": "✅ Clicked on table management button\n"
+                      "text": "image uploaded\n"
                     },
                     {
-                      "text": "✅ Clicked on new table button\n"
+                      "text": "image upload successfully\n"
                     },
                     {
-                      "text": "✅ Uploaded logo image\n"
+                      "text": "Discount value entered\n"
                     },
                     {
-                      "text": "✅ Filled foreground color with light blue\n"
+                      "text": "Minimum Order price entered\n"
                     },
                     {
-                      "text": "✅ Filled background color\n"
+                      "text": "Deal save successfully\n"
                     }
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "steps": [
-                    {
-                      "title": "Login with valid venue credentials",
-                      "duration": 4670
-                    }
-                  ],
-                  "startTime": "2025-11-21T12:33:49.421Z",
+                  "startTime": "2025-12-03T10:12:57.386Z",
                   "annotations": [],
                   "attachments": [
                     {
                       "name": "video",
                       "contentType": "video/webm",
-                      "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\table-managment-generate-q-150ee-edirect-to-generate-QR-code-all-tests\\video.webm"
+                      "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Deal Managment-flat-percentage-off-Flat-Percentage-Off-Deal-all-tests\\video.webm"
                     }
                   ]
                 }
@@ -158,9 +152,9 @@
               "status": "expected"
             }
           ],
-          "id": "3a655e8ada5d0c6d6894-c8f2eaf9fff0cb83d42b",
-          "file": "table-managment/generate-qr-code.spec.js",
-          "line": 10,
+          "id": "c90e56e4cbec630e0d27-c34ebbfed346e4f6875e",
+          "file": "Deal Managment/flat-percentage-off.spec.js",
+          "line": 8,
           "column": 1
         }
       ]
@@ -168,8 +162,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-11-21T12:33:48.421Z",
-    "duration": 16705.673000000003,
+    "startTime": "2025-12-03T10:12:56.396Z",
+    "duration": 18521.171,
     "expected": 1,
     "skipped": 0,
     "unexpected": 0,
