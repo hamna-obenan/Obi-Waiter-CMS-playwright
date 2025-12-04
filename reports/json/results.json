@@ -66,14 +66,14 @@
   },
   "suites": [
     {
-      "title": "Deal Managment\\flat-percentage-off.spec.js",
-      "file": "Deal Managment/flat-percentage-off.spec.js",
+      "title": "DealManagment\\combo-deal.spec.js",
+      "file": "DealManagment/combo-deal.spec.js",
       "column": 0,
       "line": 0,
       "specs": [
         {
-          "title": "Flat Percentage Off Deal",
-          "ok": true,
+          "title": "Combo Deal",
+          "ok": false,
           "tags": [],
           "tests": [
             {
@@ -86,9 +86,31 @@
                 {
                   "workerIndex": 0,
                   "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 16801,
-                  "errors": [],
+                  "status": "failed",
+                  "duration": 545129,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[placeholder=\\'addDeal.selectDealType\\']')\nExpected pattern: \u001b[32m/Special Plater/i\u001b[39m\nReceived string:  \u001b[31m\"Combo Deal\"\u001b[39m\nTimeout: 10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveValue\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('[placeholder=\\'addDeal.selectDealType\\']')\u001b[22m\n\u001b[2m    13 × locator resolved to <input id=\":rb:\" type=\"text\" role=\"combobox\" autocomplete=\"off\" spellcheck=\"false\" value=\"Combo Deal\" aria-invalid=\"false\" aria-expanded=\"false\" autocapitalize=\"none\" aria-autocomplete=\"list\" placeholder=\"addDeal.selectDealType\" class=\"MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-1uvydh2\"/>\u001b[22m\n\u001b[2m       - unexpected value \"Combo Deal\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[placeholder=\\'addDeal.selectDealType\\']')\nExpected pattern: \u001b[32m/Special Plater/i\u001b[39m\nReceived string:  \u001b[31m\"Combo Deal\"\u001b[39m\nTimeout: 10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveValue\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('[placeholder=\\'addDeal.selectDealType\\']')\u001b[22m\n\u001b[2m    13 × locator resolved to <input id=\":rb:\" type=\"text\" role=\"combobox\" autocomplete=\"off\" spellcheck=\"false\" value=\"Combo Deal\" aria-invalid=\"false\" aria-expanded=\"false\" autocapitalize=\"none\" aria-autocomplete=\"list\" placeholder=\"addDeal.selectDealType\" class=\"MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-1uvydh2\"/>\u001b[22m\n\u001b[2m       - unexpected value \"Combo Deal\"\u001b[22m\n\n    at C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\DealManagment\\combo-deal.spec.js:53:60",
+                    "location": {
+                      "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\DealManagment\\combo-deal.spec.js",
+                      "column": 60,
+                      "line": 53
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 51 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByText(\u001b[32m\"Special Plater\"\u001b[39m)\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m 52 |\u001b[39m     \u001b[90m// Assertion: Check that \"Combo Deal\" is now selected as the deal type\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 53 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(locators[\u001b[32m\"deal-type-name\"\u001b[39m]))\u001b[33m.\u001b[39mtoHaveValue(\u001b[35m/Special Plater/i\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                            \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 54 |\u001b[39m     console\u001b[33m.\u001b[39mlog(\u001b[32m\"Item selected\"\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 55 |\u001b[39m\n \u001b[90m 56 |\u001b[39m     \u001b[90m//select the price\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\DealManagment\\combo-deal.spec.js",
+                        "column": 60,
+                        "line": 53
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[placeholder=\\'addDeal.selectDealType\\']')\nExpected pattern: \u001b[32m/Special Plater/i\u001b[39m\nReceived string:  \u001b[31m\"Combo Deal\"\u001b[39m\nTimeout: 10000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveValue\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('[placeholder=\\'addDeal.selectDealType\\']')\u001b[22m\n\u001b[2m    13 × locator resolved to <input id=\":rb:\" type=\"text\" role=\"combobox\" autocomplete=\"off\" spellcheck=\"false\" value=\"Combo Deal\" aria-invalid=\"false\" aria-expanded=\"false\" autocapitalize=\"none\" aria-autocomplete=\"list\" placeholder=\"addDeal.selectDealType\" class=\"MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-1uvydh2\"/>\u001b[22m\n\u001b[2m       - unexpected value \"Combo Deal\"\u001b[22m\n\n\n\u001b[0m \u001b[90m 51 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByText(\u001b[32m\"Special Plater\"\u001b[39m)\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m 52 |\u001b[39m     \u001b[90m// Assertion: Check that \"Combo Deal\" is now selected as the deal type\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 53 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(locators[\u001b[32m\"deal-type-name\"\u001b[39m]))\u001b[33m.\u001b[39mtoHaveValue(\u001b[35m/Special Plater/i\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                            \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 54 |\u001b[39m     console\u001b[33m.\u001b[39mlog(\u001b[32m\"Item selected\"\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 55 |\u001b[39m\n \u001b[90m 56 |\u001b[39m     \u001b[90m//select the price\u001b[39m\u001b[0m\n\u001b[2m    at C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\DealManagment\\combo-deal.spec.js:53:60\u001b[22m"
+                    },
+                    {
+                      "message": "Error: browserContext.close: Test ended.\nBrowser logs:\n\n<launching> C:\\Users\\HP\\AppData\\Local\\ms-playwright\\chromium-1187\\chrome-win\\chrome.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-extensions --disable-features=AcceptCHFrame,AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --enable-automation --no-sandbox --user-data-dir=C:\\Users\\HP\\AppData\\Local\\Temp\\playwright_chromiumdev_profile-I98USp --remote-debugging-pipe --no-startup-window\n<launched> pid=9176\n[pid=9176][err] [9176:27088:1203/183211.247:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: PHONE_REGISTRATION_ERROR\n[pid=9176][err] [9176:27088:1203/183211.247:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: PHONE_REGISTRATION_ERROR\n[pid=9176][err] [9176:27088:1203/183211.253:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: PHONE_REGISTRATION_ERROR\n[pid=9176][err] [9176:27088:1203/183236.507:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT\n[pid=9176][err] [9176:27088:1203/183330.064:ERROR:google_apis\\gcm\\engine\\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT\n[pid=9176][err] [9176:27088:1203/183451.500:ERROR:google_apis\\gcm\\engine\\connection_factory_impl.cc:483] ConnectionHandler failed with net error: -2\n[pid=9176][err] [9176:27088:1203/184059.578:ERROR:google_apis\\gcm\\engine\\registration_request.cc:274] Registration URL fetching failed.\n[pid=9176][err] [9176:27088:1203/184059.578:ERROR:google_apis\\gcm\\engine\\connection_factory_impl.cc:434] Failed to connect to MCS endpoint with error -7\n[pid=9176][err] [9176:27652:1203/184101.012:ERROR:services\\on_device_model\\public\\cpp\\service_client.cc:36] Unexpected on_device_model service disconnect: Error loading backend.\n[pid=9176] <gracefully close start>"
+                    }
+                  ],
                   "stdout": [
                     {
                       "text": "✅ Login completed successfully\n"
@@ -121,6 +143,12 @@
                       "text": "Land at the Deal MAnagment tab\n"
                     },
                     {
+                      "text": "clicked on the add button\n"
+                    },
+                    {
+                      "text": "Deal type selected\n"
+                    },
+                    {
                       "text": "image uploaded\n"
                     },
                     {
@@ -128,32 +156,36 @@
                     },
                     {
                       "text": "Discount value entered\n"
-                    },
-                    {
-                      "text": "Minimum Order price entered\n"
-                    },
-                    {
-                      "text": "Deal save successfully\n"
                     }
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2025-12-03T10:12:57.386Z",
+                  "startTime": "2025-12-03T13:32:05.737Z",
                   "annotations": [],
                   "attachments": [
                     {
-                      "name": "video",
-                      "contentType": "video/webm",
-                      "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\Deal Managment-flat-percentage-off-Flat-Percentage-Off-Deal-all-tests\\video.webm"
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\DealManagment-combo-deal-Combo-Deal-all-tests\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\DealManagment-combo-deal-Combo-Deal-all-tests\\error-context.md"
                     }
-                  ]
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\tests\\DealManagment\\combo-deal.spec.js",
+                    "column": 60,
+                    "line": 53
+                  }
                 }
               ],
-              "status": "expected"
+              "status": "unexpected"
             }
           ],
-          "id": "c90e56e4cbec630e0d27-c34ebbfed346e4f6875e",
-          "file": "Deal Managment/flat-percentage-off.spec.js",
+          "id": "2ad741b09249c53a9ffc-da7d751aca2e9c63942c",
+          "file": "DealManagment/combo-deal.spec.js",
           "line": 8,
           "column": 1
         }
@@ -162,11 +194,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-12-03T10:12:56.396Z",
-    "duration": 18521.171,
-    "expected": 1,
+    "startTime": "2025-12-03T13:32:04.552Z",
+    "duration": 548003.203,
+    "expected": 0,
     "skipped": 0,
-    "unexpected": 0,
+    "unexpected": 1,
     "flaky": 0
   }
 }

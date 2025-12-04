@@ -1,6 +1,55 @@
-<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="18.521171">
-<testsuite name="Deal Managment\flat-percentage-off.spec.js" timestamp="2025-12-03T10:12:56.638Z" hostname="all-tests" tests="1" failures="0" skipped="0" time="16.801" errors="0">
-<testcase name="Flat Percentage Off Deal" classname="Deal Managment\flat-percentage-off.spec.js" time="16.801">
+<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="548.003203">
+<testsuite name="DealManagment\combo-deal.spec.js" timestamp="2025-12-03T13:32:04.628Z" hostname="all-tests" tests="1" failures="1" skipped="0" time="545.129" errors="0">
+<testcase name="Combo Deal" classname="DealManagment\combo-deal.spec.js" time="545.129">
+<failure message="combo-deal.spec.js:8:1 Combo Deal" type="FAILURE">
+<![CDATA[  [all-tests] › DealManagment\combo-deal.spec.js:8:1 › Combo Deal ──────────────────────────────────
+
+    Error: expect(locator).toHaveValue(expected) failed
+
+    Locator: locator('[placeholder=\'addDeal.selectDealType\']')
+    Expected pattern: /Special Plater/i
+    Received string:  "Combo Deal"
+    Timeout: 10000ms
+
+    Call log:
+      - Expect "toHaveValue" with timeout 10000ms
+      - waiting for locator('[placeholder=\'addDeal.selectDealType\']')
+        13 × locator resolved to <input id=":rb:" type="text" role="combobox" autocomplete="off" spellcheck="false" value="Combo Deal" aria-invalid="false" aria-expanded="false" autocapitalize="none" aria-autocomplete="list" placeholder="addDeal.selectDealType" class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-1uvydh2"/>
+           - unexpected value "Combo Deal"
+
+
+      51 |     await page.getByText("Special Plater").click();
+      52 |     // Assertion: Check that "Combo Deal" is now selected as the deal type
+    > 53 |     await expect(page.locator(locators["deal-type-name"])).toHaveValue(/Special Plater/i);
+         |                                                            ^
+      54 |     console.log("Item selected");
+      55 |
+      56 |     //select the price
+        at C:\Users\HP\Desktop\Obi-Waiter-CMS-playwright-main\tests\DealManagment\combo-deal.spec.js:53:60
+
+    Error: browserContext.close: Test ended.
+    Browser logs:
+
+    <launching> C:\Users\HP\AppData\Local\ms-playwright\chromium-1187\chrome-win\chrome.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-extensions --disable-features=AcceptCHFrame,AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --enable-automation --no-sandbox --user-data-dir=C:\Users\HP\AppData\Local\Temp\playwright_chromiumdev_profile-I98USp --remote-debugging-pipe --no-startup-window
+    <launched> pid=9176
+    [pid=9176][err] [9176:27088:1203/183211.247:ERROR:google_apis\gcm\engine\registration_request.cc:291] Registration response error message: PHONE_REGISTRATION_ERROR
+    [pid=9176][err] [9176:27088:1203/183211.247:ERROR:google_apis\gcm\engine\registration_request.cc:291] Registration response error message: PHONE_REGISTRATION_ERROR
+    [pid=9176][err] [9176:27088:1203/183211.253:ERROR:google_apis\gcm\engine\registration_request.cc:291] Registration response error message: PHONE_REGISTRATION_ERROR
+    [pid=9176][err] [9176:27088:1203/183236.507:ERROR:google_apis\gcm\engine\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+    [pid=9176][err] [9176:27088:1203/183330.064:ERROR:google_apis\gcm\engine\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
+    [pid=9176][err] [9176:27088:1203/183451.500:ERROR:google_apis\gcm\engine\connection_factory_impl.cc:483] ConnectionHandler failed with net error: -2
+    [pid=9176][err] [9176:27088:1203/184059.578:ERROR:google_apis\gcm\engine\registration_request.cc:274] Registration URL fetching failed.
+    [pid=9176][err] [9176:27088:1203/184059.578:ERROR:google_apis\gcm\engine\connection_factory_impl.cc:434] Failed to connect to MCS endpoint with error -7
+    [pid=9176][err] [9176:27652:1203/184101.012:ERROR:services\on_device_model\public\cpp\service_client.cc:36] Unexpected on_device_model service disconnect: Error loading backend.
+    [pid=9176] <gracefully close start>
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\test-results\DealManagment-combo-deal-Combo-Deal-all-tests\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\test-results\DealManagment-combo-deal-Combo-Deal-all-tests\error-context.md
+]]>
+</failure>
 <system-out>
 <![CDATA[✅ Login completed successfully
 🏢 Selecting created venue...
@@ -12,13 +61,15 @@
 🎯 Navigating to categories page...
 ✅ Categories page loaded successfully
 Land at the Deal MAnagment tab
+clicked on the add button
+Deal type selected
 image uploaded
 image upload successfully
 Discount value entered
-Minimum Order price entered
-Deal save successfully
 
-[[ATTACHMENT|..\..\test-results\Deal Managment-flat-percentage-off-Flat-Percentage-Off-Deal-all-tests\video.webm]]
+[[ATTACHMENT|..\..\test-results\DealManagment-combo-deal-Combo-Deal-all-tests\test-failed-1.png]]
+
+[[ATTACHMENT|..\..\test-results\DealManagment-combo-deal-Combo-Deal-all-tests\error-context.md]]
 ]]>
 </system-out>
 </testcase>

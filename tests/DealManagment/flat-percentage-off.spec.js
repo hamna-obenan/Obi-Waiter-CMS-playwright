@@ -91,6 +91,4 @@ test("Flat Percentage Off Deal", async ({ page }) => {
     console.log("Deal save successfully");
 
 
-    await page.pause();
-
 });

@@ -216,7 +216,7 @@
     "end-time":"[name='endTime']",
 
     "combo-deal":"[name='comboPrice']",
-    "select-item-dropdown":"[placeholder='Select Item']",
+    "select-item-dropdown":"//*[@placeholder='Select Item']/parent::div/div", 
     "select-price-1":"//*[@role='combobox' and @id='mui-component-select-comboItems.0.variantId']",
     "select-price-2":"//*[@id='mui-component-select-comboItems.1.variantId']",
     "add-item-button-combo":"//button[@type='button' and normalize-space(text())='Add Item']"
