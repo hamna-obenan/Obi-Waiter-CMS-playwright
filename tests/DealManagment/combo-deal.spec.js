@@ -45,29 +45,39 @@ test("Combo Deal", async ({ page }) => {
     await page.waitForTimeout(300); // brief pause to allow value to settle in field
     await expect(page.locator(locators["quantity-and-price"]).nth(0)).toHaveValue(dealManagment["discount-percentage"]);
     console.log("Discount value entered");
-    await page.pause();
+    // await page.pause();
     //select item drop down
     await page.locator(locators["select-item-dropdown"]).nth(0).click();
     await page.getByText("Special Plater").click();
     // Assertion: Check that "Combo Deal" is now selected as the deal type
-    await expect(page.locator(locators["deal-type-name"])).toHaveValue(/Special Plater/i);
+    // Assertion: Verify from the div text value instead of an input value
+    const firstItemCombo = page.getByRole('combobox', { name: /Special Plater/i }).first();
+    await expect(firstItemCombo).toContainText(/Special Plater/i);
     console.log("Item selected");
 
     //select the price
     await page.locator(locators["select-price-1"]).click();
-    await page.locator(locators["select-price-1"]).fill(dealManagment["combo-deal-price1"]);
+    await page.getByText("Regular - €3.99").click();
+    //assertion
+    const firstpriceCombo = page.getByRole('combobox', { name: /Regular - €3.99/i }).first();
+    await expect(firstpriceCombo).toContainText(/Regular - €3.99/i);
     //select the quantity
     await page.locator(locators["quantity-and-price"]).nth(1).click();
     await page.locator(locators["quantity-and-price"]).nth(1).fill(dealManagment["combo-quantity1"]);
 
     //select the item 2
     await page.locator(locators["select-item-dropdown"]).nth(1).click();
-    await page.getByText("SChicken Sandwich").click();
-    await expect(page.locator(locators["deal-type-name"])).toHaveValue(/Chicken Sandwich/i);
+    await page.getByText("Chicken Sandwich").click();
+    //assertion
+    const secondItemCombo = page.getByRole('combobox', { name: /Chicken Sandwich/i }).first();
+    await expect(secondItemCombo).toContainText(/Chicken Sandwich/i);
 
     //select the price 20
     await page.locator(locators["select-price-2"]).click();
-    await page.locator(locators["select-price-2"]).fill(dealManagment["combo-deal-price2"]);
+    await page.getByText("Regular - €3.99").click();  
+    //asertion
+    const firstprice2Combo = page.getByRole('combobox', { name: /Regular - €3.99/i }).first();
+    await expect(firstprice2Combo).toContainText(/Regular - €3.99/i);  
     //select the quantity
     await page.locator(locators["quantity-and-price"]).nth(2).click();
     await page.locator(locators["quantity-and-price"]).nth(2).fill(dealManagment["combo-quantity2"]);

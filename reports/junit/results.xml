@@ -1,50 +1,32 @@
-<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="548.003203">
-<testsuite name="DealManagment\combo-deal.spec.js" timestamp="2025-12-03T13:32:04.628Z" hostname="all-tests" tests="1" failures="1" skipped="0" time="545.129" errors="0">
-<testcase name="Combo Deal" classname="DealManagment\combo-deal.spec.js" time="545.129">
+<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="17.509815999999997">
+<testsuite name="DealManagment\combo-deal.spec.js" timestamp="2025-12-04T08:06:27.874Z" hostname="all-tests" tests="1" failures="1" skipped="0" time="15.263" errors="0">
+<testcase name="Combo Deal" classname="DealManagment\combo-deal.spec.js" time="15.263">
 <failure message="combo-deal.spec.js:8:1 Combo Deal" type="FAILURE">
 <![CDATA[  [all-tests] › DealManagment\combo-deal.spec.js:8:1 › Combo Deal ──────────────────────────────────
 
-    Error: expect(locator).toHaveValue(expected) failed
-
-    Locator: locator('[placeholder=\'addDeal.selectDealType\']')
-    Expected pattern: /Special Plater/i
-    Received string:  "Combo Deal"
-    Timeout: 10000ms
+    Error: locator.click: Error: strict mode violation: getByText('Regular - €3.99') resolved to 2 elements:
+        1) <div tabindex="0" role="combobox" aria-controls=":rl:" aria-expanded="false" aria-haspopup="listbox" id="mui-component-select-comboItems.0.variantId" aria-labelledby="mui-component-select-comboItems.0.variantId" class="MuiSelect-select MuiSelect-outlined MuiInputBase-input MuiOutlinedInput-input css-qiwgdb">Regular - €3.99</div> aka getByLabel('Regular - €')
+        2) <li tabindex="0" role="option" aria-selected="false" data-value="68ee25b7c7e8c883ec47f155" class="MuiButtonBase-root MuiMenuItem-root MuiMenuItem-gutters MuiMenuItem-root MuiMenuItem-gutters css-1p4caug">…</li> aka getByRole('option', { name: 'Regular - €' })
 
     Call log:
-      - Expect "toHaveValue" with timeout 10000ms
-      - waiting for locator('[placeholder=\'addDeal.selectDealType\']')
-        13 × locator resolved to <input id=":rb:" type="text" role="combobox" autocomplete="off" spellcheck="false" value="Combo Deal" aria-invalid="false" aria-expanded="false" autocapitalize="none" aria-autocomplete="list" placeholder="addDeal.selectDealType" class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-1uvydh2"/>
-           - unexpected value "Combo Deal"
+      - waiting for getByText('Regular - €3.99')
 
 
-      51 |     await page.getByText("Special Plater").click();
-      52 |     // Assertion: Check that "Combo Deal" is now selected as the deal type
-    > 53 |     await expect(page.locator(locators["deal-type-name"])).toHaveValue(/Special Plater/i);
-         |                                                            ^
-      54 |     console.log("Item selected");
-      55 |
-      56 |     //select the price
-        at C:\Users\HP\Desktop\Obi-Waiter-CMS-playwright-main\tests\DealManagment\combo-deal.spec.js:53:60
-
-    Error: browserContext.close: Test ended.
-    Browser logs:
-
-    <launching> C:\Users\HP\AppData\Local\ms-playwright\chromium-1187\chrome-win\chrome.exe --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-extensions --disable-features=AcceptCHFrame,AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --enable-automation --no-sandbox --user-data-dir=C:\Users\HP\AppData\Local\Temp\playwright_chromiumdev_profile-I98USp --remote-debugging-pipe --no-startup-window
-    <launched> pid=9176
-    [pid=9176][err] [9176:27088:1203/183211.247:ERROR:google_apis\gcm\engine\registration_request.cc:291] Registration response error message: PHONE_REGISTRATION_ERROR
-    [pid=9176][err] [9176:27088:1203/183211.247:ERROR:google_apis\gcm\engine\registration_request.cc:291] Registration response error message: PHONE_REGISTRATION_ERROR
-    [pid=9176][err] [9176:27088:1203/183211.253:ERROR:google_apis\gcm\engine\registration_request.cc:291] Registration response error message: PHONE_REGISTRATION_ERROR
-    [pid=9176][err] [9176:27088:1203/183236.507:ERROR:google_apis\gcm\engine\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
-    [pid=9176][err] [9176:27088:1203/183330.064:ERROR:google_apis\gcm\engine\registration_request.cc:291] Registration response error message: DEPRECATED_ENDPOINT
-    [pid=9176][err] [9176:27088:1203/183451.500:ERROR:google_apis\gcm\engine\connection_factory_impl.cc:483] ConnectionHandler failed with net error: -2
-    [pid=9176][err] [9176:27088:1203/184059.578:ERROR:google_apis\gcm\engine\registration_request.cc:274] Registration URL fetching failed.
-    [pid=9176][err] [9176:27088:1203/184059.578:ERROR:google_apis\gcm\engine\connection_factory_impl.cc:434] Failed to connect to MCS endpoint with error -7
-    [pid=9176][err] [9176:27652:1203/184101.012:ERROR:services\on_device_model\public\cpp\service_client.cc:36] Unexpected on_device_model service disconnect: Error loading backend.
-    [pid=9176] <gracefully close start>
+      75 |     //select the price 20
+      76 |     await page.locator(locators["select-price-2"]).click();
+    > 77 |     await page.getByText("Regular - €3.99").click();  
+         |                                             ^
+      78 |     //asertion
+      79 |     const firstprice2Combo = page.getByRole('combobox', { name: /Regular - €3.99/i }).first();
+      80 |     await expect(firstprice2Combo).toContainText(/Regular - €3.99/i);  
+        at C:\Users\HP\Desktop\Obi-Waiter-CMS-playwright-main\tests\DealManagment\combo-deal.spec.js:77:45
 
     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
     ..\test-results\DealManagment-combo-deal-Combo-Deal-all-tests\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\test-results\DealManagment-combo-deal-Combo-Deal-all-tests\video.webm
     ────────────────────────────────────────────────────────────────────────────────────────────────
 
     Error Context: ..\test-results\DealManagment-combo-deal-Combo-Deal-all-tests\error-context.md
@@ -66,8 +48,11 @@ Deal type selected
 image uploaded
 image upload successfully
 Discount value entered
+Item selected
 
 [[ATTACHMENT|..\..\test-results\DealManagment-combo-deal-Combo-Deal-all-tests\test-failed-1.png]]
+
+[[ATTACHMENT|..\..\test-results\DealManagment-combo-deal-Combo-Deal-all-tests\video.webm]]
 
 [[ATTACHMENT|..\..\test-results\DealManagment-combo-deal-Combo-Deal-all-tests\error-context.md]]
 ]]>
