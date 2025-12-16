@@ -230,7 +230,13 @@
     "promo-name": "[placeholder='Enter promo title']",
     "promo-discription": "[placeholder='Enter promo description']",
     "select-target-item": "//div[@id='mui-component-select-targetItemId']",
-    "select-date": "input[type='date']"
+    "select-date": "input[type='date']",
+
+
+    "schedule": "[href='/schedule']",
+    "select-time":"[placeholder='Select start time']",
+    "select-end-time": "[placeholder='Select end time']",
+    "add-schedule-button": "//button[@type='button' and normalize-space(text())='New Schedule']"
 
     
 

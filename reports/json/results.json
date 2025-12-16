@@ -9,7 +9,7 @@
     "globalTimeout": 0,
     "grep": {},
     "grepInvert": null,
-    "maxFailures": 0,
+    "maxFailures": 1,
     "metadata": {
       "actualWorkers": 1
     },
@@ -54,7 +54,7 @@
         "testMatch": [
           "**/*.spec.js"
         ],
-        "timeout": 180000
+        "timeout": 0
       }
     ],
     "shard": null,
@@ -66,18 +66,18 @@
   },
   "suites": [
     {
-      "title": "promo-setting\\createpromo.spec.js",
-      "file": "promo-setting/createpromo.spec.js",
+      "title": "schedule\\add-schedule.spec.js",
+      "file": "schedule/add-schedule.spec.js",
       "column": 0,
       "line": 0,
       "specs": [
         {
-          "title": "Combo Deal",
+          "title": "Schedule",
           "ok": true,
           "tags": [],
           "tests": [
             {
-              "timeout": 180000,
+              "timeout": 0,
               "annotations": [],
               "expectedStatus": "passed",
               "projectId": "all-tests",
@@ -87,7 +87,7 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 11759,
+                  "duration": 46798,
                   "errors": [],
                   "stdout": [
                     {
@@ -116,23 +116,17 @@
                     },
                     {
                       "text": "✅ Categories page loaded successfully\n"
-                    },
-                    {
-                      "text": "image uploaded\n"
-                    },
-                    {
-                      "text": "image upload successfully\n"
                     }
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2025-12-16T10:20:12.135Z",
+                  "startTime": "2025-12-16T12:19:45.460Z",
                   "annotations": [],
                   "attachments": [
                     {
                       "name": "video",
                       "contentType": "video/webm",
-                      "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\promo-setting-createpromo-Combo-Deal-all-tests\\video.webm"
+                      "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\schedule-add-schedule-Schedule-all-tests\\video.webm"
                     }
                   ]
                 }
@@ -140,9 +134,9 @@
               "status": "expected"
             }
           ],
-          "id": "d410cf05688e2edade09-db03bb482c0e783a2294",
-          "file": "promo-setting/createpromo.spec.js",
-          "line": 7,
+          "id": "e0ad952ef7482a4e34b7-8dc4cce8ca48783cc369",
+          "file": "schedule/add-schedule.spec.js",
+          "line": 8,
           "column": 1
         }
       ]
@@ -150,8 +144,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-12-16T10:20:11.134Z",
-    "duration": 13326.953000000001,
+    "startTime": "2025-12-16T12:19:44.751Z",
+    "duration": 47957.164,
     "expected": 1,
     "skipped": 0,
     "unexpected": 0,

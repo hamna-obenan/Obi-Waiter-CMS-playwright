@@ -1,6 +1,6 @@
-<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="13.326953000000001">
-<testsuite name="promo-setting\createpromo.spec.js" timestamp="2025-12-16T10:20:11.366Z" hostname="all-tests" tests="1" failures="0" skipped="0" time="11.759" errors="0">
-<testcase name="Combo Deal" classname="promo-setting\createpromo.spec.js" time="11.759">
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="47.957164">
+<testsuite name="schedule\add-schedule.spec.js" timestamp="2025-12-16T12:19:44.805Z" hostname="all-tests" tests="1" failures="0" skipped="0" time="46.798" errors="0">
+<testcase name="Schedule" classname="schedule\add-schedule.spec.js" time="46.798">
 <system-out>
 <![CDATA[✅ Login completed successfully
 🏢 Selecting created venue...
@@ -11,10 +11,8 @@
 ✅ First menu clicked
 🎯 Navigating to categories page...
 ✅ Categories page loaded successfully
-image uploaded
-image upload successfully
 
-[[ATTACHMENT|..\..\test-results\promo-setting-createpromo-Combo-Deal-all-tests\video.webm]]
+[[ATTACHMENT|..\..\test-results\schedule-add-schedule-Schedule-all-tests\video.webm]]
 ]]>
 </system-out>
 </testcase>
