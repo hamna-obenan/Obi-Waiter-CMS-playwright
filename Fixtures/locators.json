@@ -219,7 +219,20 @@
     "select-item-dropdown":"//*[@placeholder='Select Item']/parent::div/div", 
     "select-price-1":"//*[@role='combobox' and @id='mui-component-select-comboItems.0.variantId']",
     "select-price-2":"//*[@id='mui-component-select-comboItems.1.variantId']",
-    "add-item-button-combo":"//button[@type='button' and normalize-space(text())='Add Item']"
+    "add-item-button-combo":"//button[@type='button' and normalize-space(text())='Add Item']",
+    "buy-item1": "//div[@role='combobox' and @id='mui-component-select-buyItems.0.itemId' and @aria-labelledby='mui-component-select-buyItems.0.itemId']",
+    "buy-item2":"//div[@role='combobox' and @id='mui-component-select-getItems.0.itemId' and @aria-labelledby='mui-component-select-getItems.0.itemId']",
+    "select-item-price1": "//div[@role='combobox' and @id='mui-component-select-buyItems.0.variantId' and @aria-labelledby='mui-component-select-buyItems.0.variantId']",
+    "select-item-price2": "//div[@role='combobox' and @id='mui-component-select-getItems.0.variantId' and @aria-labelledby='mui-component-select-getItems.0.variantId']",
+    
+    
+    "Promo-setting": "[href='/promo-settings']",
+    "promo-name": "[placeholder='Enter promo title']",
+    "promo-discription": "[placeholder='Enter promo description']",
+    "select-target-item": "//div[@id='mui-component-select-targetItemId']",
+    "select-date": "input[type='date']"
+
+    
 
 
 

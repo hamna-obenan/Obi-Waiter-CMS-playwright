@@ -1,6 +1,6 @@
-<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="28.349624">
-<testsuite name="DealManagment\combo-deal.spec.js" timestamp="2025-12-09T06:57:26.699Z" hostname="all-tests" tests="1" failures="0" skipped="0" time="26.989" errors="0">
-<testcase name="Combo Deal" classname="DealManagment\combo-deal.spec.js" time="26.989">
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="13.326953000000001">
+<testsuite name="promo-setting\createpromo.spec.js" timestamp="2025-12-16T10:20:11.366Z" hostname="all-tests" tests="1" failures="0" skipped="0" time="11.759" errors="0">
+<testcase name="Combo Deal" classname="promo-setting\createpromo.spec.js" time="11.759">
 <system-out>
 <![CDATA[✅ Login completed successfully
 🏢 Selecting created venue...
@@ -11,16 +11,10 @@
 ✅ First menu clicked
 🎯 Navigating to categories page...
 ✅ Categories page loaded successfully
-Land at the Deal MAnagment tab
-clicked on the add button
-Deal type selected
 image uploaded
 image upload successfully
-Discount value entered
-Item selected
-Deal save successfully
 
-[[ATTACHMENT|..\..\test-results\DealManagment-combo-deal-Combo-Deal-all-tests\video.webm]]
+[[ATTACHMENT|..\..\test-results\promo-setting-createpromo-Combo-Deal-all-tests\video.webm]]
 ]]>
 </system-out>
 </testcase>

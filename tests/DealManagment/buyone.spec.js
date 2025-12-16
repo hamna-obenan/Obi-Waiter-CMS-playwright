@@ -21,17 +21,17 @@ test("Combo Deal", async ({ page }) => {
     console.log("clicked on the add button");
     //add deal name
     await page.locator(locators["deal-name"]).click();
-    await page.locator(locators["deal-name"]).fill("Combo Student deal");
+    await page.locator(locators["deal-name"]).fill("Special Offer");
     //assertion 
-    await expect(page.locator(locators["deal-name"])).toHaveValue(/Combo Student deal/i);
+    await expect(page.locator(locators["deal-name"])).toHaveValue(/Special Offer/i);
 
 
     //select the deal type
     await page.locator(locators["deal-type-name"]).click();
     // Wait for dropdown menu to appear, then select the option (best practice: use role-based locator)
-    await page.getByRole('option', { name: 'Combo Deal' }).click();
+    await page.getByRole('option', { name: 'Buy One Get One' }).click();
     // Assertion: Check that "Combo Deal" is now selected as the deal type
-    await expect(page.locator(locators["deal-type-name"])).toHaveValue(/Combo Deal/i);
+    await expect(page.locator(locators["deal-type-name"])).toHaveValue(/Buy One Get One/i);
     console.log("Deal type selected");
     //select the image
     await page.getByText("Choose Image").click();
@@ -55,7 +55,7 @@ test("Combo Deal", async ({ page }) => {
     console.log("Discount value entered");
     // await page.pause();
     //select item drop down
-    await page.locator(locators["select-item-dropdown"]).nth(0).click();
+    await page.locator(locators["buy-item1"]).click();
     // Wait for dropdown menu to appear, then select the option (best practice: use role-based locator)
     await page.getByRole('option', { name: 'Special Plater' }).click();
     // Assertion: Check that "Combo Deal" is now selected as the deal type
@@ -65,7 +65,7 @@ test("Combo Deal", async ({ page }) => {
     console.log("Item selected");
 
     //select the price
-    await page.locator(locators["select-price-1"]).nth(0).click();
+    await page.locator(locators["select-item-price1"]).click();
     // Wait for dropdown menu to appear, then select the option (best practice: use role-based locator)
     await page.getByRole('option', { name: 'Regular - €3.99' }).click();
     //assertion
@@ -77,9 +77,9 @@ test("Combo Deal", async ({ page }) => {
     // Assertion: Verify that the quantity was filled correctly
     await page.waitForTimeout(300); // brief pause to allow value to settle in field
     await expect(page.locator(locators["quantity-and-price"]).nth(1)).toHaveValue(dealManagment["combo-quantity1"]);
-
+    await page.pause();
     //select the item 2
-    await page.locator(locators["select-item-dropdown"]).nth(1).click();
+    await page.locator(locators["buy-item2"]).click();
     // Wait for dropdown menu to appear, then select the option (best practice: use role-based locator)
     await page.getByRole('option', { name: 'Chicken Sandwich' }).click();
     //assertion
@@ -87,18 +87,18 @@ test("Combo Deal", async ({ page }) => {
     await expect(secondItemCombo).toContainText(/Chicken Sandwich/i);
 
     //select the price 20
-    await page.locator(locators["select-price-2"]).click();
+    await page.locator(locators["select-item-price2"]).click();
     // Wait for dropdown menu to appear, then select the option (best practice: use role-based locator)
     await page.getByRole('option', { name: 'Regular - €3.99' }).click();  
     //asertion
     const firstprice2Combo = page.getByRole('combobox', { name: /Regular - €3.99/i }).first();
     await expect(firstprice2Combo).toContainText(/Regular - €3.99/i);  
     //select the quantity
-    await page.locator(locators["quantity-and-price"]).nth(2).click();
-    await page.locator(locators["quantity-and-price"]).nth(2).fill(dealManagment["combo-quantity2"]);
+    await page.locator(locators["quantity-and-price"]).nth(1).click();
+    await page.locator(locators["quantity-and-price"]).nth(1).fill(dealManagment["combo-quantity2"]);
     // Assertion: Verify that the quantity was filled correctly
     await page.waitForTimeout(300); // brief pause to allow value to settle in field
-    await expect(page.locator(locators["quantity-and-price"]).nth(2)).toHaveValue(dealManagment["combo-quantity2"]);
+    await expect(page.locator(locators["quantity-and-price"])).nth(1).toHaveValue(dealManagment["combo-quantity2"]);
     //click on the save button
     await page.locator(locators["save-button"]).click();
     //toast 

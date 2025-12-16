@@ -77,41 +77,54 @@ Obi-Waiter-CMS-playwright-main/
 │       └── venue1-pom.js
 │
 ├── tests/                       # Test specification files
-│   ├── Categories/              # Category tests (4 tests)
+│   ├── Categories/              # Category tests
 │   │   ├── createcategorycompany.spec.js
 │   │   ├── createcategoryvenue.spec.js
 │   │   ├── duplicatecategorycompany.spec.js
 │   │   └── duplicatecategoryvenue.spec.js
-│   ├── Customizations/          # Customization tests (2 tests)
+│   ├── Customizations/          # Customization tests
 │   │   ├── createcustomizationcompany.spec.js
 │   │   └── createcustomizationvenue.spec.js
-│   ├── Ingredients/             # Ingredient tests (2 tests)
+│   ├── DealManagment/           # Deal / promotion rules
+│   │   ├── amountoff.spec.js
+│   │   ├── buyone.spec.js
+│   │   ├── combo-deal.spec.js
+│   │   └── flat-percentage-off.spec.js
+│   ├── Ingredients/             # Ingredient tests
 │   │   ├── createingredientscompany.spec.js
 │   │   └── createingredientvenue.spec.js
-│   ├── Items/                   # Item tests (1 test)
-│   │   └── createcomapanyitem.spec.js
-│   ├── login/                   # Login tests (4 tests)
+│   ├── Items/                   # Item tests
+│   │   ├── createcomapanyitem.spec.js
+│   │   └── venueitem.spec.js
+│   ├── login/                   # Login tests
 │   │   ├── login1.spec.js
 │   │   ├── login2.spec.js
 │   │   ├── login3.spec.js
 │   │   └── login4.spec.js
-│   ├── Menu/                    # Menu tests (4 tests)
+│   ├── Menu/                    # Menu tests
+│   │   ├── AI-genrated-menu.spec.js
+│   │   ├── ai-gerneated-menu-assertion.spec.js
 │   │   ├── createmenu.spec.js
 │   │   ├── createmenuwithvenue.spec.js
 │   │   ├── duplicatecompanymenu.spec.js
 │   │   └── duplicatemenuewithvenue.spec.js
-│   ├── signup form/             # Signup tests (4 tests)
+│   ├── promo-setting/           # Promo creation
+│   │   └── createpromo.spec.js
+│   ├── signup-form/             # Signup tests
 │   │   ├── sign1.spec.js
 │   │   ├── signup-success.spec.js
 │   │   ├── signup.spec.js
 │   │   └── signup2.spec.js
-│   ├── Tags/                    # Tag tests (2 tests)
+│   ├── table-managment/         # Table / QR tests
+│   │   ├── add-table.spec.js
+│   │   └── generate-qr-code.spec.js
+│   ├── Tags/                    # Tag tests
 │   │   ├── createtagcompanytag.spec.js
 │   │   └── createvenuetag.spec.js
-│   └── Venue/                   # Venue tests (4 tests)
-│       ├── createvenue-pom.spec.js
+│   └── Venue/                   # Venue tests
 │       ├── createvenue.spec.js
 │       ├── mandatorydataentry.spec.js
+│       ├── update-the-venue-company.spec.js
 │       └── venue1.spec.js
 │
 ├── utils/                       # Utility functions
@@ -282,82 +295,74 @@ ENABLE_TEST_DATA=true
 
 ## 📊 Test Modules
 
-### 1. **Authentication** (8 tests)
-- Login functionality (4 variants)
-- Signup flows (4 variants)
-- **Location:** `tests/login/`, `tests/signup form/`
-- **POM:** `object-Page/pomlogin/`, `object-Page/pomsignup/`
+Current suite: **38 spec files** across the modules below (as discovered by `npx playwright test --list`).
 
-### 2. **Venue Management** (4 tests)
-- Create venue with POM
-- Create venue standard
-- Mandatory data entry validation
-- Venue configuration
-- **Location:** `tests/Venue/`
-- **POM:** `object-Page/venue/`
-- **Data:** `Fixtures/Venue.json`
+### 1. Authentication (8 tests)
+- Login variants (4) in `tests/login/`
+- Signup flows (4) in `tests/signup-form/`
+- POM: `object-Page/pomlogin/`, `object-Page/pomsignup/`
 
-### 3. **Menu Management** (4 tests)
-- Create company menu
-- Create menu with venue
-- Duplicate company menu
-- Duplicate venue menu
-- **Location:** `tests/Menu/`
-- **POM:** `object-Page/menu/`
-- **Data:** `Fixtures/menu.json`
+### 2. Venue Management (4 tests)
+- Create venue, mandatory data, update, end-to-end flow
+- Location: `tests/Venue/`
+- POM: `object-Page/venue/`
+- Data: `Fixtures/Venue.json`
 
-### 4. **Category Management** (4 tests)
-- Create company category
-- Create venue category
-- Duplicate company category
-- Duplicate venue category
-- **Location:** `tests/Categories/`
-- **POM:** `object-Page/Categories/`
-- **Data:** `Fixtures/Categories.json`
+### 3. Menu Management (6 tests)
+- Create menu (company/venue), duplicates, AI menu generation and assertions
+- Location: `tests/Menu/`
+- POM: `object-Page/menu/`
+- Data & assets: `Fixtures/menu.json`, `Fixtures/url_verification.json`, `Fixtures/edit-locators.json`, `Fixtures/venue-edit-data.json`, `Fixtures/pictures/ai-genrated-menu-picture.jpeg`
 
-### 5. **Item Management** (1 test)
-- Create company item (comprehensive)
-- **Location:** `tests/Items/`
-- **POM:** `object-Page/items/`
-- **Data:** `Fixtures/items.json`
+### 4. Category Management (4 tests)
+- Create and duplicate categories (company/venue)
+- Location: `tests/Categories/`
+- POM: `object-Page/Categories/`
+- Data: `Fixtures/Categories.json`
 
-### 6. **Ingredient Management** (2 tests)
-- Create company ingredients
-- Create venue ingredients
-- **Location:** `tests/Ingredients/`
-- **POM:** `object-Page/Ingredients/`
-- **Data:** `Fixtures/Ingredients.json`
+### 5. Item Management (2 tests)
+- Create company item, create venue item
+- Location: `tests/Items/`
+- POM: `object-Page/items/`
+- Data: `Fixtures/items.json`
 
-### 7. **Customization Management** (2 tests)
-- Create company customization
-- Create venue customization
-- **Location:** `tests/Customizations/`
-- **POM:** `object-Page/Customizations/`
-- **Data:** `Fixtures/customization.json`
+### 6. Ingredient Management (2 tests)
+- Company and venue ingredient creation
+- Location: `tests/Ingredients/`
+- POM: `object-Page/Ingredients/`
+- Data: `Fixtures/Ingredients.json`
 
-### 8. **Tag Management** (2 tests)
-- Create company tag
-- Create venue tag
-- **Location:** `tests/Tags/`
-- **POM:** `object-Page/Tags/`
-- **Data:** `Fixtures/tags.json`
+### 7. Customization Management (2 tests)
+- Company and venue customization creation
+- Location: `tests/Customizations/`
+- POM: `object-Page/Customizations/`
+- Data: `Fixtures/customization.json`
 
-### 9. **AI-Generated Menu** (2 tests)
-- Generate a menu from an uploaded image
-- Validate that generated categories/items render with expected labels
-- **Location:** `tests/Menu/AI-genrated-menu.spec.js`, `tests/Menu/ai-gerneated-menu-assertion.spec.js`
-- **POM:** `object-Page/menu/Ai-genrated-menu.js`, `object-Page/menu/ai-genrated-menu-assertions.js`
-- **Data & Assets:** `Fixtures/url_verification.json`, `Fixtures/edit-locators.json`, `Fixtures/venue-edit-data.json`, `Fixtures/pictures/ai-genrated-menu-picture.jpeg`
+### 8. Deal Management (4 tests)
+- Amount off, buy one/combo, flat percentage off
+- Location: `tests/DealManagment/`
+- POM: Uses shared locators and flows in `object-Page/`
+- Data: `Fixtures/deal-managment.json`
 
-**Total Test Count:** ~27 test specifications
-**Additional AI Menu Tests:** +2 (see module above, bringing the running total to ~29)
+### 9. Promo Setting (1 test)
+- Create promo with image upload and item targeting
+- Location: `tests/promo-setting/createpromo.spec.js`
+- Data: `Fixtures/promo.json`, `Fixtures/pictures/percentage-off.png`
 
-### AI-Generated Menu Module Assets
-- **Purpose:** Automates DishUp's AI menu builder, including uploading a scanned menu and verifying generated structure.
-- **POM Flow (`Ai-genrated-menu.js`):** Logs in, selects a venue, opens the AI modal, uploads `ai-genrated-menu-picture.jpeg`, waits for processing, and confirms success toasts/network idle state.
-- **Assertion Flow (`ai-genrated-menu-assertions.js`):** Reuses login/venue steps, opens an existing AI-produced menu, and verifies category labels plus starter category selections.
-- **Supporting Fixtures:** `url_verification.json` tracks expected navigation URLs, `edit-locators.json` centralizes XPath selectors used in edit flows, and `venue-edit-data.json` stores updated social links/tip amounts referenced while validating AI output in context (e.g., after venue edits).
-- **Execution:** Run `npx playwright test tests/Menu/AI-genrated-menu.spec.js` to cover the upload/generation path and `npx playwright test tests/Menu/ai-gerneated-menu-assertion.spec.js` for post-generation validations; pair them for end-to-end confidence.
+### 10. Table Management (2 tests)
+- Add table and generate QR code
+- Location: `tests/table-managment/`
+- POM: `object-Page/Table managment/`
+
+### 11. Tag Management (2 tests)
+- Company and venue tag creation
+- Location: `tests/Tags/`
+- POM: `object-Page/Tags/`
+- Data: `Fixtures/tags.json`
+
+### 12. AI-Generated Menu (covered in Menu module)
+- Upload scanned menu, verify generated categories/items
+- Execution: `npx playwright test tests/Menu/AI-genrated-menu.spec.js` and `tests/Menu/ai-gerneated-menu-assertion.spec.js`
 
 ---
 

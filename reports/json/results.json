@@ -66,8 +66,8 @@
   },
   "suites": [
     {
-      "title": "DealManagment\\combo-deal.spec.js",
-      "file": "DealManagment/combo-deal.spec.js",
+      "title": "promo-setting\\createpromo.spec.js",
+      "file": "promo-setting/createpromo.spec.js",
       "column": 0,
       "line": 0,
       "specs": [
@@ -87,7 +87,7 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 26989,
+                  "duration": 11759,
                   "errors": [],
                   "stdout": [
                     {
@@ -118,39 +118,21 @@
                       "text": "✅ Categories page loaded successfully\n"
                     },
                     {
-                      "text": "Land at the Deal MAnagment tab\n"
-                    },
-                    {
-                      "text": "clicked on the add button\n"
-                    },
-                    {
-                      "text": "Deal type selected\n"
-                    },
-                    {
                       "text": "image uploaded\n"
                     },
                     {
                       "text": "image upload successfully\n"
-                    },
-                    {
-                      "text": "Discount value entered\n"
-                    },
-                    {
-                      "text": "Item selected\n"
-                    },
-                    {
-                      "text": "Deal save successfully\n"
                     }
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2025-12-09T06:57:27.331Z",
+                  "startTime": "2025-12-16T10:20:12.135Z",
                   "annotations": [],
                   "attachments": [
                     {
                       "name": "video",
                       "contentType": "video/webm",
-                      "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\DealManagment-combo-deal-Combo-Deal-all-tests\\video.webm"
+                      "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\promo-setting-createpromo-Combo-Deal-all-tests\\video.webm"
                     }
                   ]
                 }
@@ -158,9 +140,9 @@
               "status": "expected"
             }
           ],
-          "id": "2ad741b09249c53a9ffc-da7d751aca2e9c63942c",
-          "file": "DealManagment/combo-deal.spec.js",
-          "line": 8,
+          "id": "d410cf05688e2edade09-db03bb482c0e783a2294",
+          "file": "promo-setting/createpromo.spec.js",
+          "line": 7,
           "column": 1
         }
       ]
@@ -168,8 +150,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-12-09T06:57:26.502Z",
-    "duration": 28349.624,
+    "startTime": "2025-12-16T10:20:11.134Z",
+    "duration": 13326.953000000001,
     "expected": 1,
     "skipped": 0,
     "unexpected": 0,
