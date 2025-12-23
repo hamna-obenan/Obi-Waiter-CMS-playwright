@@ -1,18 +1,10 @@
-<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="47.957164">
-<testsuite name="schedule\add-schedule.spec.js" timestamp="2025-12-16T12:19:44.805Z" hostname="all-tests" tests="1" failures="0" skipped="0" time="46.798" errors="0">
-<testcase name="Schedule" classname="schedule\add-schedule.spec.js" time="46.798">
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="20.268870000000003">
+<testsuite name="Categories\import-categroy.spec.js" timestamp="2025-12-23T10:27:48.273Z" hostname="all-tests" tests="1" failures="0" skipped="0" time="18.954" errors="0">
+<testcase name="importing items" classname="Categories\import-categroy.spec.js" time="18.954">
 <system-out>
 <![CDATA[✅ Login completed successfully
-🏢 Selecting created venue...
-✅ Venue selected successfully
-📋 Selecting created menu...
-✅ Menu elements found
-📊 Found 2 menu elements
-✅ First menu clicked
-🎯 Navigating to categories page...
-✅ Categories page loaded successfully
-
-[[ATTACHMENT|..\..\test-results\schedule-add-schedule-Schedule-all-tests\video.webm]]
+Navigating to first menu in venue
+Selecting first category
 ]]>
 </system-out>
 </testcase>

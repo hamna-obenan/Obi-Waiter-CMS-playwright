@@ -236,7 +236,22 @@
     "schedule": "[href='/schedule']",
     "select-time":"[placeholder='Select start time']",
     "select-end-time": "[placeholder='Select end time']",
-    "add-schedule-button": "//button[@type='button' and normalize-space(text())='New Schedule']"
+    "add-schedule-button": "//button[@type='button' and normalize-space(text())='New Schedule']",
+
+
+    "profile-picture": "//div[contains(@class,'MuiAvatar-root') and normalize-space()='H']",
+    "user-managment":"//li[contains(@class,'MuiMenuItem-root') and normalize-space()='User Management']",
+    "role-tab":"//button[@role='tab' and .//text()[normalize-space()='Roles']]",
+    "role-name":"[placeholder='Enter name']",
+    "user-tab": "//button[@role='tab' and .//text()[normalize-space()='Users']]",
+    "add-role-button":"//button[normalize-space()='Add Role']",
+    "select-all-role":"//label[.//text()[normalize-space()='Select all']]//input[@type='checkbox']",
+    "add-user-button": "//button[normalize-space()='Add User']",
+    "select-role-dropdown":"[placeholder='Enter role']",
+    "check-box": "[type='checkbox']",
+
+    "import-category-dropdown": "[placeholder='Select Categories']"
+
 
     
 

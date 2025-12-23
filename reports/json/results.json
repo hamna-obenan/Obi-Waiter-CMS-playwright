@@ -9,7 +9,7 @@
     "globalTimeout": 0,
     "grep": {},
     "grepInvert": null,
-    "maxFailures": 1,
+    "maxFailures": 0,
     "metadata": {
       "actualWorkers": 1
     },
@@ -54,7 +54,7 @@
         "testMatch": [
           "**/*.spec.js"
         ],
-        "timeout": 0
+        "timeout": 180000
       }
     ],
     "shard": null,
@@ -66,18 +66,18 @@
   },
   "suites": [
     {
-      "title": "schedule\\add-schedule.spec.js",
-      "file": "schedule/add-schedule.spec.js",
+      "title": "Categories\\import-categroy.spec.js",
+      "file": "Categories/import-categroy.spec.js",
       "column": 0,
       "line": 0,
       "specs": [
         {
-          "title": "Schedule",
+          "title": "importing items",
           "ok": true,
           "tags": [],
           "tests": [
             {
-              "timeout": 0,
+              "timeout": 180000,
               "annotations": [],
               "expectedStatus": "passed",
               "projectId": "all-tests",
@@ -87,56 +87,32 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 46798,
+                  "duration": 18954,
                   "errors": [],
                   "stdout": [
                     {
                       "text": "✅ Login completed successfully\n"
                     },
                     {
-                      "text": "🏢 Selecting created venue...\n"
+                      "text": "Navigating to first menu in venue\n"
                     },
                     {
-                      "text": "✅ Venue selected successfully\n"
-                    },
-                    {
-                      "text": "📋 Selecting created menu...\n"
-                    },
-                    {
-                      "text": "✅ Menu elements found\n"
-                    },
-                    {
-                      "text": "📊 Found 2 menu elements\n"
-                    },
-                    {
-                      "text": "✅ First menu clicked\n"
-                    },
-                    {
-                      "text": "🎯 Navigating to categories page...\n"
-                    },
-                    {
-                      "text": "✅ Categories page loaded successfully\n"
+                      "text": "Selecting first category\n"
                     }
                   ],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2025-12-16T12:19:45.460Z",
+                  "startTime": "2025-12-23T10:27:48.855Z",
                   "annotations": [],
-                  "attachments": [
-                    {
-                      "name": "video",
-                      "contentType": "video/webm",
-                      "path": "C:\\Users\\HP\\Desktop\\Obi-Waiter-CMS-playwright-main\\test-results\\schedule-add-schedule-Schedule-all-tests\\video.webm"
-                    }
-                  ]
+                  "attachments": []
                 }
               ],
               "status": "expected"
             }
           ],
-          "id": "e0ad952ef7482a4e34b7-8dc4cce8ca48783cc369",
-          "file": "schedule/add-schedule.spec.js",
-          "line": 8,
+          "id": "d871248834db1828aa18-7a2983eaf31fa0069f1f",
+          "file": "Categories/import-categroy.spec.js",
+          "line": 6,
           "column": 1
         }
       ]
@@ -144,8 +120,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-12-16T12:19:44.751Z",
-    "duration": 47957.164,
+    "startTime": "2025-12-23T10:27:48.102Z",
+    "duration": 20268.870000000003,
     "expected": 1,
     "skipped": 0,
     "unexpected": 0,

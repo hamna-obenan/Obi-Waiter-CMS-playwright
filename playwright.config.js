@@ -36,10 +36,10 @@ export default defineConfig({
     trace: 'on-first-retry',
     
     /* Take screenshot on failure */
-    screenshot: 'only-on-failure',
+    screenshot: 'off',
     
     /* Record video for all tests */
-    video: 'on',
+    video: 'off',
     
     /* Global timeout for each action */
     actionTimeout: 10000,
